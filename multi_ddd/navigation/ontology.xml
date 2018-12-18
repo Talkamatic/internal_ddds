@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="navigationOntology">
+    <sort name="dest"/>
+    <sort name="common_sort" dynamic="true"/>
+    <action name="navigate"/>
+    <predicate name="destination" sort="dest"/>
+    <individual name="majorna" sort="dest"/>
+    <action name="mock_action"/>
+    <predicate name="common_predicate" sort="common_sort"/>
+    <action name="set_departure_day"/>
+    <predicate name="departure_day" sort="integer"/>
+</ontology>

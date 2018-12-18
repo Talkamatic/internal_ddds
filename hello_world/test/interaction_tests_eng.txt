@@ -1,0 +1,182 @@
+--- main menu
+S> Do you want to know the current time or set the time?
+
+--- asking about time
+U> what time is it
+S> 10:05.
+
+--- setting the time (menu driven)
+U> set the time
+S> What hour?
+U> eleven
+S> What minute?
+U> ten
+S> The time was set to 11 10.
+U>
+S> Returning to the start view.*
+
+--- setting the alarm (menu driven)
+U> set the alarm
+S> What hour?
+U> eleven
+S> What minute?
+U> ten
+S> The alarm was set.
+U>
+S> Returning to the start view.*
+
+
+--- asking about time after having changed it in earlier test
+U> what time is it
+S> 10:05.
+
+--- setting the time, one-shot
+U> set the time to eleven ten
+S> The time was set to 11 10.
+U>
+S> Returning to the start view.*
+
+--- querying time after setting it
+U> set the time to eleven ten
+S> The time was set to 11 10.
+U>
+S> Returning to the start view.*
+U> what time is it
+S> 11:10.
+
+--- invalid hour (menu driven)
+U> set the time
+S> What hour?
+U> twenty five
+S> Cannot set the hour to 25.
+U>
+S> So, What hour?
+
+--- invalid minute (menu driven)
+U> set the time
+S> What hour?
+U> eleven
+S> What minute?
+U> sixty five
+S> Cannot set the minute to 65.
+U>
+S> So, What minute?
+
+--- invalid hour (one-shot)
+U> set the time to twenty five ten
+S> Cannot set the hour to 25.
+U>
+S> So, What hour?
+
+--- invalid minute (one-shot)
+U> set the time to eleven sixty five
+S> Cannot set the minute to 65.
+U>
+S> So, What minute?
+
+--- setting the time again
+U> set the time to eleven ten
+S> The time was set to 11 10.
+U>
+S> Returning to the start view.*
+U> set the time
+S> What hour?
+
+--- setting the alarm
+U> set the alarm at seven thirty
+S> The alarm was set.
+U>
+S> *
+
+--- remove the alarm
+U> remove the alarm
+S> Do you want to remove the alarm?
+U> yes
+S> The alarm was removed.
+
+--- alarm rings
+U> set the alarm at seven thirty
+S> The alarm was set.
+U>
+S> Returning to the start view.*
+Event> {"name": "AlarmRings", "status": "started", "parameters": {"alarm_hour": 7, "alarm_minute": 30}}
+S> Beep beep! the time is 7 30. Do you want to snooze or turn off the alarm?
+
+--- cannot snooze alarm which is not ringing
+U> snooze
+S> The alarm is not ringing.
+
+--- turn off alarm
+U> turn off the alarm
+S> Turning off the alarm.
+U>
+S> Returning to the start view.*
+
+--- unimplemented function
+U> sync to internet
+S> The function is not implemented.
+
+--- unimplemented function, acknowledge level, user timeout
+U> sync to internet $ACKNOWLEDGE
+S> Sync to internet.
+U>
+S> The function is not implemented.
+
+--- unimplemented function, acknowledge level, user says yes
+U> sync to internet $ACKNOWLEDGE
+S> Sync to internet.
+U> yes
+S> The function is not implemented.
+
+--- unimplemented function, check level treated as acknowledge, user timeout
+U> sync to internet $CHECK
+S> Sync to internet.
+U>
+S> The function is not implemented.
+
+--- unimplemented function, check level treated as acknowledge, user says yes
+U> sync to internet $CHECK
+S> Sync to internet.
+U> yes
+S> The function is not implemented.
+
+--- select alarm, menu
+U> select alarm
+S> Which alarm?
+U> work
+S> Work alarm selected.
+
+--- select alarm, one-shot
+U> select work alarm
+S> Work alarm selected.
+
+--- no reraise
+U> set the time
+S> What hour?
+U> what time is it
+S> 10:05.
+U>
+S> What hour?
+
+--- recognition profile
+U> what time is it 0.9 | mumbo jumbo 0.8
+S> 10:05.
+U> mumbo jumbo
+S> 10:05.
+
+--- clarification
+U> eleven
+S> Do you want to set the time or set the alarm?
+
+--- clarification downdated if unanswered
+S> Do you want to know the current time or set the time?
+U> eleven
+S> Do you want to set the time or set the alarm?
+U>
+S> So, Do you want to know the current time or set the time?
+
+--- positive feedback of understanding negative issue
+U> what time is it $CHECK
+S> Do you want to know the current time?
+U> no
+S> Not know the current time.*

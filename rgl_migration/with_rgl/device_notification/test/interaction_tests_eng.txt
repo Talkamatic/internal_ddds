@@ -1,0 +1,5 @@
+--- device notification
+S> *
+Event> {"name": "Search", "status": "started", "parameters": {}}
+S> Okay, searching.
+

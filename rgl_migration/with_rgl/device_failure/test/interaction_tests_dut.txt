@@ -1,0 +1,7 @@
+--- generic error message when failure reason missing
+U> begin
+S> Het spijt me, ging er iets mis.
+
+--- positive perception ICM
+U> bsdkfsdfshdf
+S> Ik heb u bsdkfsdfshdf gehoord te zeggen.*

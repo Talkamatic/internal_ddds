@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">
+    <one-of>
+      <item>huvudmenyn</item>
+      <item>ångra</item>
+    </one-of>
+  </action>
+  <action name="up">tillbaka</action>
+
+  <action name="call">
+    <one-of>
+      <item>
+        <vp>
+          <infinitive>ringa</infinitive>
+          <imperative>ring</imperative>
+          <ing-form>ringer</ing-form>
+          <object>en kontakt</object>
+        </vp>
+      </item>
+      <item>ring ett samtal</item>
+      <item>ring en kontakt</item>
+      <item>ring</item>
+      <item>kan du ringa</item>
+      <item>ring <slot predicate="selected_contact_to_call"/></item>
+    </one-of>
+  </action>
+
+  <question speaker="system" predicate="selected_contact_to_call" type="wh_question">
+    vem vill du ringa
+  </question>
+
+  <report action="Call" status="ended">
+    ringer <slot predicate="selected_contact_to_call"/>
+  </report>
+
+  <question speaker="system" predicate="selected_contact_of_phone_number" type="wh_question">
+    vems nummer
+  </question>
+
+  <question speaker="all" predicate="phone_number_of_contact" type="wh_question">telefonnumret</question>
+
+  <validity name="PhoneNumberAvailableForSelectedContactToCall">
+    <slot predicate="selected_contact_to_call"/> har inget telefonnummer
+  </validity>
+
+  <validity name="PhoneNumberAvailableForSelectedContactOfPhoneNumber">
+    <slot predicate="selected_contact_of_phone_number"/> har inget telefonnummer
+  </validity>
+
+  <question speaker="user" predicate="phone_number_of_contact">
+    <one-of>
+      <item>jag behöver ett telefonnummer</item>
+      <item>vad är <slot sort="contact"/>s nummer</item>
+      <item>jag behöver <slot sort="contact"/>s nummer</item>
+    </one-of>
+  </question>
+
+  <answer speaker="system" predicate="phone_number_of_contact">
+    <slot predicate="selected_contact_of_phone_number" type="individual"/> har nummer
+    <slot predicate="phone_number_of_contact" type="individual"/>
+  </answer>
+
+  <answer speaker="user">
+    <one-of>
+      <item><slot type="individual" sort="contact"/> tack</item>
+      <item><slot type="individual" sort="contact"/> är ni vänlig</item>
+      <item>testa <slot type="individual" sort="contact"/></item>
+    </one-of>
+  </answer>
+
+  <individual name="contact_john">John</individual>
+  <individual name="contact_john_chi">约翰</individual>
+  <individual name="contact_lisa">Lisa</individual>
+  <individual name="contact_mary">Mary</individual>
+  <individual name="contact_andy">Andy</individual>
+  <individual name="contact_andy_chi">安迪</individual>
+</grammar>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="navigationDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="navigate">
+      <plan>
+          <findout type="wh_question" predicate="destination"/>
+          <invoke_service_action name="NavigateToDestination" postconfirm="true"/>
+      </plan>
+    <postplan>
+      <forget predicate="destination"/>
+    </postplan>
+  </goal>
+
+  <goal type="perform" action="mock_action">
+      <plan>
+          <findout type="wh_question" predicate="common_predicate"/>
+          <invoke_service_action name="MockAction" postconfirm="true"/>
+      </plan>
+    <postplan>
+      <forget predicate="common_predicate"/>
+    </postplan>
+  </goal>
+
+  <goal type="perform" action="set_departure_day">
+    <plan>
+      <findout type="wh_question" predicate="departure_day"/>
+      <invoke_service_action name="SetDepartureDay" postconfirm="true"/>
+    </plan>
+    <postplan>
+      <forget predicate="departure_day"/>
+    </postplan>
+  </goal>
+</domain>

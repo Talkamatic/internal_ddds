@@ -1,0 +1,167 @@
+--- call first-name
+S> What would you like to do?
+U> call john
+S> What is the last name?
+U> johnson
+S> Calling John Johnson.
+
+--- call one-shot
+S> What would you like to do?
+U> call john thompson
+S> Calling John Thompson.
+
+--- call last-name
+S> What would you like to do?
+U> call johnson
+S> What is the first name?
+U> john
+S> Calling John Johnson.
+
+--- call incremental
+S> What would you like to do?
+U> call
+S> What is the first name?
+U> john
+S> What is the last name?
+U> johnson
+S> Calling John Johnson.
+
+--- answer revision for call (after one-shot)
+S> What would you like to do?
+U> call john
+S> What is the last name?
+U> anna
+S> Calling Anna Johnson.
+
+--- answer revision for call (incremental)
+S> What would you like to do?
+U> call
+S> What is the first name?
+U> john
+S> What is the last name?
+U> anna
+S> Calling Anna Johnson.
+
+--- answer revision for delete number (after one-shot)
+S> What would you like to do?
+U> delete john 's number
+S> What is the last name?
+U> anna
+S> What number?
+U> mobile
+S> Deleting Anna Johnson 's number.
+
+--- answer revision for delete number (incremental)
+S> What would you like to do?
+U> delete a number
+S> What is the first name?
+U> john
+S> What is the last name?
+U> anna
+S> What number?
+U> mobile
+S> Deleting Anna Johnson 's number.
+
+--- optimistic grounding for call (after one-shot)
+S> What would you like to do?
+U> call john
+S> What is the last name?
+U> anna 0.2
+S> anna.
+U>
+S> Calling Anna Johnson.
+
+--- optimistic grounding for call (incremental)
+S> What would you like to do?
+U> call
+S> What is the first name?
+U> john 0.2
+S> john.
+U>
+S> What is the last name?
+U> anna 0.2
+S> anna.
+U>
+S> Calling Anna Johnson.
+
+--- optimistic grounding for delete (after one-shot)
+S> What would you like to do?
+U> delete john 's number
+S> What is the last name?
+U> anna 0.2
+S> anna.
+U>
+S> What number?
+U> mobile 0.2
+S> mobile.
+U>
+S> Deleting Anna Johnson 's number.
+
+--- optimistic grounding for delete (incremental)
+S> What would you like to do?
+U> delete a number
+S> What is the first name?
+U> john 0.2
+S> john.
+U>
+S> What is the last name?
+U> anna 0.2
+S> anna.
+U>
+S> What number?
+U> mobile 0.2
+S> mobile.
+U>
+S> Deleting Anna Johnson 's number.
+
+--- interrogative grounding for call (after one-shot)
+S> What would you like to do?
+U> call john
+S> What is the last name?
+U> anna 0.14
+S> anna, is that correct?
+U> yes
+S> Calling Anna Johnson.
+
+--- interrogative grounding for call (incremental)
+S> What would you like to do?
+U> call
+S> What is the first name?
+U> john 0.1
+S> john, is that correct?
+U> yes
+S> What is the last name?
+U> anna 0.14
+S> anna, is that correct?
+U> yes
+S> Calling Anna Johnson.
+
+--- interrogative grounding for delete (after one-shot)
+S> What would you like to do?
+U> delete john 's number
+S> What is the last name?
+U> anna 0.14
+S> anna, is that correct?
+U> yes
+S> What number?
+U> mobile 0.1
+S> mobile, is that correct?
+U> yes
+S> Deleting Anna Johnson 's number.
+
+--- interrogative grounding for delete (incremental)
+S> What would you like to do?
+U> delete a number
+S> What is the first name?
+U> john 0.1
+S> john, is that correct?
+U> yes
+S> What is the last name?
+U> anna 0.14
+S> anna, is that correct?
+U> yes
+S> What number?
+U> mobile 0.1
+S> mobile, is that correct?
+U> yes
+S> Deleting Anna Johnson 's number.

@@ -1,0 +1,9 @@
+--- snooze
+U> set the alarm at seven thirty
+S> The alarm was set.
+U>
+S> Returning to the start view.*
+Event> {"name": "AlarmRings", "status": "started", "parameters": {"alarm_hour": 7, "alarm_minute": 30}}
+S> Beep beep! the time is 7 30. Do you want to snooze or turn off the alarm?
+U> snooze
+S> Snoozing for ten minutes.

@@ -1,0 +1,58 @@
+--- main menu
+S> Vad vill du göra?
+
+--- exact - incremental request
+S> *
+U> köp äpplen
+S> Hur många äpplen vill du ha?
+U> 12
+S> Du har köpt 12 äpplen.
+
+--- inexact - incremental request
+S> *
+U> köp äpplen tack
+S> Hur många äpplen vill du ha?
+U> 12 äppllenn
+S> Du har köpt 12 äpplen.
+
+--- exact - buy apples one-shot
+S> *
+U> köp 12 äpplen
+S> Du har köpt 12 äpplen.
+
+--- inexact - buy apples one-shot
+S> *
+U> Jag vill köpa 12 äpplen tack
+S> Du har köpt 12 äpplen.
+
+--- exact - buy too many apples
+S> *
+U> köp femtio äpplen
+S> 50 äpplen är för många. Vänligen välj mellan 6 och 30.
+
+--- inexact - buy too many apples
+S> *
+U> Jag vill köpa 50 äpplen tack
+S> 50 äpplen är för många. Vänligen välj mellan 6 och 30.
+
+--- exact - ask how many apples
+S> *
+U> hur många äpplen kan jag köpa
+S> Det maximala antalet äpplen du kan köpa är trettio.
+
+--- integer over 99 with feedback
+S> *
+U> köp 125 äpplen
+S> 125 äpplen är för många. Vänligen välj mellan 6 och 30.
+
+--- intent recognition for buying apples
+U> 125 äpplen
+S> Okej, du vill Köpa äpplen.
+
+--- one-shot accommodation search, num bedrooms first
+U> boka boende med två sovrum för tre gäster brus
+S> Söker boende med 2 sovrum för 3 gäster.
+
+--- one-shot accommodation search, num guests first
+U> boka boende för tre gäster med två sovrum brus
+S> Söker boende med 2 sovrum för 3 gäster.

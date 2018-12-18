@@ -1,0 +1,18 @@
+--- greeting
+S> Välkommen till resebyrån!
+
+--- learn language-specific entities
+S> *
+U> pris till aten $CHECK
+S> Vill du veta priset?
+U> ja
+S> Till Aten, stämmer det?
+
+--- dictation
+S> *
+U> lämna en kommentar till hyresvärden
+S> Vilken kommentar vill du lämna?
+U> jag önskar ett rum med balkong
+S> Vad är ditt namn?
+U> Emma Johnsson
+S> Kommentaren jag önskar ett rum med balkong har registrerats med namnet Emma Johnsson.

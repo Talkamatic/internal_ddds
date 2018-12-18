@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+
+--- main menu
+S> What would you like to do?
+
+--- incremental request
+S> *
+U> navigate there 9.0
+S> What's the destination?
+U> I'd like Berlin 9.0
+S> What's the origin?
+U> that's London 9.0
+S> Started navigation from London to Berlin.
+
+--- incremental request with overanswering
+S> *
+U> navigate there 9.0
+S> What's the destination?
+U> I'd like to go from paris to london 9.0
+S> Started navigation from Paris to London.
+
+--- don't crash on numbers when integer-predicates are not used - regression for #1109
+S> *
+U> 50
+S> I heard you say 50. I don't understand. So, What would you like to do?
+
+--- one-of for individiual
+U> navigate
+S> What's the destination?
+U> what about Gothenburg 9.0
+S> What's the origin?
+U> London
+S> Started navigation from London to Gothenburg.
+
+--- one-of for individiual variation
+U> navigate
+S> What's the destination?
+U> what about Göteborg 9.0
+S> What's the origin?
+U> London
+S> Started navigation from London to Gothenburg.
+
+--- one-shot, origin first
+U> navigate from paris to london will you please 9.0
+S> Started navigation from Paris to London.
+
+--- one-shot, destination first
+U> navigate to london from paris will you please 9.0
+S> Started navigation from Paris to London.

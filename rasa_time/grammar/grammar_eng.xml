@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+  <action name="top">flight booking</action>
+  <action name="up">go back</action>
+
+  <action name="book_flight">
+    <one-of>
+      <item>
+        <vp>
+          <infinitive>book</infinitive>
+          <imperative>book</imperative>
+          <ing-form>booking</ing-form>
+          <object>a flight</object>
+        </vp>
+      </item>
+      <item>
+	I want to book a flight departing <slot predicate="departure_time"/>
+      </item>
+      <item>
+	I want to book a flight departing <slot predicate="departure_time"/> and returning <slot predicate="return_time"/>
+      </item>
+      <item>
+	I want to book a flight returning <slot predicate="return_time"/> and departing <slot predicate="departure_time"/>
+      </item>
+    </one-of>
+  </action>
+
+  <question speaker="system" predicate="departure_time" type="wh_question">
+    when do you want to leave
+  </question>
+
+  <question speaker="system" predicate="return_time" type="wh_question">
+    when do you want to return
+  </question>
+
+  <answer speaker="user">I want to leave on <slot predicate="departure_time"/></answer>
+
+  <report action="BookFlight" status="ended">
+    OK, I've booked a flight departing at <slot predicate="departure_time"/> and returning at <slot predicate="return_time"/>.
+  </report>
+</grammar>

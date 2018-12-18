@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="RasaNumbersDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="buy_apples" reraise_on_resume="false">
+    <plan>
+      <findout type="wh_question" predicate="desired_number_apples"/>
+      <invoke_service_action name="BuyApples" postconfirm="True"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="search_accommodation">
+    <plan>
+      <findout type="wh_question" predicate="num_bedrooms"/>
+      <findout type="wh_question" predicate="num_guests"/>
+      <invoke_service_action name="SearchAccommodation" postconfirm="True"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" predicate="allowed_number_apples" question_type="wh_question">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="allowed_number_apples"/>
+    </plan>
+  </goal>
+</domain>

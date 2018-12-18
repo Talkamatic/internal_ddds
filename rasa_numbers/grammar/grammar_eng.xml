@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+  <action name="top">
+    <one-of>
+      <item>top</item>
+      <item>main menu</item>
+    </one-of>
+  </action>
+
+  <action name="up">
+    <one-of>
+      <item>up</item>
+      <item>back</item>
+    </one-of>
+  </action>
+
+  <action name="buy_apples">
+    <one-of>
+      <item>
+        <vp>
+          <infinitive>buy</infinitive>
+          <imperative>buy</imperative>
+          <ing-form>buying</ing-form>
+          <object>apples</object>
+        </vp>
+      </item>
+      <item>buy apples</item>
+      <item>can I buy apples</item>
+      <item>i want to buy apples</item>
+      <item>buy <slot sort="integer"/> apples</item>
+      <item>I want to buy <slot sort="integer"/> apples</item>
+      <item>buy <slot predicate="desired_number_apples"/> apples</item>
+      <item>I want to buy <slot predicate="desired_number_apples"/> apples</item>
+    </one-of>
+  </action>
+
+  <question speaker="all" predicate="cabin_temperature" type="wh_question">
+    <one-of>
+      <item>how many apples you are allowed to buy</item>
+      <item>the amount of apples permitted</item>
+    </one-of>
+  </question>
+
+  <question speaker="all" predicate="allowed_number_apples" type="wh_question">the allowed number apples</question>
+
+  <validity name="NumberOfApplesValidity">
+    <slot predicate="desired_number_apples"/> apples are too many. Please choose between 6 and 30.
+  </validity>
+
+  <question speaker="system" predicate="desired_number_apples" type="wh_question">
+    How many apples do you want
+  </question>
+
+  <answer speaker="user">
+    <one-of>
+      <item><slot predicate="desired_number_apples" type="individual"/> apples</item>
+      <item>about <slot predicate="desired_number_apples" type="individual"/></item>
+      <item>about <slot predicate="desired_number_apples" type="individual"/> apples</item>
+    </one-of>
+  </answer>
+
+  <report action="BuyApples" status="ended">
+    You have purchased <slot predicate="desired_number_apples"/> apples.
+  </report>
+
+  <question predicate="allowed_number_apples" speaker="user">
+    <one-of>
+      <item>how many apples can I buy</item>
+      <item>how many apples can I take</item>
+      <item>how many apples am I allowed to buy</item>
+    </one-of>
+  </question>
+
+  <answer speaker="system" predicate="allowed_number_apples">
+    You can buy a maximum of <slot predicate="allowed_number_apples"/> apples
+  </answer>
+
+  <action name="search_accommodation">
+    <one-of>
+      <item>book accommodation</item>
+      <item>book accommodation with <slot predicate="num_bedrooms"/> bedrooms for <slot predicate="num_guests"/> guests</item>
+      <item>book accommodation for <slot predicate="num_guests"/> guests with <slot predicate="num_bedrooms"/> bedrooms</item>
+    </one-of>
+  </action>
+
+  <question speaker="system" predicate="num_bedrooms" type="wh_question">how many bedrooms</question>
+  <question speaker="system" predicate="num_guests" type="wh_question">how many guests</question>
+
+  <report action="SearchAccommodation" status="ended">
+    Searching for accommodation with <slot predicate="num_bedrooms"/> bedrooms for <slot predicate="num_guests"/> guests.
+  </report>
+
+</grammar>

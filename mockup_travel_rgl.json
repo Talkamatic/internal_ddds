@@ -1,0 +1,14 @@
+{
+    "active_ddd": "mockup_travel_RGL",
+    "asr": "none",
+    "ddds": [
+        "mockup_travel_RGL"
+    ],
+    "repeat_questions": true,
+    "supported_languages": [
+        "eng",
+        "sv"
+    ],
+    "use_recognition_profile": false,
+    "use_word_list_correction": false
+}

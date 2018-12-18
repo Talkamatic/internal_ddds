@@ -1,0 +1,26 @@
+ICMMove(icm:per*pos:"någonting obegripligt") :: Jag hörde att du sa någonting obegripligt.
+Move(ask(?goal(perform(make_reservation)))) :: Vill du boka en resa?
+ICMMove(icm:und*int:USR*dest_city(paris)) :: Till paris, stämmer det?
+ICMMove(icm:und*int:USR*goal(perform(make_reservation))) :: Vill du boka en resa?
+ICMMove(icm:und*int:USR*goal(resolve(?X.price(X)))) :: Vill du veta priset?
+Move(ask(?X.goal(X))) :: Vad vill du göra?
+
+Move(ask(?goal(resolve(?X.price(X))))) :: Vill du veta priset?
+Move(ask(?goal(resolve(?X.price(X), [dest_city(paris)])))) :: Vill du veta priset till paris?
+Move(ask(?set([goal(resolve(?X.price(X), [dest_city(paris)])), goal(perform(make_reservation))]))) :: Vill du veta priset till paris eller boka en resa?
+ICMMove(icm:acc*neg:goal(resolve(?X.price(X)))) :: Funktionen finns inte.
+
+Move(ask(?X.dept_month(X))) :: Vilken månad vill du resa?
+Move(ask(?X.dept_month(X), [dest_city(paris)])) :: Vilken månad vill du resa till paris?
+
+ICMMove(icm:reraise:perform(top)) :: Tillbaka till startvyn.
+ICMMove(icm:reraise:perform(make_reservation)) :: Tillbaka till boka en resa.
+ICMMove(icm:resume:perform(make_reservation)) :: Du vill boka en resa.
+
+report(ServiceResultProposition(MakeRandomReservation, [], SuccessfulServiceAction())) :: Genomförde MakeRandomReservation.
+report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(1)], SuccessfulServiceAction())) :: Lade till 1 vuxna.
+
+Move(ask(?X.dept_city(X), set([dept_city(paris), dept_city(london)]))) :: Varifrån vill du resa : paris eller London?
+
+Move(answer(~qualified_for_membership)) :: Du är inte kvalificerad för medlemskap.
+Move(answer(qualified_for_membership, [frequent_flyer_points(50), current_position(london)])) :: Du har femtio bonuspoäng och är kvalificerad för medlemskap och är i London.

@@ -1,0 +1,346 @@
+--- greeting
+S> Welcome to the Travel Agency!
+
+--- price information
+S> *
+U> price information
+S> How do you want to travel : by plane or by train?
+U> by plane
+S> Where do you want to go?
+U> paris
+S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
+U> madrid
+S> Which month do you want to travel from Madrid to Paris?
+U> april
+S> What day do you want to leave?
+U> five
+S> Which type of ticket would you like?
+
+--- one-shot price information
+S> *
+U> price for travelling by plane to paris
+S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
+
+--- selecting a dynamically recognized destination
+S> *
+U> price information
+S> How do you want to travel : by plane or by train?
+U> by plane
+S> Where do you want to go?
+U> athens
+S> I found two departures. Where do you want to go from : Madrid or New York?
+
+--- selecting a dynamically recognized destination as substring
+S> *
+U> price information
+S> How do you want to travel : by plane or by train?
+U> by plane
+S> Where do you want to go?
+U> to athens
+S> I found two departures. Where do you want to go from : Madrid or New York?
+
+--- combining recognized entity and other move in same utterance
+S> *
+U> price for travelling by plane to athens
+S> I found two departures. Where do you want to go from : Madrid or New York?
+
+--- generating an entity after having learned it
+S> *
+U> price information
+S> How do you want to travel : by plane or by train?
+U> by plane
+S> Where do you want to go?
+U> athens $CHECK
+S> To Athens, is that correct?
+
+--- invalidity
+S> *
+U> price for travelling by plane to lisbon
+S> Invalid parameters Lisbon
+
+--- resume after invalidity
+S> *
+U> price for travelling by plane to lisbon
+S> Invalid parameters Lisbon
+U>
+S> So, Where do you want to go?
+
+--- add passenger with default quantity
+S> *
+U> add passenger
+S> Adult or child?
+U> adult
+S> Added 1 adults.
+
+--- one-shot add passenger with default quantity
+S> *
+U> add adult
+S> Added 1 adults.
+
+--- one-shot add passenger with explicit quantity
+S> *
+U> add two passengers
+S> Adult or child?
+U> adult
+S> Added 2 adults.
+
+--- add passenger with explicit quantity
+S> *
+U> add two adults
+S> Added 2 adults.
+
+--- action accommodation without feedback, one answer
+S> *
+U> adult
+S> Added 1 adults.
+
+--- action accommodation without feedback, multiple answers
+S> *
+U> two adults
+S> Added 2 adults.
+
+--- resume after device report
+S> *
+U> adult
+S> Added 1 adults.
+U>
+S> Returning *
+
+--- sortal ambiguity for recognized entities
+S> *
+U> price information
+S> How do you want to travel : by plane or by train?
+U> by plane
+S> Where do you want to go?
+U> ambiguous
+S> I found two departures. Where do you want to go from : Madrid or New York?
+
+--- reraise feedback after timeout
+S> *
+U> price information for flights
+S> Where do you want to go?
+U>
+S> So, Where do you want to go?
+
+--- reraise feedback after unrelated followup
+S> *
+U> price information for flights
+S> Where do you want to go?
+U> something incomprehensible
+S> I heard you say something incomprehensible. I don't understand. So, Where do you want to go?
+
+--- no reraise feedback after modified search
+S> *
+U> price information for flights
+S> Where do you want to go?
+U> resort
+S> Where do you want to go?
+
+--- background for related information for perform goal
+S> *
+U> membership
+S> You have fifty frequent flyer points and are qualified for membership and you are in london. Do you want to apply for membership?
+
+--- grounding feedback for resolve goal
+S> *
+U> price information $CHECK
+S> Do you want to know the price?
+
+--- decorate answer with other answers
+S> *
+U> membership information
+S> You need fifty points to reach silver level.
+
+--- resume after system answer
+S> *
+U> membership information
+S> You need fifty points to reach silver level.
+U>
+S> Returning *
+
+--- issue accommodation without feedback
+S> *
+U> single room
+S> There are rooms available.
+
+--- system asking feature question
+S> *
+U> book housing
+S> Select accommodation type?
+U> hotel
+S> Select a rating?
+U> five stars
+S> Select a listing?
+
+--- preconfirmation
+S> *
+U> book housing
+S> Select accommodation type?
+U> hotel
+S> Select a rating?
+U> five stars
+S> Select a listing?
+U> sheraton
+S> Do you want to book this hotel?
+U> yes
+S> The housing was booked.
+
+--- repeat preconfirmation question after timeout, followed by yes
+S> *
+U> book housing
+S> Select accommodation type?
+U> hotel
+S> Select a rating?
+U> five stars
+S> Select a listing?
+U> sheraton
+S> Do you want to book this hotel?
+U>
+S> So, Do you want to book this hotel?
+U> yes
+S> The housing was booked.
+
+--- repeat preconfirmation question after timeout, followed by no
+S> *
+U> book housing
+S> Select accommodation type?
+U> hotel
+S> Select a rating?
+U> five stars
+S> Select a listing?
+U> sheraton
+S> Do you want to book this hotel?
+U>
+S> So, Do you want to book this hotel?
+U> no
+S> Returning to the start view.*
+
+--- user answers feature questions in other order
+S> *
+U> book housing
+S> Select accommodation type?
+U> five stars
+S> Select accommodation type?
+U> hotel
+S> Select a listing?
+
+--- positive perception ICM
+S> *
+U> bsdkfsdfshdf
+S> I heard you say bsdkfsdfshdf. I don't understand.*
+
+--- preloaded entity
+S> *
+U> price for travelling by plane to Buenos Aires
+S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
+
+--- robustness disabled by default
+S> *
+U> price noise information
+S> I heard you say price noise information.*
+
+--- dictation
+S> *
+U> leave a comment to the housing owner
+S> What comment would you like to leave?
+U> i want a room with a balcony
+S> What is your name?
+U> Emma Johnson
+S> The comment i want a room with a balcony was registered with the name Emma Johnson.
+
+--- dictation, one-shot
+S> *
+U> leave a comment to the housing owner that I want a room with a balcony
+S> What is your name?
+U> Emma Johnson
+S> The comment I want a room with a balcony was registered with the name Emma Johnson.
+
+--- avoid stack overflow errors with these user utterances
+S> *
+U> order me 0 bottles of champagne for the flight please
+S> I heard you say order me 0 bottles of champagne for the flight please. I don't understand.*
+
+--- literal query with literal parameter
+S> *
+U> what is this attraction
+S> Which attraction?
+U> Eiffel tower
+S> The eiffel tower is a wrought iron lattice tower on the champ de mars in paris, france.
+
+--- literal query with literal parameter, one-shot
+S> *
+U> tell me about the Eiffel tower
+S> The eiffel tower is a wrought iron lattice tower on the champ de mars in paris, france.
+
+--- dependent issue accommodation
+S> *
+U> by plane
+S> So, You want to know the price.
+U>
+S> Where do you want to go?
+
+--- dependent action accommodation
+S> *
+U> visa
+S> Okay, you want to Make a reservation.
+U>
+S> Do you want to make a domestic reservation, make an international reservation or know the price?
+
+--- going back to resolve goal
+S> *
+U> price information
+S> How do you want to travel : by plane or by train?
+U> add passenger
+S> Adult or child?
+U> go back
+S>
+U>
+S> Returning to the price. How do you want to travel : by plane or by train?
+
+--- going back to perform goal
+S> *
+U> add passenger
+S> Adult or child?
+U> book housing
+S> Select accommodation type?
+U> go back
+S>
+U>
+S> Returning to add passenger. Adult or child?
+
+--- optimistic grounding for resolve goal
+S> *
+U> price information $ACKNOWLEDGE
+S> You want to know the price.
+U>
+S> How do you want to travel : by plane or by train?
+
+--- optimistic grounding for perform goal
+S> *
+U> add passenger $ACKNOWLEDGE
+S> Add passenger.
+U>
+S> Adult or child?
+
+--- disabled accommodation
+S> *
+U> five
+S>
+
+--- individual in dictation
+S> *
+U> price for traveling to athens
+S> *
+U> leave a comment to the housing owner that I like athens
+S> What is your name?
+U> Emma Johnson
+S> The comment I like athens was registered with the name Emma Johnson.
+
+--- user speaks first
+U> price information
+S> Welcome to the Travel Agency!  How do you want to travel : by plane or by train?
+
+--- generate datetime from service
+S> *
+U> when is the flight departing
+S> The flight departs at 04/11/2018 10:00 PM.

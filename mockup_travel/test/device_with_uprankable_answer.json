@@ -1,0 +1,4 @@
+{
+  "overrides": "ddd.config.json",
+  "device_module": "test/device_with_uprankable_answer.py"
+}

@@ -1,0 +1,19 @@
+<domain name="LiteralsGrammarDomain" is_super_domain="true">
+
+  <goal action="top" type="perform">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal action="share_media" type="perform">
+    <plan>
+      <findout type="wh_question" predicate="comment"/>
+      <invoke_service_action name="ShareMedia" preconfirm="interrogative" postconfirm="true"/>
+    </plan>
+    <postplan>
+      <forget_all/>
+    </postplan>
+  </goal>
+
+</domain>

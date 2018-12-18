@@ -1,0 +1,43 @@
+--- setting the time (menu driven)
+G> *
+U> ["request(set_time)"]
+G> <screen name="set_time" title="Set the time">\
+<element type="list" format="" name="move" title="What hour?" template="menu" value="">\
+<item value="answer(hour_to_set(0))" title="0"/>\
+<item value="answer(hour_to_set(1))" title="1"/>\
+*\
+<item value="answer(hour_to_set(23))" title="23"/>\
+</element>\
+</screen>
+U> ["answer(hour_to_set(11))"]
+G> <screen name="set_time" title="Set the time">\
+<element type="list" format="" name="move" title="What minute?" template="menu" value="">\
+<item value="answer(minute_to_set(0))" title="0"/>\
+<item value="answer(minute_to_set(1))" title="1"/>\
+*\
+<item value="answer(minute_to_set(59))" title="59"/>\
+</element>\
+</screen>
+
+--- start view
+G> <screen name="top" title="Hello world">\
+<element type="list" format="" name="move" title="" template="menu" value="">\
+<item value="ask(?X.current_time(X))" title="Show the time"/>\
+<item value="request(set_time)" title="Set the time"/>\
+</element>\
+</screen>\
+<contexts>\
+<context name="alarm_image_url" sort_name="image" value="http://www.clock.org/mockup_image_alarm_is_not_set.png" title="None" />\
+<context name="clock_view" sort_name="webview" value="http://mockup_clock_view_url" title="None" />\
+</contexts>
+
+--- changing image by setting alarm
+G> *<contexts>\
+*<context name="alarm_image_url" sort_name="image" value="http://www.clock.org/mockup_image_alarm_is_not_set.png" title="None" />*\
+</contexts>*
+U> set the alarm at seven thirty
+G> *
+U>
+G> *<contexts>\
+*<context name="alarm_image_url" sort_name="image" value="http://www.clock.org/mockup_image_alarm_is_set.png" title="None" />*\
+</contexts>*

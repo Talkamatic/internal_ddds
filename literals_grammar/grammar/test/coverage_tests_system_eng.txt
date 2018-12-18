@@ -1,0 +1,4 @@
+report(ServiceResultProposition(ShareMedia, [comment("a comment")], SuccessfulServiceAction())) :: Media shared!
+ICMMove(icm:per*pos:"something incomprehensible") :: I heard you say something incomprehensible.
+Move(ask(?X.comment(X))) :: What comment would you like to share?
+Move(ask(?preconfirmed(ShareMedia, [comment("i like this movie")]))) :: Do you want to post on Facebook i like this movie?

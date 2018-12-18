@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <query name="phone_number_of_contact">
+    <parameters>
+      <parameter predicate="selected_contact" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/phone_number_of_contact"/>
+    </target>
+  </query>
+  <entity_recognizer name="HttpServiceRecognizer">
+    <target>
+      <http endpoint="http://127.0.0.1:10100/contact_recognizer"/>
+    </target>
+  </entity_recognizer>
+  <validator name="PhoneNumberAvailable">
+    <parameters>
+      <parameter predicate="selected_contact" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/validate"/>
+    </target>
+  </validator>
+  <action name="Call">
+    <parameters>
+      <parameter predicate="selected_contact" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/call"/>
+    </target>
+  </action>
+</service_interface>

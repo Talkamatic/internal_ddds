@@ -1,0 +1,6 @@
+--- main menu
+S> What would you like to do?
+
+--- navigate
+U> navigate to Paris
+S> Destination set to Paris.

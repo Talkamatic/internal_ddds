@@ -1,0 +1,84 @@
+--- main menu
+S> What would you like to do?
+
+--- call
+S> *
+U> make a call
+S> Who do you want to call?
+U> John
+S> Calling John.
+
+--- call one-shot
+S> *
+U> call John
+S> Calling John.
+
+--- call invalid number
+S> *
+U> make a call
+S> Who do you want to call?
+U> Andy
+S> Andy has no phone number.
+U> John
+S> Calling John.
+
+--- call invalid number one-shot
+S> *
+U> call Andy
+S> Andy has no phone number.
+U> John
+S> Calling John.
+
+--- request number
+S> *
+U> tell me a phone number
+S> Whose number?
+U> John
+S> John has number 0701234567.
+
+--- ask for number one-shot
+S> *
+U> what is John 's number
+S> John has number 0701234567.
+
+--- request number one-shot
+S> *
+U> tell me John 's number
+S> John has number 0701234567.
+
+--- reraise issue
+S> *
+U> tell me a phone number
+S> Whose number?
+U> call a contact
+S> Who do you want to call?
+U> John
+S> Calling John.
+U>
+S> Returning to the number. Whose number?
+
+--- yes
+S> *
+U> tell me a phone number 0.1
+S> Do you want to know the number?
+U> yes
+S> Whose number?
+
+--- entity from GF
+S> *
+U> tell me a phone number 0.1
+S> Do you want to know the number?
+U> yes
+S> Whose number?
+U> John
+S> John has number 0701234567.
+
+--- unexpected entity from RASA
+S> *
+U> tell me Liisa's phone number
+S> liisa is not in the phone book.
+
+--- negative test
+S> *
+U> how much is the red pyjamas
+S> I heard you say how much is the red pyjamas. I don't understand. So, What would you like to do?

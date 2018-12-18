@@ -1,0 +1,15 @@
+--- simple dictation
+U> share on twitter
+S> What comment would you like to share?
+U> i like this movie
+S> Do you want to post on Facebook i like this movie?
+U> yes
+S> Media shared!
+
+--- dictation with apostrophe
+U> share on twitter
+S> What comment would you like to share?
+U> i don't like this movie
+S> Do you want to post on Facebook i don't like this movie?
+U> yes
+S> Media shared!

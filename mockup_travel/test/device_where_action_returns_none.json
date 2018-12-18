@@ -1,0 +1,4 @@
+{
+  "overrides": "ddd.config.json",
+  "device_module": "test/device_where_action_returns_none.py"
+}

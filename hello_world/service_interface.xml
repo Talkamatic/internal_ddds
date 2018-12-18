@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <action name="SetAlarm">
+    <parameters>
+      <parameter predicate="alarm_hour" format="value"/>
+      <parameter predicate="alarm_minute" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </action>
+  <action name="AlarmRings">
+    <parameters>
+      <parameter predicate="alarm_hour" format="value"/>
+      <parameter predicate="alarm_minute" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </action>
+  <action name="RemoveAlarm">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </action>
+  <action name="SetTime">
+    <parameters>
+      <parameter predicate="hour_to_set" format="value"/>
+      <parameter predicate="minute_to_set" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </action>
+  <action name="TurnOffAlarm">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </action>
+  <action name="Snooze">
+    <parameters/>
+    <failure_reasons>
+      <failure_reason name="not_ringing"/>
+    </failure_reasons>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </action>
+  <action name="SelectAlarm">
+    <parameters>
+      <parameter predicate="alarm_to_select" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </action>
+  <query name="alarm_image_url">
+    <parameters/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </query>
+  <query name="clock_view">
+    <parameters/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </query>
+  <query name="current_time">
+    <parameters/>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </query>
+  <validator name="HourValidity">
+    <parameters>
+      <parameter predicate="hour_to_set" format="value"/>
+    </parameters>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </validator>
+  <validator name="MinuteValidity">
+    <parameters>
+      <parameter predicate="minute_to_set" format="value"/>
+    </parameters>
+    <target>
+      <device_module device="HelloWorldDevice"/>
+    </target>
+  </validator>
+</service_interface>

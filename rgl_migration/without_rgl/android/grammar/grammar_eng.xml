@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">main menu</action>
+  <action name="up">go back</action>
+  <action name="call">
+    <one-of>
+      <item>call</item>
+      <item>make a call</item>
+      <item>call <slot predicate="selected_contact_to_call"/></item>
+    </one-of>
+  </action>
+  <question speaker="system" predicate="selected_contact_to_call" type="wh_question">who do you want to call</question>
+  <report action="Call" status="ended">calling <slot predicate="selected_contact_to_call"/>.</report>
+  <question speaker="all" predicate="phone_number_of_contact" type="wh_question">
+    the phone number of a contact
+  </question>
+  <question speaker="user" predicate="phone_number_of_contact" type="wh_question">
+    <one-of>
+      <item>tell me a phone number</item>
+      <item>what is <slot predicate="selected_contact_of_phone_number"/>'s number</item>
+      <item>tell me <slot predicate="selected_contact_of_phone_number"/>'s number</item>
+    </one-of>
+  </question>
+  <answer speaker="system" predicate="phone_number_of_contact">
+    <slot type="individual" predicate="selected_contact_of_phone_number"/>'s number is <slot type="individual" predicate="phone_number_of_contact"/>
+  </answer>
+  <question speaker="system" predicate="selected_contact_of_phone_number" type="wh_question">whose number</question>
+  <validity name="PhoneNumberAvailable">
+    <slot type="individual" predicate="selected_contact_to_call"/> has no phone number.
+  </validity>
+</grammar>

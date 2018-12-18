@@ -1,0 +1,4 @@
+<ontology name="RasaStringsOntology">
+<predicate name="comment" sort="string"/>
+<action name="share_media"/>
+</ontology>

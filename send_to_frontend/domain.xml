@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="SendToFrontendDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="navigate">
+    <plan>
+      <findout type="wh_question" predicate="destination"/>
+      <invoke_service_action name="Navigate" postconfirm="true"/>
+    </plan>
+    <postplan>
+      <forget predicate="destination"/>
+    </postplan>
+  </goal>
+</domain>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="music_playerDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="listen">
+    <plan>
+      <findout type="wh_question" predicate="artist"/>
+      <invoke_service_query type="wh_question" predicate="url_to_play"/>
+      <invoke_service_action name="ListenToArtist" postconfirm="true"/>
+    </plan>
+    <postplan>
+      <forget predicate="artist"/>
+    </postplan>
+  </goal>
+
+  <goal type="perform" action="mock_action">
+      <plan>
+          <findout type="wh_question" predicate="common_predicate"/>
+          <invoke_service_action name="MockAction" postconfirm="true"/>
+      </plan>
+    <postplan>
+      <forget predicate="common_predicate"/>
+    </postplan>
+  </goal>
+
+  <goal type="perform" action="set_volume">
+    <plan>
+      <findout type="wh_question" predicate="volume"/>
+      <invoke_service_action name="SetVolume" postconfirm="true"/>
+    </plan>
+    <postplan>
+      <forget predicate="volume"/>
+    </postplan>
+  </goal>
+</domain>

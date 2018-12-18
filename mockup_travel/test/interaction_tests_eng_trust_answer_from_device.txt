@@ -1,0 +1,3 @@
+--- confident answer from device
+U> price for travelling by plane to paris
+S> Which month do you want to travel from Helsinki to Paris?

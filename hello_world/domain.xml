@@ -1,0 +1,351 @@
+<domain name="HelloWorldDomain" is_super_domain="true">
+  <goal type="perform" action="remove_alarm">
+    <plan>
+      <invoke_service_action name="RemoveAlarm" preconfirm="interrogative" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="top">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="alarm_image_url"/>
+      <invoke_service_query type="wh_question" predicate="clock_view"/>
+      <findout type="alt_question">
+        <alt>
+          <resolve type="wh_question" predicate="current_time"/>
+        </alt>
+        <alt>
+          <perform action="set_time"/>
+        </alt>
+      </findout>
+    </plan>
+    <gui_context predicate="alarm_image_url"/>
+    <gui_context predicate="clock_view"/>
+  </goal>
+
+  <goal type="perform" action="turn_off_alarm">
+    <plan>
+      <invoke_service_action name="TurnOffAlarm" preconfirm="assertive"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="snooze">
+    <plan>
+      <invoke_service_action name="Snooze" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="select_alarm">
+    <plan>
+      <findout type="wh_question" predicate="alarm_to_select"/>
+      <invoke_service_action name="SelectAlarm" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="current_time">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="current_time"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="update_clock_software">
+    <plan>
+      <invoke_service_action name="UpdateClockSoftware" preconfirm="assertive"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="greenwich_mean_time">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="greenwich_mean_time"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="set_time" reraise_on_resume="false">
+    <plan>
+      <findout type="wh_question" predicate="hour_to_set"/>
+      <findout type="wh_question" predicate="minute_to_set"/>
+      <invoke_service_action name="SetTime" postconfirm="true"/>
+    </plan>
+    <postplan>
+      <forget predicate="hour_to_set"/>
+      <forget predicate="minute_to_set"/>
+    </postplan>
+  </goal>
+
+  <goal type="handle" action="AlarmRings">
+    <plan>
+      <findout type="alt_question">
+        <alt>
+          <perform action="snooze"/>
+        </alt>
+        <alt>
+          <perform action="turn_off_alarm"/>
+        </alt>
+      </findout>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="set_alarm">
+    <plan>
+      <findout type="wh_question" predicate="alarm_hour"/>
+      <findout type="wh_question" predicate="alarm_minute"/>
+      <invoke_service_action name="SetAlarm" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <parameters question_type="wh_question" predicate="minute_to_set" graphical_type="list">
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="0"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="1"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="2"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="3"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="4"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="5"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="6"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="7"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="8"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="9"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="10"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="11"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="12"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="13"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="14"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="15"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="16"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="17"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="18"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="19"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="20"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="21"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="22"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="23"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="24"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="25"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="26"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="27"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="28"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="29"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="30"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="31"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="32"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="33"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="34"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="35"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="36"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="37"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="38"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="39"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="40"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="41"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="42"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="43"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="44"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="45"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="46"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="47"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="48"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="49"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="50"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="51"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="52"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="53"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="54"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="55"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="56"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="57"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="58"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="minute_to_set" value="59"/>
+    </alt>
+  </parameters>
+  <parameters question_type="wh_question" predicate="hour_to_set" graphical_type="list">
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="0"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="1"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="2"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="3"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="4"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="5"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="6"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="7"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="8"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="9"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="10"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="11"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="12"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="13"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="14"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="15"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="16"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="17"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="18"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="19"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="20"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="21"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="22"/>
+    </alt>
+    <alt>
+      <proposition type="predicate" predicate="hour_to_set" value="23"/>
+    </alt>
+  </parameters>
+</domain>

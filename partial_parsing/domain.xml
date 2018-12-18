@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="PartialParsingDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="navigate">
+    <plan>
+      <findout type="wh_question" predicate="destination"/>
+      <invoke_service_action name="StartNavigation" postconfirm="true"/>
+      <forget_all/>
+    </plan>
+  </goal>
+</domain>

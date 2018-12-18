@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="RasaTimeOntology">
+  <action name="book_flight"/>
+  <predicate name="departure_time" sort="datetime"/>
+  <predicate name="return_time" sort="datetime"/>
+</ontology>

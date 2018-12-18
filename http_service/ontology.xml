@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="HttpServiceOntology">
+  <action name="call"/>
+  <sort name="contact" dynamic="true"/>
+  <sort name="phone_number" dynamic="true"/>
+  <predicate name="phone_number_of_contact" sort="phone_number"/>
+  <predicate name="selected_contact" sort="contact"/>
+</ontology>

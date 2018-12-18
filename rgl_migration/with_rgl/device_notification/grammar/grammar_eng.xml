@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <report action="Search" status="started">
+    <utterance>okay, searching</utterance>
+  </report>
+</grammar>

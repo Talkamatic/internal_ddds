@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="start">
+    <verb-phrase>
+      <verb ref="start"/>
+    </verb-phrase>
+  </action>
+
+  <report action="Start" status="ended">
+    <utterance>started</utterance>
+  </report>
+
+  <lexicon>
+    <verb id="start">
+      <infinitive>start</infinitive>
+    </verb>
+  </lexicon>
+</grammar>

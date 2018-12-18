@@ -1,0 +1,9 @@
+--- failed service action
+U> cancel reservation
+S> There is no reservation to cancel.
+
+--- resume after failed service action
+U> cancel reservation
+S> There is no reservation to cancel.
+U>
+S> Returning to*

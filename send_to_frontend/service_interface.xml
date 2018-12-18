@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+    <action name="Navigate">
+        <parameters>
+            <parameter predicate="destination"/>
+        </parameters>
+        <failure_reasons/>
+        <target>
+            <frontend/>
+        </target>
+    </action>
+    <entity_recognizer name="SendToFrontendRecognizer">
+        <target>
+            <device_module device="SendToFrontendDevice"/>
+        </target>
+    </entity_recognizer>
+</service_interface>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+
+  <action name="top">
+    <one-of>
+      <item>huvudmeny</item>
+      <item>top</item>
+    </one-of>
+  </action>
+
+  <action name="up">gå tillbaka</action>
+
+  <action name="buy_apples">
+    <one-of>
+      <item>
+        <vp>
+          <infinitive>köpa</infinitive>
+          <imperative>köp</imperative>
+          <ing-form>köper</ing-form>
+          <object>äpplen</object>
+        </vp>
+      </item>
+      <item>köp äpplen</item>
+      <item>kan jag köpa äpplen</item>
+      <item>jag vill köpa äpplen</item>
+      <item>köp <slot sort="integer"/> äpplen</item>
+      <item>jag vill köpa <slot sort="integer"/> äpplen</item>
+      <item>köp <slot predicate="desired_number_apples"/> äpplen</item>
+      <item>jag vill köpa <slot predicate="desired_number_apples"/> äpplen</item>
+    </one-of>
+  </action>
+
+  <question speaker="all" predicate="allowed_number_apples" type="wh_question">
+    <one-of>
+      <item>hur många äpplen man får köpa</item>
+      <item>det tillåtna antalet äpplen</item>
+    </one-of>
+  </question>
+
+  <validity name="NumberOfApplesValidity">
+    <slot predicate="desired_number_apples"/> äpplen är för många. Vänligen välj mellan 6 och 30.
+  </validity>
+
+  <question speaker="system" predicate="desired_number_apples" type="wh_question">
+    Hur många äpplen vill du ha
+  </question>
+
+  <answer speaker="user">
+    <one-of>
+      <item><slot predicate="desired_number_apples" type="individual"/> äpplen</item>
+      <item>cirka <slot predicate="desired_number_apples" type="individual"/></item>
+      <item>cirka <slot predicate="desired_number_apples" type="individual"/> äpplen</item>
+      <item>runt <slot predicate="desired_number_apples" type="individual"/> äpplen</item>
+      <item>runt <slot predicate="desired_number_apples" type="individual"/></item>
+    </one-of>
+  </answer>
+
+  <report action="BuyApples" status="ended">
+    Du har köpt <slot predicate="desired_number_apples"/> äpplen.
+  </report>
+
+  <question predicate="allowed_number_apples" speaker="user">
+    <one-of>
+      <item>hur många äpplen kan jag köpa</item>
+      <item>hur många äpplen kan jag ta</item>
+      <item>hur många äpplen får jag köpa</item>
+    </one-of>
+  </question>
+
+  <answer speaker="system" predicate="allowed_number_apples">
+    Det maximala antalet äpplen du kan köpa är <slot predicate="allowed_number_apples"/>
+  </answer>
+
+  <action name="search_accommodation">
+    <one-of>
+      <item>boka boende</item>
+      <item>boka boende med <slot predicate="num_bedrooms"/> sovrum för <slot predicate="num_guests"/> gäster</item>
+      <item>boka boende för <slot predicate="num_guests"/> gäster med <slot predicate="num_bedrooms"/> sovrum</item>
+    </one-of>
+  </action>
+
+  <question speaker="system" predicate="num_bedrooms" type="wh_question">hur många sovrum</question>
+  <question speaker="system" predicate="num_guests" type="wh_question">hur många gäster</question>
+
+
+  <report action="SearchAccommodation" status="ended">
+    Söker boende med <slot predicate="num_bedrooms"/> sovrum för <slot predicate="num_guests"/> gäster.
+  </report>
+
+</grammar>

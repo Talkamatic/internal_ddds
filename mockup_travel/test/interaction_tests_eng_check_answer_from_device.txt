@@ -1,0 +1,13 @@
+--- interrogative grounding of answer from device
+U> price for travelling by plane to paris
+S> From Helsinki, is that correct?
+U> yes
+S> Which month do you want to travel from Helsinki to Paris?
+
+--- rejecting interrogative grounding of answer from device
+U> price for travelling by plane to paris
+S> From Helsinki, is that correct?
+U> no
+S> Not from Helsinki. Where do you want to go from?
+U> london
+S> Which month do you want to travel from London to Paris?

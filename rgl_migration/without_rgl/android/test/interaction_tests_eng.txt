@@ -1,0 +1,53 @@
+--- main menu
+S> What would you like to do?
+
+--- call
+S> What would you like to do?
+U> make a call
+S> Who do you want to call?
+U> John
+S> Calling John.
+
+--- call one-shot
+S> What would you like to do?
+U> call john
+S> Calling John.
+
+--- call invalid number
+U> make a call
+S> Who do you want to call?
+U> Andy
+S> Andy has no phone number.
+U> John
+S> Calling John.
+
+--- call invalid number one-shot
+U> call Andy
+S> Andy has no phone number.
+U> John
+S> Calling John.
+
+--- request number
+S> What would you like to do?
+U> tell me a phone number
+S> Whose number?
+U> John
+S> John 's number is 0701234567.
+
+--- ask for number one-shot
+U> what is John 's number
+S> John 's number is 0701234567.
+
+--- request number one-shot
+U> tell me John 's number
+S> John 's number is 0701234567.
+
+--- reraise issue
+U> tell me a phone number
+S> Whose number?
+U> call
+S> Who do you want to call?
+U> John
+S> Calling John.
+U>
+S> Returning to the phone number of a contact. Whose number?

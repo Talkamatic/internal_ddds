@@ -1,0 +1,87 @@
+--- listen
+S> What would you like to do?
+U> listen
+S> *Choose an artist?
+U> kaptenen
+S> Music started.
+
+--- change domain
+S> What would you like to do?
+U> listen
+S> *Choose an artist?
+U> kaptenen
+S> Music started.
+U> navigate
+S> *What is your destination?
+U> majorna
+S> Navigation started.
+
+--- both domains have predicates and individual with the same name
+S> *
+U> start music player
+S> Which artist?
+U> Linkin Park
+S> Playing Linkin Park
+U> start navigation
+S> Where do you want to go?
+U> Johanneberg
+S> Starting navigation to johanneberg
+
+--- word correction
+U> listened
+S> *Choose an artist?
+
+--- returning to other ddd
+S> What would you like to do?
+U> navigate
+S> *What is your destination?
+U> listen
+S> *Choose an artist?
+U> kaptenen
+S> Music started.
+U>
+S> Returning to navigate. What is your destination?
+
+--- going back to other ddd
+S> What would you like to do?
+U> navigate
+S> *What is your destination?
+U> listen
+S> *Choose an artist?
+U> go back
+S>
+U>
+S> Returning to navigate. What is your destination?
+
+--- going to top
+S> What would you like to do?
+U> navigate
+S> *What is your destination?
+U> listen
+S> *Choose an artist?
+U> main menu
+S> *What would you like to do?
+
+--- answer after issue reraise
+U> main menu
+S> *
+U> navigate
+S> What is your destination?
+U>
+S> So, What is your destination?
+U> listen
+S> *Choose an artist?
+
+--- no clarification across multiple DDDs
+U> set the volume
+S> Specify the volume level?
+U> ten
+S> The volume was set to 10.
+U> navigate
+S> *What is your destination?
+U> main menu
+S> *What would you like to do?
+U> five
+S> Okay, you want to Set the departure day.
+U>
+S> The departure day was set to 5.

@@ -1,0 +1,114 @@
+<ontology name="MockupTravelOntology">
+  <sort name="city" dynamic="true"/>
+  <sort name="city_size"/>
+  <sort name="code_type"/>
+  <sort name="rating"/>
+  <sort name="keyword" dynamic="true"/>
+  <sort name="class_sort"/>
+  <sort name="country"/>
+  <sort name="housing"/>
+  <sort name="housing_type"/>
+  <sort name="month"/>
+  <sort name="how"/>
+  <sort name="membership"/>
+  <sort name="payment_type"/>
+  <sort name="passenger_type"/>
+  <sort name="city_type"/>
+  <sort name="room_type"/>
+  <predicate name="dest_city_size" sort="city_size" feature_of="dest_city"/>
+  <predicate name="num_available_dept_cities" sort="integer"/>
+  <predicate name="code" sort="code_type"/>
+  <predicate name="selected_housing" sort="housing"/>
+  <predicate name="payment_method" sort="payment_type"/>
+  <predicate name="need_visa" sort="boolean"/>
+  <predicate name="member_type" sort="membership"/>
+  <predicate name="selected_housing_rating" sort="rating" feature_of="selected_housing"/>
+  <predicate name="current_position" sort="city"/>
+  <predicate name="phonenumber" sort="string"/>
+  <predicate name="dept_day" sort="integer"/>
+  <predicate name="available_dept_city" sort="city"/>
+  <predicate name="room_availability" sort="boolean"/>
+  <predicate name="available_member_type" sort="membership"/>
+  <predicate name="dest_country_label" sort="country"/>
+  <predicate name="place_keyword" sort="keyword" feature_of="dest_city"/>
+  <predicate name="frequent_flyer_number" sort="string"/>
+  <predicate name="next_membership_points" sort="integer"/>
+  <predicate name="dept_month" sort="month"/>
+  <predicate name="dest_city" sort="city"/>
+  <predicate name="next_membership_level" sort="membership"/>
+  <predicate name="passenger_type_to_add" sort="passenger_type" multiple_instances="true"/>
+  <predicate name="price" sort="real"/>
+  <predicate name="dest_country" sort="country"/>
+  <predicate name="means_of_transport" sort="how"/>
+  <predicate name="selected_room_type" sort="room_type"/>
+  <predicate name="class" sort="class_sort"/>
+  <predicate name="dest_city_label" sort="city"/>
+  <predicate name="dest_city_type" sort="city_type" feature_of="dest_city"/>
+  <predicate name="passenger_quantity_to_add" sort="integer"/>
+  <predicate name="qualified_for_membership" sort="boolean"/>
+  <predicate name="dept_city" sort="city"/>
+  <predicate name="selected_housing_type" sort="housing_type" feature_of="selected_housing"/>
+  <predicate name="available_payment_method" sort="payment_type"/>
+  <predicate name="frequent_flyer_points" sort="integer"/>
+  <predicate name="available_means_of_transport" sort="how"/>
+  <predicate name="comment_message" sort="string"/>
+  <predicate name="comment_name" sort="string"/>
+  <predicate name="attraction_information" sort="string"/>
+  <predicate name="attraction" sort="string"/>
+  <predicate name="house_owner_name" sort="string"/>
+  <predicate name="flight_departure" sort="datetime"/>
+  <predicate name="selected_domain" sort="domain"/>
+  <action name="make_domestic_oneway_reservation"/>
+  <action name="buy"/>
+  <action name="cancel_payment"/>
+  <action name="make_reservation"/>
+  <action name="add_passenger"/>
+  <action name="membership"/>
+  <action name="leave_comment"/>
+  <action name="book_housing"/>
+  <action name="show_on_map"/>
+  <action name="make_random_reservation"/>
+  <action name="make_domestic_reservation"/>
+  <action name="top"/>
+  <action name="settings"/>
+  <action name="make_international_reservation"/>
+  <action name="apply_for_membership"/>
+  <action name="make_domestic_return_reservation"/>
+  <action name="make_train_reservation"/>
+  <action name="cancel_reservation"/>
+  <individual name="berlin_tegel" sort="city"/>
+  <individual name="england" sort="country"/>
+  <individual name="gold" sort="membership"/>
+  <individual name="sheraton" sort="housing"/>
+  <individual name="small_size" sort="city_size"/>
+  <individual name="train" sort="how"/>
+  <individual name="XL34" sort="code_type"/>
+  <individual name="london" sort="city"/>
+  <individual name="pyongyang" sort="city"/>
+  <individual name="single_room" sort="room_type"/>
+  <individual name="france" sort="country"/>
+  <individual name="village_size" sort="city_size"/>
+  <individual name="lyon" sort="city"/>
+  <individual name="rating_5" sort="rating"/>
+  <individual name="paris" sort="city"/>
+  <individual name="domain_paris" sort="domain"/>
+  <individual name="resort" sort="city_type"/>
+  <individual name="points" sort="payment_type"/>
+  <individual name="city_type_capital" sort="city_type"/>
+  <individual name="economy" sort="class_sort"/>
+  <individual name="huge_size" sort="city_size"/>
+  <individual name="business" sort="class_sort"/>
+  <individual name="may" sort="month"/>
+  <individual name="hotel" sort="housing_type"/>
+  <individual name="berlin" sort="city"/>
+  <individual name="plane" sort="how"/>
+  <individual name="adult" sort="passenger_type"/>
+  <individual name="child" sort="passenger_type"/>
+  <individual name="silver" sort="membership"/>
+  <individual name="city_0" sort="city"/>
+  <individual name="april" sort="month"/>
+  <individual name="visa" sort="payment_type"/>
+  <individual name="stockholm" sort="city"/>
+  <individual name="mastercard" sort="payment_type"/>
+  <individual name="gothenburg" sort="city"/>
+</ontology>

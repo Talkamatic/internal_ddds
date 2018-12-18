@@ -1,0 +1,41 @@
+--- resume after failed service action
+S> *
+U> cancel reservation
+S> There is no reservation to cancel.
+U>
+S> Returning to the start view.
+
+--- resume after system answer
+S> *
+U> membership information
+S> You need fifty points to reach silver level.
+U>
+S> Returning to the start view.
+
+--- dependent issue accommodation
+S> *
+U> by plane
+S> So, You want to know the price.
+U>
+S> Where do you want to go?
+
+--- dependent action accommodation
+S> *
+U> visa
+S> Okay, you want to Make a reservation.
+U>
+S> Do you want to make a domestic reservation, make an international reservation or know the price?
+
+--- optimistic grounding for resolve goal
+S> *
+U> price information $ACKNOWLEDGE
+S> You want to know the price.
+U>
+S> How do you want to travel : by plane or by train?
+
+--- optimistic grounding for perform goal
+S> *
+U> add passenger $ACKNOWLEDGE
+S> Add passenger.
+U>
+S> Adult or child?

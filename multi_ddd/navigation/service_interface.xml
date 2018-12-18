@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <action name="NavigateToDestination">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <device_module device="NavigationDevice"/>
+    </target>
+  </action>
+  <action name="SetDepartureDay">
+    <parameters>
+      <parameter predicate="departure_day" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="NavigationDevice"/>
+    </target>
+  </action>
+  <action name="MockAction">
+    <parameters>
+      <parameter predicate="common_predicate" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="NavigationDevice"/>
+    </target>
+  </action>
+  <entity_recognizer name="MockEntityRecognizer">
+    <target>
+      <device_module device="NavigationDevice"/>
+    </target>
+  </entity_recognizer>
+</service_interface>

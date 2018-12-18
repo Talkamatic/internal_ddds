@@ -1,0 +1,68 @@
+--- main menu
+S> Vad vill du göra?
+
+--- call
+U> ring någon tack 40.0
+S> Vem vill du ringa?
+U> John tack snälla 40.0
+S> Ringer John
+
+--- call one-shot
+U> ring till John 40.0
+S> Ringer John
+
+--- call invalid number
+U> kan du ringa ett samtal 40.0
+S> Vem vill du ringa?
+U> Andy är du snäll 40.0
+S> Andy har inget telefonnummer
+U> okej John då tack 40.0
+S> Ringer John
+
+--- call invalid number one-shot
+U> ring till Andy 40.0
+S> Andy har inget telefonnummer
+U> okej prova John 40.0
+S> Ringer John
+
+--- request number
+U> jag skulle behöva veta ett telefonnummer 40.0
+S> Vems nummer?
+U> John är du bussig 40.0
+S> John har nummer 0701234567.
+
+--- ask for number one-shot
+U> vad är numret till John 40.0
+S> John har nummer 0701234567.
+
+--- request number one-shot
+U> ge mig numret till John tack 40.0
+S> John har nummer 0701234567.
+
+--- reraise issue
+U> jag skulle behöva ett telefonnummer tack 40.0
+S> Vems nummer?
+U> nej ring ett samtal istället 40.0
+S> Vem vill du ringa?
+U> John är du bussig 40.0
+S> Ringer John
+U>
+S> Tillbaka till telefonnumret. Vems nummer?
+
+--- yes
+U> jag behöver ett telefonnummer 0.1
+S> Vill du veta telefonnumret?
+U> ja
+S> Vems nummer?
+
+--- entity from GF
+U> jag behöver ett telefonnummer 0.1
+S> Vill du veta telefonnumret?
+U> ja
+S> Vems nummer?
+U> John
+S> John har nummer 0701234567.
+
+--- unexpected sortal entity from RASA
+U> jag behöver Fredrik's telefonnummer 40.0
+S> Vems nummer?

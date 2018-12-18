@@ -1,0 +1,58 @@
+--- main menu
+S> What would you like to do?
+
+--- exact - incremental request
+S> *
+U> buy apples
+S> How many apples do you want?
+U> 12
+S> You have purchased 12 apples.
+
+--- inexact - incremental request
+S> *
+U> buy apples please
+S> How many apples do you want?
+U> 12 apples thanks
+S> You have purchased 12 apples.
+
+--- exact - buy apples one-shot
+S> *
+U> buy 12 apples
+S> You have purchased 12 apples.
+
+--- inexact - buy apples one-shot
+S> *
+U> I'll buy 12 apples thanks
+S> You have purchased 12 apples.
+
+--- exact - buy too many apples
+S> *
+U> buy fifty apples
+S> 50 apples are too many. Please choose between 6 and 30.
+
+--- inexact - buy too many apples
+S> *
+U> I'll buy 50 apples thanks
+S> 50 apples are too many. Please choose between 6 and 30.
+
+--- exact - ask how many apples
+S> *
+U> how many apples can I buy
+S> You can buy a maximum of thirty apples.
+
+--- integer over 99 with feedback
+S> *
+U> buy 125 apples
+S> 125 apples are too many. Please choose between 6 and 30.
+
+--- intent recognition for buying apples
+U> 125 apples
+S> Okay, you want to Buy apples.
+
+--- one-shot accommodation search, num bedrooms first
+U> book accommodation with two bedrooms for three guests noise
+S> Searching for accommodation with 2 bedrooms for 3 guests.
+
+--- one-shot accommodation search, num guests first
+U> book accommodation for three guests with two bedrooms noise
+S> Searching for accommodation with 2 bedrooms for 3 guests.

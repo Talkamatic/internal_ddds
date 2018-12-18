@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="make_domestic_oneway_reservation">reserva un viaje nacional de ida</action>
+
+  <individual name="gold">oro</individual>
+
+  <individual name="domain_paris">dominio paris</individual>
+
+  <individual name="london">Londres</individual>
+
+  <answer speaker="system"><slot predicate="frequent_flyer_points" type="individual"/> puntos de viajero frequente</answer>
+
+  <question speaker="system" predicate="class" type="wh_question">qué tipo de billete te gustaría</question>
+
+  <individual name="paris">Paris</individual>
+
+  <question speaker="system" predicate="dest_city" type="wh_question">dónde quieres viajar</question>
+
+  <individual name="resort">resort</individual>
+
+  <question speaker="user" predicate="need_visa" type="wh_question">háblame de visado</question>
+
+  <answer speaker="user">
+    <one-of>
+      <item><slot predicate="passenger_quantity_to_add" type="individual"/> <slot sort="passenger_type"/></item>
+      <item>a <slot predicate="dest_city"/></item>
+    </one-of>
+  </answer>
+
+  <question speaker="all" predicate="dept_month" type="wh_question">
+    <one-of>
+      <item>qué mes quieres viajar</item>
+      <item>qué mes quieres viajar <slot predicate="dept_city" type="individual"/> <slot predicate="dest_city" type="individual"/></item>
+      <item>qué mes quieres viajar <slot predicate="dept_city" type="individual"/></item>
+    </one-of>
+  </question>
+
+  <question speaker="all" predicate="next_membership_level" type="wh_question">información de pertenencia</question>
+
+  <question speaker="system" predicate="payment_method" type="wh_question">cómo quieres pagar</question>
+
+  <action name="add_passenger">
+    <one-of>
+      <item>añade un pasajero</item>
+      <item>añade <slot predicate="passenger_quantity_to_add" type="individual"/> pasajeros</item>
+      <item>añade <slot sort="passenger_type"/></item>
+      <item>añade <slot predicate="passenger_quantity_to_add" type="individual"/> <slot sort="passenger_type"/></item>
+    </one-of>
+  </action>
+
+  <individual name="silver">plata</individual>
+
+  <validity name="CityValidity">parámetros inválidos <slot predicate="dest_city" type="individual"/></validity>
+
+  <individual name="plane">
+    <one-of>
+      <item>en avión</item>
+      <item>vuelos</item>
+    </one-of>
+  </individual>
+
+  <greeting>Bienvenidos a la Agencia de Viajes!</greeting>
+  <action name="make_domestic_return_reservation">reserva un viaje nacional de vuelta</action>
+
+  <individual name="mastercard">mastercard</individual>
+
+  <question speaker="system" predicate="dept_city" type="wh_question">desde dónde quieres viajar</question>
+
+  <question speaker="system" predicate="means_of_transport" type="wh_question">cómo quieres viajar</question>
+
+  <question speaker="user" predicate="next_membership_level" type="wh_question">información de pertenencia</question>
+
+  <individual name="berlin_tegel">Berlin-Tegel</individual>
+
+  <individual name="england">inglaterra</individual>
+
+  <individual name="sheraton">sheraton</individual>
+
+  <individual name="XL34">XL34</individual>
+
+  <action name="make_reservation">
+    <one-of>
+      <item>
+        <vp>
+          <infinitive>reservar</infinitive>
+          <imperative>reserva</imperative>
+          <ing-form>reservando</ing-form>
+          <object>un viaje</object>
+        </vp>
+      </item>
+      <item>haz una reserva</item>
+      <item>hacer una reserva</item>
+      <item>reserva un viaje</item>
+      <item>reservar un viaje</item>
+      <item>reserva un viaje a <slot sort="city"/></item>
+      <item>reserva un viaje desde <slot predicate="dept_city" type="individual"/> a <slot predicate="dest_city" type="individual"/></item>
+    </one-of>
+  </action>
+
+  <answer speaker="system">de <slot predicate="dept_city" type="individual"/></answer>
+
+  <individual name="village_size">pueblo</individual>
+
+  <individual name="lyon">lyon</individual>
+
+  <action name="leave_comment">
+    <one-of>
+      <item>deja un comentario al propietario del alojamiento</item>
+      <item>deja un comentario al propietario del alojamiento que <slot predicate="comment_message"/> </item>
+    </one-of>
+  </action>
+
+  <report action="RegisterComment" status="ended">el comentario <slot predicate="comment_message"/> ha sido registrado con el nombre de <slot predicate="comment_name"/>.</report>
+  <question speaker="system" predicate="comment_message" type="wh_question">qué comentario quieres dejar</question>
+  <question speaker="system" predicate="comment_name" type="wh_question">cuál es tu nombre</question>
+
+  <individual name="city_type_capital">capital</individual>
+
+  <individual name="stockholm">Estocólmo</individual>
+
+  <individual name="huge_size">metrópoli</individual>
+
+  <individual name="business">primera clase</individual>
+
+  <action name="cancel_payment">cancela el pago</action>
+
+  <question speaker="system" predicate="selected_housing" type="wh_question">selecciona una opción de la búsqueda</question>
+
+  <action name="book_housing">reserva alojamiento</action>
+
+  <question speaker="system" predicate="passenger_type_to_add" type="wh_question">adulto o niño</question>
+
+  <action name="make_random_reservation">hacer una reserva al azar</action>
+
+  <preconfirm action="BookHousing">reserva este hotel</preconfirm>
+
+  <individual name="city_0">york</individual>
+
+  <answer predicate="next_membership_level" speaker="system">necesitas <slot predicate="next_membership_points" type="individual"/> puntos para conseguir el nivel de <slot predicate="next_membership_level" type="individual"/></answer>
+
+  <individual name="april">abril</individual>
+
+  <question speaker="system" predicate="passenger_quantity_to_add" type="wh_question">cuántos pasajeros</question>
+
+  <action name="cancel_reservation">cancela la reserva</action>
+
+  <report action="MakeRandomReservation" status="ended">realizado MakeRandomReservation.</report>
+
+  <answer polarity="positive" predicate="qualified_for_membership" speaker="system">tienes <slot predicate="frequent_flyer_points" type="individual"/> y estás calificado para obtener la pertenencia y estás en <slot predicate="current_position" type="individual"/></answer>
+
+  <individual name="small_size">ciudad pequeña</individual>
+
+  <question speaker="all" predicate="need_visa" type="wh_question">sobre visados</question>
+
+  <answer polarity="positive" predicate="room_availability" speaker="system">hay disponibilidad de habitaciones</answer>
+
+  <question speaker="system" predicate="member_type" type="wh_question">qué tipo de pertenencia</question>
+
+  <individual name="pyongyang">pyongyang</individual>
+
+  <individual name="rating_5">cinco estrellas</individual>
+
+  <action name="top">
+    <np>
+      <indefinite>vista de inicio</indefinite>
+      <definite>la vista de inicio</definite>
+    </np>
+  </action>
+
+  <action name="make_international_reservation">
+    <one-of>
+      <item>
+        <vp><infinitive>reservar</infinitive>
+          <imperative>reserva</imperative>
+          <ing-form>reservando</ing-form>
+          <object>un viaje internacional</object>
+        </vp>
+      </item>
+      <item>reserva un viaje</item>
+      <item>reservar un viaje</item>
+      <item>reserva un viaje internacional</item>
+      <item>reservar un viaje internacional</item>
+    </one-of>
+  </action>
+
+  <individual name="france">francia</individual>
+
+  <individual name="single_room">habitación individual</individual>
+
+  <individual name="gothenburg">Gotemburgo</individual>
+
+  <action name="buy">compra</action>
+
+  <individual name="hotel">hotel</individual>
+
+  <question speaker="user" predicate="price" type="wh_question">
+    <one-of>
+      <item>información sobre precios</item>
+      <item>precios para viajar <slot sort="how"/> a <slot sort="city"/></item>
+      <item>precios para viajar a <slot sort="city"/></item>
+      <item>información de precios <slot sort="how"/></item>
+    </one-of>
+  </question>
+
+  <question speaker="system" predicate="dept_day" type="wh_question">qué día quiere viajar</question>
+
+  <individual name="berlin">Berlin</individual>
+
+  <individual name="train">en tren</individual>
+
+  <individual name="adult">
+    <one-of>
+      <item>adultos</item>
+      <item>adulto</item>
+    </one-of>
+  </individual>
+
+  <individual name="child">
+    <one-of>
+      <item>niños</item>
+      <item>niño</item>
+    </one-of>
+  </individual>
+
+  <action name="up">atrás</action>
+
+  <action name="apply_for_membership">solicitar la pertenencia</action>
+
+  <report action="CancelReservation" status="failed" reason="no_reservation_exists">no hay reserva que cancelar.</report>
+
+  <question speaker="system" predicate="selected_housing_type" type="wh_question">selecciona el tipo de alojamiento</question>
+
+  <question speaker="system" predicate="selected_room_type" type="wh_question">qué tipo de habitación estás buscando</question>
+
+  <title action="top" type="action">agencia de viajes</title>
+
+  <question speaker="system" predicate="dest_country" type="wh_question">a qué país</question>
+
+  <action name="make_domestic_reservation">reserva un viaje nacional</action>
+
+  <question speaker="system" predicate="selected_housing_rating" type="wh_question">selecciona una clasificación</question>
+
+  <answer speaker="system">he encontrado <slot predicate="num_available_dept_cities" type="individual"/> vuelos</answer>
+
+  <answer polarity="negative" predicate="qualified_for_membership" speaker="system">no estás calificado para obtener la pertenencia</answer>
+
+  <individual name="economy">clase económica</individual>
+
+  <individual name="may">mayo</individual>
+
+  <answer speaker="system">a <slot predicate="dest_city" type="individual"/></answer>
+
+  <question speaker="all" predicate="price" type="wh_question">
+    <one-of>
+      <item>sobre precios</item>
+      <item>el precio <slot predicate="dest_city" type="individual"/></item>
+    </one-of>
+  </question>
+
+  <action name="membership">pertenencia</action>
+
+  <individual name="visa">visado</individual>
+
+  <validity name="CityTypeValidity">parámetros inválidos <slot predicate="dest_city" type="individual"/> <slot predicate="dest_city_type" type="individual"/></validity>
+
+  <report action="AddPassengers" status="ended">añadido <slot predicate="passenger_quantity_to_add" type="individual"/> <slot predicate="passenger_type_to_add" type="individual"/>.</report>
+
+  <individual name="points">puntos</individual>
+
+  <report action="BookHousing" status="ended">el alojamiento ha sido reservado.</report>
+
+  <action name="make_train_reservation">reserva un viaje en tren</action>
+
+  <question speaker="user" predicate="attraction_information">
+    <one-of>
+      <item>cuál es esta atracción</item>
+      <item>háblame de <slot predicate="attraction"/></item>
+    </one-of>
+</question>
+
+  <question speaker="system" predicate="attraction">qué atracción</question>
+
+  <action name="show_on_map">enséñame en el mapa</action>
+  <report action="ShowOnMap" status="ended">enseñando <slot predicate="dest_city" type="individual"/> en el mapa.</report>
+
+  <question speaker="user" predicate="flight_departure" type="wh_question">
+    cuándo sale este vuelo
+  </question>
+  <question speaker="all" predicate="flight_departure" type="wh_question">salida de vuelo</question>
+  <answer speaker="system">El vuelo sale a las <slot predicate="flight_departure" type="individual"/></answer>
+</grammar>

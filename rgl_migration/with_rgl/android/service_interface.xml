@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <action name="Call">
+    <parameters>
+      <parameter predicate="selected_contact_to_call" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="AndroidDevice"/>
+    </target>
+  </action>
+  <query name="phone_number_of_contact">
+    <parameters>
+      <parameter predicate="selected_contact_of_phone_number" format="value"/>
+    </parameters>
+    <target>
+      <device_module device="AndroidDevice"/>
+    </target>
+  </query>
+  <validator name="PhoneNumberAvailable">
+    <parameters>
+      <parameter predicate="selected_contact_to_call" format="value"/>
+    </parameters>
+    <target>
+      <device_module device="AndroidDevice"/>
+    </target>
+  </validator>
+  <entity_recognizer name="ContactRecognizer">
+    <target>
+      <device_module device="AndroidDevice"/>
+    </target>
+  </entity_recognizer>
+</service_interface>

@@ -1,0 +1,16 @@
+{
+    "active_ddd": "small_grammar",
+    "asr": "none",
+    "ddds": [
+        "small_grammar"
+    ],
+    "inactive_seconds_allowed": 7200,
+    "overrides": null,
+    "repeat_questions": true,
+    "rerank_amount": 0.2,
+    "supported_languages": [
+        "eng"
+    ],
+    "use_recognition_profile": false,
+    "use_word_list_correction": true
+}

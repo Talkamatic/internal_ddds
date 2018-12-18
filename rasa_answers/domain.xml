@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="RasaAnswersDomain">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="navigate" reraise_on_resume="false">
+    <plan>
+      <findout type="wh_question" predicate="destination"/>
+      <findout type="wh_question" predicate="origin"/>
+      <invoke_service_action name="Navigate" postconfirm="True"/>
+    </plan>
+  </goal>
+</domain>
