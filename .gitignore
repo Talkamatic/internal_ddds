@@ -1,0 +1,7 @@
+.idea
+build
+*.pyc
+*~
+*/logs/
+*_words_*.txt
+__init__.py
