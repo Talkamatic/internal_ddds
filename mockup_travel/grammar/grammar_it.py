@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from tala.gf.resource_it import NP, MASCULINE, FEMININE, PLURAL
+from tala.nl.gf.resource_it import NP, MASCULINE, FEMININE, PLURAL
 
 top = NP("menu principale", gender=MASCULINE)
 make_reservation = NP("prenotazione", gender=FEMININE)
