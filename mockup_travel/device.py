@@ -68,7 +68,7 @@ class MockupTravelDevice(DddDevice):
 
     class price(DeviceWHQuery):
         def perform(self, means_of_transport, dest_city, dept_city, dept_month, dept_day, class_):
-            if dest_city != None and dept_city != None:
+            if dest_city is not None and dept_city is not None:
                 return [1234.0]
             else:
                 return []

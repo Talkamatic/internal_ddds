@@ -79,7 +79,7 @@ def call():
     try:
         payload = request.get_json()
         selected_contact = payload["request"]["parameters"]["selected_contact"]["value"]
-        number = PHONE_NUMBERS.get(selected_contact)
+        number = PHONE_NUMBERS.get(selected_contact)  # noqa: F841
         return successful_call_response()
     except BaseException as exception:
         return error_response(message=str(exception))

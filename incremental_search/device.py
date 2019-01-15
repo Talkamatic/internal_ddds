@@ -97,8 +97,9 @@ class IncrementalSearchDevice(DddDevice):
     @classmethod
     def name_of_identifier(cls, names, identifier):
         matching_names = [name for name, actual_id in names.iteritems() if actual_id == identifier]
-        assert len(matching_names) == 1, "Expected to find one matching name but found %s for %s among %s" %\
-                                         (matching_names, identifier, names)
+        assert len(
+            matching_names
+        ) == 1, "Expected to find one matching name but found %s for %s among %s" % (matching_names, identifier, names)
         return matching_names.pop()
 
     @classmethod

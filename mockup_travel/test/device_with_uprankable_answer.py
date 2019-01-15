@@ -1,4 +1,4 @@
-from tala.model.device import DddDevice, DeviceWHQuery
+from tala.model.device import DeviceWHQuery
 import mockup_travel.device
 
 

@@ -11,8 +11,12 @@ class AndroidDevice(DddDevice):
 
     class Call(DeviceAction):
         def perform(self, selected_contact_to_call):
+            def call(number):
+                # TODO: Implement calling
+                pass
+
             number = self.device.CONTACT_NUMBERS.get(selected_contact_to_call)
-            # TODO: Implement calling
+            call(number)
             success = True
             return success
 

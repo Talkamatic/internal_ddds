@@ -1,4 +1,4 @@
-#This file uses encoding: utf8
+# This file uses encoding: utf8
 from tdm.testing.mocked_frontend_device import MockedFrontendDevice
 
 

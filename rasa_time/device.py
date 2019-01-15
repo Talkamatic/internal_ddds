@@ -1,4 +1,4 @@
-from tala.model.device import DddDevice, DeviceAction, DeviceWHQuery, Validity
+from tala.model.device import DddDevice, DeviceAction
 
 
 class RasaTimeDevice(DddDevice):
