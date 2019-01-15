@@ -2,6 +2,7 @@
 
 from tala.model.device import DddDevice, DeviceAction, Validity, DeviceWHQuery
 
+
 class RasaForDynamicEntitiesDevice(DddDevice):
     CONTACTS = [
         ("contact_john", u"john", "0701234567"),
@@ -36,33 +37,26 @@ class RasaForDynamicEntitiesDevice(DddDevice):
         def perform(self, selected_contact_to_call):
             return True
 
-
     class PhoneNumberAvailableForSelectedContactToCall(Validity):
         def is_valid(self, selected_contact):
             return self.device.has_phone_number(selected_contact)
-
 
     class ContactExistsForSelectedContactToCall(Validity):
         def is_valid(self, selected_contact):
             return self.device.exists(selected_contact)
 
-
     class PhoneNumberAvailableForSelectedContactOfPhoneNumber(Validity):
         def is_valid(self, selected_contact):
             return self.device.has_phone_number(selected_contact)
-
 
     class ContactExistsForSelectedContactOfPhoneNumber(Validity):
         def is_valid(self, selected_contact):
             return self.device.exists(selected_contact)
 
-
     class phone_number_of_contact(DeviceWHQuery):
         def perform(self, selected_contact):
             for identifier, name, number in self.device.CONTACTS:
                 if name.lower() == selected_contact.lower():
-                    number_entity = {
-                        "grammar_entry": number
-                    }
+                    number_entity = {"grammar_entry": number}
                     return [number_entity]
             return []

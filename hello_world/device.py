@@ -1,5 +1,6 @@
 from tala.model.device import DddDevice, DeviceWHQuery, DeviceAction, Validity
 
+
 class HelloWorldDevice(DddDevice):
     def __init__(self):
         self._hour = 10

@@ -3,6 +3,7 @@
 from tala.model.device import DddDevice, EntityRecognizer, DeviceAction, Validity, DeviceWHQuery
 import unicodedata
 
+
 class AndroidDevice(DddDevice):
     CONTACTS = [
         ("contact_john", u"john", "0701234567"),
@@ -30,11 +31,7 @@ class AndroidDevice(DddDevice):
             for contact_id, contact_name, number in self.device.CONTACTS:
                 if self._contact_name_matches_tokens(contact_name, tokens):
                     contact_name = contact_name.capitalize()
-                    recognized_entity = {
-                        "sort": "contact",
-                        "grammar_entry": contact_name,
-                        "name": contact_id
-                    }
+                    recognized_entity = {"sort": "contact", "grammar_entry": contact_name, "name": contact_id}
                     result.append(recognized_entity)
             return result
 
@@ -69,7 +66,5 @@ class AndroidDevice(DddDevice):
         def perform(self, selected_contact_of_phone_number):
             for contact_id, contact_tokens, number in self.device.CONTACTS:
                 if contact_id == selected_contact_of_phone_number:
-                    number_entity = {
-                        "grammar_entry": number
-                        }
+                    number_entity = {"grammar_entry": number}
                     return [number_entity]

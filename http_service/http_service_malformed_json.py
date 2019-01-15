@@ -12,9 +12,5 @@ def malformed_json_response(path):
         "sort": "mock_sort" **
         "value": "mock_value"
     }"""
-    response = app.response_class(
-        response=malformed_json,
-        status=200,
-        mimetype='application/json'
-    )
+    response = app.response_class(response=malformed_json, status=200, mimetype='application/json')
     return response

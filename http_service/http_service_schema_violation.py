@@ -11,9 +11,5 @@ def schema_violated_json_response(path):
         "schema": 781.0,
         "violation": []
     }"""
-    response = app.response_class(
-        response=schema_violated_json,
-        status=200,
-        mimetype='application/json'
-    )
+    response = app.response_class(response=schema_violated_json, status=200, mimetype='application/json')
     return response

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from tala.model.device import DeviceAction, DddDevice, EntityRecognizer
 
+
 class NavigationDevice(DddDevice):
     class NavigateToDestination(DeviceAction):
         def perform(self):
@@ -17,7 +18,6 @@ class NavigationDevice(DddDevice):
     class MockEntityRecognizer(EntityRecognizer):
         def recognize(self, string, language):
             if string.lower() == "johanneberg":
-                return [{"sort": "common_sort",
-                        "grammar_entry": "johanneberg"}]
+                return [{"sort": "common_sort", "grammar_entry": "johanneberg"}]
             else:
                 return []
