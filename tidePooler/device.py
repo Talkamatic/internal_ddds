@@ -39,23 +39,19 @@ class TidepoolerDevice(device.DddDevice):
         def perform(self, city, date, readable_date, time, height):
             return True
 
-
     class readable_selected_date(device.DeviceWHQuery):
         def perform(self, date):
             arrow_date = arrow.get(date, "YYYY-MM-DD")
             readable_date = arrow_date.format("On dddd, MMMM D")
             return [readable_date]
 
-
     class time_of_first_high_tide(device.DeviceWHQuery):
         def perform(self):
             return ["7:18 am"]
 
-
     class height_of_first_high_tide(device.DeviceWHQuery):
         def perform(self):
             return ["1.5 feet"]
-
 
     class SupportedCitiesIntent(device.DeviceAction):
         def perform(self, cities):
@@ -63,5 +59,6 @@ class TidepoolerDevice(device.DddDevice):
 
     class supported_cities(device.DeviceWHQuery):
         def perform(self):
-            return ["Seattle, Los Angeles, Monterey, San Diego, San Francisco, Boston, New York, Miami, Wilmington, Tampa, Galveston, Morehead, New Orleans, Beaufort, Myrtle Beach, Virginia Beach and Charleston"]
-
+            return [
+                "Seattle, Los Angeles, Monterey, San Diego, San Francisco, Boston, New York, Miami, Wilmington, Tampa, Galveston, Morehead, New Orleans, Beaufort, Myrtle Beach, Virginia Beach and Charleston"
+            ]

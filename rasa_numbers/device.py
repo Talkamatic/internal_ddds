@@ -2,7 +2,6 @@ from tala.model.device import DddDevice, DeviceAction, DeviceWHQuery, Validity
 
 
 class RasaNumbersDevice(DddDevice):
-
     class NumberOfApplesValidity(Validity):
         def is_valid(self, apples_individual):
             return (apples_individual < 31) and (apples_individual > 5)

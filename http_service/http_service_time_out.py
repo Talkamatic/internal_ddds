@@ -9,4 +9,3 @@ app = Flask(__name__)
 def wait_more_than_two_seconds(path):
     time.sleep(4)
     return "Hello!"
-

@@ -13,10 +13,8 @@ class HelloWorldOntology(DddOntology):
         "greenwich_mean_time": "string",
         "alarm_image_url": "image",
         "clock_view": "webview",
-        }
-    individuals = {
-        "work_alarm": "alarm"
     }
+    individuals = {"work_alarm": "alarm"}
     actions = set([
         "set_time",
         "set_alarm",

@@ -20,9 +20,5 @@ def unexpected_version_in_response(path):
         ]
       }
     }"""
-    response = app.response_class(
-        response=malformed_json,
-        status=200,
-        mimetype='application/json'
-    )
+    response = app.response_class(response=malformed_json, status=200, mimetype='application/json')
     return response

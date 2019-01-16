@@ -8,30 +8,24 @@ LISA = "contact_lisa"
 MARY = "contact_mary"
 ANDY = "contact_andy"
 
-PHONE_NUMBERS = {
-    JOHN: "0701234567",
-    LISA: "0709876543",
-    MARY: "0706574839",
-    ANDY: None
-}
+PHONE_NUMBERS = {JOHN: "0701234567", LISA: "0709876543", MARY: "0706574839", ANDY: None}
 
-CONTACTS = {
-    "John": JOHN,
-    "Lisa": LISA,
-    "Mary": MARY,
-    "Andy": ANDY
-}
+CONTACTS = {"John": JOHN, "Lisa": LISA, "Mary": MARY, "Andy": ANDY}
 
 app = Flask(__name__)
 environment = Environment()
 
+
 def jsonfilter(value):
     return json.dumps(value)
 
+
 environment.filters["json"] = jsonfilter
 
+
 def error_response(message):
-    response_template = environment.from_string("""
+    response_template = environment.from_string(
+        """
     {
       "status": "error",
       "message": {{message|json}},
@@ -39,14 +33,12 @@ def error_response(message):
         "version": "1.0"
       }
     }
-    """)
-    payload = response_template.render(message=message)
-    response = app.response_class(
-        response=payload,
-        status=200,
-        mimetype='application/json'
+    """
     )
+    payload = response_template.render(message=message)
+    response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
+
 
 @app.route("/phone_number_of_contact", methods=['POST'])
 def phone_number_of_contact():
@@ -58,8 +50,10 @@ def phone_number_of_contact():
     except BaseException as exception:
         return error_response(message=str(exception))
 
+
 def phone_number_response(value, grammar_entry):
-    response_template = environment.from_string("""
+    response_template = environment.from_string(
+        """
     {
       "status": "success",
       "data": {
@@ -73,41 +67,39 @@ def phone_number_response(value, grammar_entry):
         ]
       }
     }
-    """)
-    payload = response_template.render(value=value, grammar_entry=grammar_entry)
-    response = app.response_class(
-        response=payload,
-        status=200,
-        mimetype='application/json'
+    """
     )
+    payload = response_template.render(value=value, grammar_entry=grammar_entry)
+    response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
 
-@app.route("/call", methods = ['POST'])
+
+@app.route("/call", methods=['POST'])
 def call():
     try:
         payload = request.get_json()
         selected_contact = payload["request"]["parameters"]["selected_contact"]["value"]
-        number = PHONE_NUMBERS.get(selected_contact)
+        number = PHONE_NUMBERS.get(selected_contact)  # noqa: F841
         return successful_call_response()
     except BaseException as exception:
         return error_response(message=str(exception))
 
+
 def successful_call_response():
-    response_template = environment.from_string("""
+    response_template = environment.from_string(
+        """
     {
       "status": "success",
       "data": {
         "version": "1.0"
       }
     }
-    """)
-    payload = response_template.render()
-    response = app.response_class(
-        response=payload,
-        status=200,
-        mimetype='application/json'
+    """
     )
+    payload = response_template.render()
+    response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
+
 
 @app.route("/contact_recognizer", methods=['POST'])
 def contact_recognizer():
@@ -123,8 +115,10 @@ def contact_recognizer():
     except BaseException as exception:
         return error_response(message=str(exception))
 
+
 def contact_recognizer_response(entities):
-    response_template = environment.from_string("""
+    response_template = environment.from_string(
+        """
     {
       "status": "success",
       "data": {
@@ -140,14 +134,12 @@ def contact_recognizer_response(entities):
         ]
       }
     }
-     """)
-    payload = response_template.render(entities=entities)
-    response = app.response_class(
-        response=payload,
-        status=200,
-        mimetype='application/json'
+     """
     )
+    payload = response_template.render(entities=entities)
+    response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
+
 
 @app.route("/validate", methods=['POST'])
 def contact_validator():
@@ -160,8 +152,10 @@ def contact_validator():
     except BaseException as exception:
         return error_response(message=exception)
 
+
 def contact_validator_response(is_valid):
-    response_template = environment.from_string("""
+    response_template = environment.from_string(
+        """
     {
       "status": "success",
       "data": {
@@ -169,11 +163,8 @@ def contact_validator_response(is_valid):
         "is_valid": {{is_valid|json}}
       }
     }
-    """)
-    payload = response_template.render(is_valid=is_valid)
-    response = app.response_class(
-        response=payload,
-        status=200,
-        mimetype='application/json'
+    """
     )
+    payload = response_template.render(is_valid=is_valid)
+    response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response

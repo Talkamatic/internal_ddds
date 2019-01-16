@@ -6,11 +6,8 @@ from tala.model.proposition import PredicateProposition
 
 class MockupTravelDevice(DddDevice):
 
-    CITY_COUNTRY = {"london": "england",
-                    "paris": "france",
-                    "lyon": "france"}
-    CITY_TYPE = {"paris": "city_type_capital",
-                 "lyon": "non_capital"}
+    CITY_COUNTRY = {"london": "england", "paris": "france", "lyon": "france"}
+    CITY_TYPE = {"paris": "city_type_capital", "lyon": "non_capital"}
 
     def __init__(self):
         self._dept_city_value = None
@@ -20,10 +17,10 @@ class MockupTravelDevice(DddDevice):
     def get_available_dept_cities(self, dest_city_grammar_entry):
         results = [{"name": "city_madrid", "grammar_entry": "Madrid"}]
         if dest_city_grammar_entry not in ["Athens", "ambiguous"]:
-            results.append({"name": "city_helsinki","grammar_entry": "Helsinki"})
+            results.append({"name": "city_helsinki", "grammar_entry": "Helsinki"})
         results.append({"grammar_entry": "New York"})
         return results
-    
+
     class dest_city(DeviceImplication):
         ANTECEDENT = "dest_city"
 
@@ -31,14 +28,18 @@ class MockupTravelDevice(DddDevice):
             implications = []
             if dest_city in MockupTravelDevice.CITY_COUNTRY:
                 country_name = MockupTravelDevice.CITY_COUNTRY[dest_city]
-                implications.append(PredicateProposition(
-                        self.ontology.get_predicate("dest_country"),
-                        self.ontology.create_individual(country_name)))
+                implications.append(
+                    PredicateProposition(
+                        self.ontology.get_predicate("dest_country"), self.ontology.create_individual(country_name)
+                    )
+                )
             if dest_city in MockupTravelDevice.CITY_TYPE:
                 type_name = MockupTravelDevice.CITY_TYPE[dest_city]
-                implications.append(PredicateProposition(
-                        self.ontology.get_predicate("dest_city_type"),
-                        self.ontology.create_individual(type_name)))
+                implications.append(
+                    PredicateProposition(
+                        self.ontology.get_predicate("dest_city_type"), self.ontology.create_individual(type_name)
+                    )
+                )
             return implications
 
     class available_dept_city(DeviceWHQuery):
@@ -63,11 +64,11 @@ class MockupTravelDevice(DddDevice):
 
     class available_payment_method(DeviceWHQuery):
         def perform(self):
-            return ["visa", "mastercard", "points"] 
+            return ["visa", "mastercard", "points"]
 
     class price(DeviceWHQuery):
         def perform(self, means_of_transport, dest_city, dept_city, dept_month, dept_day, class_):
-            if dest_city != None and dept_city != None:
+            if dest_city is not None and dept_city is not None:
                 return [1234.0]
             else:
                 return []
@@ -107,9 +108,11 @@ class MockupTravelDevice(DddDevice):
     class dept_city(DeviceWHQuery):
         def perform(self):
             if self.device._dept_city_value:
-                return [{"name": self.device._dept_city_value,
-                         "confidence": self.device._dept_city_confidence,
-                         "grammar_entry": self.device._dept_city_grammar_entry}]
+                return [{
+                    "name": self.device._dept_city_value,
+                    "confidence": self.device._dept_city_confidence,
+                    "grammar_entry": self.device._dept_city_grammar_entry
+                }]
             else:
                 return []
 
@@ -167,8 +170,13 @@ class MockupTravelDevice(DddDevice):
     class AmbiguousRecognizer(EntityRecognizer):
         def recognize(self, string, language):
             if string == "ambiguous":
-                return [{"sort": "keyword",  "grammar_entry": "ambiguous"},
-                        {"sort": "city", "grammar_entry": "ambiguous"}]
+                return [{
+                    "sort": "keyword",
+                    "grammar_entry": "ambiguous"
+                }, {
+                    "sort": "city",
+                    "grammar_entry": "ambiguous"
+                }]
 
     class passenger_quantity_to_add(DeviceWHQuery):
         def perform(self):
@@ -210,7 +218,7 @@ class MockupTravelDevice(DddDevice):
 
     class current_position(DeviceWHQuery):
         def perform(self):
-            return [{"name" : "london", "grammar_entry" : "london"}]
+            return [{"name": "london", "grammar_entry": "london"}]
 
     class CancelReservation(DeviceAction):
         def perform(self):
@@ -239,8 +247,7 @@ class MockupTravelDevice(DddDevice):
     class attraction_information(DeviceWHQuery):
         def perform(self, attraction):
             if "Eiffel tower" in attraction:
-                return ["the eiffel tower is a wrought iron lattice tower on the " +
-                        "champ de mars in paris, france"]
+                return ["the eiffel tower is a wrought iron lattice tower on the " + "champ de mars in paris, france"]
             else:
                 return ["no information was found"]
 

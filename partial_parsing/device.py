@@ -1,5 +1,6 @@
 from tala.model.device import DddDevice, EntityRecognizer, DeviceAction
 
+
 class PartialParsingDevice(DddDevice):
     class KeywordRecognizer(EntityRecognizer):
         def recognize_entity(self, string):

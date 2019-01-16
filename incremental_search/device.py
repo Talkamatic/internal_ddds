@@ -2,7 +2,6 @@ from sets import Set
 
 from tdm.lib.device import DeviceWHQuery, DeviceAction, EntityRecognizer, DddDevice
 
-
 JOHN = "first_name_john"
 ANNA = "first_name_anna"
 
@@ -29,10 +28,7 @@ CONTACTS = {
     },
 }
 
-FIRST_NAMES = {
-    "John": JOHN,
-    "Anna": ANNA
-}
+FIRST_NAMES = {"John": JOHN, "Anna": ANNA}
 
 LAST_NAMES = {
     "Johnson": JOHNSON,
@@ -101,8 +97,9 @@ class IncrementalSearchDevice(DddDevice):
     @classmethod
     def name_of_identifier(cls, names, identifier):
         matching_names = [name for name, actual_id in names.iteritems() if actual_id == identifier]
-        assert len(matching_names) == 1, "Expected to find one matching name but found %s for %s among %s" %\
-                                         (matching_names, identifier, names)
+        assert len(
+            matching_names
+        ) == 1, "Expected to find one matching name but found %s for %s among %s" % (matching_names, identifier, names)
         return matching_names.pop()
 
     @classmethod
@@ -124,7 +121,9 @@ class IncrementalSearchDevice(DddDevice):
     def contacts_with_matching(cls, key, value):
         if not value:
             return Set(CONTACTS.keys())
-        return Set([contact_id for contact_id, contact in CONTACTS.iteritems() if contact[key].lower() == value.lower()])
+        return Set([
+            contact_id for contact_id, contact in CONTACTS.iteritems() if contact[key].lower() == value.lower()
+        ])
 
     class NumberTypeRecognizer(EntityRecognizer):
         def recognize(self, string, language):

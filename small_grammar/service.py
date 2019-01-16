@@ -1,5 +1,6 @@
 from tala.model.device import DddDevice, EntityRecognizer
 
+
 class SmallGrammarDevice(DddDevice):
     class CityRecognizer(EntityRecognizer):
         def recognize_entity(self, string):

@@ -3,6 +3,7 @@
 from tala.model.device import DddDevice, EntityRecognizer, DeviceAction, Validity, DeviceWHQuery
 import unicodedata
 
+
 class RasaForRglDevice(DddDevice):
     CONTACTS = [
         ("contact_john", u"john", "0701234567"),
@@ -44,11 +45,7 @@ class RasaForRglDevice(DddDevice):
             for contact_id, contact_name, number in self.device.CONTACTS:
                 if self._contact_name_matches_tokens(contact_name, tokens):
                     contact_name = contact_name.capitalize()
-                    recognized_entity = {
-                        "sort": "contact",
-                        "grammar_entry": contact_name,
-                        "name": contact_id
-                    }
+                    recognized_entity = {"sort": "contact", "grammar_entry": contact_name, "name": contact_id}
                     result.append(recognized_entity)
             return result
 
@@ -72,33 +69,26 @@ class RasaForRglDevice(DddDevice):
                 if token.lower() == contact_name_lower:
                     return True
 
-
     class PhoneNumberAvailableForSelectedContactToCall(Validity):
         def is_valid(self, selected_contact):
             return self.device.has_phone_number(selected_contact)
-
 
     class ContactExistsForSelectedContactToCall(Validity):
         def is_valid(self, selected_contact):
             return self.device.exists(selected_contact)
 
-
     class PhoneNumberAvailableForSelectedContactOfPhoneNumber(Validity):
         def is_valid(self, selected_contact):
             return self.device.has_phone_number(selected_contact)
-
 
     class ContactExistsForSelectedContactOfPhoneNumber(Validity):
         def is_valid(self, selected_contact):
             return self.device.exists(selected_contact)
 
-
     class phone_number_of_contact(DeviceWHQuery):
         def perform(self, selected_contact):
             for identifier, name, number in self.device.CONTACTS:
                 if name.lower() == selected_contact.lower():
-                    number_entity = {
-                        "grammar_entry": number
-                        }
+                    number_entity = {"grammar_entry": number}
                     return [number_entity]
             return []
