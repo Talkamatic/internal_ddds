@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+
+--- unicode in context
+U> leave a comment to the housing owner
+G> *<context name="house_owner_name" sort_name="string" value="Örjan" title="Örjan" />
