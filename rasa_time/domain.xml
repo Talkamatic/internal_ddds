@@ -11,7 +11,7 @@
     <plan>
       <findout type="wh_question" predicate="departure_time"/>
       <findout type="wh_question" predicate="return_time"/>
-      <invoke_service_action name="BookFlight" postconfirm="True"/>
+      <invoke_service_action name="BookFlight" postconfirm="true"/>
     </plan>
   </goal>
 </domain>

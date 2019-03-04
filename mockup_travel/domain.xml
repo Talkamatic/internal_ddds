@@ -20,12 +20,12 @@
   </goal>
 
   <goal type="resolve" question_type="yn_question">
-    <proposition type="predicate" predicate="need_visa"/>
+    <proposition predicate="need_visa"/>
     <plan>
       <findout type="wh_question" predicate="dest_city"/>
       <findout type="wh_question" predicate="dept_city"/>
       <invoke_service_query type="yn_question">
-        <proposition type="predicate" predicate="need_visa"/>
+        <proposition predicate="need_visa"/>
       </invoke_service_query>
     </plan>
     <gui_context predicate="dest_city"/>
@@ -243,14 +243,12 @@
   <parameters question_type="wh_question" predicate="means_of_transport" source="service" max_spoken_alts="2">
     <service_query type="wh_question" predicate="available_means_of_transport"/>
   </parameters>
-  <parameters question_type="wh_question" predicate="passenger_quantity_to_add" allow_goal_accommodation="False"/>
+  <parameters question_type="wh_question" predicate="passenger_quantity_to_add" allow_goal_accommodation="false"/>
   <parameters question_type="wh_question" predicate="dept_month" graphical_type="list" source="domain">
     <background predicate="dept_city"/>
     <background predicate="dest_city"/>
   </parameters>
-  <parameters question_type="wh_question" predicate="frequent_flyer_number" graphical_type="text" source="service">
-    <default type="wh_question" predicate="frequent_flyer_number"/>
-  </parameters>
+  <parameters question_type="wh_question" predicate="frequent_flyer_number" graphical_type="text" source="service"/>
   <parameters question_type="wh_question" predicate="payment_method" graphical_type="list" source="service" max_spoken_alts="2">
     <service_query type="wh_question" predicate="available_payment_method"/>
   </parameters>
@@ -266,6 +264,6 @@
     <background predicate="frequent_flyer_points"/>
     <background predicate="current_position"/>
   </parameters>
-  <parameters question_type="wh_question" predicate="dept_day" allow_goal_accommodation="False"/>
+  <parameters question_type="wh_question" predicate="dept_day" allow_goal_accommodation="false"/>
   <default_question predicate="dest_city" type="wh_question"/>
 </domain>

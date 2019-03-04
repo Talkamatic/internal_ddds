@@ -94,258 +94,258 @@
 
   <parameters question_type="wh_question" predicate="minute_to_set" graphical_type="list">
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="0"/>
+      <proposition predicate="minute_to_set" value="0"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="1"/>
+      <proposition predicate="minute_to_set" value="1"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="2"/>
+      <proposition predicate="minute_to_set" value="2"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="3"/>
+      <proposition predicate="minute_to_set" value="3"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="4"/>
+      <proposition predicate="minute_to_set" value="4"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="5"/>
+      <proposition predicate="minute_to_set" value="5"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="6"/>
+      <proposition predicate="minute_to_set" value="6"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="7"/>
+      <proposition predicate="minute_to_set" value="7"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="8"/>
+      <proposition predicate="minute_to_set" value="8"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="9"/>
+      <proposition predicate="minute_to_set" value="9"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="10"/>
+      <proposition predicate="minute_to_set" value="10"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="11"/>
+      <proposition predicate="minute_to_set" value="11"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="12"/>
+      <proposition predicate="minute_to_set" value="12"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="13"/>
+      <proposition predicate="minute_to_set" value="13"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="14"/>
+      <proposition predicate="minute_to_set" value="14"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="15"/>
+      <proposition predicate="minute_to_set" value="15"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="16"/>
+      <proposition predicate="minute_to_set" value="16"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="17"/>
+      <proposition predicate="minute_to_set" value="17"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="18"/>
+      <proposition predicate="minute_to_set" value="18"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="19"/>
+      <proposition predicate="minute_to_set" value="19"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="20"/>
+      <proposition predicate="minute_to_set" value="20"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="21"/>
+      <proposition predicate="minute_to_set" value="21"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="22"/>
+      <proposition predicate="minute_to_set" value="22"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="23"/>
+      <proposition predicate="minute_to_set" value="23"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="24"/>
+      <proposition predicate="minute_to_set" value="24"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="25"/>
+      <proposition predicate="minute_to_set" value="25"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="26"/>
+      <proposition predicate="minute_to_set" value="26"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="27"/>
+      <proposition predicate="minute_to_set" value="27"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="28"/>
+      <proposition predicate="minute_to_set" value="28"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="29"/>
+      <proposition predicate="minute_to_set" value="29"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="30"/>
+      <proposition predicate="minute_to_set" value="30"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="31"/>
+      <proposition predicate="minute_to_set" value="31"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="32"/>
+      <proposition predicate="minute_to_set" value="32"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="33"/>
+      <proposition predicate="minute_to_set" value="33"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="34"/>
+      <proposition predicate="minute_to_set" value="34"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="35"/>
+      <proposition predicate="minute_to_set" value="35"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="36"/>
+      <proposition predicate="minute_to_set" value="36"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="37"/>
+      <proposition predicate="minute_to_set" value="37"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="38"/>
+      <proposition predicate="minute_to_set" value="38"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="39"/>
+      <proposition predicate="minute_to_set" value="39"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="40"/>
+      <proposition predicate="minute_to_set" value="40"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="41"/>
+      <proposition predicate="minute_to_set" value="41"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="42"/>
+      <proposition predicate="minute_to_set" value="42"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="43"/>
+      <proposition predicate="minute_to_set" value="43"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="44"/>
+      <proposition predicate="minute_to_set" value="44"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="45"/>
+      <proposition predicate="minute_to_set" value="45"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="46"/>
+      <proposition predicate="minute_to_set" value="46"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="47"/>
+      <proposition predicate="minute_to_set" value="47"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="48"/>
+      <proposition predicate="minute_to_set" value="48"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="49"/>
+      <proposition predicate="minute_to_set" value="49"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="50"/>
+      <proposition predicate="minute_to_set" value="50"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="51"/>
+      <proposition predicate="minute_to_set" value="51"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="52"/>
+      <proposition predicate="minute_to_set" value="52"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="53"/>
+      <proposition predicate="minute_to_set" value="53"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="54"/>
+      <proposition predicate="minute_to_set" value="54"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="55"/>
+      <proposition predicate="minute_to_set" value="55"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="56"/>
+      <proposition predicate="minute_to_set" value="56"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="57"/>
+      <proposition predicate="minute_to_set" value="57"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="58"/>
+      <proposition predicate="minute_to_set" value="58"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="minute_to_set" value="59"/>
+      <proposition predicate="minute_to_set" value="59"/>
     </alt>
   </parameters>
   <parameters question_type="wh_question" predicate="hour_to_set" graphical_type="list">
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="0"/>
+      <proposition predicate="hour_to_set" value="0"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="1"/>
+      <proposition predicate="hour_to_set" value="1"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="2"/>
+      <proposition predicate="hour_to_set" value="2"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="3"/>
+      <proposition predicate="hour_to_set" value="3"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="4"/>
+      <proposition predicate="hour_to_set" value="4"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="5"/>
+      <proposition predicate="hour_to_set" value="5"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="6"/>
+      <proposition predicate="hour_to_set" value="6"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="7"/>
+      <proposition predicate="hour_to_set" value="7"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="8"/>
+      <proposition predicate="hour_to_set" value="8"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="9"/>
+      <proposition predicate="hour_to_set" value="9"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="10"/>
+      <proposition predicate="hour_to_set" value="10"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="11"/>
+      <proposition predicate="hour_to_set" value="11"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="12"/>
+      <proposition predicate="hour_to_set" value="12"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="13"/>
+      <proposition predicate="hour_to_set" value="13"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="14"/>
+      <proposition predicate="hour_to_set" value="14"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="15"/>
+      <proposition predicate="hour_to_set" value="15"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="16"/>
+      <proposition predicate="hour_to_set" value="16"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="17"/>
+      <proposition predicate="hour_to_set" value="17"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="18"/>
+      <proposition predicate="hour_to_set" value="18"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="19"/>
+      <proposition predicate="hour_to_set" value="19"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="20"/>
+      <proposition predicate="hour_to_set" value="20"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="21"/>
+      <proposition predicate="hour_to_set" value="21"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="22"/>
+      <proposition predicate="hour_to_set" value="22"/>
     </alt>
     <alt>
-      <proposition type="predicate" predicate="hour_to_set" value="23"/>
+      <proposition predicate="hour_to_set" value="23"/>
     </alt>
   </parameters>
 </domain>

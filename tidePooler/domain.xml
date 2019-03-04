@@ -20,7 +20,7 @@
       <invoke_service_query predicate="readable_selected_date" type="wh_question"/>
       <invoke_service_query predicate="time_of_first_high_tide" type="wh_question"/>
       <invoke_service_query predicate="height_of_first_high_tide" type="wh_question"/>
-      <invoke_service_action name="OneshotTideIntent" postconfirm="True"/>
+      <invoke_service_action name="OneshotTideIntent" postconfirm="true"/>
     </plan>
   </goal>
 
@@ -28,7 +28,7 @@
   <goal type="perform" action="SupportedCitiesIntent">
     <plan>
       <invoke_service_query predicate="supported_cities" type="wh_question"/>
-      <invoke_service_action name="SupportedCitiesIntent" postconfirm="True"/>
+      <invoke_service_action name="SupportedCitiesIntent" postconfirm="true"/>
     </plan>
   </goal>
 

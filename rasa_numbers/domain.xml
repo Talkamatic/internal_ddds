@@ -10,7 +10,7 @@
   <goal type="perform" action="buy_apples" reraise_on_resume="false">
     <plan>
       <findout type="wh_question" predicate="desired_number_apples"/>
-      <invoke_service_action name="BuyApples" postconfirm="True"/>
+      <invoke_service_action name="BuyApples" postconfirm="true"/>
     </plan>
   </goal>
 
@@ -18,7 +18,7 @@
     <plan>
       <findout type="wh_question" predicate="num_bedrooms"/>
       <findout type="wh_question" predicate="num_guests"/>
-      <invoke_service_action name="SearchAccommodation" postconfirm="True"/>
+      <invoke_service_action name="SearchAccommodation" postconfirm="true"/>
     </plan>
   </goal>
 
