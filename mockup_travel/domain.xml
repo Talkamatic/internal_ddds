@@ -248,7 +248,9 @@
     <background predicate="dept_city"/>
     <background predicate="dest_city"/>
   </parameters>
-  <parameters question_type="wh_question" predicate="frequent_flyer_number" graphical_type="text" source="service"/>
+  <parameters question_type="wh_question" predicate="frequent_flyer_number" graphical_type="text" source="service">
+    <default type="wh_question" predicate="frequent_flyer_number"/>
+  </parameters>
   <parameters question_type="wh_question" predicate="payment_method" graphical_type="list" source="service" max_spoken_alts="2">
     <service_query type="wh_question" predicate="available_payment_method"/>
   </parameters>
