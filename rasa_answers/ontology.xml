@@ -2,7 +2,6 @@
 <ontology name="RasaAnswersOntology">
   <action name="navigate"/>
   <predicate name="destination" sort="location"/>
-  <predicate name="origin" sort="location"/>
   <individual name="paris" sort="location"/>
   <individual name="london" sort="location"/>
   <individual name="berlin" sort="location"/>

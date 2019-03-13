@@ -1,6 +1,21 @@
 {
     "device_module": "device.py",
-    "enable_rasa_nlu": true,
+    "rasa_nlu": {
+        "eng": {
+            "url": "http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/parse",
+            "config": {
+                "project": "internal_ddds",
+                "model": "rasa_numbers_eng"
+            }
+        },
+        "sv": {
+            "url": "http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/parse",
+            "config": {
+                "project": "internal_ddds",
+                "model": "rasa_numbers_sv"
+            }
+        }
+    },
     "overrides": null,
     "use_rgl": false,
     "use_third_party_parser": false,

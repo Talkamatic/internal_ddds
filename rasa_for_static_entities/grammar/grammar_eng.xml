@@ -19,7 +19,7 @@
         </vp>
       </item>
       <item>make a call</item>
-      <item>call <slot predicate="selected_contact_to_call"/></item>
+      <item>call <slot sort="contact"/></item>
     </one-of>
   </action>
 

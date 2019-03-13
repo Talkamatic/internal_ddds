@@ -63,6 +63,6 @@ S> Vems nummer?
 U> John
 S> John har nummer 0701234567.
 
---- unexpected sortal entity from RASA
+--- unexpected sortal entity from Rasa
 U> jag behöver Fredrik's telefonnummer 40.0
 S> Vems nummer?

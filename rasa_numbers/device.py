@@ -10,10 +10,6 @@ class RasaNumbersDevice(DddDevice):
         def perform(self, desired_number_apples):
             return True
 
-    class SearchAccommodation(DeviceAction):
-        def perform(self, num_bedrooms, num_guests):
-            return True
-
     class allowed_number_apples(DeviceWHQuery):
         def perform(self):
             maximum_allowed_amount = 30

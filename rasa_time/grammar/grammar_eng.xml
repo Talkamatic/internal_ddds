@@ -15,13 +15,7 @@
         </vp>
       </item>
       <item>
-	I want to book a flight departing <slot predicate="departure_time"/>
-      </item>
-      <item>
-	I want to book a flight departing <slot predicate="departure_time"/> and returning <slot predicate="return_time"/>
-      </item>
-      <item>
-	I want to book a flight returning <slot predicate="return_time"/> and departing <slot predicate="departure_time"/>
+        I want to book a flight departing <slot sort="datetime"/>
       </item>
     </one-of>
   </action>
@@ -34,9 +28,9 @@
     when do you want to return
   </question>
 
-  <answer speaker="user">I want to leave on <slot predicate="departure_time"/></answer>
+  <answer speaker="user">I want to leave on <slot sort="datetime"/></answer>
 
   <report action="BookFlight" status="ended">
-    OK, I've booked a flight departing at <slot predicate="departure_time"/> and returning at <slot predicate="return_time"/>.
+    OK, I've booked a flight departing at <slot predicate="departure_time"/>.
   </report>
 </grammar>

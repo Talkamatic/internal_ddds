@@ -10,7 +10,6 @@
   <goal type="perform" action="book_flight" reraise_on_resume="false">
     <plan>
       <findout type="wh_question" predicate="departure_time"/>
-      <findout type="wh_question" predicate="return_time"/>
       <invoke_service_action name="BookFlight" postconfirm="true"/>
     </plan>
   </goal>

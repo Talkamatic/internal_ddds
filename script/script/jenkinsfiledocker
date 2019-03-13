@@ -92,297 +92,160 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        def tdm = docker.image('talkamatic/tdm:nightly-eng-sv');
-
-                        stage('Mirror') {
-                            // First make sure the slave has this image.
-                            tdm.pull()
-                        }
-
-                        docker.image('rasa/duckling').withRun() { container ->
-                            tdm.inside("--link ${container.id}:duckling") {
-
+                        def tdm = docker.image('registry.hub.docker.com/talkamatic/tdm:nightly')
+                        tdm.pull()
+                        dir("internal_ddds") {
+                            tdm.inside() {
                                 stage('tide pooler') {
-
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds
-
-                                            tdm build --config tidePooler.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds
-
-                                            tdm test eng --config tidePooler.json
-                                        '''
-
+                                    sh 'tdm build --config tidePooler.json'
+                                    sh 'tdm test eng --config tidePooler.json'
                                 }
 
                                 stage('multi ddd') {
-
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/multi_ddd
-                                            tdm build
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/multi_ddd
-                                            tdm test eng --interpret-robustly
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/multi_ddd
-                                            tdm test sv
-                                        '''
-
-                                }
-
-                                stage('rgl migration without rgl') {
-
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/without_rgl
-                                            tdm build
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/without_rgl
-                                            tdm test eng
-                                        '''
-
-                                }
-
-                                stage('rgl migration with rgl') {
-                                    stage('build & test android') {
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm build --config android.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test eng --config android.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test dut --config android.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test fre --config android.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test chi --config android.config.json
-                                        '''
-                                    }
-
-                                    stage('build & test device failure') {
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm build --config device_failure.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test eng --config device_failure.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test dut --config device_failure.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test fre --config device_failure.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test chi --config device_failure.config.json
-                                        '''
-                                    }
-
-                                    stage('build & test device notification') {
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm build --config device_notification.config.json
-                                        '''
-                                        sh '''#!/bin/bash -ex
-                                            export PYTHONPATH=$PYTHONPATH:.
-
-                                            cd internal_ddds/rgl_migration/with_rgl
-                                            tdm test eng --config device_notification.config.json
-                                        '''
+                                    dir("multi_ddd") {
+                                        sh 'tdm build'
+                                        sh 'tdm test eng --interpret-robustly'
+                                        sh 'tdm test sv'
                                     }
                                 }
 
-                                stage('rasa for dynamic entities') {
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
+                                dir("rgl_migration") {
+                                    stage('rgl migration without rgl') {
+                                        dir("without_rgl") {
+                                            sh 'tdm build'
+                                            sh 'tdm test eng'
+                                        }
+                                    }
 
-                                        cd internal_ddds
+                                    stage('rgl migration with rgl') {
+                                        dir("with_rgl") {
+                                            stage('build & test android') {
+                                                sh 'tdm build --config android.config.json'
+                                                sh 'tdm test eng --config android.config.json --log-to-stdout'
+                                                sh 'tdm test dut --config android.config.json --log-to-stdout'
+                                                sh 'tdm test fre --config android.config.json --log-to-stdout'
+                                                sh 'tdm test chi --config android.config.json --log-to-stdout'
+                                            }
 
-                                        tdm build --config rasa_for_dynamic_entities.config.json --rasa-config duckling_disabled.rasa.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
+                                            stage('build & test device failure') {
+                                                sh 'tdm build --config device_failure.config.json'
+                                                sh 'tdm test eng --config device_failure.config.json --log-to-stdout'
+                                                sh 'tdm test dut --config device_failure.config.json --log-to-stdout'
+                                                sh 'tdm test fre --config device_failure.config.json --log-to-stdout'
+                                                sh 'tdm test chi --config device_failure.config.json --log-to-stdout'
+                                            }
 
-                                        cd internal_ddds
-
-                                        tdm test eng --config rasa_for_dynamic_entities.config.json
-                                    '''
+                                            stage('build & test device notification') {
+                                                sh 'tdm build --config device_notification.config.json'
+                                                sh 'tdm test eng --config device_notification.config.json --log-to-stdout'
+                                            }
+                                        }
+                                    }
                                 }
+                            }
 
-                                stage('rasa for static entities') {
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm build --config rasa_for_static_entities.config.json --rasa-config duckling_disabled.rasa.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test eng --config rasa_for_static_entities.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test sv --config rasa_for_static_entities.config.json
-                                    '''
+                            stage('generate training data') {
+                                tdm.inside() {
+                                    sh 'tala generate-rasa --config rasa_for_dynamic_entities.config.json rasa_for_dynamic_entities eng > rasa_for_dynamic_entities.yml'
+                                    sh 'tala generate-rasa --config rasa_for_static_entities.config.json rasa_for_static_entities eng > rasa_for_static_entities_eng.yml'
+                                    sh 'tala generate-rasa --config rasa_for_static_entities.config.json rasa_for_static_entities sv > rasa_for_static_entities_sv.yml'
+                                    sh 'tala generate-rasa --config rasa_strings.config.json rasa_strings eng > rasa_strings.yml'
+                                    sh 'tala generate-rasa --config rasa_answers.config.json rasa_answers eng > rasa_answers.yml'
+                                    sh 'tala generate-rasa --config rasa_for_rgl.config.json rasa_for_rgl eng > rasa_for_rgl.yml'
+                                    sh 'tala generate-rasa --config rasa_numbers.config.json rasa_numbers eng > rasa_numbers_eng.yml'
+                                    sh 'tala generate-rasa --config rasa_numbers.config.json rasa_numbers sv > rasa_numbers_sv.yml'
+                                    sh 'tala generate-rasa --config rasa_time.config.json rasa_time eng > rasa_time_eng.yml'
+                                    sh 'tala generate-rasa --config rasa_time.config.json rasa_time sv > rasa_time_sv.yml'
                                 }
+                            }
 
-                                stage('rasa strings') {
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm build --config rasa_strings.config.json --rasa-config duckling_disabled.rasa.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test eng --config rasa_strings.config.json
-                                    '''
+                            stage('rasa for dynamic entities') {
+                                train("rasa_for_dynamic_entities", "rasa_for_dynamic_entities.yml")
+                                load("rasa_for_dynamic_entities")
+                                tdm.inside() {
+                                    sh 'tdm build --config rasa_for_dynamic_entities.config.json'
+                                    sh 'tdm test eng --config rasa_for_dynamic_entities.config.json --log-to-stdout'
                                 }
+                                unload("rasa_for_dynamic_entities")
+                            }
 
-                                stage('rasa answers') {
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm build --config rasa_answers.config.json --rasa-config duckling_disabled.rasa.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test eng --config rasa_answers.config.json
-                                    '''
+                            stage('rasa for static entities') {
+                                train("rasa_for_static_entities_eng", "rasa_for_static_entities_eng.yml")
+                                load("rasa_for_static_entities_eng")
+                                tdm.inside() {
+                                    sh 'tdm build --config rasa_for_static_entities.config.json'
+                                    sh 'tdm test eng --config rasa_for_static_entities.config.json --log-to-stdout'
                                 }
-
-                                stage('rasa for rgl') {
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm build --config rasa_for_rgl.config.json --rasa-config duckling_disabled.rasa.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test eng --config rasa_for_rgl.config.json
-                                    '''
+                                unload("rasa_for_static_entities_eng")
+                                train("rasa_for_static_entities_sv", "rasa_for_static_entities_sv.yml")
+                                load("rasa_for_static_entities_sv")
+                                tdm.inside() {
+                                    sh 'tdm test sv --config rasa_for_static_entities.config.json --log-to-stdout'
                                 }
+                                unload("rasa_for_static_entities_sv")
+                            }
 
-                                stage('rasa numbers') {
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm build --config rasa_numbers.config.json --rasa-config duckling_enabled.rasa.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test eng --config rasa_numbers.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test sv --config rasa_numbers.config.json
-                                    '''
+                            stage('rasa strings') {
+                                train("rasa_strings", "rasa_strings.yml")
+                                load("rasa_strings")
+                                tdm.inside() {
+                                    sh 'tdm build --config rasa_strings.config.json'
+                                    sh 'tdm test eng --config rasa_strings.config.json --log-to-stdout'
                                 }
+                                unload("rasa_strings")
+                            }
 
-                                stage('rasa time') {
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm build --config rasa_time.config.json --rasa-config duckling_enabled.rasa.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test eng --config rasa_time.config.json
-                                    '''
-                                    sh '''#!/bin/bash -ex
-                                        export PYTHONPATH=$PYTHONPATH:.
-
-                                        cd internal_ddds
-
-                                        tdm test sv --config rasa_time.config.json
-                                    '''
+                            stage('rasa answers') {
+                                train("rasa_answers", "rasa_answers.yml")
+                                load("rasa_answers")
+                                tdm.inside() {
+                                    sh 'tdm build --config rasa_answers.config.json'
+                                    sh 'tdm test eng --config rasa_answers.config.json --log-to-stdout'
                                 }
+                                unload("rasa_answers")
+                            }
+
+                            stage('rasa for rgl') {
+                                train("rasa_for_rgl", "rasa_for_rgl.yml")
+                                load("rasa_for_rgl")
+                                tdm.inside() {
+                                    sh 'tdm build --config rasa_for_rgl.config.json'
+                                    sh 'tdm test eng --config rasa_for_rgl.config.json --log-to-stdout'
+                                }
+                                unload("rasa_for_rgl")
+                            }
+
+                            stage('rasa numbers') {
+                                use_duckling_config("rasa_numbers_eng.yml")
+                                train("rasa_numbers_eng", "rasa_numbers_eng.yml")
+                                load("rasa_numbers_eng")
+                                tdm.inside() {
+                                    sh 'tdm build --config rasa_numbers.config.json'
+                                    sh 'tdm test eng --config rasa_numbers.config.json --log-to-stdout'
+                                }
+                                unload("rasa_numbers_eng")
+                                use_duckling_config("rasa_numbers_sv.yml")
+                                train("rasa_numbers_sv", "rasa_numbers_sv.yml")
+                                tdm.inside() {
+                                    sh 'tdm test sv --config rasa_numbers.config.json --log-to-stdout'
+                                }
+                                unload("rasa_numbers_sv")
+                            }
+
+                            stage('rasa time') {
+                                use_duckling_config("rasa_time_eng.yml")
+                                train("rasa_time_eng", "rasa_time_eng.yml")
+                                tdm.inside() {
+                                    sh 'tdm build --config rasa_time.config.json'
+                                    sh 'tdm test eng --config rasa_time.config.json --log-to-stdout'
+                                }
+                                unload("rasa_time_eng")
+                                use_duckling_config("rasa_time_sv.yml")
+                                train("rasa_time_sv", "rasa_time_sv.yml")
+                                tdm.inside() {
+                                    sh 'tdm test sv --config rasa_time.config.json --log-to-stdout'
+                                }
+                                unload("rasa_time_sv")
                             }
                         }
                     }
@@ -390,4 +253,31 @@ pipeline {
             }
         }
     }
+}
+
+def use_duckling_config(filename) {
+    def trainingData = readFile filename
+    def defaultPipeline = 'pipeline: "spacy_sklearn"'
+    def ducklingPipeline = """pipeline:
+- name: "SpacyNLP"
+- name: "SpacyTokenizer"
+- name: "RegexFeaturizer"
+- name: "SpacyFeaturizer"
+- name: "SklearnIntentClassifier"
+- name: "DucklingHTTPExtractor"
+  url: "http://duckling:8000"
+"""
+    writeFile file: filename, text: trainingData.replace(defaultPipeline, ducklingPipeline)
+}
+
+def load(model) {
+    sh "curl --fail 'http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/parse?project=internal_ddds&model=${model}&q=hello' > /dev/null 2>&1"
+}
+
+def unload(model) {
+    sh "curl --fail -X DELETE 'http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/models?project=internal_ddds&model=${model}'"
+}
+
+def train(model, training_data) {
+    sh "curl --fail -X POST -H 'Content-Type: application/x-yml' 'http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/train?project=internal_ddds&model=${model}' --data-binary @${training_data} > /dev/null 2>&1"
 }

@@ -1,6 +1,14 @@
 {
     "device_module": "device.py",
-    "enable_rasa_nlu": true,
+    "rasa_nlu": {
+        "eng": {
+            "url": "http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/parse",
+            "config": {
+                "project": "internal_ddds",
+                "model": "rasa_for_rgl"
+            }
+        }
+    },
     "overrides": null,
     "use_rgl": true,
     "use_third_party_parser": false,

@@ -2,7 +2,6 @@
 <service_interface>
   <action name="Navigate">
     <parameters>
-      <parameter predicate="origin" format="value"/>
       <parameter predicate="destination" format="value"/>
     </parameters>
     <failure_reasons/>

@@ -9,16 +9,6 @@
       <device_module device="RasaNumbersDevice"/>
     </target>
   </action>
-  <action name="SearchAccommodation">
-    <parameters>
-      <parameter predicate="num_bedrooms" format="value"/>
-      <parameter predicate="num_guests" format="value"/>
-    </parameters>
-    <failure_reasons/>
-    <target>
-      <device_module device="RasaNumbersDevice"/>
-    </target>
-  </action>
   <query name="allowed_number_apples">
     <parameters/>
     <target>

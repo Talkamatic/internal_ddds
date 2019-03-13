@@ -10,7 +10,6 @@
   <goal type="perform" action="navigate" reraise_on_resume="false">
     <plan>
       <findout type="wh_question" predicate="destination"/>
-      <findout type="wh_question" predicate="origin"/>
       <invoke_service_action name="Navigate" postconfirm="true"/>
     </plan>
   </goal>

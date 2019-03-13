@@ -3,7 +3,6 @@
   <action name="BookFlight">
     <parameters>
       <parameter predicate="departure_time" format="value"/>
-      <parameter predicate="return_time" format="value"/>
     </parameters>
     <failure_reasons/>
     <target>

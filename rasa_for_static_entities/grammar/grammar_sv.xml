@@ -22,7 +22,7 @@
       <item>ring en kontakt</item>
       <item>ring</item>
       <item>kan du ringa</item>
-      <item>ring <slot predicate="selected_contact_to_call"/></item>
+      <item>ring <slot sort="contact"/></item>
     </one-of>
   </action>
 

@@ -2,5 +2,4 @@
 <ontology name="RasaTimeOntology">
   <action name="book_flight"/>
   <predicate name="departure_time" sort="datetime"/>
-  <predicate name="return_time" sort="datetime"/>
 </ontology>

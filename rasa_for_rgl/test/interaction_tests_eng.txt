@@ -73,7 +73,7 @@ S> Whose number?
 U> John
 S> John has number 0701234567.
 
---- unexpected entity from RASA
+--- unexpected entity from Rasa
 S> *
 U> tell me Liisa's phone number
 S> liisa is not in the phone book.

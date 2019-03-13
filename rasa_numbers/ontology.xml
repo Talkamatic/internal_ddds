@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ontology name="RasaNumbersOntology">
   <action name="buy_apples"/>
-  <action name="search_accommodation"/>
 
   <predicate name="desired_number_apples" sort="integer"/>
   <predicate name="allowed_number_apples" sort="integer"/>
-  <predicate name="num_bedrooms" sort="integer"/>
-  <predicate name="num_guests" sort="integer"/>
 </ontology>

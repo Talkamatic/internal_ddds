@@ -15,13 +15,7 @@
         </vp>
       </item>
       <item>
-          Jag vill boka ett flyg med avresa <slot predicate="departure_time"/>
-      </item>
-      <item>
-          Jag vill boka ett flyg med avresa <slot predicate="departure_time"/> och återresa <slot predicate="return_time"/>
-      </item>
-      <item>
-          Jag vill boka ett flyg med återresa <slot predicate="return_time"/> och avresa <slot predicate="departure_time"/>
+          Jag vill boka ett flyg med avresa <slot sort="datetime"/>
       </item>
     </one-of>
   </action>
@@ -34,9 +28,9 @@
     när vill du resa tillbaka
   </question>
 
-  <answer speaker="user">jag vill avresa <slot predicate="departure_time"/></answer>
+  <answer speaker="user">jag vill avresa <slot sort="datetime"/></answer>
 
   <report action="BookFlight" status="ended">
-    Okej, jag har bokat ett flyg med avresa <slot predicate="departure_time"/> och återresa <slot predicate="return_time"/>.
+    Okej, jag har bokat ett flyg med avresa <slot predicate="departure_time"/>.
   </report>
 </grammar>

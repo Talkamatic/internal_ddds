@@ -48,11 +48,3 @@ S> 125 apples are too many. Please choose between 6 and 30.
 --- intent recognition for buying apples
 U> 125 apples
 S> Okay, you want to Buy apples.
-
---- one-shot accommodation search, num bedrooms first
-U> book accommodation with two bedrooms for three guests noise
-S> Searching for accommodation with 2 bedrooms for 3 guests.
-
---- one-shot accommodation search, num guests first
-U> book accommodation for three guests with two bedrooms noise
-S> Searching for accommodation with 2 bedrooms for 3 guests.

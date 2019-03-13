@@ -1,7 +1,7 @@
 {
     "device_module": "device.py",
     "overrides": null,
-    "enable_rasa_nlu": false,
+    "rasa_nlu": {},
     "use_rgl": false,
     "use_third_party_parser": false,
     "word_list": "word_list.txt"

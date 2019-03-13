@@ -24,9 +24,9 @@
       <item>kan jag köpa äpplen</item>
       <item>jag vill köpa äpplen</item>
       <item>köp <slot sort="integer"/> äpplen</item>
+      <item>kan jag köpa <slot sort="integer"/> äpplen</item>
       <item>jag vill köpa <slot sort="integer"/> äpplen</item>
-      <item>köp <slot predicate="desired_number_apples"/> äpplen</item>
-      <item>jag vill köpa <slot predicate="desired_number_apples"/> äpplen</item>
+      <item>jag skulle vilja köpa <slot sort="integer"/> äpplen</item>
     </one-of>
   </action>
 
@@ -47,11 +47,11 @@
 
   <answer speaker="user">
     <one-of>
-      <item><slot predicate="desired_number_apples" type="individual"/> äpplen</item>
-      <item>cirka <slot predicate="desired_number_apples" type="individual"/></item>
-      <item>cirka <slot predicate="desired_number_apples" type="individual"/> äpplen</item>
-      <item>runt <slot predicate="desired_number_apples" type="individual"/> äpplen</item>
-      <item>runt <slot predicate="desired_number_apples" type="individual"/></item>
+      <item><slot sort="integer" type="individual"/> äpplen</item>
+      <item>cirka <slot sort="integer" type="individual"/></item>
+      <item>cirka <slot sort="integer" type="individual"/> äpplen</item>
+      <item>runt <slot sort="integer" type="individual"/> äpplen</item>
+      <item>runt <slot sort="integer" type="individual"/></item>
     </one-of>
   </answer>
 
@@ -70,21 +70,5 @@
   <answer speaker="system" predicate="allowed_number_apples">
     Det maximala antalet äpplen du kan köpa är <slot predicate="allowed_number_apples"/>
   </answer>
-
-  <action name="search_accommodation">
-    <one-of>
-      <item>boka boende</item>
-      <item>boka boende med <slot predicate="num_bedrooms"/> sovrum för <slot predicate="num_guests"/> gäster</item>
-      <item>boka boende för <slot predicate="num_guests"/> gäster med <slot predicate="num_bedrooms"/> sovrum</item>
-    </one-of>
-  </action>
-
-  <question speaker="system" predicate="num_bedrooms" type="wh_question">hur många sovrum</question>
-  <question speaker="system" predicate="num_guests" type="wh_question">hur många gäster</question>
-
-
-  <report action="SearchAccommodation" status="ended">
-    Söker boende med <slot predicate="num_bedrooms"/> sovrum för <slot predicate="num_guests"/> gäster.
-  </report>
 
 </grammar>

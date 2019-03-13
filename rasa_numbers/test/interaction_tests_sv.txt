@@ -48,11 +48,3 @@ S> 125 äpplen är för många. Vänligen välj mellan 6 och 30.
 --- intent recognition for buying apples
 U> 125 äpplen
 S> Okej, du vill Köpa äpplen.
-
---- one-shot accommodation search, num bedrooms first
-U> boka boende med två sovrum för tre gäster brus
-S> Söker boende med 2 sovrum för 3 gäster.
-
---- one-shot accommodation search, num guests first
-U> boka boende för tre gäster med två sovrum brus
-S> Söker boende med 2 sovrum för 3 gäster.

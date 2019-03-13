@@ -29,9 +29,8 @@
       <item>can I buy apples</item>
       <item>i want to buy apples</item>
       <item>buy <slot sort="integer"/> apples</item>
+      <item>can I buy <slot sort="integer"/> apples</item>
       <item>I want to buy <slot sort="integer"/> apples</item>
-      <item>buy <slot predicate="desired_number_apples"/> apples</item>
-      <item>I want to buy <slot predicate="desired_number_apples"/> apples</item>
     </one-of>
   </action>
 
@@ -54,9 +53,9 @@
 
   <answer speaker="user">
     <one-of>
-      <item><slot predicate="desired_number_apples" type="individual"/> apples</item>
-      <item>about <slot predicate="desired_number_apples" type="individual"/></item>
-      <item>about <slot predicate="desired_number_apples" type="individual"/> apples</item>
+      <item><slot sort="integer" type="individual"/> apples</item>
+      <item>about <slot sort="integer" type="individual"/></item>
+      <item>about <slot sort="integer" type="individual"/> apples</item>
     </one-of>
   </answer>
 
@@ -75,20 +74,5 @@
   <answer speaker="system" predicate="allowed_number_apples">
     You can buy a maximum of <slot predicate="allowed_number_apples"/> apples
   </answer>
-
-  <action name="search_accommodation">
-    <one-of>
-      <item>book accommodation</item>
-      <item>book accommodation with <slot predicate="num_bedrooms"/> bedrooms for <slot predicate="num_guests"/> guests</item>
-      <item>book accommodation for <slot predicate="num_guests"/> guests with <slot predicate="num_bedrooms"/> bedrooms</item>
-    </one-of>
-  </action>
-
-  <question speaker="system" predicate="num_bedrooms" type="wh_question">how many bedrooms</question>
-  <question speaker="system" predicate="num_guests" type="wh_question">how many guests</question>
-
-  <report action="SearchAccommodation" status="ended">
-    Searching for accommodation with <slot predicate="num_bedrooms"/> bedrooms for <slot predicate="num_guests"/> guests.
-  </report>
 
 </grammar>

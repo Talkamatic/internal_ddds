@@ -63,6 +63,6 @@ S> Whose number?
 U> John
 S> John has number 0701234567.
 
---- unexpected sortal entity from RASA
+--- unexpected sortal entity from Rasa
 U> tell me Liisa's phone number
 S> Whose number?
