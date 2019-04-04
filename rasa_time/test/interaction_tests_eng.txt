@@ -1,31 +1,31 @@
 --- sortal answers
-U> book a flight
+U> book a flight 40.0
 S> When do you want to leave?
-U> March eleventh at ten pm
+U> March eleventh at ten pm 40.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- one-shot
-U> I want to book a flight departing March eleventh at ten pm
+U> I want to book a flight departing March eleventh at ten pm 40.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- intent recognition
-U> I want to leave on March eleventh at ten pm
+U> I want to leave on March eleventh at ten pm 40.0
 S> Okay, you want to Book a flight.
 
 --- closed interval
-U> book a flight
+U> book a flight 40.0
 S> When do you want to leave?
-U> by March eleventh at ten pm
+U> by March eleventh at ten pm 40.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- interval with open beginning
-U> book a flight
+U> book a flight 40.0
 S> When do you want to leave?
-U> before March eleventh at ten pm
+U> before March eleventh at ten pm 40.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- interval with open end
-U> book a flight
+U> book a flight 40.0
 S> When do you want to leave?
-U> after March eleventh at ten pm
+U> after March eleventh at ten pm 40.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.

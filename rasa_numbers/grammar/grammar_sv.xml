@@ -49,9 +49,6 @@
     <one-of>
       <item><slot sort="integer" type="individual"/> äpplen</item>
       <item>cirka <slot sort="integer" type="individual"/></item>
-      <item>cirka <slot sort="integer" type="individual"/> äpplen</item>
-      <item>runt <slot sort="integer" type="individual"/> äpplen</item>
-      <item>runt <slot sort="integer" type="individual"/></item>
     </one-of>
   </answer>
 
