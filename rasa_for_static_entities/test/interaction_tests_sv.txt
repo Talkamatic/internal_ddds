@@ -66,3 +66,7 @@ S> John har nummer 0701234567.
 --- unexpected sortal entity from Rasa
 U> jag behöver Fredrik's telefonnummer 40.0
 S> Vems nummer?
+
+--- use entity synonym
+U> ring till Johnny 40.0
+S> Ringer John

@@ -69,7 +69,13 @@
     </one-of>
   </answer>
 
-  <individual name="contact_john">John</individual>
+
+  <individual name="contact_john">
+    <one-of>
+      <item>John</item>
+      <item>Johnny</item>
+    </one-of>
+  </individual>
   <individual name="contact_john_chi">约翰</individual>
   <individual name="contact_lisa">Lisa</individual>
   <individual name="contact_mary">Mary</individual>
