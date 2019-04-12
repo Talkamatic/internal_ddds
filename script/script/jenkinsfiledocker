@@ -92,7 +92,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        def tdm = docker.image('registry.hub.docker.com/talkamatic/tdm:nightly')
+                        def tdm = docker.image('registry.hub.docker.com/talkamatic/tdm:latest')
                         tdm.pull()
                         dir("internal_ddds") {
                             tdm.inside() {
