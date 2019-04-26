@@ -139,7 +139,7 @@ S> Where do you want to go?
 --- background for related information for perform goal
 S> *
 U> membership
-S> You have fifty frequent flyer points and are qualified for membership and you are in london. Do you want to apply for membership?
+S> You have fifty frequent flyer points and are qualified for membership and you are in London. Do you want to apply for membership?
 
 --- grounding feedback for resolve goal
 S> *
