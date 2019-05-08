@@ -1,7 +1,7 @@
 from tala.model.device import DddDevice, DeviceAction, DeviceWHQuery
 
 
-class RasaTimeDevice(DddDevice):
+class DatetimeDevice(DddDevice):
     class BookFlight(DeviceAction):
         def perform(self, departure_time):
             return True

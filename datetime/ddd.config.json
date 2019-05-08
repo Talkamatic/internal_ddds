@@ -5,14 +5,14 @@
             "url": "http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/parse",
             "config": {
                 "project": "internal_ddds",
-                "model": "rasa_time_eng"
+                "model": "datetime_eng"
             }
         },
         "sv": {
             "url": "http://rasa-nlu-jenkins.cloud.talkamatic.se:5000/parse",
             "config": {
                 "project": "internal_ddds",
-                "model": "rasa_time_sv"
+                "model": "datetime_sv"
             }
         }
     },

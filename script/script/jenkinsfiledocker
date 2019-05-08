@@ -154,8 +154,8 @@ pipeline {
                                     sh 'tala generate-rasa --config rasa_for_rgl.config.json rasa_for_rgl eng > rasa_for_rgl.yml'
                                     sh 'tala generate-rasa --config rasa_numbers.config.json rasa_numbers eng > rasa_numbers_eng.yml'
                                     sh 'tala generate-rasa --config rasa_numbers.config.json rasa_numbers sv > rasa_numbers_sv.yml'
-                                    sh 'tala generate-rasa --config rasa_time.config.json rasa_time eng > rasa_time_eng.yml'
-                                    sh 'tala generate-rasa --config rasa_time.config.json rasa_time sv > rasa_time_sv.yml'
+                                    sh 'tala generate-rasa --config datetime.config.json datetime eng > datetime_eng.yml'
+                                    sh 'tala generate-rasa --config datetime.config.json datetime sv > datetime_sv.yml'
                                 }
                             }
 
@@ -233,19 +233,19 @@ pipeline {
                             }
 
                             stage('rasa time') {
-                                use_duckling_config("rasa_time_eng.yml")
-                                train("rasa_time_eng", "rasa_time_eng.yml")
+                                use_duckling_config("datetime_eng.yml")
+                                train("datetime_eng", "datetime_eng.yml")
                                 tdm.inside() {
-                                    sh 'tdm build --config rasa_time.config.json'
-                                    sh 'tdm test eng --config rasa_time.config.json --log-to-stdout'
+                                    sh 'tdm build --config datetime.config.json'
+                                    sh 'tdm test eng --config datetime.config.json --log-to-stdout'
                                 }
-                                unload("rasa_time_eng")
-                                use_duckling_config("rasa_time_sv.yml")
-                                train("rasa_time_sv", "rasa_time_sv.yml")
+                                unload("datetime_eng")
+                                use_duckling_config("datetime_sv.yml")
+                                train("datetime_sv", "datetime_sv.yml")
                                 tdm.inside() {
-                                    sh 'tdm test sv --config rasa_time.config.json --log-to-stdout'
+                                    sh 'tdm test sv --config datetime.config.json --log-to-stdout'
                                 }
-                                unload("rasa_time_sv")
+                                unload("datetime_sv")
                             }
                         }
                     }

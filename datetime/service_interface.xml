@@ -6,13 +6,13 @@
     </parameters>
     <failure_reasons/>
     <target>
-      <device_module device="RasaTimeDevice"/>
+      <device_module device="DatetimeDevice"/>
     </target>
   </action>
   <query name="next_arrival_time">
     <parameters/>
     <target>
-      <device_module device="RasaTimeDevice"/>
+      <device_module device="DatetimeDevice"/>
     </target>
   </query>
 </service_interface>
