@@ -23,3 +23,8 @@ U> boka ett flyg 40.0
 S> När vill du avresa?
 U> efter 11 mars klockan 22 40.0
 S> Okej, jag har bokat ett flyg med avresa 03/11/* 10:00 PM.
+
+--- generate datetime from service
+S> *
+U> när ankommer nästa flyg
+S> Nästa flyg ankommer 04/11/2018 10:00 PM.

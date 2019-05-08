@@ -262,10 +262,4 @@
 
   <action name="show_on_map">show on map</action>
   <report action="ShowOnMap" status="ended">showing <slot predicate="dest_city" type="individual"/> on the map.</report>
-
-  <question speaker="user" predicate="flight_departure" type="wh_question">
-    when is the flight departing
-  </question>
-  <question speaker="all" predicate="flight_departure" type="wh_question">flight departure</question>
-  <answer speaker="system">The flight departs at <slot predicate="flight_departure" type="individual"/></answer>
 </grammar>

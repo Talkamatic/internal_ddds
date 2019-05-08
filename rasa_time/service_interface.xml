@@ -9,4 +9,10 @@
       <device_module device="RasaTimeDevice"/>
     </target>
   </action>
+  <query name="next_arrival_time">
+    <parameters/>
+    <target>
+      <device_module device="RasaTimeDevice"/>
+    </target>
+  </query>
 </service_interface>

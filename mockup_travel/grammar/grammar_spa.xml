@@ -282,10 +282,4 @@
 
   <action name="show_on_map">enséñame en el mapa</action>
   <report action="ShowOnMap" status="ended">enseñando <slot predicate="dest_city" type="individual"/> en el mapa.</report>
-
-  <question speaker="user" predicate="flight_departure" type="wh_question">
-    cuándo sale este vuelo
-  </question>
-  <question speaker="all" predicate="flight_departure" type="wh_question">salida de vuelo</question>
-  <answer speaker="system">El vuelo sale a las <slot predicate="flight_departure" type="individual"/></answer>
 </grammar>

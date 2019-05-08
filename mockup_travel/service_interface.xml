@@ -247,10 +247,4 @@
       <device_module device="MockupTravelDevice"/>
     </target>
   </query>
-  <query name="flight_departure">
-    <parameters/>
-    <target>
-      <device_module device="MockupTravelDevice"/>
-    </target>
-  </query>
 </service_interface>
