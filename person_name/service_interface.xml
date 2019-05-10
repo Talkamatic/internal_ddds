@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <action name="Call">
+    <parameters>
+      <parameter predicate="name_of_contact_to_call" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="PersonNameDevice"/>
+    </target>
+  </action>
+  <action name="CreateReport">
+    <parameters>
+      <parameter predicate="name_of_person_in_report" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="PersonNameDevice"/>
+    </target>
+  </action>
+  <query name="name_of_person_in_report">
+    <parameters/>
+    <target>
+      <device_module device="PersonNameDevice"/>
+    </target>
+  </query>
+  <action name="SendInvitation">
+    <parameters>
+      <parameter predicate="name_of_person_to_invite" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10101/send_invitation"/>
+    </target>
+  </action>
+  <query name="name_of_person_to_invite">
+    <parameters/>
+    <target>
+      <http endpoint="http://127.0.0.1:10101/name_of_person_to_invite"/>
+    </target>
+  </query>
+</service_interface>

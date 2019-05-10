@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">main menu</action>
+  <action name="up">go back</action>
+
+  <action name="call">
+    <one-of>
+      <item>
+        <vp>
+          <infinitive>call</infinitive>
+          <imperative>call</imperative>
+          <ing-form>calling</ing-form>
+          <object>a contact</object>
+        </vp>
+      </item>
+      <item>call <slot sort="person_name"/></item>
+    </one-of>
+  </action>
+
+  <question speaker="system" predicate="name_of_contact_to_call" type="wh_question">
+    who do you want to call
+  </question>
+
+  <report action="Call" status="ended">
+    Okay, calling <slot predicate="name_of_contact_to_call"/>.
+  </report>
+
+  <action name="create_report">create a report</action>
+  <report action="CreateReport" status="ended">
+    Okay, the device was passed the person name <slot predicate="name_of_person_in_report"/> properly.
+  </report>
+
+  <action name="send_invitation">send invitation</action>
+  <report action="SendInvitation" status="ended">
+    Okay, the HTTP service was passed the person name <slot predicate="name_of_person_to_invite"/> properly.
+  </report>
+</grammar>

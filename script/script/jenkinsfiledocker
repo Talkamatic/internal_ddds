@@ -156,6 +156,7 @@ pipeline {
                                     sh 'tala generate-rasa --config rasa_numbers.config.json rasa_numbers sv > rasa_numbers_sv.yml'
                                     sh 'tala generate-rasa --config datetime.config.json datetime eng > datetime_eng.yml'
                                     sh 'tala generate-rasa --config datetime.config.json datetime sv > datetime_sv.yml'
+                                    sh 'tala generate-rasa --config person_name.config.json person_name eng > person_name_eng.yml'
                                 }
                             }
 
@@ -247,6 +248,17 @@ pipeline {
                                 }
                                 unload("datetime_sv")
                             }
+
+                            stage('person name') {
+                                use_spacy_entity_extractor_pipeline("person_name_eng.yml")
+                                train("person_name_eng", "person_name_eng.yml")
+                                tdm.inside() {
+                                    sh 'tdm build --config person_name.config.json'
+                                    sh 'FLASK_APP=person_name/http_service.py FLASK_ENV=development flask run --port=10101 &'
+                                    sh 'tdm test eng --config person_name.config.json --log-to-stdout'
+                                }
+                                unload("person_name_eng")
+                            }
                         }
                     }
                 }
@@ -266,6 +278,22 @@ def use_duckling_config(filename) {
 - name: "SklearnIntentClassifier"
 - name: "DucklingHTTPExtractor"
   url: "http://duckling:8000"
+"""
+    writeFile file: filename, text: trainingData.replace(defaultPipeline, ducklingPipeline)
+}
+
+def use_spacy_entity_extractor_pipeline(filename) {
+    def trainingData = readFile filename
+    def defaultPipeline = 'pipeline: "spacy_sklearn"'
+    def ducklingPipeline = """pipeline:
+- name: "SpacyNLP"
+- name: "SpacyTokenizer"
+- name: "RegexFeaturizer"
+- name: "SpacyFeaturizer"
+- name: "CRFEntityExtractor"
+- name: "EntitySynonymMapper"
+- name: "SklearnIntentClassifier"
+- name: "SpacyEntityExtractor"
 """
     writeFile file: filename, text: trainingData.replace(defaultPipeline, ducklingPipeline)
 }

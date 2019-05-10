@@ -1,0 +1,21 @@
+--- interpret person name sortally, generate person name
+U> call 9.0
+S> Who do you want to call?
+U> Anna
+S> Okay, calling Anna.
+
+--- interpret person name in one-shot
+U> call Anna
+S> Okay, calling Anna.
+
+--- interpret and generate non-ascii person name
+U> call Amélie Bernard
+S> Okay, calling Amélie Bernard.
+
+--- pass person name from and to device module
+U> create a report
+S> Okay, the device was passed the person name Amélie Bernard properly.
+
+--- pass person name from and to HTTP service
+U> send invitation
+S> Okay, the HTTP service was passed the person name Amélie Bisset properly.
