@@ -28,4 +28,5 @@ Move(ask(?X.dept_city(X), set([dept_city(paris), dept_city(london)]))) :: Where 
 
 Move(answer(~qualified_for_membership)) :: You are not qualified for membership.
 Move(answer(qualified_for_membership, [frequent_flyer_points(50), current_position(london)])) :: You have fifty frequent flyer points and are qualified for membership and you are in London.
-Move(answer(next_membership_level(silver), [next_membership_points(50)])) :: You need fifty points to reach silver level.
+Move(answer(next_membership_level(silver), [next_membership_points(99)])) :: You need ninety nine points to reach silver level.
+Move(answer(next_membership_level(silver), [next_membership_points(100)])) :: You need 100 points to reach silver level.

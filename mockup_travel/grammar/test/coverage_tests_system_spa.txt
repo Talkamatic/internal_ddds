@@ -28,4 +28,5 @@ Move(ask(?X.dept_city(X), set([dept_city(paris), dept_city(london)]))) :: Desde 
 
 Move(answer(~qualified_for_membership)) :: No estás calificado para obtener la pertenencia.
 Move(answer(qualified_for_membership, [frequent_flyer_points(50), current_position(london)])) :: Tienes cincuenta puntos de viajero frequente y estás calificado para obtener la pertenencia y estás en Londres.
-Move(answer(next_membership_level(silver), [next_membership_points(50)])) :: Necesitas cincuenta puntos para conseguir el nivel de plata.
+Move(answer(next_membership_level(silver), [next_membership_points(99)])) :: Necesitas noventa y nueve puntos para conseguir el nivel de plata.
+Move(answer(next_membership_level(silver), [next_membership_points(100)])) :: Necesitas 100 puntos para conseguir el nivel de plata.

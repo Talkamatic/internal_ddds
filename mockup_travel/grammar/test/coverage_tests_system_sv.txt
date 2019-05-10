@@ -23,4 +23,5 @@ report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), pa
 Move(ask(?X.dept_city(X), set([dept_city(paris), dept_city(london)]))) :: Varifrån vill du resa : paris eller London?
 
 Move(answer(~qualified_for_membership)) :: Du är inte kvalificerad för medlemskap.
-Move(answer(qualified_for_membership, [frequent_flyer_points(50), current_position(london)])) :: Du har femtio bonuspoäng och är kvalificerad för medlemskap och är i London.
+Move(answer(qualified_for_membership, [frequent_flyer_points(99), current_position(london)])) :: Du har nittionio bonuspoäng och är kvalificerad för medlemskap och är i London.
+Move(answer(qualified_for_membership, [frequent_flyer_points(100), current_position(london)])) :: Du har 100 bonuspoäng och är kvalificerad för medlemskap och är i London.
