@@ -260,3 +260,15 @@ class MockupTravelDevice(DddDevice):
                 return dept_city not in cities_outside_eu and dest_city not in cities_outside_eu
             need_visa = not within_eu(dept_city, dest_city)
             return [need_visa]
+
+    class flight_departure(DeviceWHQuery):
+        def perform(self):
+            return ["2018-04-11T22:00:00.000Z"]
+
+    class flight_on_time(DeviceWHQuery):
+        def perform(self):
+            return ["on time"]
+
+    class flight_exists(DeviceWHQuery):
+        def perform(self):
+            return ["a connection"]

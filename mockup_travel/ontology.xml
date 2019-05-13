@@ -56,6 +56,9 @@
   <predicate name="attraction_information" sort="string"/>
   <predicate name="attraction" sort="string"/>
   <predicate name="house_owner_name" sort="string"/>
+  <predicate name="flight_departure" sort="datetime"/>
+  <predicate name="flight_on_time" sort="string"/>
+  <predicate name="flight_exists" sort="string"/>
   <predicate name="selected_domain" sort="domain"/>
   <action name="make_domestic_oneway_reservation"/>
   <action name="buy"/>

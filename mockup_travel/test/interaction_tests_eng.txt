@@ -369,3 +369,24 @@ U> new york
 S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
 U> madrid
 S> For this travel you need a visa.
+
+--- generate datetime from service
+S> *
+U> when is the flight departing
+S> The flight departs at 04/11/2018 10:00 PM.
+
+--- assume issue answers assumed user question
+S> *
+U> is my flight on time
+S> The flight departs at *
+U>
+S> Returning to if the flight is on time. The flight is on time.
+
+--- assume issue in if/then clause
+S> *
+U> is there a connection
+S> *
+U> business class
+S> The flight departs at *
+U>
+S> Returning to if there is a connection. There is a connection.

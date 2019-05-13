@@ -265,4 +265,32 @@
 
   <action name="show_on_map">show on map</action>
   <report action="ShowOnMap" status="ended">showing <slot predicate="dest_city" type="individual"/> on the map.</report>
+
+  <question speaker="user" predicate="flight_departure" type="wh_question">
+    when is the flight departing
+  </question>
+  <question speaker="all" predicate="flight_departure" type="wh_question">flight departure</question>
+  <answer speaker="system">The flight departs at <slot predicate="flight_departure" type="individual"/></answer>
+
+  <question speaker="user" predicate="flight_on_time" type="yn_question">
+    is my flight on time
+  </question>
+  <question speaker="all" predicate="flight_on_time" type="wh_question">
+    if the flight is on time
+  </question>
+  <answer speaker="system">
+    The flight is <slot predicate="flight_on_time"/>
+  </answer>
+
+  <question speaker="user" predicate="flight_exists" type="wh_question">
+    is there a connection
+  </question>
+  <question speaker="system" predicate="flight_exists" type="wh_question">
+    if there is a connection
+  </question>
+  <answer speaker="system">
+    There is <slot predicate="flight_exists"/>
+  </answer>
+
+
 </grammar>
