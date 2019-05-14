@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="NlgVariationDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="call">
+    <plan>
+      <findout type="wh_question" predicate="contact_to_call"/>
+      <findout type="wh_question" predicate="number_type_to_call"/>
+      <invoke_service_action name="Call" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="book_travel">
+    <plan>
+      <raise type="wh_question" predicate="departure_time"/>
+      <findout type="wh_question" predicate="destination_city"/>
+      <invoke_service_action name="BookTravel" postconfirm="true"/>
+    </plan>
+  </goal>
+</domain>
