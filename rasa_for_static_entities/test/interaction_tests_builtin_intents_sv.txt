@@ -1,0 +1,33 @@
+--- yes
+U> ring ett samtal
+S> Vem vill du ringa?
+U> John 0.1
+S> John, stämmer det?
+U> absolut 100.0
+S> Ringer John
+
+--- no
+U> ring ett samtal
+S> Vem vill du ringa?
+U> John 0.1
+S> John, stämmer det?
+U> nähe du 100.0
+S> Inte John*
+
+--- top
+U> ring ett samtal
+S> Vem vill du ringa?
+U> jag behöver ett telefonnummer
+S> Vems nummer?
+U> börja om 100.0
+S> Tillbaka till huvudmenyn.  Vad vill du göra?
+
+--- up
+U> ring ett samtal
+S> Vem vill du ringa?
+U> jag behöver ett telefonnummer
+S> Vems nummer?
+U> vad var den förra 100.0
+S>
+U>
+S> Tillbaka till ringer en kontakt. Vem vill du ringa?

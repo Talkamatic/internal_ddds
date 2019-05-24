@@ -51,8 +51,11 @@
   <question speaker="user" predicate="phone_number_of_contact">
     <one-of>
       <item>jag behöver ett telefonnummer</item>
+      <item>jag skulle behöva ett telefonnummer</item>
       <item>vad är <slot sort="contact"/>s nummer</item>
       <item>jag behöver <slot sort="contact"/>s nummer</item>
+      <item>jag skulle behöva <slot sort="contact"/>s nummer</item>
+      <item>ge mig <slot sort="contact"/>s nummer</item>
     </one-of>
   </question>
 

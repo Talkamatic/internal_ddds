@@ -176,12 +176,14 @@ pipeline {
                                 tdm.inside() {
                                     sh 'tdm build --config rasa_for_static_entities.config.json'
                                     sh 'tdm test eng --config rasa_for_static_entities.config.json --log-to-stdout'
+                                    sh 'tdm test eng --config rasa_for_static_entities.config.json --log-to-stdout --files rasa_for_static_entities/test/interaction_tests_builtin_intents_eng.txt'
                                 }
                                 unload("rasa_for_static_entities_eng")
                                 train("rasa_for_static_entities_sv", "rasa_for_static_entities_sv.yml")
                                 load("rasa_for_static_entities_sv")
                                 tdm.inside() {
                                     sh 'tdm test sv --config rasa_for_static_entities.config.json --log-to-stdout'
+                                    sh 'tdm test sv --config rasa_for_static_entities.config.json --log-to-stdout --files rasa_for_static_entities/test/interaction_tests_builtin_intents_sv.txt'
                                 }
                                 unload("rasa_for_static_entities_sv")
                             }

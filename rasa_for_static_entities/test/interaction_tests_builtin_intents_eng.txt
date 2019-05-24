@@ -1,0 +1,33 @@
+--- yes
+U> make a call
+S> Who do you want to call?
+U> John 0.1
+S> John, is that correct?
+U> yeah 100.0
+S> Calling John
+
+--- no
+U> make a call
+S> Who do you want to call?
+U> John 0.1
+S> John, is that correct?
+U> nope 100.0
+S> Not John*
+
+--- top
+U> make a call
+S> Who do you want to call?
+U> tell me a phone number
+S> Whose number?
+U> get me out of here 100.0
+S> Returning to main menu.  What would you like to do?
+
+--- up
+U> make a call
+S> Who do you want to call?
+U> tell me a phone number
+S> Whose number?
+U> go back please 100.0
+S>
+U>
+S> Returning to calling a contact. Who do you want to call?
