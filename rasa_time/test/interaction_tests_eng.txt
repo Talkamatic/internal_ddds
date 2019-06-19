@@ -29,3 +29,8 @@ U> book a flight 40.0
 S> When do you want to leave?
 U> after March eleventh at ten pm 40.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
+
+--- generate datetime from service
+S> *
+U> when does the next flight arrive
+S> The next flight arrives at 04/11/2018 10:00 PM.

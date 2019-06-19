@@ -254,7 +254,3 @@ class MockupTravelDevice(DddDevice):
     class house_owner_name(DeviceWHQuery):
         def perform(self):
             return [u"Örjan"]
-
-    class flight_departure(DeviceWHQuery):
-        def perform(self):
-            return ["2018-04-11T22:00:00.000Z"]

@@ -33,4 +33,10 @@
   <report action="BookFlight" status="ended">
     Okej, jag har bokat ett flyg med avresa <slot predicate="departure_time"/>.
   </report>
+
+  <question speaker="user" predicate="next_arrival_time" type="wh_question">
+    när ankommer nästa flyg
+  </question>
+  <question speaker="all" predicate="next_arrival_time" type="wh_question">nästa ankomst</question>
+  <answer speaker="system">Nästa flyg ankommer <slot predicate="next_arrival_time" type="individual"/></answer>
 </grammar>

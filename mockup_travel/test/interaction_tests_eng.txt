@@ -339,8 +339,3 @@ S> The comment I like athens was registered with the name Emma Johnson.
 --- user speaks first
 U> price information
 S> Welcome to the Travel Agency!  How do you want to travel : by plane or by train?
-
---- generate datetime from service
-S> *
-U> when is the flight departing
-S> The flight departs at 04/11/2018 10:00 PM.

@@ -197,12 +197,6 @@
     </plan>
   </goal>
 
-  <goal type="resolve" question_type="wh_question" predicate="flight_departure">
-    <plan>
-      <invoke_service_query type="wh_question" predicate="flight_departure"/>
-    </plan>
-  </goal>
-
   <dependency type="wh_question" predicate="dest_country">
     <question type="wh_question" predicate="dest_city"/>
   </dependency>
