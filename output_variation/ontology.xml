@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="OutputVariationOntology">
+  <action name="call"/>
+  <action name="book_travel"/>
+  <action name="play_radio"/>
+  <sort name="time"/>
+  <sort name="city"/>
+  <sort name="contact" dynamic="true"/>
+  <sort name="number_type"/>
+  <sort name="channel"/>
+  <sort name="category"/>
+  <sort name="firstname"/>
+  <sort name="lastname"/>
+  <sort name="phonenumber" dynamic="true"/>
+  <predicate name="departure_time" sort="time"/>
+  <predicate name="destination_city" sort="city"/>
+  <predicate name="contact_to_call" sort="contact"/>
+  <predicate name="number_type_to_call" sort="number_type"/>
+  <predicate name="channel_to_play" sort="channel"/>
+  <predicate name="category_to_play" sort="category"/>
+  <predicate name="queried_phonenumber" sort="phonenumber"/>
+  <predicate name="queried_contact" sort="contact"/>
+  <predicate name="queried_contact_firstname" sort="firstname" feature_of="queried_contact"/>
+  <predicate name="queried_contact_lastname" sort="lastname" feature_of="queried_contact"/>
+  <individual name="today" sort="time"/>
+  <individual name="tomorrow" sort="time"/>
+  <individual name="gothenburg" sort="city"/>
+  <individual name="paris" sort="city"/>
+  <individual name="john" sort="contact"/>
+  <individual name="bart" sort="contact"/>
+  <individual name="home" sort="number_type"/>
+  <individual name="mobile" sort="number_type"/>
+  <individual name="p2" sort="channel"/>
+  <individual name="music" sort="category"/>
+  <individual name="mary" sort="firstname"/>
+  <individual name="johnson" sort="lastname"/>
+</ontology>
