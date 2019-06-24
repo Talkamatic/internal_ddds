@@ -1,0 +1,2 @@
+report(ServiceResultProposition(PlayRadio, [channel_to_play(p2)], SuccessfulServiceAction())) :: Playing channel p2.
+report(ServiceResultProposition(PlayRadio, [category_to_play(music)], SuccessfulServiceAction())) :: Playing the category music.

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">top</action>
+  <action name="up">up</action>
+
+  <action name="book_travel">book a travel</action>
+  <individual name="gothenburg">gothenburg</individual>
+  <individual name="paris">paris</individual>
+  <individual name="tomorrow">tomorrow</individual>
+  <individual name="today">today</individual>
+  <question speaker="system" predicate="departure_time" type="wh_question">when</question>
+  <question speaker="system" predicate="destination_city" type="wh_question">to where</question>
+  <validity name="TravelValidity">
+    <one-of>
+      <item>I cannot find any travels <slot predicate="departure_time"/>.</item>
+      <item>I cannot find any travels to <slot predicate="destination_city"/>.</item>
+    </one-of>
+  </validity>
+  <report action="BookTravel" status="ended">Booking your travel to <slot predicate="destination_city"/>.</report>
+
+  <action name="call">call</action>
+  <individual name="home">home</individual>
+  <individual name="mobile">mobile</individual>
+  <individual name="john">john</individual>
+  <individual name="bart">bart</individual>
+  <question speaker="system" predicate="contact_to_call" type="wh_question">who</question>
+  <question speaker="system" predicate="number_type_to_call" type="wh_question">on what number</question>
+  <validity name="ContactValidity">There is no such contact.</validity>
+  <validity name="ContactAndNumberTypeValidity">There is no <slot predicate="number_type_to_call"/> number registered for <slot predicate="contact_to_call" type="individual"/>.</validity>
+  <report action="Call" status="ended">Calling the <slot predicate="number_type_to_call"/> number of <slot predicate="contact_to_call"/>.</report>
+
+  <action name="play_radio">
+    <one-of>
+      <item>play radio</item>
+      <item>play <slot predicate="channel_to_play"/></item>
+      <item>play <slot predicate="category_to_play"/></item>
+      <item>play <slot predicate="category_to_play"/> in <slot predicate="channel_to_play"/></item>
+    </one-of>
+  </action>
+  <individual name="p2">p2</individual>
+  <individual name="music">music</individual>
+  <question speaker="system" predicate="channel_to_play" type="wh_question">which channel</question>
+  <question speaker="system" predicate="category_to_play" type="wh_question">which category</question>
+  <report action="PlayRadio" status="ended">
+    <one-of>
+      <item>playing the category <slot predicate="category_to_play"/> in channel <slot predicate="channel_to_play"/>.</item>
+      <item>playing channel <slot predicate="channel_to_play"/>.</item>
+      <item>playing the category <slot predicate="category_to_play"/>.</item>
+    </one-of>
+  </report>
+
+  <question speaker="all" predicate="queried_phonenumber" type="wh_question">phonenumber</question>
+  <question speaker="user" predicate="queried_phonenumber" type="wh_question">i'm looking for a phone number</question>
+  <question speaker="system" predicate="queried_contact" type="wh_question">for whom</question>
+  <question speaker="system" predicate="queried_contact_firstname" type="wh_question">for whom</question>
+  <question speaker="all" predicate="queried_contact_lastname" type="wh_question">what is <slot predicate="queried_contact_firstname"/>'s lastname</question>
+  <individual name="mary">mary</individual>
+  <individual name="johnson">johnson</individual>
+  <answer predicate="queried_phonenumber" speaker="system"><slot predicate="queried_contact"/>'s number is <slot predicate="queried_phonenumber"/></answer>
+</grammar>
