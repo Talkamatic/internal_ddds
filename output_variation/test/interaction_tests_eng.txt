@@ -1,0 +1,61 @@
+--- validity: parameters referenced by grammar in other order than service interface
+S> *
+U> call
+S> Who?
+U> John
+S> On what number?
+U> home
+S> There is no home number registered for john.
+
+--- validity: parameters unreferenced by grammar
+S> *
+U> call
+S> Who?
+U> Bart
+S> There is no such contact.
+
+--- report: parameters referenced by grammar in other order than service interface
+S> *
+U> call
+S> Who?
+U> John
+S> On what number?
+U> mobile
+S> Calling the mobile number of john.
+
+--- report: parameters unreferenced by grammar
+S> *
+U> book a travel
+S> When?
+U> tomorrow
+S> To where?
+U> paris
+S> Booking your travel to paris.
+
+--- report: pick most informative applicable variant
+S> *
+U> play music in p2
+S> Playing the category music in channel p2.
+
+--- system question: select variant with background if background is bound
+S> *
+U> play radio
+S> Which channel?
+U> p2
+S> Which category in channel p2?
+
+--- system question: select variant without background if background is unbound
+S> *
+U> play radio
+S> Which channel?
+U>
+S> Which category?
+
+--- system answer: embed background
+S> *
+U> I'm looking for a phone number
+S> For whom?
+U> Mary
+S> What is the lastname?
+U> johnson
+S> Mary Johnson 's number is 0123456789.
