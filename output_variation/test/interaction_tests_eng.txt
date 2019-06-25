@@ -37,6 +37,29 @@ S> *
 U> play music in p2
 S> Playing the category music in channel p2.
 
+--- report: cyclic surface variation
+S> *
+U> call John at the mobile
+S> Calling the mobile number of john.
+U> call John at the mobile
+S> Calling john at the mobile number.
+U> call John at the mobile
+S> Calling the mobile number of john.
+
+--- report: disabled surface variation if unspecified selection policy
+S> *
+U> book a travel to paris tomorrow
+S> Booking your travel to paris.
+U> book a travel to paris tomorrow
+S> Booking your travel to paris.
+
+--- report: disabled surface variation if disabled selection policy
+S> *
+U> turn on the lights
+S> Turning on the lights.
+U> turn on the lights
+S> Turning on the lights.
+
 --- system question: select variant with background if background is bound
 S> *
 U> play radio

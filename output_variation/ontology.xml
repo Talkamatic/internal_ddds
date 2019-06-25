@@ -2,6 +2,7 @@
 <ontology name="OutputVariationOntology">
   <action name="call"/>
   <action name="book_travel"/>
+  <action name="turn_on_lights"/>
   <action name="play_radio"/>
   <sort name="time"/>
   <sort name="city"/>

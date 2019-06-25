@@ -22,6 +22,14 @@
     </target>
   </action>
 
+  <action name="TurnOnLights">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <device_module device="OutputVariationDevice"/>
+    </target>
+  </action>
+
   <action name="PlayRadio">
     <parameters>
       <parameter predicate="channel_to_play" format="value" optional="true"/>

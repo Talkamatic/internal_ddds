@@ -3,7 +3,12 @@
   <action name="top">top</action>
   <action name="up">up</action>
 
-  <action name="book_travel">book a travel</action>
+  <action name="book_travel">
+    <one-of>
+      <item>book a travel</item>
+      <item>book a travel to <slot predicate="destination_city"/> <slot predicate="departure_time"/></item>
+    </one-of>
+  </action>
   <individual name="gothenburg">gothenburg</individual>
   <individual name="paris">paris</individual>
   <individual name="tomorrow">tomorrow</individual>
@@ -16,9 +21,27 @@
       <item>I cannot find any travels to <slot predicate="destination_city"/>.</item>
     </one-of>
   </validity>
-  <report action="BookTravel" status="ended">Booking your travel to <slot predicate="destination_city"/>.</report>
+  <report action="BookTravel" status="ended">
+    <one-of>
+      <item>Booking your travel to <slot predicate="destination_city"/>.</item>
+      <item>(This report regarding <slot predicate="destination_city"/> will not be generated since surface variation isn't enabled for the one-of)</item>
+    </one-of>
+  </report>
 
-  <action name="call">call</action>
+  <action name="turn_on_lights">turn on the lights</action>
+  <report action="TurnOnLights" status="ended">
+    <one-of selection="disabled">
+      <item>Turning on the lights.</item>
+      <item>(This report regarding turning on the lights will not be generated since surface variation isn't enabled for the one-of)</item>
+    </one-of>
+  </report>
+
+  <action name="call">
+    <one-of>
+      <item>call</item>
+      <item>call <slot predicate="contact_to_call"/> at the <slot predicate="number_type_to_call"/></item>
+    </one-of>
+  </action>
   <individual name="home">home</individual>
   <individual name="mobile">mobile</individual>
   <individual name="john">john</individual>
@@ -27,7 +50,12 @@
   <question speaker="system" predicate="number_type_to_call" type="wh_question">on what number</question>
   <validity name="ContactValidity">There is no such contact.</validity>
   <validity name="ContactAndNumberTypeValidity">There is no <slot predicate="number_type_to_call"/> number registered for <slot predicate="contact_to_call" type="individual"/>.</validity>
-  <report action="Call" status="ended">Calling the <slot predicate="number_type_to_call"/> number of <slot predicate="contact_to_call"/>.</report>
+  <report action="Call" status="ended">
+    <one-of selection="cyclic">
+      <item>Calling the <slot predicate="number_type_to_call"/> number of <slot predicate="contact_to_call"/>.</item>
+      <item>Calling <slot predicate="contact_to_call"/> at the <slot predicate="number_type_to_call"/> number.</item>
+    </one-of>
+  </report>
 
   <action name="play_radio">
     <one-of>

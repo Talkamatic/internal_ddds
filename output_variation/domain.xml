@@ -23,6 +23,12 @@
     </plan>
   </goal>
 
+  <goal type="perform" action="turn_on_lights">
+    <plan>
+      <invoke_service_action name="TurnOnLights" postconfirm="true"/>
+    </plan>
+  </goal>
+
   <goal type="perform" action="play_radio">
     <plan>
       <raise type="wh_question" predicate="channel_to_play"/>

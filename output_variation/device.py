@@ -30,6 +30,10 @@ class OutputVariationDevice(DddDevice):
         def perform(self, departure_time, destination_city):
             return True
 
+    class TurnOnLights(DeviceAction):
+        def perform(self):
+            return True
+
     class PlayRadio(DeviceAction):
         def perform(self, channel_to_play, category_to_play):
             return True
