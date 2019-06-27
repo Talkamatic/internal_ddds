@@ -3,6 +3,7 @@
 
   <action name="top">flygbokning</action>
   <action name="up">tillbaka</action>
+  <action name="share_event_time">dela evenemangets tid</action>
 
   <action name="book_flight">
     <one-of>
@@ -19,6 +20,8 @@
       </item>
     </one-of>
   </action>
+
+  <report action="ShareEventTime" status="ended">delar att evenemangets tid är <slot predicate="event_time"/>.</report>
 
   <question speaker="system" predicate="departure_time" type="wh_question">
     när vill du avresa

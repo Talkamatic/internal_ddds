@@ -19,4 +19,11 @@
       <invoke_service_query type="wh_question" predicate="next_arrival_time"/>
     </plan>
   </goal>
+
+  <goal type="perform" action="share_event_time" reraise_on_resume="false">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="event_time"/>
+      <invoke_service_action name="ShareEventTime" postconfirm="true"/>
+    </plan>
+  </goal>
 </domain>

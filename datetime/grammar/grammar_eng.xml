@@ -3,6 +3,7 @@
 
   <action name="top">flight booking</action>
   <action name="up">go back</action>
+  <action name="share_event_time">share event time</action>
 
   <action name="book_flight">
     <one-of>
@@ -19,6 +20,8 @@
       </item>
     </one-of>
   </action>
+
+  <report action="ShareEventTime" status="ended">sharing that the event time is <slot predicate="event_time"/>.</report>
 
   <question speaker="system" predicate="departure_time" type="wh_question">
     when do you want to leave

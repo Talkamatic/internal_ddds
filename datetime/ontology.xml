@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ontology name="DatetimeOntology">
   <action name="book_flight"/>
+  <action name="share_event_time"/>
   <predicate name="departure_time" sort="datetime"/>
   <predicate name="next_arrival_time" sort="datetime"/>
+  <predicate name="event_time" sort="datetime"/>
 </ontology>

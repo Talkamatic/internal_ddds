@@ -28,3 +28,7 @@ S> Okej, jag har bokat ett flyg med avresa 03/11/* 10:00 PM.
 S> *
 U> när ankommer nästa flyg
 S> Nästa flyg ankommer 04/11/2018 10:00 PM.
+
+--- pass datetime as grammar entry to service
+U> dela evenemangets tid
+S> Delar att evenemangets tid är 05/06/2018 09:30 AM.

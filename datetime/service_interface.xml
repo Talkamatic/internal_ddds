@@ -15,4 +15,19 @@
       <device_module device="DatetimeDevice"/>
     </target>
   </query>
+  <action name="ShareEventTime">
+    <parameters>
+      <parameter predicate="event_time" format="grammar_entry"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <device_module device="DatetimeDevice"/>
+    </target>
+  </action>
+  <query name="event_time">
+    <parameters/>
+    <target>
+      <device_module device="DatetimeDevice"/>
+    </target>
+  </query>
 </service_interface>
