@@ -11,8 +11,10 @@ SUPPORTED_PERSON_NAME = u"Amélie Bisset"
 app = Flask(__name__)
 environment = Environment()
 
+
 def jsonfilter(value):
     return json.dumps(value)
+
 
 environment.filters["json"] = jsonfilter
 
