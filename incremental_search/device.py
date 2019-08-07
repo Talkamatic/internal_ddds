@@ -72,7 +72,7 @@ class IncrementalSearchDevice(DddDevice):
 
         def _entities_of_names(self, words, names, sort):
             results = []
-            for name, identifier in names.iteritems():
+            for name, identifier in names.items():
                 if name.lower() in words:
                     results.append({"name": identifier, "sort": sort, "grammar_entry": name.lower()})
             return results
@@ -96,7 +96,7 @@ class IncrementalSearchDevice(DddDevice):
 
     @classmethod
     def name_of_identifier(cls, names, identifier):
-        matching_names = [name for name, actual_id in names.iteritems() if actual_id == identifier]
+        matching_names = [name for name, actual_id in names.items() if actual_id == identifier]
         assert len(
             matching_names
         ) == 1, "Expected to find one matching name but found %s for %s among %s" % (matching_names, identifier, names)
@@ -120,9 +120,9 @@ class IncrementalSearchDevice(DddDevice):
     @classmethod
     def contacts_with_matching(cls, key, value):
         if not value:
-            return Set(CONTACTS.keys())
+            return Set(list(CONTACTS.keys()))
         return Set([
-            contact_id for contact_id, contact in CONTACTS.iteritems() if contact[key].lower() == value.lower()
+            contact_id for contact_id, contact in CONTACTS.items() if contact[key].lower() == value.lower()
         ])
 
     class NumberTypeRecognizer(EntityRecognizer):

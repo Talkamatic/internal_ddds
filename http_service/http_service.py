@@ -108,7 +108,7 @@ def contact_recognizer():
         utterance = payload["request"]["utterance"]
         words = utterance.lower().split()
         results = []
-        for contact_name, identifier in CONTACTS.items():
+        for contact_name, identifier in list(CONTACTS.items()):
             if contact_name.lower() in words:
                 results.append({"value": identifier, "sort": "contact", "grammar_entry": contact_name})
         return contact_recognizer_response(results)

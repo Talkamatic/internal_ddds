@@ -130,11 +130,11 @@ class MockupTravelDevice(DddDevice):
                 results.append({"sort": "city", "grammar_entry": "Reykjavik"})
             if "lisbon" in string:
                 results.append({"sort": "city", "grammar_entry": "Lisbon"})
-            if u"göteborg" in string:
-                results.append({"name": "city_gbg", "sort": "city", "grammar_entry": u"Göteborg"})
-            if u"örebro" in string:
-                results.append({"name": "city_orebro", "sort": "city", "grammar_entry": u"Örebro"})
-            if u"varberg" in string:
+            if "göteborg" in string:
+                results.append({"name": "city_gbg", "sort": "city", "grammar_entry": "Göteborg"})
+            if "örebro" in string:
+                results.append({"name": "city_orebro", "sort": "city", "grammar_entry": "Örebro"})
+            if "varberg" in string:
                 results.append({"name": "Varberg", "sort": "city", "grammar_entry": "Varberg"})
             if not string:
                 results.append({"name": "city_empty", "sort": "city", "grammar_entry": ""})
@@ -253,7 +253,7 @@ class MockupTravelDevice(DddDevice):
 
     class house_owner_name(DeviceWHQuery):
         def perform(self):
-            return [u"Örjan"]
+            return ["Örjan"]
 
     class need_visa(DeviceWHQuery):
         def perform(self, dept_city, dest_city):

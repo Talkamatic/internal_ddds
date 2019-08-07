@@ -6,12 +6,12 @@ import unicodedata
 
 class AndroidDevice(DddDevice):
     CONTACTS = [
-        ("contact_john", u"john", "0701234567"),
-        ("contact_john_chi", u"约翰", "0701234567"),
-        ("contact_lisa", u"lisa", "0709876543"),
-        ("contact_mary", u"mary", "0706574839"),
-        ("contact_andy", u"andy", None),
-        (u"contact_andy_chi", u"安迪", None),
+        ("contact_john", "john", "0701234567"),
+        ("contact_john_chi", "约翰", "0701234567"),
+        ("contact_lisa", "lisa", "0709876543"),
+        ("contact_mary", "mary", "0706574839"),
+        ("contact_andy", "andy", None),
+        ("contact_andy_chi", "安迪", None),
     ]
 
     def __init__(self):

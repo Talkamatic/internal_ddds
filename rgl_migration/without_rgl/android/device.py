@@ -24,7 +24,7 @@ class AndroidDevice(DddDevice):
         def recognize_entity(self, string):
             result = []
             words = string.lower().split()
-            for contact in self.device.CONTACT_NUMBERS.keys():
+            for contact in list(self.device.CONTACT_NUMBERS.keys()):
                 if contact.lower() in words:
                     recognized_entity = {"sort": "contact", "grammar_entry": contact}
                     result.append(recognized_entity)
