@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">
+    <one-of>
+      <item>main menu</item>
+      <item>top</item>
+      <item>start over</item>
+      <item>top menu</item>
+      <item>beginning</item>
+      <item>restart</item>
+      <item>never mind</item>
+    </one-of>
+  </action>
+
+  <action name="up">
+    <one-of>
+      <item>go back</item>
+      <item>back</item>
+      <item>up</item>
+      <item>cancel</item>
+    </one-of>
+  </action>
+
+  <action name="report_start_session">
+    <one-of>
+      <item>report the start session data</item>
+    </one-of>
+  </action>
+
+  <action name="mock_perform">
+    <one-of>
+      <item>find a mock value</item>
+    </one-of>
+  </action>
+
+  <question speaker="user" predicate="caller_phone_number" type="wh_question">
+    <one-of>
+      <item>my phone number</item>
+      <item>what is my phone number</item>
+      <item>i want to know my phone number</item>
+      <item>i need to know my phone number</item>
+      <item>tell me my phone number</item>
+    </one-of>
+  </question>
+
+  <question speaker="user" predicate="phone_number_of_contact">
+    <one-of>
+      <item>a phone number</item>
+      <item>tell me a phone number</item>
+      <item>what is <slot predicate="selected_contact"/>'s number</item>
+      <item>tell me <slot predicate="selected_contact"/>'s number</item>
+    </one-of>
+  </question>
+
+  <question speaker="all" predicate="caller_phone_number" type="wh_question">
+    your phone number
+  </question>
+
+  <question speaker="all" predicate="phone_number_of_contact" type="wh_question">
+    the phone number of a contact
+  </question>
+
+  <question speaker="system" predicate="selected_contact" type="wh_question">
+    which contact
+  </question>
+
+  <answer speaker="system" predicate="caller_phone_number">
+    Your phone number is <slot predicate="caller_phone_number"/>
+  </answer>
+
+  <answer speaker="system" predicate="phone_number_of_contact">
+    The number is <slot predicate="phone_number_of_contact"/>
+  </answer>
+
+  <report action="ReportStartSession" status="ended">
+    <slot predicate="start_session_mock_data"/>.
+  </report>
+
+  <report action="MockPerformReport" status="ended">
+    I've found a mock value for this action.
+  </report>
+
+  <report action="MockPerformReport" status="failed" reason="no_mock_data">
+    I haven't found any mock value.
+  </report>
+
+  <report action="GetMockEvent" status="started">
+    There is a mock event!
+  </report>
+
+  <validity name="FrontendSessionDataAvailable">
+    I couldn't verify that there is session data coming from the frontend.
+  </validity>
+
+</grammar>

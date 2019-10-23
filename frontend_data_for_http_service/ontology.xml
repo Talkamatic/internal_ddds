@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="FrontendDataOntology">
+  <sort name="contact" dynamic="true"/>
+
+  <action name="report_start_session"/>
+  <action name="mock_perform"/>
+
+  <predicate name="start_session_mock_data" sort="string"/>
+  <predicate name="caller_phone_number" sort="string"/>
+  <predicate name="phone_number_of_contact" sort="string"/>
+  <predicate name="selected_contact" sort="contact"/>
+
+</ontology>

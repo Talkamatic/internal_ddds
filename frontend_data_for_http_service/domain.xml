@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="FrontendDataDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <jumpto type="perform" action="report_start_session"/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="report_start_session">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="start_session_mock_data"/>
+      <invoke_service_action  name="ReportStartSession" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="caller_phone_number">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="caller_phone_number"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="mock_perform">
+    <plan>
+      <invoke_service_action name="MockPerformReport" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="handle" action="GetMockEvent">
+    <plan>
+      <jumpto type="perform" action="mock_perform"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="phone_number_of_contact">
+    <plan>
+      <findout type="wh_question" predicate="selected_contact"/>
+      <invoke_service_query type="wh_question" predicate="phone_number_of_contact"/>
+    </plan>
+  </goal>
+
+</domain>
