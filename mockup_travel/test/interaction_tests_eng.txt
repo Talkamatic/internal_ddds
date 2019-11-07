@@ -339,21 +339,3 @@ S> The comment I like athens was registered with the name Emma Johnson.
 --- user speaks first
 U> price information
 S> Welcome to the Travel Agency!  How do you want to travel : by plane or by train?
-
---- asking about visa: visa not needed
-S> *
-U> do I need a visa
-S> Where do you want to go?
-U> paris
-S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
-U> madrid
-S> For this travel you don't need a visa.
-
---- asking about visa: visa needed
-S> *
-U> do I need a visa
-S> Where do you want to go?
-U> new york
-S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
-U> madrid
-S> For this travel you need a visa.

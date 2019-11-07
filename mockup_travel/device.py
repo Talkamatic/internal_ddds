@@ -254,11 +254,3 @@ class MockupTravelDevice(DddDevice):
     class house_owner_name(DeviceWHQuery):
         def perform(self):
             return [u"Örjan"]
-
-    class need_visa(DeviceWHQuery):
-        def perform(self, dept_city, dest_city):
-            def within_eu(dept_city, dest_city):
-                cities_outside_eu = ["Pyongyang", "New York"]
-                return dept_city not in cities_outside_eu and dest_city not in cities_outside_eu
-            need_visa = not within_eu(dept_city, dest_city)
-            return [need_visa]

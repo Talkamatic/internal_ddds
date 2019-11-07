@@ -247,13 +247,4 @@
       <device_module device="MockupTravelDevice"/>
     </target>
   </query>
-  <query name="need_visa">
-    <parameters>
-      <parameter predicate="dest_city" format="grammar_entry"/>
-      <parameter predicate="dest_city" format="grammar_entry"/>
-    </parameters>
-    <target>
-      <device_module device="MockupTravelDevice"/>
-    </target>
-  </query>
 </service_interface>
