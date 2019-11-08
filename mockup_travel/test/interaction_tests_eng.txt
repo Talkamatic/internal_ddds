@@ -339,3 +339,11 @@ S> The comment I like athens was registered with the name Emma Johnson.
 --- user speaks first
 U> price information
 S> Welcome to the Travel Agency!  How do you want to travel : by plane or by train?
+
+--- reraise when user makes a move that should be disregarded due to und*neg
+S> *
+U> price information for flights
+S> Where do you want to go?
+U> ["Move(answer(yes), perception_confidence=1.0, understanding_confidence=0.02, speaker='USR')"]
+# note that TDM picks up the wrong user utterance since we supply a semantic move here
+S> I heard you say price information for flights. I don't understand. So, Where do you want to go?
