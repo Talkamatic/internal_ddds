@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from tala.model.device import DddDevice, DeviceAction, DeviceWHQuery
+from tala.model.device import DddDevice, DeviceAction
 
 
 class FrontendDataDevice(DddDevice):
