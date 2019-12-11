@@ -18,7 +18,10 @@
 
   <individual name="resort">resort</individual>
 
-  <question speaker="user" predicate="need_visa" type="wh_question">tell me about visa</question>
+  <question speaker="user" predicate="need_visa" type="yn_question">do I need a visa</question>
+
+  <answer speaker="system" predicate="need_visa" polarity="positive">for this travel you need a visa</answer>
+  <answer speaker="system" predicate="need_visa" polarity="negative">for this travel you don't need a visa</answer>
 
   <answer speaker="user">
     <one-of>

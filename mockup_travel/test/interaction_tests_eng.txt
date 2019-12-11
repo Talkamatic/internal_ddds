@@ -360,3 +360,21 @@ U> price information for flights
 S> Where do you want to go?
 U> ["Move(answer(yes), perception_confidence=0.9, understanding_confidence=0.02, speaker='USR', utterance='where is the red pyjamas')", "Move(answer(yes), perception_confidence=1.0, understanding_confidence=0.02, speaker='USR', utterance='where is the blue pyjamas')"]
 S> I heard you say where is the blue pyjamas. I don't understand. So, Where do you want to go?
+
+--- asking about visa: visa not needed
+S> *
+U> do I need a visa
+S> Where do you want to go?
+U> paris
+S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
+U> madrid
+S> For this travel you don't need a visa.
+
+--- asking about visa: visa needed
+S> *
+U> do I need a visa
+S> Where do you want to go?
+U> new york
+S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
+U> madrid
+S> For this travel you need a visa.
