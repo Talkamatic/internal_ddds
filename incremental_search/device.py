@@ -1,5 +1,3 @@
-from sets import Set
-
 from tdm.lib.device import DeviceWHQuery, DeviceAction, EntityRecognizer, DddDevice
 
 JOHN = "first_name_john"
@@ -120,10 +118,8 @@ class IncrementalSearchDevice(DddDevice):
     @classmethod
     def contacts_with_matching(cls, key, value):
         if not value:
-            return Set(list(CONTACTS.keys()))
-        return Set([
-            contact_id for contact_id, contact in CONTACTS.items() if contact[key].lower() == value.lower()
-        ])
+            return set(list(CONTACTS.keys()))
+        return {contact_id for contact_id, contact in CONTACTS.items() if contact[key].lower() == value.lower()}
 
     class NumberTypeRecognizer(EntityRecognizer):
         def recognize(self, string, language):
