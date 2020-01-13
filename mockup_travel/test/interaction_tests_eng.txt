@@ -399,3 +399,28 @@ U> business class
 S> The flight departs at *
 U>
 S> Returning to if there is a connection. There is a connection.
+
+--- no reraise when user repeats ask-move for current goal
+S> *
+U> price information for flights
+S> Where do you want to go?
+U> price information
+S> Where do you want to go?
+
+--- reraise when user repeats ask-move with request inbetween
+S> *
+U> price information for flights
+S> Where do you want to go?
+U> add passenger
+S> Adult or child?
+U> price information
+S> Returning to the price.  Where do you want to go?
+
+--- reraise when user repeats request with ask-move inbetween
+S> *
+U> add passenger
+S> Adult or child?
+U> price information
+S> How do you want to travel : by plane or by train?
+U> add passenger
+S> Returning to add passenger.  Adult or child?
