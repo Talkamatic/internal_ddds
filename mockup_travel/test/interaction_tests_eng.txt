@@ -106,15 +106,6 @@ S> Added 1 adults.
 U>
 S> Returning *
 
---- sortal ambiguity for recognized entities
-S> *
-U> price information
-S> How do you want to travel : by plane or by train?
-U> by plane
-S> Where do you want to go?
-U> ambiguous
-S> I found two departures. Where do you want to go from : Madrid or New York?
-
 --- reraise feedback after timeout
 S> *
 U> price information for flights

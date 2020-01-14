@@ -216,11 +216,6 @@
       <device_module device="MockupTravelDevice"/>
     </target>
   </validator>
-  <entity_recognizer name="AmbiguousRecognizer">
-    <target>
-      <device_module device="MockupTravelDevice"/>
-    </target>
-  </entity_recognizer>
   <entity_recognizer name="MeansOfTransportRecognizer">
     <target>
       <device_module device="MockupTravelDevice"/>

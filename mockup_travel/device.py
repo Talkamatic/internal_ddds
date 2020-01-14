@@ -16,7 +16,7 @@ class MockupTravelDevice(DddDevice):
 
     def get_available_dept_cities(self, dest_city_grammar_entry):
         results = [{"name": "city_madrid", "grammar_entry": "Madrid"}]
-        if dest_city_grammar_entry not in ["Athens", "ambiguous"]:
+        if dest_city_grammar_entry != "Athens":
             results.append({"name": "city_helsinki", "grammar_entry": "Helsinki"})
         results.append({"grammar_entry": "New York"})
         return results
@@ -166,17 +166,6 @@ class MockupTravelDevice(DddDevice):
                 return [{"sort": "keyword", "grammar_entry": "vacation"}]
             if "0" in string:
                 return [{"sort": "keyword", "grammar_entry": "0"}]
-
-    class AmbiguousRecognizer(EntityRecognizer):
-        def recognize(self, string, language):
-            if string == "ambiguous":
-                return [{
-                    "sort": "keyword",
-                    "grammar_entry": "ambiguous"
-                }, {
-                    "sort": "city",
-                    "grammar_entry": "ambiguous"
-                }]
 
     class passenger_quantity_to_add(DeviceWHQuery):
         def perform(self):
