@@ -1,0 +1,31 @@
+ICMMove(icm:per*pos:"یک چیز نامفهوم") :: من شنیدم که شما یک چیز نامفهوم گفتید.
+Move(ask(?goal(perform(make_reservation)))) :: آیا میخواهید یک رزرو انجام دهید?
+ICMMove(icm:und*int:USR*dest_city(paris)) :: به پاریس, آیا درست است?
+ICMMove(icm:und*int:USR*goal(perform(make_reservation))) :: آیا میخواهید یک رزرو انجام دهید?
+ICMMove(icm:und*int:USR*goal(resolve(?X.price(X)))) :: آیا میخواهید قیمت را بدانید?
+Move(ask(?X.goal(X))) :: چه کاری میخواهید انجام دهید?
+
+Move(ask(?goal(resolve(?X.price(X))))) :: آیا میخواهید قیمت را بدانید?
+Move(ask(?goal(resolve(?X.price(X), [dest_city(paris)])))) :: آیا میخواهید قیمت سفر به پاریس را بدانید?
+Move(ask(?set([goal(resolve(?X.price(X), [dest_city(paris)])), goal(perform(make_reservation))]))) :: آیا میخواهید قیمت سفر به پاریس را بدانید یا یک رزرو انجام دهید?
+ICMMove(icm:acc*neg:goal(resolve(?X.price(X)))) :: این کار هنوز پیاده سازی نشده است.
+ICMMove(icm:acc*neg:rejected(set([dest_city(london)]), CityValidity)) :: پارامتر نامعتبر لندن
+
+Move(ask(?X.dept_month(X))) :: چه ماهی میخواهید مسافرت کنید?
+Move(ask(?X.dept_month(X), [dest_city(paris)])) :: چه ماهی میخواهید به پاریس مسافرت کنید?
+
+ICMMove(icm:reraise:perform(top)) :: برگشت به صفحه اصلی.
+ICMMove(icm:reraise:perform(make_reservation)) :: برگشت به انجام دادن یک رزرو.
+ICMMove(icm:resume:perform(make_reservation)) :: میخواهید یک رزرو انجام دهید.
+
+report(ServiceResultProposition(MakeRandomReservation, [], SuccessfulServiceAction())) :: انجام دهید MakeRandomReservation.
+report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(1)], SuccessfulServiceAction())) :: 1 بزرگسال اضافه شد.
+report(ServiceResultProposition(RegisterComment, [comment_message("یادداشت آزمایشی"), comment_name("نام آزمایشی")], SuccessfulServiceAction())) :: پیام یادداشت آزمایشی ثبت شد به نام نام آزمایشی.
+report(ServiceResultProposition(CancelReservation, [], FailedServiceAction(no_reservation_exists))) :: رزروی برای باطل کردن وجود ندارد.
+report(ServiceResultProposition(CancelReservation, [], FailedServiceAction(undefined_failure))) :: متاسفم, اشکالی بوجود آمده است.
+
+Move(ask(?X.dept_city(X), set([dept_city(paris), dept_city(london)]))) :: از کجا میخواهید سفر کنید : پاریس یا لندن?
+
+Move(answer(~qualified_for_membership)) :: شما امتیاز لازم برای عضویت را کسب نکرده اید.
+Move(answer(qualified_for_membership, [frequent_flyer_points(50), current_position(london)])) :: شما پنجاه امتیاز پرواز مکرر را دارید و شما امتیاز لازم برای عضویت را کسب کرده اید و شما در لندن هستید.
+Move(answer(next_membership_level(silver), [next_membership_points(99)])) :: شما نود و نُه امتیاز برای رسیدن به سطح نقره ای لازم دارید.

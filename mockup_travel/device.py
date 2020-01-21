@@ -16,7 +16,7 @@ class MockupTravelDevice(DddDevice):
 
     def get_available_dept_cities(self, dest_city_grammar_entry):
         results = [{"name": "city_madrid", "grammar_entry": "Madrid"}]
-        if dest_city_grammar_entry != "Athens":
+        if dest_city_grammar_entry not in ["Athens", "آتن"]:
             results.append({"name": "city_helsinki", "grammar_entry": "Helsinki"})
         results.append({"grammar_entry": "New York"})
         return results
@@ -94,7 +94,7 @@ class MockupTravelDevice(DddDevice):
 
     class CityValidity(Validity):
         def is_valid(self, city, city_grammar_entry):
-            return city != "pyongyang" and city_grammar_entry != "Lisbon"
+            return city != "pyongyang" and city_grammar_entry != "Lisbon" and city_grammar_entry != "لیزبون"
 
     def set_dept_city_value(self, value):
         self._dept_city_value = value
@@ -136,6 +136,10 @@ class MockupTravelDevice(DddDevice):
                 results.append({"name": "city_orebro", "sort": "city", "grammar_entry": "Örebro"})
             if "varberg" in string:
                 results.append({"name": "Varberg", "sort": "city", "grammar_entry": "Varberg"})
+            if "لیزبون" in string:
+                results.append({"sort": "city", "grammar_entry": "لیزبون"})
+            if "بوینس آیرس" in string:
+                results.append({"sort": "city", "grammar_entry": "بوینس آیرس"})
             if not string:
                 results.append({"name": "city_empty", "sort": "city", "grammar_entry": ""})
             return results
@@ -153,6 +157,9 @@ class MockupTravelDevice(DddDevice):
             elif language == "spa":
                 if "atenas" in string:
                     results.append({"sort": "city", "grammar_entry": "Atenas"})
+            if language == "pes":
+                if "آتن" in string:
+                    results.append({"sort": "city", "grammar_entry": "آتن"})
             return results
 
     class MeansOfTransportRecognizer(EntityRecognizer):
@@ -237,6 +244,8 @@ class MockupTravelDevice(DddDevice):
         def perform(self, attraction):
             if "Eiffel tower" in attraction:
                 return ["the eiffel tower is a wrought iron lattice tower on the " + "champ de mars in paris, france"]
+            elif "ایفل" in attraction:
+                return ["برج ایفل یک برج مشبک فلزی در پاریس است"]
             else:
                 return ["no information was found"]
 

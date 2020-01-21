@@ -12,7 +12,8 @@
         "eng",
         "sv",
         "it",
-        "spa"
+        "spa",
+        "pes"
     ],
     "use_recognition_profile": false,
     "use_word_list_correction": false
