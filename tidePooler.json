@@ -8,6 +8,7 @@
     "overrides": null,
     "repeat_questions": false,
     "rerank_amount": 0.2,
+    "response_timeout": 2.5,
     "supported_languages": [
         "eng"
     ],

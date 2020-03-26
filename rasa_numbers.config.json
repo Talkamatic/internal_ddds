@@ -8,8 +8,10 @@
     "overrides": null,
     "repeat_questions": true,
     "rerank_amount": 0.2,
+    "response_timeout": 2.5,
     "supported_languages": [
-        "eng", "sv"
+        "eng",
+        "sv"
     ],
     "use_recognition_profile": false,
     "use_word_list_correction": false
