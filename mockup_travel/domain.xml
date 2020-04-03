@@ -106,7 +106,7 @@
     <gui_context predicate="class"/>
   </goal>
 
-  <goal type="perform" action="leave_comment">
+  <goal type="perform" action="leave_comment" reraise_on_resume="false">
     <plan>
       <invoke_service_query type="wh_question" predicate="house_owner_name"/>
       <findout type="wh_question" predicate="comment_message"/>
