@@ -1,0 +1,4 @@
+{
+    "overrides": "hello_world.json",
+    "rerank_amount": 0.2
+}
