@@ -191,7 +191,7 @@ S> So, Do you want to book this hotel?
 U> yes
 S> The housing was booked.
 
---- repeat preconfirmation question after timeout, followed by no
+--- repeat preconfirmation question after timeout, followed by no restarts plan
 S> *
 U> book housing
 S> Select accommodation type?
@@ -204,7 +204,7 @@ S> Do you want to book this hotel?
 U>
 S> So, Do you want to book this hotel?
 U> no
-S> Returning to the start view.*
+S> Select accommodation type?
 
 --- user answers feature questions in other order
 S> *
