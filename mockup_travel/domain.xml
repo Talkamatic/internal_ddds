@@ -124,7 +124,7 @@
     </plan>
   </goal>
 
-  <goal type="perform" action="apply_for_membership">
+  <goal type="perform" action="apply_for_membership" reraise_on_resume="false">
     <preferred/>
     <plan>
       <findout type="wh_question" predicate="member_type"/>

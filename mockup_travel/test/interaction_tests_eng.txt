@@ -106,6 +106,15 @@ S> Added 1 adults.
 U>
 S> Returning *
 
+--- Re-request of the same plan with disabled reraise-on-resume should be quiet
+S> *
+U> apply for membership
+S> What kind of membership?
+U> make an international reservation
+S> The price?
+U> apply for membership
+S> What kind of membership?
+
 --- reraise feedback after timeout
 S> *
 U> price information for flights
