@@ -22,6 +22,7 @@
   <goal type="resolve" question_type="yn_question">
     <proposition predicate="need_visa"/>
     <plan>
+      <log message="start executing the 'need_visa' resolve plan"/>
       <findout type="wh_question" predicate="dest_city"/>
       <findout type="wh_question" predicate="dept_city"/>
       <invoke_service_query type="yn_question">
