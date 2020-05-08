@@ -34,9 +34,11 @@
 
   <goal type="perform" action="buy">
     <plan/>
-    <postcond>
-      <proposition predicate="dest_city" value="gothenburg"/>
-    </postcond>
+    <downdate_condition>
+      <is_shared_fact>
+        <proposition predicate="dest_city" value="gothenburg"/>
+      </is_shared_fact>
+    </downdate_condition>
     <superaction name="make_domestic_reservation"/>
     <superaction name="make_international_reservation"/>
   </goal>
@@ -58,6 +60,9 @@
       <bind type="wh_question" predicate="payment_method"/>
       <jumpto type="perform" action="buy"/>
     </plan>
+    <downdate_condition>
+      <has_value predicate="price"/>
+    </downdate_condition>
   </goal>
 
   <goal type="perform" action="make_domestic_reservation">
@@ -89,9 +94,11 @@
       <findout type="wh_question" predicate="payment_method"/>
       <bind type="wh_question" predicate="dest_city_type"/>
     </plan>
-    <postcond>
-      <proposition predicate="dest_city" value="gothenburg"/>
-    </postcond>
+    <downdate_condition>
+      <is_shared_fact>
+        <proposition predicate="dest_city" value="gothenburg"/>
+      </is_shared_fact>
+    </downdate_condition>
     <superaction name="make_reservation"/>
   </goal>
 
@@ -130,9 +137,11 @@
     <plan>
       <findout type="wh_question" predicate="member_type"/>
     </plan>
-    <postcond>
-      <proposition predicate="member_type" value="gold"/>
-    </postcond>
+    <downdate_condition>
+      <is_shared_fact>
+        <proposition predicate="member_type" value="gold"/>
+      </is_shared_fact>
+    </downdate_condition>
     <postplan>
       <findout type="goal"/>
     </postplan>

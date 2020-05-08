@@ -101,6 +101,11 @@ pipeline {
                                     sh 'tdm test eng --config tidePooler.json'
                                 }
 
+                                stage('downdate conditions') {
+                                    sh 'tdm build --config downdate_conditions.config.json'
+                                    sh 'tdm test eng --config downdate_conditions.config.json'
+                                }
+
                                 stage('multi ddd') {
                                     dir("multi_ddd") {
                                         sh 'tdm build'

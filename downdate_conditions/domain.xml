@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="DowndateConditionsDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="collect_first_name">
+    <plan>
+      <findout type="wh_question" predicate="first_name"/>
+    </plan>
+    <downdate_condition>
+      <has_value predicate="first_name"/>
+    </downdate_condition>
+  </goal>
+
+  <goal type="perform" action="collect_secret_word">
+    <plan>
+      <findout type="wh_question" predicate="secret_word"/>
+    </plan>
+    <downdate_condition>
+      <is_shared_fact>
+        <proposition predicate="secret_word" value="all makt åt tegnell"/>
+      </is_shared_fact>
+    </downdate_condition>
+  </goal>
+
+</domain>

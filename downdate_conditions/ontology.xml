@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="DowndateConditionsOntology">
+  <action name="collect_first_name"/>
+  <action name="collect_secret_word"/>
+
+  <predicate name="first_name" sort="string"/>
+  <predicate name="secret_word" sort="string"/>
+</ontology>
