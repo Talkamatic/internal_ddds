@@ -166,7 +166,7 @@
 
   <goal type="perform" action="cancel_reservation">
     <plan>
-      <invoke_service_action name="CancelReservation"/>
+      <invoke_service_action name="CancelReservation" postconfirm="false"/>
     </plan>
   </goal>
 

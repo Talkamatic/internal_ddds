@@ -424,3 +424,12 @@ U> price information
 S> How do you want to travel : by plane or by train?
 U> add passenger
 S> Returning to add passenger.  Adult or child?
+
+--- timeout is enabled after return from postconfirmless plan to reraiseless plan
+S> *
+U> apply for membership
+S> What kind of membership?
+U> cancel reservation
+S>
+U>
+S> What kind of membership?
