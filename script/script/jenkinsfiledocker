@@ -146,76 +146,12 @@ pipeline {
 
                             stage('generate training data') {
                                 tdm.inside() {
-                                    sh 'tala generate rasa --config rasa_for_dynamic_entities.config.json rasa_for_dynamic_entities eng > rasa_for_dynamic_entities.yml'
-                                    sh 'tala generate rasa --config rasa_for_static_entities.config.json rasa_for_static_entities eng > rasa_for_static_entities_eng.yml'
-                                    sh 'tala generate rasa --config rasa_for_static_entities.config.json rasa_for_static_entities sv > rasa_for_static_entities_sv.yml'
-                                    sh 'tala generate rasa --config rasa_strings.config.json rasa_strings eng > rasa_strings.yml'
-                                    sh 'tala generate rasa --config rasa_answers.config.json rasa_answers eng > rasa_answers.yml'
-                                    sh 'tala generate rasa --config rasa_for_rgl.config.json rasa_for_rgl eng > rasa_for_rgl.yml'
                                     sh 'tala generate rasa --config rasa_numbers.config.json rasa_numbers eng > rasa_numbers_eng.yml'
                                     sh 'tala generate rasa --config rasa_numbers.config.json rasa_numbers sv > rasa_numbers_sv.yml'
                                     sh 'tala generate rasa --config datetime.config.json datetime_ddd eng > datetime_eng.yml'
                                     sh 'tala generate rasa --config datetime.config.json datetime_ddd sv > datetime_sv.yml'
                                     sh 'tala generate rasa --config person_name.config.json person_name eng > person_name_eng.yml'
                                 }
-                            }
-
-                            stage('rasa for dynamic entities') {
-                                train("rasa_for_dynamic_entities", "rasa_for_dynamic_entities.yml")
-                                load("rasa_for_dynamic_entities")
-                                tdm.inside() {
-                                    sh 'tdm build --config rasa_for_dynamic_entities.config.json'
-                                    sh 'tdm test eng --config rasa_for_dynamic_entities.config.json --log-to-stdout'
-                                }
-                                unload("rasa_for_dynamic_entities")
-                            }
-
-                            stage('rasa for static entities') {
-                                train("rasa_for_static_entities_eng", "rasa_for_static_entities_eng.yml")
-                                load("rasa_for_static_entities_eng")
-                                tdm.inside() {
-                                    sh 'tdm build --config rasa_for_static_entities.config.json'
-                                    sh 'tdm test eng --config rasa_for_static_entities.config.json --log-to-stdout'
-                                    sh 'tdm test eng --config rasa_for_static_entities.config.json --log-to-stdout --files rasa_for_static_entities/test/interaction_tests_builtin_intents_eng.txt'
-                                }
-                                unload("rasa_for_static_entities_eng")
-                                train("rasa_for_static_entities_sv", "rasa_for_static_entities_sv.yml")
-                                load("rasa_for_static_entities_sv")
-                                tdm.inside() {
-                                    sh 'tdm test sv --config rasa_for_static_entities.config.json --log-to-stdout'
-                                    sh 'tdm test sv --config rasa_for_static_entities.config.json --log-to-stdout --files rasa_for_static_entities/test/interaction_tests_builtin_intents_sv.txt'
-                                }
-                                unload("rasa_for_static_entities_sv")
-                            }
-
-                            stage('rasa strings') {
-                                train("rasa_strings", "rasa_strings.yml")
-                                load("rasa_strings")
-                                tdm.inside() {
-                                    sh 'tdm build --config rasa_strings.config.json'
-                                    sh 'tdm test eng --config rasa_strings.config.json --log-to-stdout'
-                                }
-                                unload("rasa_strings")
-                            }
-
-                            stage('rasa answers') {
-                                train("rasa_answers", "rasa_answers.yml")
-                                load("rasa_answers")
-                                tdm.inside() {
-                                    sh 'tdm build --config rasa_answers.config.json'
-                                    sh 'tdm test eng --config rasa_answers.config.json --log-to-stdout'
-                                }
-                                unload("rasa_answers")
-                            }
-
-                            stage('rasa for rgl') {
-                                train("rasa_for_rgl", "rasa_for_rgl.yml")
-                                load("rasa_for_rgl")
-                                tdm.inside() {
-                                    sh 'tdm build --config rasa_for_rgl.config.json'
-                                    sh 'tdm test eng --config rasa_for_rgl.config.json --log-to-stdout'
-                                }
-                                unload("rasa_for_rgl")
                             }
 
                             stage('rasa numbers') {
