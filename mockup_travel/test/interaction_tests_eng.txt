@@ -16,6 +16,35 @@ S> What day do you want to leave?
 U> five
 S> Which type of ticket would you like?
 
+--- price information - pardon with variation
+S> *
+U> pardon
+S> *
+U> price information
+S> How do you want to travel : by plane or by train?
+U> i'm sorry
+S> How do you want to travel : by plane or by train?
+U> by plane
+S> Where do you want to go?
+U> sorry
+S> Where do you want to go?
+U> paris
+S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
+U> i didn't catch that
+S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
+U> madrid
+S> Which month do you want to travel from Madrid to Paris?
+U> what
+S> Which month do you want to travel from Madrid to Paris?
+U> april
+S> What day do you want to leave?
+U> huh
+S> What day do you want to leave?
+U> five
+S> Which type of ticket would you like?
+U> pardon
+S> Which type of ticket would you like?
+
 --- one-shot price information
 S> *
 U> price for travelling by plane to paris
@@ -63,6 +92,19 @@ S> *
 U> price for travelling by plane to lisbon
 S> Invalid parameters Lisbon
 U>
+S> So, Where do you want to go?
+
+--- resume after invalidity - pardon
+S> *
+U> pardon
+S> *
+U> price for travelling by plane to lisbon
+S> Invalid parameters Lisbon
+U> pardon
+S> Invalid parameters Lisbon
+U>
+S> So, Where do you want to go?
+U> pardon
 S> So, Where do you want to go?
 
 --- add passenger with default quantity
@@ -113,6 +155,23 @@ S> What kind of membership?
 U> make an international reservation
 S> The price?
 U> apply for membership
+S> What kind of membership?
+
+--- Re-request of the same plan with disabled reraise-on-resume should be quiet - pardon
+S> *
+U> pardon
+S> *
+U> apply for membership
+S> What kind of membership?
+U> pardon
+S> What kind of membership?
+U> make an international reservation
+S> The price?
+U> pardon
+S> The price?
+U> apply for membership
+S> What kind of membership?
+U> pardon
 S> What kind of membership?
 
 --- reraise feedback after timeout
@@ -255,6 +314,19 @@ S> What is your name?
 U> Emma Johnson
 S> The comment I want a room with a balcony was registered with the name Emma Johnson.
 
+--- dictation, one-shot - pardon
+S> *
+U> pardon
+S> *
+U> leave a comment to the housing owner that I want a room with a balcony
+S> What is your name?
+U> pardon
+S> What is your name?
+U> Emma Johnson
+S> The comment I want a room with a balcony was registered with the name Emma Johnson.
+U> pardon
+S> The comment I want a room with a balcony was registered with the name Emma Johnson.
+
 --- avoid stack overflow errors with these user utterances
 S> *
 U> order me 0 bottles of champagne for the flight please
@@ -320,6 +392,30 @@ S> *
 U> add passenger $ACKNOWLEDGE
 S> Add passenger.
 U>
+S> Adult or child?
+
+--- optimistic grounding for resolve goal - pardon
+S> *
+U> price information $ACKNOWLEDGE
+S> You want to know the price.
+U> pardon
+S> You want to know the price.
+U>
+S> How do you want to travel : by plane or by train?
+U> pardon
+S> How do you want to travel : by plane or by train?
+
+--- optimistic grounding for perform goal - pardon
+S> *
+U> pardon
+S> *
+U> add passenger $ACKNOWLEDGE
+S> Add passenger.
+U> pardon
+S> Add passenger.
+U>
+S> Adult or child?
+U> pardon
 S> Adult or child?
 
 --- disabled accommodation
