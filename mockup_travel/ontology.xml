@@ -19,6 +19,7 @@
   <predicate name="num_available_dept_cities" sort="integer"/>
   <predicate name="code" sort="code_type"/>
   <predicate name="selected_housing" sort="housing"/>
+  <predicate name="selected_housing_for_contact" sort="housing"/>
   <predicate name="payment_method" sort="payment_type"/>
   <predicate name="need_visa" sort="boolean"/>
   <predicate name="member_type" sort="membership"/>
@@ -68,6 +69,7 @@
   <action name="membership"/>
   <action name="leave_comment"/>
   <action name="book_housing"/>
+  <action name="contact_housing_owner"/>
   <action name="show_on_map"/>
   <action name="make_random_reservation"/>
   <action name="make_domestic_reservation"/>

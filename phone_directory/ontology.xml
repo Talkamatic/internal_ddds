@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="PhoneDirectoryOntology">
+    <sort name="person_id"/>
+    <sort name="name"/>
+    <sort name="city"/>
+    <sort name="area"/>
+    <predicate name="phonenumber" sort="string"/>
+    <predicate name="person" sort="person_id"/>
+    <predicate name="person_name" sort="name" feature_of="person"/>
+    <predicate name="person_city" sort="city" feature_of="person"/>
+    <predicate name="person_area" sort="area" feature_of="person"/>
+    <individual name="susanna_andersson" sort="name"/>
+    <individual name="goteborg" sort="city"/>
+</ontology>

@@ -227,16 +227,35 @@ S> *
 U> book housing
 S> Select accommodation type?
 U> hotel
-S> Select a rating?
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
 U> five stars
 S> Select a listing?
+
+--- system asking kpq
+S> *
+U> contact the housing owner
+S> ["icm:acc*pos", "icm:loadplan", "ask(?know_answer(?X.selected_housing_type(X)))"]
+
+--- system asking 2nd kpq
+S> *
+U> contact the housing owner
+S> ["icm:acc*pos", "icm:loadplan", "ask(?know_answer(?X.selected_housing_type(X)))"]
+U> no
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
+
+--- system asking kpq-embedded question
+S> *
+U> contact the housing owner
+S> ["icm:acc*pos", "icm:loadplan", "ask(?know_answer(?X.selected_housing_type(X)))"]
+U> yes
+S> Select accommodation type?
 
 --- preconfirmation
 S> *
 U> book housing
 S> Select accommodation type?
 U> hotel
-S> Select a rating?
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
 U> five stars
 S> Select a listing?
 U> sheraton
@@ -249,7 +268,7 @@ S> *
 U> book housing
 S> Select accommodation type?
 U> hotel
-S> Select a rating?
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
 U> five stars
 S> Select a listing?
 U> sheraton
@@ -264,7 +283,7 @@ S> *
 U> book housing
 S> Select accommodation type?
 U> hotel
-S> Select a rating?
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
 U> five stars
 S> Select a listing?
 U> sheraton

@@ -1,0 +1,25 @@
+--- knowledge precondition question, WH answer
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> Göteborg
+S> I vilken stadsdel bor hen?
+
+--- knowledge precondition question, positive answer
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> ja
+S> I vilken stad bor hen?
+U> Göteborg
+S> I vilken stadsdel bor hen?
+
+--- knowledge precondition question, negative answer
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> nej
+S> I vilken stadsdel bor hen?

@@ -186,6 +186,13 @@
     </plan>
   </goal>
 
+  <goal type="perform" action="contact_housing_owner">
+    <plan>
+      <findout type="wh_question" predicate="selected_housing_for_contact"/>
+      <invoke_service_action name="ContactHost" postconfirm="true"/>
+    </plan>
+  </goal>
+
   <goal type="perform" action="show_on_map">
     <plan>
       <findout type="wh_question" predicate="dest_city"/>
@@ -239,7 +246,11 @@
   </dependency>
   <parameters question_type="wh_question" predicate="selected_housing">
     <ask_feature predicate="selected_housing_type"/>
-    <ask_feature predicate="selected_housing_rating"/>
+    <ask_feature predicate="selected_housing_rating" kpq="true"/>
+  </parameters>
+  <parameters question_type="wh_question" predicate="selected_housing_for_contact">
+    <ask_feature predicate="selected_housing_type" kpq="true"/>
+    <ask_feature predicate="selected_housing_rating" kpq="true"/>
   </parameters>
   <parameters question_type="goal" verbalize="false">
     <alt>

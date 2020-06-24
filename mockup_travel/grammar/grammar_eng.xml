@@ -121,6 +121,8 @@
 
   <action name="book_housing">book housing</action>
 
+  <action name="contact_housing_owner">contact the housing owner</action>
+
   <question speaker="system" predicate="passenger_type_to_add" type="wh_question">adult or child</question>
 
   <action name="make_random_reservation">make a random reservation</action>

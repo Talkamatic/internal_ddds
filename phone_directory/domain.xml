@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="PhoneDirectoryDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="phonenumber">
+    <plan>
+      <findout type="wh_question" predicate="person"/>
+      <invoke_service_query type="wh_question" predicate="phonenumber"/>
+    </plan>
+  </goal>
+
+  <parameters question_type="wh_question" predicate="person" incremental="true">
+    <ask_feature predicate="person_name"/>
+    <ask_feature predicate="person_city" kpq="true"/>
+    <ask_feature predicate="person_area"/>
+  </parameters>
+</domain>

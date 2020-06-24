@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+    <action name="top">huvudmenyn</action>
+    <action name="up">tillbaka</action>
+    <question speaker="system" predicate="person" type="wh_question">vems nummer behöver du</question>
+    <question speaker="all" predicate="phonenumber" type="wh_question">telefonnumret</question>
+    <question speaker="user" predicate="phonenumber" type="wh_question">
+        <one-of>
+            <item>jag behöver ett telefonnummer</item>
+            <item>jag behöver numret till <slot predicate="person_name"/> i <slot predicate="person_city"/></item>
+        </one-of>
+    </question>
+    <question speaker="system" type="wh_question" predicate="person_name">vad heter personen</question>
+    <question speaker="system" type="wh_question" predicate="person_city">i vilken stad bor hen</question>
+    <question speaker="system" type="wh_question" predicate="person_area">i vilken stadsdel bor hen</question>
+    <individual name="susanna_andersson">susanna andersson</individual>
+    <individual name="goteborg">göteborg</individual>
+</grammar>
