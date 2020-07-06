@@ -1,40 +1,40 @@
 --- sortal answers
-U> book a flight 40.0
+U> book a flight
 S> When do you want to leave?
-U> March eleventh at ten pm 40.0
+U> March eleventh at ten pm
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- one-shot
-U> I want to book a flight departing March eleventh at ten pm 40.0
+U> I want to book a flight departing March eleventh at ten pm 1.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- intent recognition
-U> I want to leave on March eleventh at ten pm 40.0
+U> I want to leave on March eleventh at ten pm 1.0
 S> Okay, you want to Book a flight.
 
 --- closed interval
-U> book a flight 40.0
+U> book a flight
 S> When do you want to leave?
-U> by March eleventh at ten pm 40.0
+U> by March eleventh at ten pm 1.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- interval with open beginning
-U> book a flight 40.0
+U> book a flight
 S> When do you want to leave?
-U> before March eleventh at ten pm 40.0
+U> before March eleventh at ten pm 1.0 1.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- interval with open end
-U> book a flight 40.0
+U> book a flight
 S> When do you want to leave?
-U> after March eleventh at ten pm 40.0
+U> after March eleventh at ten pm 1.0
 S> Ok, I've booked a flight departing at 03/11/* 10:00 PM.
 
 --- generate datetime from service
 S> *
-U> when does the next flight arrive
+U> when does the next flight arrive 1.0
 S> The next flight arrives at 04/11/2018 10:00 PM.
 
 --- pass datetime as grammar entry to service
-U> share event time
+U> share event time 1.0
 S> Sharing that the event time is 05/06/2018 09:30 AM.

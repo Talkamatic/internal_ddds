@@ -3,48 +3,48 @@ S> Vad vill du göra?
 
 --- exact - incremental request
 S> *
-U> köp äpplen 40.0
+U> köp äpplen 1.0
 S> Hur många äpplen vill du ha?
-U> 12 40.0
+U> 12 1.0
 S> Du har köpt 12 äpplen.
 
 --- inexact - incremental request
 S> *
-U> köp äpplen tack 40.0
+U> köp äpplen tack 1.0
 S> Hur många äpplen vill du ha?
-U> 12 äppllenn 40.0
+U> 12 äppllenn 1.0
 S> Du har köpt 12 äpplen.
 
 --- exact - buy apples one-shot
 S> *
-U> köp 12 äpplen 40.0
+U> köp 12 äpplen 1.0
 S> Du har köpt 12 äpplen.
 
 --- inexact - buy apples one-shot
 S> *
-U> Jag vill köpa 12 äpplen tack 40.0
+U> Jag vill köpa 12 äpplen tack 1.0
 S> Du har köpt 12 äpplen.
 
 --- exact - buy too many apples
 S> *
-U> köp femtio äpplen 40.0
+U> köp femtio äpplen 1.0
 S> 50 äpplen är för många. Vänligen välj mellan 6 och 30.
 
 --- inexact - buy too many apples
 S> *
-U> Jag vill köpa 50 äpplen tack 40.0
+U> Jag vill köpa 50 äpplen tack 1.0
 S> 50 äpplen är för många. Vänligen välj mellan 6 och 30.
 
 --- exact - ask how many apples
 S> *
-U> hur många äpplen kan jag köpa 40.0
+U> hur många äpplen kan jag köpa 1.0
 S> Det maximala antalet äpplen du kan köpa är trettio.
 
 --- integer over 99 with feedback
 S> *
-U> köp 125 äpplen 40.0
+U> köp 125 äpplen 1.0
 S> 125 äpplen är för många. Vänligen välj mellan 6 och 30.
 
 --- intent recognition for buying apples
-U> 125 äpplen 40.0
+U> 125 äpplen 1.0
 S> Okej, du vill Köpa äpplen.

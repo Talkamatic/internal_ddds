@@ -98,19 +98,29 @@ pipeline {
                             tdm.inside() {
                                 stage('tide pooler') {
                                     sh 'tdm build --config tidePooler.json'
-                                    sh 'tdm test eng --config tidePooler.json'
+                                    sh 'tdm serve eng --config tidePooler.json &'
+                                    sh 'tala test http://localhost:9090/interact tidePooler/test/interaction_tests_eng.txt'
+                                    sh 'killall tdm'
                                 }
 
                                 stage('downdate conditions') {
                                     sh 'tdm build --config downdate_conditions.config.json'
-                                    sh 'tdm test eng --config downdate_conditions.config.json'
+                                    sh 'tdm serve eng --config downdate_conditions.config.json &'
+                                    sh 'tala test http://localhost:9090/interact downdate_conditions/test/interaction_tests_eng.txt'
+                                    sh 'killall tdm'
                                 }
 
                                 stage('multi ddd') {
                                     dir("multi_ddd") {
                                         sh 'tdm build'
-                                        sh 'tdm test eng --interpret-robustly'
-                                        sh 'tdm test sv'
+                                        sh 'tdm serve eng &'
+                                        sh 'tala test http://localhost:9090/interact music_player/test/interaction_tests_eng.txt'
+                                        sh 'tala test http://localhost:9090/interact navigation/test/interaction_tests_eng.txt'
+                                        sh 'tala test http://localhost:9090/interact navigation/test/interaction_tests_eng_robust.txt'
+                                        sh 'killall tdm'
+                                        sh 'tdm serve sv &'
+                                        sh 'tala test http://localhost:9090/interact music_player/test/interaction_tests_sv.txt'
+                                        sh 'killall tdm'
                                     }
                                 }
 
@@ -118,7 +128,9 @@ pipeline {
                                     stage('rgl migration without rgl') {
                                         dir("without_rgl") {
                                             sh 'tdm build'
-                                            sh 'tdm test eng'
+                                            sh 'tdm serve eng &'
+                                            sh 'tala test http://localhost:9090/interact android/test/interaction_tests_eng.txt'
+                                            sh 'killall tdm'
                                         }
                                     }
 
@@ -126,23 +138,41 @@ pipeline {
                                         dir("with_rgl") {
                                             stage('build & test android') {
                                                 sh 'tdm build --config android.config.json'
-                                                sh 'tdm test eng --config android.config.json --log-to-stdout'
-                                                sh 'tdm test dut --config android.config.json --log-to-stdout'
-                                                sh 'tdm test fre --config android.config.json --log-to-stdout'
-                                                sh 'tdm test chi --config android.config.json --log-to-stdout'
+                                                sh 'tdm serve eng --config android.config.json &'
+                                                sh 'tala test http://localhost:9090/interact android/test/interaction_tests_eng.txt'
+                                                sh 'killall tdm'
+                                                sh 'tdm serve dut --config android.config.json &'
+                                                sh 'tala test http://localhost:9090/interact android/test/interaction_tests_dut.txt'
+                                                sh 'killall tdm'
+                                                sh 'tdm serve fre --config android.config.json &'
+                                                sh 'tala test http://localhost:9090/interact android/test/interaction_tests_fre.txt'
+                                                sh 'killall tdm'
+                                                sh 'tdm serve chi --config android.config.json &'
+                                                sh 'tala test http://localhost:9090/interact android/test/interaction_tests_chi.txt'
+                                                sh 'killall tdm'
                                             }
 
                                             stage('build & test device failure') {
                                                 sh 'tdm build --config device_failure.config.json'
-                                                sh 'tdm test eng --config device_failure.config.json --log-to-stdout'
-                                                sh 'tdm test dut --config device_failure.config.json --log-to-stdout'
-                                                sh 'tdm test fre --config device_failure.config.json --log-to-stdout'
-                                                sh 'tdm test chi --config device_failure.config.json --log-to-stdout'
+                                                sh 'tdm serve eng --config device_failure.config.json &'
+                                                sh 'tala test http://localhost:9090/interact device_failure/test/interaction_tests_eng.txt'
+                                                sh 'killall tdm'
+                                                sh 'tdm serve dut --config device_failure.config.json &'
+                                                sh 'tala test http://localhost:9090/interact device_failure/test/interaction_tests_dut.txt'
+                                                sh 'killall tdm'
+                                                sh 'tdm serve fre --config device_failure.config.json &'
+                                                sh 'tala test http://localhost:9090/interact device_failure/test/interaction_tests_fre.txt'
+                                                sh 'killall tdm'
+                                                sh 'tdm serve chi --config device_failure.config.json &'
+                                                sh 'tala test http://localhost:9090/interact device_failure/test/interaction_tests_chi.txt'
+                                                sh 'killall tdm'
                                             }
 
                                             stage('build & test device notification') {
                                                 sh 'tdm build --config device_notification.config.json'
-                                                sh 'tdm test eng --config device_notification.config.json --log-to-stdout'
+                                                sh 'tdm serve eng --config device_notification.config.json &'
+                                                sh 'tala test http://localhost:9090/interact device_notification/test/interaction_tests_eng.txt'
+                                                sh 'killall tdm'
                                             }
                                         }
                                     }
@@ -162,16 +192,19 @@ pipeline {
                             stage('rasa numbers') {
                                 use_duckling_config("rasa_numbers_eng.yml")
                                 train("rasa_numbers_eng", "rasa_numbers_eng.yml")
-                                load("rasa_numbers_eng")
                                 tdm.inside() {
                                     sh 'tdm build --config rasa_numbers.config.json'
-                                    sh 'tdm test eng --config rasa_numbers.config.json --log-to-stdout'
+                                    sh 'tdm serve eng --config rasa_numbers.config.json &'
+                                    sh 'tala test http://localhost:9090/interact rasa_numbers/test/interaction_tests_eng.txt'
+                                    sh 'killall tdm'
                                 }
                                 unload("rasa_numbers_eng")
                                 use_duckling_config("rasa_numbers_sv.yml")
                                 train("rasa_numbers_sv", "rasa_numbers_sv.yml")
                                 tdm.inside() {
-                                    sh 'tdm test sv --config rasa_numbers.config.json --log-to-stdout'
+                                    sh 'tdm serve sv --config rasa_numbers.config.json &'
+                                    sh 'tala test http://localhost:9090/interact rasa_numbers/test/interaction_tests_sv.txt'
+                                    sh 'killall tdm'
                                 }
                                 unload("rasa_numbers_sv")
                             }
@@ -181,13 +214,17 @@ pipeline {
                                 train("datetime_eng", "datetime_eng.yml")
                                 tdm.inside() {
                                     sh 'tdm build --config datetime.config.json'
-                                    sh 'tdm test eng --config datetime.config.json --log-to-stdout'
+                                    sh 'tdm serve eng --config datetime.config.json &'
+                                    sh 'tala test http://localhost:9090/interact datetime_ddd/test/interaction_tests_eng.txt'
+                                    sh 'killall tdm'
                                 }
                                 unload("datetime_eng")
                                 use_duckling_config("datetime_sv.yml")
                                 train("datetime_sv", "datetime_sv.yml")
                                 tdm.inside() {
-                                    sh 'tdm test sv --config datetime.config.json --log-to-stdout'
+                                    sh 'tdm serve sv --config datetime.config.json &'
+                                    sh 'tala test http://localhost:9090/interact datetime_ddd/test/interaction_tests_sv.txt'
+                                    sh 'killall tdm'
                                 }
                                 unload("datetime_sv")
                             }
@@ -198,7 +235,9 @@ pipeline {
                                 tdm.inside() {
                                     sh 'tdm build --config person_name.config.json'
                                     sh 'FLASK_APP=person_name/http_service.py FLASK_ENV=development flask run --port=10101 &'
-                                    sh 'tdm test eng --config person_name.config.json --log-to-stdout'
+                                    sh 'tdm serve eng --config person_name.config.json &'
+                                    sh 'tala test http://localhost:9090/interact person_name/test/interaction_tests_eng.txt'
+                                    sh 'killall tdm'
                                 }
                                 unload("person_name_eng")
                             }
