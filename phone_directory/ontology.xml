@@ -12,6 +12,7 @@
     <predicate name="age" sort="integer"/>
     <individual name="susanna_andersson" sort="name"/>
     <individual name="arne_osvaldsson" sort="name"/>
+    <individual name="ada_kallesson" sort="name"/>
     <individual name="goteborg" sort="city"/>
     <individual name="uddevalla" sort="city"/>
 </ontology>

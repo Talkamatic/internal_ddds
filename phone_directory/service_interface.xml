@@ -19,4 +19,13 @@
       <http endpoint="http://127.0.0.1:10200/age"/>
     </target>
   </query>
+
+  <query name="person_city">
+    <parameters>
+      <parameter predicate="person" optional="false" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10200/city"/>
+    </target>
+  </query>
 </service_interface>

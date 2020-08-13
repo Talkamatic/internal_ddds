@@ -44,3 +44,9 @@ U>
 S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
 U>
 S> Tillbaka till telefonnumret. I vilken stadsdel bor hen?
+
+--- don't ask feature question whose answer is inferable
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Ada Kållesson
+S> ["icm:acc*pos", "icm:report_inference:person_city(goteborg)", "ask(?X.person_area(X))"]
