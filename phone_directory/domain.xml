@@ -14,6 +14,13 @@
     </plan>
   </goal>
 
+  <goal type="resolve" question_type="wh_question" predicate="age" max_answers="3" alternatives_predicate="person">
+    <plan>
+      <findout type="wh_question" predicate="person"/>
+      <invoke_service_query type="wh_question" predicate="age"/>
+    </plan>
+  </goal>
+
   <parameters question_type="wh_question" predicate="person" incremental="true">
     <ask_feature predicate="person_name"/>
     <ask_feature predicate="person_city" kpq="true"/>

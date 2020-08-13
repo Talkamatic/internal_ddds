@@ -1,3 +1,6 @@
+--- system initiates conversation
+S> Vad vill du göra?
+
 --- knowledge precondition question, WH answer
 U> jag behöver ett telefonnummer
 S> Vad heter personen?
@@ -23,3 +26,21 @@ U> Susanna Andersson
 S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
 U> nej
 S> I vilken stadsdel bor hen?
+
+--- user question about individual
+U> hur gammal är Arne Osvaldsson i Uddevalla
+S> Sjuttio.
+
+--- user question about alternatives
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> Göteborg
+S> I vilken stadsdel bor hen?
+U> hur gamla är de
+S> ["answer(implies(person(person_susanna_andersson_2), age(42)))"]
+U>
+S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
+U>
+S> Tillbaka till telefonnumret. I vilken stadsdel bor hen?

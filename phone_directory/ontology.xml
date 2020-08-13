@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ontology name="PhoneDirectoryOntology">
-    <sort name="person_id"/>
+    <sort name="person_id" dynamic="true"/>
     <sort name="name"/>
     <sort name="city"/>
     <sort name="area"/>
@@ -9,6 +9,9 @@
     <predicate name="person_name" sort="name" feature_of="person"/>
     <predicate name="person_city" sort="city" feature_of="person"/>
     <predicate name="person_area" sort="area" feature_of="person"/>
+    <predicate name="age" sort="integer"/>
     <individual name="susanna_andersson" sort="name"/>
+    <individual name="arne_osvaldsson" sort="name"/>
     <individual name="goteborg" sort="city"/>
+    <individual name="uddevalla" sort="city"/>
 </ontology>

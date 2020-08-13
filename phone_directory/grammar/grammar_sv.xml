@@ -13,6 +13,15 @@
     <question speaker="system" type="wh_question" predicate="person_name">vad heter personen</question>
     <question speaker="system" type="wh_question" predicate="person_city">i vilken stad bor hen</question>
     <question speaker="system" type="wh_question" predicate="person_area">i vilken stadsdel bor hen</question>
+    <question speaker="all" predicate="age" type="wh_question">ålder</question>
+    <question speaker="user" predicate="age" type="wh_question">
+        <one-of>
+            <item>hur gamla är de</item>
+            <item>hur gammal är <slot predicate="person_name"/> i <slot predicate="person_city"/></item>
+        </one-of>
+    </question>
     <individual name="susanna_andersson">susanna andersson</individual>
+    <individual name="arne_osvaldsson">arne osvaldsson</individual>
     <individual name="goteborg">göteborg</individual>
+    <individual name="uddevalla">uddevalla</individual>
 </grammar>
