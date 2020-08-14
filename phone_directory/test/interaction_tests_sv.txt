@@ -39,6 +39,8 @@ S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
 U> Göteborg
 S> I vilken stadsdel bor hen?
 U> hur gamla är de
+S> ["answer(implies(person(person_susanna_andersson_4), age(77)))"]
+U>
 S> ["answer(implies(person(person_susanna_andersson_2), age(42)))"]
 U>
 S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
@@ -63,6 +65,8 @@ S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
 U> Göteborg
 S> I vilken stadsdel bor hen?
 U> hur gamla är de
+S> ["answer(implies(person(person_susanna_andersson_4), age(77)))"]
+U>
 S> ["answer(implies(person(person_susanna_andersson_2), age(42)))"]
 U>
 S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
@@ -88,6 +92,8 @@ S> Vad vill du göra?
 #U>
 #S> Susanna Andersson på Kompassgatan 10 i Göteborg är 31 år.
 #U>
+#S> Susanna Andersson på Olivedalsgatan 12 i Göteborg är 77 år.
+#U>
 #S> Tillbaka till telefonnumret. I vilken stadsdel bor hen?
 #U> hon är 42 år
 #S> Numret är 070-1234542.
@@ -95,3 +101,35 @@ S> Vad vill du göra?
 #S> Numret är 070-1234531.
 #U>
 #S> Tillbaka till huvudmenyn. Vad vill du göra?
+
+--- search by a non-exclusive landmark
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> Göteborg
+S> I vilken stadsdel bor hen?
+U> nära Slottsskogen
+S> I vilken stadsdel bor hen?
+
+--- search by another non-exclusive landmark
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> Göteborg
+S> I vilken stadsdel bor hen?
+U> nära Hemköp
+S> I vilken stadsdel bor hen?
+
+--- search by exclusive combination of landmarks
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> Göteborg
+S> I vilken stadsdel bor hen?
+U> nära Slottsskogen
+S> I vilken stadsdel bor hen?
+U> nära Hemköp
+S> Numret är 070-1234577.

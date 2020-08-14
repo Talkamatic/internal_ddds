@@ -52,33 +52,47 @@ def person():
         age_is_known = (age_dict is not None)
         if age_is_known:
             age = age_dict["value"]
-            print(f"age={age}")
+
+        landmark_dicts = payload["request"]["parameters"]["person_landmark"]
+        landmark_is_known = (landmark_dicts is not None)
+        if landmark_is_known:
+            landmarks = [landmark_dict["value"] for landmark_dict in landmark_dicts]
+            print("landmarks=", landmarks)
         result = []
         if name == "arne_osvaldsson":
             result.append({"value": "person_arne_osvaldsson",
                            "sort": "person_id",
                            "grammar_entry": "Arne Osvaldsson"})
         elif name == "susanna_andersson":
-            if not city_is_known or city == "goteborg":
-                if not age_is_known or age == 31:
-                    result.append({"value": "person_susanna_andersson_1",
+            if landmark_is_known and set(landmarks) == set([u"slottsskogen", u"hemkop"]):
+                result.append({"value": "person_susanna_andersson_4",
                                    "sort": "person_id",
                                    "grammar_entry": "Susanna Andersson"})
-                if not age_is_known or age == 42:
-                    result.append({"value": "person_susanna_andersson_2",
+            else:
+                if not city_is_known or city == "goteborg":
+                    if not age_is_known or age == 31:
+                        result.append({"value": "person_susanna_andersson_1",
+                                       "sort": "person_id",
+                                       "grammar_entry": "Susanna Andersson"})
+                    if not age_is_known or age == 42:
+                        result.append({"value": "person_susanna_andersson_2",
+                                       "sort": "person_id",
+                                       "grammar_entry": "Susanna Andersson"})
+                    if not age_is_known or age == 77:
+                        result.append({"value": "person_susanna_andersson_4",
+                                       "sort": "person_id",
+                                       "grammar_entry": "Susanna Andersson"})
+                if not city_is_known or city == "stockholm":
+                    result.append({"value": "person_susanna_andersson_3",
                                    "sort": "person_id",
                                    "grammar_entry": "Susanna Andersson"})
-            if not city_is_known or city == "stockholm":
-                result.append({"value": "person_susanna_andersson_3",
-                               "sort": "person_id",
-                               "grammar_entry": "Susanna Andersson"})
         elif name == "ada_kallesson":
             result.append({"value": "person_ada_kallesson_1",
-                           "sort": "person_id",
-                           "grammar_entry": u"Ada Kållesson"})
+                       "sort": "person_id",
+                       "grammar_entry": u"Ada Kållesson"})
             result.append({"value": "person_ada_kallesson_2",
-                           "sort": "person_id",
-                           "grammar_entry": u"Ada Kållesson"})
+                       "sort": "person_id",
+                       "grammar_entry": u"Ada Kållesson"})
         return person_response(result)
     except BaseException as exception:
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -124,6 +138,8 @@ def _get_age(person):
         return 42
     elif person == "person_ada_kallesson_2":
         return 99
+    elif person == "person_susanna_andersson_4":
+        return 77
 
 
 @app.route("/age", methods=['POST'])
@@ -207,6 +223,8 @@ def _get_phonenumber(person):
         return "070-1234531"
     elif person == "person_susanna_andersson_2":
         return "070-1234542"
+    elif person == "person_susanna_andersson_4":
+        return "070-1234577"
 
 def _get_city(person):
     if person == "person_arne_osvaldsson":
@@ -217,6 +235,8 @@ def _get_city(person):
         return "goteborg"
     elif person == "person_susanna_andersson_3":
         return "stockholm"
+    elif person == "person_susanna_andersson_4":
+        return "goteborg"
     elif person == "person_ada_kallesson_1":
         return "goteborg"
     elif person == "person_ada_kallesson_2":

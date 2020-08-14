@@ -4,16 +4,20 @@
     <sort name="name"/>
     <sort name="city"/>
     <sort name="area"/>
+    <sort name="landmark"/>
     <predicate name="phonenumber" sort="string"/>
     <predicate name="person" sort="person_id"/>
     <predicate name="person_name" sort="name" feature_of="person"/>
     <predicate name="person_city" sort="city" feature_of="person"/>
     <predicate name="person_area" sort="area" feature_of="person"/>
     <predicate name="person_age" sort="integer" feature_of="person"/>
+    <predicate name="person_landmark" sort="landmark" multiple_instances="true" feature_of="person"/>
     <predicate name="age" sort="integer"/>
     <individual name="susanna_andersson" sort="name"/>
     <individual name="arne_osvaldsson" sort="name"/>
     <individual name="ada_kallesson" sort="name"/>
     <individual name="goteborg" sort="city"/>
     <individual name="uddevalla" sort="city"/>
+    <individual name="slottsskogen" sort="landmark"/>
+    <individual name="hemkop" sort="landmark"/>
 </ontology>

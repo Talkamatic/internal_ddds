@@ -6,6 +6,7 @@
       <parameter predicate="person_city" optional="true" format="value"/>
       <parameter predicate="person_area" optional="true" format="value"/>
       <parameter predicate="person_age" optional="true" format="value"/>
+      <parameter predicate="person_landmark" optional="true" format="value"/>
     </parameters>
     <target>
       <http endpoint="http://127.0.0.1:10200/person"/>
