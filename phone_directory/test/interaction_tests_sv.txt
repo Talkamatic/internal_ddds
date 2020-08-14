@@ -44,9 +44,54 @@ U>
 S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
 U>
 S> Tillbaka till telefonnumret. I vilken stadsdel bor hen?
+U> vad är numret till hon som är 42 år
+S> Numret är 070-1234542.
+U>
+S> Tillbaka till huvudmenyn. Vad vill du göra?
 
 --- don't ask feature question whose answer is inferable
 U> jag behöver ett telefonnummer
 S> Vad heter personen?
 U> Ada Kållesson
 S> ["icm:acc*pos", "icm:report_inference:person_city(goteborg)", "ask(?X.person_area(X))"]
+
+--- post-system-answer answer revision with question repeated
+U> jag behöver ett telefonnummer
+S> Vad heter personen?
+U> Susanna Andersson
+S> ["icm:acc*pos", "ask(?know_answer(?X.person_city(X)))"]
+U> Göteborg
+S> I vilken stadsdel bor hen?
+U> hur gamla är de
+S> ["answer(implies(person(person_susanna_andersson_2), age(42)))"]
+U>
+S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
+U>
+S> Tillbaka till telefonnumret. I vilken stadsdel bor hen?
+U> hon är 42 år
+S> Numret är 070-1234542.
+U> vad är numret till hon som är 31 år
+S> Numret är 070-1234531.
+U>
+S> Vad vill du göra?
+
+# TODO, with new ICM for "hur är det med hon som är 31 år"
+#--- post-system-answer answer revision with
+#U> jag behöver ett telefonnummer
+#S> Vad heter personen?
+#U> Susanna Andersson
+#S> Vet du i vilken stad hen bor?
+#U> Göteborg
+#S> I vilken stadsdel bor hen?
+#U> hur gamla är de
+#S> Susanna Andersson på Vasagatan 11 i Göteborg är 42 år.
+#U>
+#S> Susanna Andersson på Kompassgatan 10 i Göteborg är 31 år.
+#U>
+#S> Tillbaka till telefonnumret. I vilken stadsdel bor hen?
+#U> hon är 42 år
+#S> Numret är 070-1234542.
+#U> hur är det med hon som är 31 år
+#S> Numret är 070-1234531.
+#U>
+#S> Tillbaka till huvudmenyn. Vad vill du göra?

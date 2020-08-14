@@ -5,6 +5,7 @@
       <parameter predicate="person_name" optional="false" format="value"/>
       <parameter predicate="person_city" optional="true" format="value"/>
       <parameter predicate="person_area" optional="true" format="value"/>
+      <parameter predicate="person_age" optional="true" format="value"/>
     </parameters>
     <target>
       <http endpoint="http://127.0.0.1:10200/person"/>
@@ -26,6 +27,15 @@
     </parameters>
     <target>
       <http endpoint="http://127.0.0.1:10200/city"/>
+    </target>
+  </query>
+
+  <query name="phonenumber">
+    <parameters>
+      <parameter predicate="person" optional="false" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10200/phonenumber"/>
     </target>
   </query>
 </service_interface>

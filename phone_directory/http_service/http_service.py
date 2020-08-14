@@ -48,6 +48,11 @@ def person():
         city_is_known = (city_dict is not None)
         if city_is_known:
             city = city_dict["value"]
+        age_dict = payload["request"]["parameters"]["person_age"]
+        age_is_known = (age_dict is not None)
+        if age_is_known:
+            age = age_dict["value"]
+            print(f"age={age}")
         result = []
         if name == "arne_osvaldsson":
             result.append({"value": "person_arne_osvaldsson",
@@ -55,12 +60,14 @@ def person():
                            "grammar_entry": "Arne Osvaldsson"})
         elif name == "susanna_andersson":
             if not city_is_known or city == "goteborg":
-                result.append({"value": "person_susanna_andersson_1",
-                               "sort": "person_id",
-                               "grammar_entry": "Susanna Andersson"})
-                result.append({"value": "person_susanna_andersson_2",
-                               "sort": "person_id",
-                               "grammar_entry": "Susanna Andersson"})
+                if not age_is_known or age == 31:
+                    result.append({"value": "person_susanna_andersson_1",
+                                   "sort": "person_id",
+                                   "grammar_entry": "Susanna Andersson"})
+                if not age_is_known or age == 42:
+                    result.append({"value": "person_susanna_andersson_2",
+                                   "sort": "person_id",
+                                   "grammar_entry": "Susanna Andersson"})
             if not city_is_known or city == "stockholm":
                 result.append({"value": "person_susanna_andersson_3",
                                "sort": "person_id",
@@ -154,6 +161,52 @@ def age_response(age):
         mimetype='application/json'
     )
     return response
+
+
+@app.route("/phonenumber", methods=['POST'])
+def phonenumber():
+    try:
+        payload = request.get_json()
+        person_dict = payload["request"]["parameters"]["person"]
+        person = person_dict["value"]
+        phonenumber = _get_phonenumber(person)
+        return phonenumber_response(phonenumber)
+    except BaseException as exception:
+        return error_response(messphonenumber=str(exception))
+
+
+def phonenumber_response(phonenumber):
+    response_template = environment.from_string("""
+    {
+      "status": "success",
+      "data": {
+        "version": "1.0",
+        "result": [
+          {
+            "value": {{phonenumber|json}},
+            "confidence": 1.0,
+            "grammar_entry": null
+          }
+        ]
+      }
+    }
+     """)
+    payload = response_template.render(phonenumber=phonenumber)
+    response = app.response_class(
+        response=payload,
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+
+def _get_phonenumber(person):
+    if person == "person_arne_osvaldsson":
+        return "070-1234570"
+    elif person == "person_susanna_andersson_1":
+        return "070-1234531"
+    elif person == "person_susanna_andersson_2":
+        return "070-1234542"
 
 def _get_city(person):
     if person == "person_arne_osvaldsson":

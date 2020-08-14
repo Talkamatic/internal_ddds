@@ -9,6 +9,7 @@
     <predicate name="person_name" sort="name" feature_of="person"/>
     <predicate name="person_city" sort="city" feature_of="person"/>
     <predicate name="person_area" sort="area" feature_of="person"/>
+    <predicate name="person_age" sort="integer" feature_of="person"/>
     <predicate name="age" sort="integer"/>
     <individual name="susanna_andersson" sort="name"/>
     <individual name="arne_osvaldsson" sort="name"/>

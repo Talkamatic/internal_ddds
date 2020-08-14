@@ -8,6 +8,7 @@
         <one-of>
             <item>jag behöver ett telefonnummer</item>
             <item>jag behöver numret till <slot predicate="person_name"/> i <slot predicate="person_city"/></item>
+            <item>vad är numret till hon som är <slot predicate="person_age"/> år</item>
         </one-of>
     </question>
     <question speaker="system" type="wh_question" predicate="person_name">vad heter personen</question>
@@ -25,4 +26,10 @@
     <individual name="ada_kallesson">ada kållesson</individual>
     <individual name="goteborg">göteborg</individual>
     <individual name="uddevalla">uddevalla</individual>
+    <answer speaker="system" predicate="phonenumber">numret är <slot predicate="phonenumber"/></answer>
+    <answer speaker="user">
+        <one-of>
+            <item>hon är <slot predicate="person_age"/> år</item>
+        </one-of>
+    </answer>
 </grammar>
