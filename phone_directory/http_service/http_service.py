@@ -51,46 +51,41 @@ def person():
             age = age_dict["value"]
 
         landmark_dicts = payload["request"]["parameters"]["person_landmark"]
-        landmark_is_known = (landmark_dicts is not None)
+        landmark_is_known = (len(landmark_dicts) > 0)
         if landmark_is_known:
             landmarks = [landmark_dict["value"] for landmark_dict in landmark_dicts]
-            print("landmarks=", landmarks)
         result = []
         if name == "arne_osvaldsson":
             result.append({"value": "person_arne_osvaldsson", "sort": "person_id", "grammar_entry": "Arne Osvaldsson"})
         elif name == "susanna_andersson":
-            if landmark_is_known and set(landmarks) == set([u"slottsskogen", u"hemkop"]):
-                result.append({
-                    "value": "person_susanna_andersson_4",
-                    "sort": "person_id",
-                    "grammar_entry": "Susanna Andersson"
-                })
-            else:
-                if not city_is_known or city == "goteborg":
-                    if not age_is_known or age == 31:
-                        result.append({
-                            "value": "person_susanna_andersson_1",
-                            "sort": "person_id",
-                            "grammar_entry": "Susanna Andersson"
-                        })
-                    if not age_is_known or age == 42:
-                        result.append({
-                            "value": "person_susanna_andersson_2",
-                            "sort": "person_id",
-                            "grammar_entry": "Susanna Andersson"
-                        })
-                    if not age_is_known or age == 77:
-                        result.append({
-                            "value": "person_susanna_andersson_4",
-                            "sort": "person_id",
-                            "grammar_entry": "Susanna Andersson"
-                        })
-                if not city_is_known or city == "stockholm":
+            if not city_is_known or city == "goteborg":
+                if (not age_is_known or age == 31
+                    ) and (not landmark_is_known or (u"slottsskogen" in landmarks and not u"hemkop" in landmarks)):
                     result.append({
-                        "value": "person_susanna_andersson_3",
+                        "value": "person_susanna_andersson_1",
                         "sort": "person_id",
                         "grammar_entry": "Susanna Andersson"
                     })
+                if (not age_is_known or age == 42
+                    ) and (not landmark_is_known or (u"hemkop" in landmarks and not u"slottsskogen" in landmarks)):
+                    result.append({
+                        "value": "person_susanna_andersson_2",
+                        "sort": "person_id",
+                        "grammar_entry": "Susanna Andersson"
+                    })
+                if (not age_is_known or age
+                    == 77) and (not landmark_is_known or u"slottsskogen" in landmarks or u"hemkop" in landmarks):
+                    result.append({
+                        "value": "person_susanna_andersson_4",
+                        "sort": "person_id",
+                        "grammar_entry": "Susanna Andersson"
+                    })
+            if not city_is_known or city == "stockholm":
+                result.append({
+                    "value": "person_susanna_andersson_3",
+                    "sort": "person_id",
+                    "grammar_entry": "Susanna Andersson"
+                })
         elif name == "ada_kallesson":
             result.append({"value": "person_ada_kallesson_1", "sort": "person_id", "grammar_entry": u"Ada Kållesson"})
             result.append({"value": "person_ada_kallesson_2", "sort": "person_id", "grammar_entry": u"Ada Kållesson"})

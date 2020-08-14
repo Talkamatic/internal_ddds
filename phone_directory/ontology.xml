@@ -13,6 +13,7 @@
     <predicate name="person_age" sort="integer" feature_of="person"/>
     <predicate name="person_landmark" sort="landmark" multiple_instances="true" feature_of="person"/>
     <predicate name="age" sort="integer"/>
+    <predicate name="number_of_hits" sort="integer"/>
     <individual name="susanna_andersson" sort="name"/>
     <individual name="arne_osvaldsson" sort="name"/>
     <individual name="ada_kallesson" sort="name"/>
