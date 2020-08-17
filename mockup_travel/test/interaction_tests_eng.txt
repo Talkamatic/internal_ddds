@@ -459,22 +459,15 @@ S> Welcome to the Travel Agency!  How do you want to travel : by plane or by tra
 S> *
 U> price information for flights
 S> Where do you want to go?
-U> ["Move(answer(yes), perception_confidence=1.0, understanding_confidence=0.02, speaker='USR')"]
+U> [{"semantic_expression": "answer(yes)", "perception_confidence": 1.0, "understanding_confidence": 0.02}]
 S> I don't understand. So, Where do you want to go?
 
 --- reraise on disregard semantic input with utterance
 S> *
 U> price information for flights
 S> Where do you want to go?
-U> ["Move(answer(yes), perception_confidence=1.0, understanding_confidence=0.02, speaker='USR', utterance='where is the red pyjamas')"]
+U> {"utterance": "where is the red pyjamas", "moves": [{"semantic_expression": "answer(yes)", "perception_confidence": 0.9, "understanding_confidence": 0.02}]}
 S> I heard you say where is the red pyjamas. I don't understand. So, Where do you want to go?
-
---- reraise on disregard semantic input with several utterances
-S> *
-U> price information for flights
-S> Where do you want to go?
-U> ["Move(answer(yes), perception_confidence=0.9, understanding_confidence=0.02, speaker='USR', utterance='where is the red pyjamas')", "Move(answer(yes), perception_confidence=1.0, understanding_confidence=0.02, speaker='USR', utterance='where is the blue pyjamas')"]
-S> I heard you say where is the blue pyjamas. I don't understand. So, Where do you want to go?
 
 --- asking about visa: visa not needed
 S> *
