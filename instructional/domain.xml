@@ -11,6 +11,7 @@
     <plan>
       <get_done action="heat_2_dl_water_to_40_degrees"/>
       <get_done action="pour_water_into_bowl"/>
+      <invoke_service_action name="EndSourdougStarterInstruction" postconfirm="true"/>
     </plan>
   </goal>
 
