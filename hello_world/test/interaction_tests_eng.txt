@@ -117,25 +117,25 @@ U> sync to internet
 S> The function is not implemented.
 
 --- unimplemented function, acknowledge level, user timeout
-U> sync to internet $ACKNOWLEDGE
+U> sync to internet 0.2
 S> Sync to internet.
 U>
 S> The function is not implemented.
 
 --- unimplemented function, acknowledge level, user says yes
-U> sync to internet $ACKNOWLEDGE
+U> sync to internet 0.2
 S> Sync to internet.
 U> yes
 S> The function is not implemented.
 
 --- unimplemented function, check level treated as acknowledge, user timeout
-U> sync to internet $CHECK
+U> sync to internet 0.12
 S> Sync to internet.
 U>
 S> The function is not implemented.
 
 --- unimplemented function, check level treated as acknowledge, user says yes
-U> sync to internet $CHECK
+U> sync to internet 0.12
 S> Sync to internet.
 U> yes
 S> The function is not implemented.
@@ -176,7 +176,7 @@ U>
 S> So, Do you want to know the current time or set the time?
 
 --- positive feedback of understanding negative issue
-U> what time is it $CHECK
+U> what time is it 0.12
 S> Do you want to know the current time?
 U> no
 S> Not know the current time.*

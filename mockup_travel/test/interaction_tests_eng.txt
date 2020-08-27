@@ -79,7 +79,7 @@ U> price information
 S> How do you want to travel : by plane or by train?
 U> by plane
 S> Where do you want to go?
-U> athens $CHECK
+U> athens 0.12
 S> To Athens, is that correct?
 
 --- invalidity
@@ -202,7 +202,7 @@ S> You have fifty frequent flyer points and are qualified for membership and you
 
 --- grounding feedback for resolve goal
 S> *
-U> price information $CHECK
+U> price information 0.12
 S> Do you want to know the price?
 
 --- decorate answer with other answers
@@ -401,21 +401,21 @@ S> Returning to add passenger. Adult or child?
 
 --- optimistic grounding for resolve goal
 S> *
-U> price information $ACKNOWLEDGE
+U> price information 0.2
 S> You want to know the price.
 U>
 S> How do you want to travel : by plane or by train?
 
 --- optimistic grounding for perform goal
 S> *
-U> add passenger $ACKNOWLEDGE
+U> add passenger 0.2
 S> Add passenger.
 U>
 S> Adult or child?
 
 --- optimistic grounding for resolve goal - pardon
 S> *
-U> price information $ACKNOWLEDGE
+U> price information 0.2
 S> You want to know the price.
 U> pardon
 S> You want to know the price.
@@ -428,7 +428,7 @@ S> How do you want to travel : by plane or by train?
 S> *
 U> pardon
 S> *
-U> add passenger $ACKNOWLEDGE
+U> add passenger 0.2
 S> Add passenger.
 U> pardon
 S> Add passenger.
@@ -453,7 +453,7 @@ S> The comment I like athens was registered with the name Emma Johnson.
 
 --- user speaks first
 U> price information
-S> Welcome to the Travel Agency!  How do you want to travel : by plane or by train?
+S> How do you want to travel : by plane or by train?
 
 --- reraise on disregard semantic input without utterance
 S> *

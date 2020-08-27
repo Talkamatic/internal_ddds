@@ -3,7 +3,7 @@ S> Välkommen till resebyrån!
 
 --- learn language-specific entities
 S> *
-U> pris till aten $CHECK
+U> pris till aten 0.12
 S> Vill du veta priset?
 U> ja
 S> Till Aten, stämmer det?

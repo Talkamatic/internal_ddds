@@ -28,14 +28,14 @@ S> Do you want to make a domestic reservation, make an international reservation
 
 --- optimistic grounding for resolve goal
 S> *
-U> price information $ACKNOWLEDGE
+U> price information 0.2
 S> You want to know the price.
 U>
 S> How do you want to travel : by plane or by train?
 
 --- optimistic grounding for perform goal
 S> *
-U> add passenger $ACKNOWLEDGE
+U> add passenger 0.2
 S> Add passenger.
 U>
 S> Adult or child?

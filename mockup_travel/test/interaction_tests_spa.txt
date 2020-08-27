@@ -3,7 +3,7 @@ S> Bienvenidos a la Agencia de Viajes!
 
 --- learn language-specific entities
 S> *
-U> precios para viajar a Atenas $CHECK
+U> precios para viajar a Atenas 0.12
 S> Quieres saber sobre precios?
 U> sí
 S> A Atenas, es correcto?

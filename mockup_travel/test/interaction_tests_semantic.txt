@@ -1,3 +1,3 @@
 --- one-shot price information
-U> ['ask(?X.price(X))', 'answer(plane)', 'answer(paris)']
+U> ["ask(?X.price(X))", "answer(plane)", "answer(paris)"]
 S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
