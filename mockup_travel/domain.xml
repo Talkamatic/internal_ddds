@@ -15,8 +15,6 @@
       <findout type="wh_question" predicate="class"/>
       <invoke_service_query type="wh_question" predicate="price"/>
     </plan>
-    <gui_context predicate="dest_city"/>
-    <gui_context predicate="means_of_transport"/>
   </goal>
 
   <goal type="resolve" question_type="yn_question">
@@ -29,7 +27,6 @@
         <proposition predicate="need_visa"/>
       </invoke_service_query>
     </plan>
-    <gui_context predicate="dest_city"/>
   </goal>
 
   <goal type="perform" action="buy">
@@ -111,7 +108,6 @@
       <findout type="wh_question" predicate="class"/>
       <invoke_service_action name="MakeRandomReservation" postconfirm="true"/>
     </plan>
-    <gui_context predicate="class"/>
   </goal>
 
   <goal type="perform" action="leave_comment" reraise_on_resume="false">
@@ -121,7 +117,6 @@
       <findout type="wh_question" predicate="comment_name"/>
       <invoke_service_action name="RegisterComment" postconfirm="true"/>
     </plan>
-    <gui_context predicate="house_owner_name"/>
   </goal>
 
 

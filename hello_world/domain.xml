@@ -18,8 +18,6 @@
         </alt>
       </findout>
     </plan>
-    <gui_context predicate="alarm_image_url"/>
-    <gui_context predicate="clock_view"/>
   </goal>
 
   <goal type="perform" action="turn_off_alarm">
