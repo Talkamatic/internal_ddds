@@ -2,7 +2,7 @@
 
 import json
 
-from flask import Flask, request
+from flask import Flask
 from jinja2 import Environment
 
 app = Flask(__name__)
