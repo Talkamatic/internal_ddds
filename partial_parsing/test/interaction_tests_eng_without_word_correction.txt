@@ -1,5 +1,0 @@
---- navigation with word correction from custom word list
-U> navigate
-S> What is your destination?
-U> new yyork
-S> I heard you say new yyork. I don't understand. So, What is your destination?

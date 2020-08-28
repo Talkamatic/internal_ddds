@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ontology name="PartialParsingOntology">
-  <action name="navigate"/>
-  <sort name="city" dynamic="true"/>
-  <predicate name="destination" sort="city"/>
-</ontology>
