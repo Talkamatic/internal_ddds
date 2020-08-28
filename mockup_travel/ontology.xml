@@ -30,7 +30,6 @@
   <predicate name="available_dept_city" sort="city"/>
   <predicate name="room_availability" sort="boolean"/>
   <predicate name="available_member_type" sort="membership"/>
-  <predicate name="dest_country_label" sort="country"/>
   <predicate name="place_keyword" sort="keyword" feature_of="dest_city"/>
   <predicate name="frequent_flyer_number" sort="string"/>
   <predicate name="next_membership_points" sort="integer"/>
@@ -43,7 +42,6 @@
   <predicate name="means_of_transport" sort="how"/>
   <predicate name="selected_room_type" sort="room_type"/>
   <predicate name="class" sort="class_sort"/>
-  <predicate name="dest_city_label" sort="city"/>
   <predicate name="dest_city_type" sort="city_type" feature_of="dest_city"/>
   <predicate name="passenger_quantity_to_add" sort="integer"/>
   <predicate name="qualified_for_membership" sort="boolean"/>

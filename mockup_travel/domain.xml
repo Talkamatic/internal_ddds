@@ -5,7 +5,7 @@
     </plan>
   </goal>
 
-  <goal type="resolve" question_type="wh_question" predicate="price" dynamic_title="true">
+  <goal type="resolve" question_type="wh_question" predicate="price">
     <plan>
       <findout type="wh_question" predicate="means_of_transport"/>
       <findout type="wh_question" predicate="dest_city"/>
@@ -103,7 +103,7 @@
     <plan/>
   </goal>
 
-  <goal type="perform" action="make_random_reservation" dynamic_title="true" restart_on_completion="true">
+  <goal type="perform" action="make_random_reservation" restart_on_completion="true">
     <plan>
       <findout type="wh_question" predicate="class"/>
       <invoke_service_action name="MakeRandomReservation" postconfirm="true"/>
@@ -269,10 +269,7 @@
     <perform action="apply_for_membership"/>
     <related_information type="wh_question" predicate="qualified_for_membership"/>
   </parameters>
-  <parameters question_type="wh_question" predicate="dest_city" graphical_type="list" source="service" incremental="true">
-    <label_question type="wh_question" predicate="dest_city_label"/>
-    <label_question type="wh_question" predicate="dest_country_label"/>
-  </parameters>
+  <parameters question_type="wh_question" predicate="dest_city" graphical_type="list" source="service" incremental="true"/>
   <parameters question_type="wh_question" predicate="price">
     <background predicate="dept_city"/>
     <background predicate="dest_city"/>

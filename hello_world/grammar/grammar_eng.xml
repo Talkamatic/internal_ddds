@@ -52,7 +52,4 @@
     <validity name="MinuteValidity">cannot set the minute to <slot predicate="minute_to_set"/>.</validity>
 
     <individual name="work_alarm">work</individual>
-
-    <title type="action" action="top">hello world</title>
-    <title type="question" predicate="current_time">show the time</title>
 </grammar>

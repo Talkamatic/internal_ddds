@@ -232,8 +232,6 @@
 
   <question speaker="system" predicate="selected_room_type" type="wh_question">qué tipo de habitación estás buscando</question>
 
-  <title action="top" type="action">agencia de viajes</title>
-
   <question speaker="system" predicate="dest_country" type="wh_question">a qué país</question>
 
   <action name="make_domestic_reservation">reserva un viaje nacional</action>

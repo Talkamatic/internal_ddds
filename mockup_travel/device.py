@@ -186,21 +186,6 @@ class MockupTravelDevice(DddDevice):
         def perform(self):
             return ["plane", "train"]
 
-    class dest_city_label(DeviceWHQuery):
-        def perform(self, dest_city_value, dest_city_grammar_entry):
-            return [{
-                "grammar_entry": dest_city_grammar_entry,
-                "value": dest_city_value,
-            }]
-
-    class dest_country_label(DeviceWHQuery):
-        def perform(self, city):
-            if city in MockupTravelDevice.CITY_COUNTRY:
-                label = MockupTravelDevice.CITY_COUNTRY[city]
-            else:
-                label = "england"
-            return [label]
-
     class qualified_for_membership(DeviceWHQuery):
         def perform(self, dest_city):
             if dest_city == "pyongyang":

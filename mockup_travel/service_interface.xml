@@ -121,14 +121,6 @@
       <device_module device="MockupTravelDevice"/>
     </target>
   </query>
-  <query name="dest_country_label">
-    <parameters>
-      <parameter predicate="dest_city" format="value"/>
-    </parameters>
-    <target>
-      <device_module device="MockupTravelDevice"/>
-    </target>
-  </query>
   <query name="available_payment_method">
     <parameters/>
     <target>
@@ -143,15 +135,6 @@
   </query>
   <query name="frequent_flyer_points">
     <parameters/>
-    <target>
-      <device_module device="MockupTravelDevice"/>
-    </target>
-  </query>
-  <query name="dest_city_label">
-    <parameters>
-      <parameter predicate="dest_city" format="value"/>
-      <parameter predicate="dest_city" format="grammar_entry"/>
-    </parameters>
     <target>
       <device_module device="MockupTravelDevice"/>
     </target>

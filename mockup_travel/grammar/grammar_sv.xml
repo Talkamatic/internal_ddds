@@ -210,8 +210,6 @@
 
   <question speaker="system" predicate="selected_room_type" type="wh_question">vilken sorts rum letar du efter</question>
 
-  <title action="top" type="action">resebyrå</title>
-
   <question speaker="system" predicate="dest_country" type="wh_question">till vilket land</question>
 
   <action name="make_domestic_reservation">boka en inrikesresa</action>

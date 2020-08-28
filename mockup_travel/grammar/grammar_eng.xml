@@ -217,8 +217,6 @@
 
   <question speaker="system" predicate="selected_room_type" type="wh_question">what kind of room are you looking for</question>
 
-  <title action="top" type="action">travel agency</title>
-
   <question speaker="system" predicate="dest_country" type="wh_question">to which country</question>
 
   <action name="make_domestic_reservation">make a domestic reservation</action>

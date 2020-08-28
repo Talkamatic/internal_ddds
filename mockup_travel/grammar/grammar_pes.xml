@@ -215,8 +215,6 @@
 
   <question speaker="system" predicate="selected_room_type" type="wh_question">دنبال چه نوع اطاقی میگردید</question>
 
-  <title action="top" type="action">آژانس مسافرتی</title>
-
   <question speaker="system" predicate="dest_country" type="wh_question">به کدام کشور</question>
 
   <action name="make_domestic_reservation">یک رزرو داخلی انجام دهید</action>
