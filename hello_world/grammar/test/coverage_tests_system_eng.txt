@@ -13,9 +13,6 @@ report(ServiceResultProposition(SetAlarm, [alarm_hour(11), alarm_minute(10)], Su
 ICMMove(icm:acc*neg:rejected(set([hour_to_set(25)]), HourValidity)) :: Cannot set the hour to 25.
 ICMMove(icm:acc*neg:rejected(set([minute_to_set(65)]), MinuteValidity)) :: Cannot set the minute to 65.
 
-altTitle(hour_to_set(10)) :: 10
-altTitle(minute_to_set(10)) :: 10
-
 ICMMove(icm:und*pos:USR*hour_to_set(10)) :: Ten.
 ICMMove(icm:und*pos:USR*minute_to_set(10)) :: Ten.
 
