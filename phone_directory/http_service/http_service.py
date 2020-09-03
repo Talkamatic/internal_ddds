@@ -42,53 +42,47 @@ def person():
         name_dict = payload["request"]["parameters"]["person_name"]
         name = name_dict["value"]
         city_dict = payload["request"]["parameters"]["person_city"]
-        city_is_known = (city_dict is not None)
-        if city_is_known:
-            city = city_dict["value"]
+        city = city_dict["value"] if city_dict else None
         age_dict = payload["request"]["parameters"]["person_age"]
-        age_is_known = (age_dict is not None)
-        if age_is_known:
-            age = age_dict["value"]
+        age = age_dict["value"] if age_dict else None
 
-        landmark_dicts = payload["request"]["parameters"]["person_landmark"]
-        landmark_is_known = (len(landmark_dicts) > 0)
-        if landmark_is_known:
-            landmarks = [landmark_dict["value"] for landmark_dict in landmark_dicts]
+        landmark_dicts = payload["request"]["parameters"]["person_landmark"] or []
+        landmarks = [landmark_dict["value"] for landmark_dict in landmark_dicts]
         result = []
         if name == "arne_osvaldsson":
             result.append({"value": "person_arne_osvaldsson", "sort": "person_id", "grammar_entry": "Arne Osvaldsson"})
         elif name == "susanna_andersson":
-            if not city_is_known or city == "goteborg":
-                if (not age_is_known or age == 31
-                    ) and (not landmark_is_known or (u"slottsskogen" in landmarks and not u"hemkop" in landmarks)):
-                    result.append({
-                        "value": "person_susanna_andersson_1",
-                        "sort": "person_id",
-                        "grammar_entry": "Susanna Andersson"
-                    })
-                if (not age_is_known or age == 42
-                    ) and (not landmark_is_known or (u"hemkop" in landmarks and not u"slottsskogen" in landmarks)):
-                    result.append({
-                        "value": "person_susanna_andersson_2",
-                        "sort": "person_id",
-                        "grammar_entry": "Susanna Andersson"
-                    })
-                if (not age_is_known or age
-                    == 77) and (not landmark_is_known or u"slottsskogen" in landmarks or u"hemkop" in landmarks):
-                    result.append({
-                        "value": "person_susanna_andersson_4",
-                        "sort": "person_id",
-                        "grammar_entry": "Susanna Andersson"
-                    })
-            if not city_is_known or city == "stockholm":
+            if city in [None, "goteborg"]:
+                if age in [None, 31]:
+                    if not landmarks or ("slottsskogen" in landmarks and "hemkop" not in landmarks):
+                        result.append({
+                            "value": "person_susanna_andersson_1",
+                            "sort": "person_id",
+                            "grammar_entry": "Susanna Andersson"
+                        })
+                if age in [None, 42]:
+                    if not landmarks or ("hemkop" in landmarks and "slottsskogen" not in landmarks):
+                        result.append({
+                            "value": "person_susanna_andersson_2",
+                            "sort": "person_id",
+                            "grammar_entry": "Susanna Andersson"
+                        })
+                if age in [None, 77]:
+                    if not landmarks or "slottsskogen" in landmarks or "hemkop" in landmarks:
+                        result.append({
+                            "value": "person_susanna_andersson_4",
+                            "sort": "person_id",
+                            "grammar_entry": "Susanna Andersson"
+                        })
+            if city in [None, "stockholm"]:
                 result.append({
                     "value": "person_susanna_andersson_3",
                     "sort": "person_id",
                     "grammar_entry": "Susanna Andersson"
                 })
         elif name == "ada_kallesson":
-            result.append({"value": "person_ada_kallesson_1", "sort": "person_id", "grammar_entry": u"Ada Kållesson"})
-            result.append({"value": "person_ada_kallesson_2", "sort": "person_id", "grammar_entry": u"Ada Kållesson"})
+            result.append({"value": "person_ada_kallesson_1", "sort": "person_id", "grammar_entry": "Ada Kållesson"})
+            result.append({"value": "person_ada_kallesson_2", "sort": "person_id", "grammar_entry": "Ada Kållesson"})
         return person_response(result)
     except BaseException as exception:
         exc_type, exc_value, exc_traceback = sys.exc_info()
