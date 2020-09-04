@@ -1,0 +1,38 @@
+--- single run
+S> *
+U> yes
+S> How long is the mortgage time?
+U> 5 years 
+S> What is the interest rate?
+U> 4 percent
+S> What is the mortgate sum?
+U> 5 grand
+S> The monthly payment is USD 2000.
+
+--- run + prune
+S> *
+U> yes
+S> How long is the mortgage time?
+U> 5 years 
+S> What is the interest rate?
+U> 4 percent
+S> What is the mortgate sum?
+U> 5 grand
+S> The monthly payment is USD 2000.
+U>
+S> Returning*
+
+--- run + prune
+S> *
+U> yes
+S> How long is the mortgage time?
+U> 5 years 
+S> What is the interest rate?
+U> 4 percent
+S> What is the mortgate sum?
+U> 5 grand
+S> The monthly payment is USD 2000.
+U>
+S> Returning*
+U> what is the monthly payment if the mortgage sum is 10 grand
+S> The monthly payment is USD 2000.

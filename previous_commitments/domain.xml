@@ -1,0 +1,22 @@
+<domain name="PreviousCommitmentsDomain" is_super_domain="true">
+
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="alt_question">
+        <alt>
+          <resolve type="wh_question" predicate="monthly_payment"/>
+        </alt>
+      </findout>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="monthly_payment">
+    <plan>
+      <findout type="wh_question" predicate="mortgage_time" allow_answer_from_pcom="true"/>
+      <findout type="wh_question" predicate="interest_rate" allow_answer_from_pcom="true"/>
+      <findout type="wh_question" predicate="mortgage_sum" allow_answer_from_pcom="true"/>
+      <invoke_service_query type="wh_question" predicate="monthly_payment"/> 
+    </plan>
+  </goal>
+</domain>
