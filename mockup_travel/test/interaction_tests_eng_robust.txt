@@ -1,4 +1,0 @@
---- robustness enabled
-S> *
-U> price noise information
-S> How do you want to travel : by plane or by train?

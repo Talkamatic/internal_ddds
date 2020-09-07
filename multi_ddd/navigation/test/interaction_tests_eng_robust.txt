@@ -1,3 +1,0 @@
---- exact interpretation preferred over robust interpretation
-U> noise navigate noise | listen
-S> Choose an artist?
