@@ -114,11 +114,13 @@ class TestQuickInteractionTests(ServingMixin):
         self.when_running_tala_test(f"hello_world/test/{test_file}")
         self.then_result_is_successful()
 
-
     @pytest.mark.usefixtures("built_multi_ddd")
-    def test_multi_ddd(self):
+    def test_multi_ddd_english(self):
         with chdir("multi_ddd"):
-            self.when_running_tala_test("eng")
+            self.given_serving(language="eng")
+            self.when_running_tala_test(
+                "music_player/test/interaction_tests_eng.txt", "navigation/test/interaction_tests_eng.txt"
+            )
         self.then_result_is_successful()
 
     @pytest.mark.usefixtures("built_send_to_frontend")
@@ -152,11 +154,14 @@ class TestQuickInteractionTests(ServingMixin):
             ("eng", "android"),
             ("fre", "android"),
             ("dut", "android"),
+            ("chi", "android"),
             ("eng", "device_failure"),
             ("fre", "device_failure"),
             ("dut", "device_failure"),
+            ("chi", "device_failure"),
+            ("eng", "device_notification"),
         ]
-    )
+    )  # yapf: disable
     def test_rgl_migration_with_rgl(self, language, ddd):
         with chdir("rgl_migration/with_rgl"):
             self.given_serving(f"{ddd}.config.json", language=language)
@@ -169,13 +174,17 @@ class TestQuickInteractionTests(ServingMixin):
         self.when_running_tala_test("tidePooler/test/interaction_tests_eng.txt")
         self.then_result_is_successful()
 
+    @pytest.mark.usefixtures("built_downdate_conditions")
+    def test_downdate_conditions(self):
+        self.given_serving("downdate_conditions.config.json")
+        self.when_running_tala_test("downdate_conditions/test/interaction_tests_eng.txt")
+        self.then_result_is_successful()
+
     @pytest.mark.usefixtures("built_multi_ddd")
-    def test_multi_ddd(self):
+    def test_multi_ddd_swedish(self):
         with chdir("multi_ddd"):
             self.given_serving(language="sv")
-            self.when_running_tala_test(
-                "music_player/test/interaction_tests_sv.txt", "music_player/test/interaction_tests_sv.txt"
-            )
+            self.when_running_tala_test("music_player/test/interaction_tests_sv.txt")
         self.then_result_is_successful()
 
     @pytest.mark.usefixtures("built_output_variation")
