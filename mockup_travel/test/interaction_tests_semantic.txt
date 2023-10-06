@@ -49,13 +49,13 @@ S> ["icm:acc*pos", "icm:loadplan", "answer(num_available_dept_cities(3))", "ask(
 
 --- invalidity
 U> ["ask(?X.price(X))", "answer(plane)", "answer(dest_city(lisbon))"]
-S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)", "ask(?X.dest_city(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)", "icm:reraise", "ask(?X.dest_city(X))"]
 
 --- resume after invalidity - pardon
 U> ["icm:per*neg"]
 S> ["icm:loadplan", "ask(?X.goal(X))"]
 U> ["ask(?X.price(X))", "answer(plane)", "answer(dest_city(lisbon))"]
-S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)", "ask(?X.dest_city(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)", "icm:reraise", "ask(?X.dest_city(X))"]
 U> ["icm:per*neg"]
 S> ["icm:reraise", "ask(?X.dest_city(X))"]
 U> ["icm:per*neg"]
@@ -255,7 +255,7 @@ S> ["icm:acc*pos", "ask(?X.selected_housing(X))"]
 
 --- positive perception ICM
 U> {"utterance": "bsdkfsdfshdf", "moves": ["sdfhsdkjf"]}
-S> ["icm:per*pos:\"bsdkfsdfshdf\"", "icm:sem*neg", "ask(?X.goal(X))"]
+S> ["icm:per*pos:\"bsdkfsdfshdf\"", "icm:sem*neg", "icm:reraise", "ask(?X.goal(X))"]
 
 
 --- icm:acc*neg:issue

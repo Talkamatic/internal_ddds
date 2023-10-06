@@ -15,7 +15,7 @@ S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_name(X))"]
 U> ["answer(kalle)"]
 S> ["icm:acc*pos", "icm:und*pos:USR*selected_name(kalle)"]
 U> ["answer(no)"]
-S> ["icm:und*pos:USR*~selected_name(kalle)", "ask(?X.selected_name(X))"]
+S> ["icm:und*pos:USR*~selected_name(kalle)", "icm:reraise", "ask(?X.selected_name(X))"]
 
 
 --- compulsory grounding + information + timeout + neg answer => no doesn't address und-q
