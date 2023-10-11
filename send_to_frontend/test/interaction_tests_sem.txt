@@ -1,5 +1,5 @@
 --- main menu
-S> S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> S> ["ask(?X.goal(X))"]
 
 --- navigate
 U> ["request(navigate)", "answer(city_paris)"]

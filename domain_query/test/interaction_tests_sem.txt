@@ -1,6 +1,5 @@
-
 --- condition: test domain query left
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.way_to_look(X))"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.money(X))"]
 U> ["answer(money(left))"]
@@ -9,7 +8,7 @@ U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- condition: test domain query right
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.way_to_look(X))"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.money(X))"]
 U> ["answer(money(right))"]
@@ -17,17 +16,8 @@ S> ["answer(way_to_look(right))"]
 U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
-# --- condition: test select at random domain query (randomization manually tested)
-# S> ["icm:loadplan", "ask(?X.goal(X))"]
-# U> ["ask(?X.way_to_look_random(X))"]
-# S> []
-# U> ["ask(?X.way_to_look_random(X))"]
-# S> []
-# U>
-# S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
-
 --- condition: test enumerate domain query
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.way_to_look_enumerate(X))"]
 S> ["answer(way_to_look_enumerate(left))"]
 U> ["ask(?X.way_to_look_enumerate(X))"]
@@ -36,7 +26,7 @@ U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- condition: test enumerate domain query all elements enumerated
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.way_to_look_enumerate(X))"]
 S> ["answer(way_to_look_enumerate(left))"]
 U> ["ask(?X.way_to_look_enumerate(X))"]
@@ -44,26 +34,8 @@ S> ["answer(way_to_look_enumerate(right))"]
 U> ["ask(?X.way_to_look_enumerate(X))"]
 S> ["answer(info(\"No more ways to look\"))"]
 
-# --- condition: test enumerate randomly domain query (randomization manually tested)
-# S> ["icm:loadplan", "ask(?X.goal(X))"]
-# U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
-# S> []
-# U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
-# S> []
-# U>
-# S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
-
-# --- condition: test enumerate randomly domain query all elements enumerated (randomization manually tested)
-# S> ["icm:loadplan", "ask(?X.goal(X))"]
-# U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
-# S> []
-# U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
-# S> []
-# U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
-# S> ["answer(info(\"No more ways to look\"))"]
-
 --- condition: test reset enumeration
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.way_to_look_restart_enumeration(X))"]
 S> ["answer(way_to_look_restart_enumeration(left))"]
 U> ["ask(?X.way_to_look_restart_enumeration(X))"]
@@ -71,30 +43,14 @@ S> ["answer(way_to_look_restart_enumeration(left))"]
 U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
-# --- condition: test reset random enumeration (randomization manually tested)
-# S> ["icm:loadplan", "ask(?X.goal(X))"]
-# U> ["ask(?X.way_to_look_restart_random_enumeration(X))"]
-# S> []
-# U> ["ask(?X.way_to_look_restart_random_enumeration(X))"]
-# S> []
-# U>
-# S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
-
 --- iterator: iterate over sequence of propositions
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(say_sequence_of_propositions)"]
 S> ["answer(info(\"this is p(x)\"))"]
 U>
 S> ["answer(info(\"this is q(x)\"))", "report(action_status(say_sequence_of_propositions, done))"]
 
 --- iterator: iterate over limited sequence of propositions
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(say_limited_sequence_of_propositions)"]
 S> ["answer(info(\"this is p(x)\"))", "report(action_status(say_limited_sequence_of_propositions, done))"]
-
-# --- iterator: iterate over limited randomized sequence of propositions (randomization manually tested)
-# S> ["icm:loadplan", "ask(?X.goal(X))"]
-# U> ["request(say_limited_randomized_sequence_of_propositions)"]
-# S> []
-# U>
-# S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]

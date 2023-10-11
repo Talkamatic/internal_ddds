@@ -1,0 +1,51 @@
+# Since interaction tests don't support random variation, the following tests can't be automatically tested.
+# Each test needs to be manually triggered, and checked that it succeeds after a reasonable number of attempts.
+# Hint: because proababilities multiply, don't try to run them all at once, but run in sequence:
+# 1: "tala test http://localhost:9090/interact ddds/domain_query/test/manuall*.txt -k '*test select at random*'"
+# 2: "tala test http://localhost:9090/interact ddds/domain_query/test/manuall*.txt -t '*randomly domain query.*'"
+# 3: "tala test http://localhost:9090/interact ddds/domain_query/test/manuall*.txt -t '*randomly domain query *'"
+# 4: "tala test http://localhost:9090/interact ddds/domain_query/test/manuall*.txt -t '*test reset *'"
+# 5: "tala test http://localhost:9090/interact ddds/domain_query/test/manuall*.txt -t '*iterate*'"
+
+--- condition: test select at random domain query. Probabilty for success: 25 % (?)
+S> ["ask(?X.goal(X))"]
+U> ["ask(?X.way_to_look_random(X))"]
+S> ["answer(way_to_look_random(left))"]
+U> ["ask(?X.way_to_look_random(X))"]
+S> ["answer(way_to_look_random(left))"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+--- condition: test enumerate randomly domain query. Probabilty for success: 50 % (?)
+S> ["ask(?X.goal(X))"]
+U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
+S> ["answer(way_to_look_enumerate_randomly(left))"]
+U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
+S> ["answer(way_to_look_enumerate_randomly(right))"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+--- condition: test enumerate randomly domain query all elements enumerated. Probabilty for success: 50 % (?)
+S> ["ask(?X.goal(X))"]
+U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
+S> ["answer(way_to_look_enumerate_randomly(left))"]
+U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
+S> ["answer(way_to_look_enumerate_randomly(right))"]
+U> ["ask(?X.way_to_look_enumerate_randomly(X))"]
+S> ["answer(info(\"No more ways to look\"))"]
+
+--- condition: test reset random enumeration. Probabilty for success: 25 % (?)
+S> ["ask(?X.goal(X))"]
+U> ["ask(?X.way_to_look_restart_random_enumeration(X))"]
+S> ["answer(way_to_look_restart_random_enumeration(left))"]
+U> ["ask(?X.way_to_look_restart_random_enumeration(X))"]
+S> ["answer(way_to_look_restart_random_enumeration(left))"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+--- iterator: iterate over limited randomized sequence of propositions. Probabilty for success: 50 % (?)
+S> ["ask(?X.goal(X))"]
+U> ["request(say_limited_randomized_sequence_of_propositions)"]
+S> ["answer(info(\"this is q(x)\"))", "report(action_status(say_limited_randomized_sequence_of_propositions, done))"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]

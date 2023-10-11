@@ -1,5 +1,5 @@
 --- main menu
-S> ["icm:loadplan", "greet"]
+S> ["greet"]
 
 --- paced confirmations and questions
 U> ["request(some_action)"]

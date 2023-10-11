@@ -1,10 +1,10 @@
 --- cover
-S> ["icm:loadplan", "greet", "answer(info(intro))"]
+S> ["greet", "answer(info(intro))"]
 
 
 --- right/wrong question happy path
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(top)","ddd": "educational_patterns","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
-S> ["icm:loadplan", "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
+S> ["answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
 U>
 S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
 U> ["answer(rw_vad_kallade_de_landet_darx_correct)"]
@@ -15,7 +15,7 @@ S> ["answer(end_question_1)"]
 
 --- give hint
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(top)","ddd": "educational_patterns","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
-S> ["icm:loadplan", "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
+S> ["answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
 U>
 S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
 U> ["answer(rw_vad_kallade_de_landet_darx_unknown)"]
@@ -34,7 +34,7 @@ S> ["answer(end_question_1)"]
 
 --- give hint, then get question with alternatives and test topic switching
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(top)","ddd": "educational_patterns","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
-S> ["icm:loadplan", "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
+S> ["answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
 U>
 S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
 U> ["icm:acc*neg:issue"]

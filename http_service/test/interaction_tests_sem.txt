@@ -1,17 +1,17 @@
 --- request number
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.phone_number_of_contact(X))"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_contact(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}
 S> ["answer(phone_number_of_contact(phone_number_1))"]
 
 --- ask for number one-shot
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "ask(?X.phone_number_of_contact(X))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}
 S> ["answer(phone_number_of_contact(phone_number_2))"]
 
 --- call
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(call)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_contact(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}

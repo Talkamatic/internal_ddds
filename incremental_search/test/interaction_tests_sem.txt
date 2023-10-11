@@ -28,14 +28,14 @@
 # S> ["icm:acc*pos", "icm:report_inference:selected_contact(contact_john_johnson)", "report(ServiceResultProposition(Call, [selected_contact(contact_john_johnson)], SuccessfulServiceAction()))"]
 
 --- answer revision for call (after one-shot)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(call)", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_last_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_anna))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_anna", "sort": "first_name", "natural_language_form": "Anna", "ddd": "incremental_search"}]}
 S> ["icm:acc*pos", "icm:report_inference:selected_contact(contact_anna_johnson)", "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- answer revision for call (incremental)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(call)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_first_name(X))"]
 U> {"interpretations": [{"moves":[{"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
@@ -44,7 +44,7 @@ U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_firs
 S> ["icm:acc*pos", "icm:report_inference:selected_contact(contact_anna_johnson)", "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- answer revision for delete number (after one-shot)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(delete_number)", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_last_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_anna))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_anna", "sort": "first_name", "natural_language_form": "Anna", "ddd": "incremental_search"}]}
@@ -54,7 +54,7 @@ U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_numb
 S> ["icm:acc*pos", "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- answer revision for delete number (incremental)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(delete_number)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_first_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
@@ -65,7 +65,7 @@ U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_numb
 S> ["icm:acc*pos", "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- optimistic grounding for call (after one-shot)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(call)", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}], "modality": "other"}], "entities": [{"name": "last_name_thompson", "sort": "last_name", "natural_language_form": "Thompson", "ddd": "incremental_search"}, {"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_last_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_anna))", "ddd": "incremental_search", "perception_confidence": 0.2, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_anna", "sort": "first_name", "natural_language_form": "Anna", "ddd": "incremental_search"}]}
@@ -74,7 +74,7 @@ U>
 S> ["icm:report_inference:selected_contact(contact_anna_johnson)", "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- optimistic grounding for call (incremental)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(call)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_first_name(X))"]
 U> {"interpretations": [{"moves":[{"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 0.2, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
@@ -87,7 +87,7 @@ U>
 S> ["icm:report_inference:selected_contact(contact_anna_johnson)", "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- optimistic grounding for delete (after one-shot)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(delete_number)", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_last_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_anna))", "ddd": "incremental_search", "perception_confidence": 0.2, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_anna", "sort": "first_name", "natural_language_form": "Anna", "ddd": "incremental_search"}]}
@@ -101,7 +101,7 @@ S> ["report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_ann
 
 
 --- optimistic grounding for delete (incremental)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(delete_number)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_first_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 0.2, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
@@ -118,7 +118,7 @@ U>
 S> ["report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- interrogative grounding for call (after one-shot)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(call)", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_last_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_anna))", "ddd": "incremental_search", "perception_confidence": 0.14, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_anna", "sort": "first_name", "natural_language_form": "Anna", "ddd": "incremental_search"}]}
@@ -127,7 +127,7 @@ U> ["answer(yes)"]
 S> ["icm:acc*pos", "icm:report_inference:selected_contact(contact_anna_johnson)", "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- interrogative grounding for call (incremental)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(call)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_first_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 0.1, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
@@ -140,7 +140,7 @@ U> ["answer(yes)"]
 S> ["icm:acc*pos", "icm:report_inference:selected_contact(contact_anna_johnson)", "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- interrogative grounding for delete (after one-shot)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(delete_number)", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_last_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_anna))", "ddd": "incremental_search", "perception_confidence": 0.14, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_anna", "sort": "first_name", "natural_language_form": "Anna", "ddd": "incremental_search"}]}
@@ -153,7 +153,7 @@ U> ["answer(yes)"]
 S> ["icm:acc*pos", "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"]
 
 --- interrogative grounding for delete (incremental)
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(delete_number)", "ddd": "incremental_search", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_first_name(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_first_name(first_name_john))", "ddd": "incremental_search", "perception_confidence": 0.1, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "first_name_john", "sort": "first_name", "natural_language_form": "John", "ddd": "incremental_search"}]}

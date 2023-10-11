@@ -5,7 +5,7 @@ U>
 S> ["ask(?X.goal(X))"]
 
 --- greet if greeted, but don't repeat
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["greet"]
 S> ["greet"]
 U> ["greet"]

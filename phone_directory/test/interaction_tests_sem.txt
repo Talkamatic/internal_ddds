@@ -1,5 +1,5 @@
 --- system initiates conversation
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 
 --- knowledge precondition question, WH answer
 U> ["ask(?X.phonenumber(X))"]

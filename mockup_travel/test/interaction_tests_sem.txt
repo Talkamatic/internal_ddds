@@ -1,5 +1,5 @@
 --- no greeting
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 
 --- price information
 U> ["ask(?X.price(X))"]
@@ -17,7 +17,7 @@ S> ["icm:acc*pos", "ask(?X.class(X))"]
 
 --- price information - pardon with variation
 U> ["icm:per*neg"]
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.price(X))"]
 S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
 U> ["icm:per*neg"]
@@ -53,7 +53,7 @@ S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon),
 
 --- resume after invalidity - pardon
 U> ["icm:per*neg"]
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["ask(?X.price(X))", "answer(plane)", "answer(dest_city(lisbon))"]
 S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)", "icm:reraise", "ask(?X.dest_city(X))"]
 U> ["icm:per*neg"]
@@ -105,7 +105,7 @@ S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
 
 --- Re-request of the same plan with disabled reraise-on-resume should be quiet - pardon
 U> ["icm:per*neg"]
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(apply_for_membership)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
 U> ["icm:per*neg"]
@@ -460,7 +460,7 @@ S> ["answer(helpful_information(dest_city_hint_1))", "ask(?X.dest_city(X))"]
 U> ["icm:acc*neg:issue"]
 S> ["answer(helpful_information(dest_city_hint_2))", "ask(?X.dest_city(X))"]
 U> ["request(top)"]
-S> ["icm:acc*pos", "icm:reraise:perform(top)", "icm:loadplan", "ask(?X.goal(X))"]
+S> ["icm:acc*pos", "icm:reraise:perform(top)", "ask(?X.goal(X))"]
 U> ["ask(?X.price(X))"]
 S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
 U> ["answer(plane)"]

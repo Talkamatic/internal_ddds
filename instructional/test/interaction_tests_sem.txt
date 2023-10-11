@@ -1,5 +1,5 @@
 --- basic instruction
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["report(done)"]
@@ -10,19 +10,19 @@ U> ["report(done)"]
 S> ["icm:acc*pos", "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"]
 
 --- report(done) tolerated also when not instructing
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["report(done)"]
 S> ["icm:acc*pos", "ask(?X.goal(X))"]
 
 --- return to top when requested
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["request(top)"]
-S> ["icm:acc*pos", "icm:reraise:perform(top)", "icm:loadplan", "ask(?X.goal(X))"]
+S> ["icm:acc*pos", "icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- Negative acceptance when request instruction on action without perform goal
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1"  , "request(heat_2_dl_water_to_40_degrees)"]
 U> ["report(done)"]
@@ -31,14 +31,14 @@ U> ["request(how)"]
 S> ["icm:acc*neg:goal(perform(how))", "request(pour_water_into_bowl)"]
 
 --- Kick off new plan when request instruction on other plan
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["request(how)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(pour_2_dl_water_into_a_kettle)"]
 
 --- sequencing variation a
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter_index_variation_a)"]
 S> ["icm:acc*pos", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["report(done)"]
@@ -49,7 +49,7 @@ U> ["report(done)"]
 S> ["icm:acc*pos", "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"]
 
 --- sequencing variation b
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter_index_variation_b)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["report(done)"]
@@ -60,7 +60,7 @@ U> ["report(done)"]
 S> ["icm:acc*pos", "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"]
 
 --- sequencing variation c
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter_index_variation_c)"]
 S> ["icm:acc*pos", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["report(done)"]
@@ -71,7 +71,7 @@ U> ["report(done)"]
 S> ["icm:acc*pos", "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"]
 
 --- sequencing variation d
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter_index_variation_d)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["report(done)"]
@@ -82,7 +82,7 @@ U> ["report(done)"]
 S> ["icm:acc*pos", "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"]
 
 --- ask how, action treated as done after instruction
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["request(how)"]
@@ -95,7 +95,7 @@ U>
 S> ["icm:reraise:perform(instruct_sourdough_starter)", "icm:cardinal_sequencing:2", "request(pour_water_into_bowl)"]
 
 --- return to instruction plan, reraise request and avoid sequencing
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["ask(?X.quantity_water(X))"]
@@ -104,7 +104,7 @@ U>
 S> ["icm:reraise:perform(instruct_sourdough_starter)", "request(heat_2_dl_water_to_40_degrees)"]
 
 --- action specific downdate
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(instruct_sourdough_starter)"]
 S> ["icm:acc*pos", "icm:cardinal_sequencing:1", "request(heat_2_dl_water_to_40_degrees)"]
 U> ["report(action_status(heat_2_dl_water_to_40_degrees, done))"]

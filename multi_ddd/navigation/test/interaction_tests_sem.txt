@@ -6,7 +6,7 @@ S> ["icm:acc*pos", "report(ServiceResultProposition(NavigateToDestination, [], S
 
 --- switch to music
 U> ["request(change_to_music_player)"]
-S> ["icm:loadplan", "answer(active_domain(\"music_player\"))", "ask(?X.goal(X))"]
+S> ["answer(active_domain(\"music_player\"))", "ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
 U> ["answer(kaptenen)"]

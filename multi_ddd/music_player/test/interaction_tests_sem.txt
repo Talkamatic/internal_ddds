@@ -1,12 +1,12 @@
 --- listen
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
 U> ["answer(kaptenen)"]
 S> ["icm:acc*pos", "report(ServiceResultProposition(ListenToArtist, [url_to_play(\"mock_audio_url\")], SuccessfulServiceAction()))"]
 
 --- change domain
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
 U> ["answer(kaptenen)"]
@@ -53,12 +53,12 @@ S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
 U> ["request(top)"]
-S> ["icm:loadplan", "answer(active_domain(\"music_player\"))", "ask(?X.goal(X))"]
+S> ["answer(active_domain(\"music_player\"))", "ask(?X.goal(X))"]
 
 
 --- answer after issue reraise
 U> ["request(top)"]
-S> ["icm:acc*pos", "icm:loadplan", "ask(?X.goal(X))"]
+S> ["icm:acc*pos", "ask(?X.goal(X))"]
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
 U>
@@ -74,7 +74,7 @@ S> ["icm:acc*pos", "report(ServiceResultProposition(SetVolume, [volume(10)], Suc
 U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
 S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
 U> ["request(top)"]
-S> ["icm:acc*pos", "icm:reraise:perform(top)", "icm:loadplan", "ask(?X.goal(X))"]
+S> ["icm:acc*pos", "icm:reraise:perform(top)", "ask(?X.goal(X))"]
 U> ["answer(10)"]
 S> ["icm:accommodate:set_departure_day", "icm:und*pos:USR*goal(perform(set_departure_day))"]
 U>

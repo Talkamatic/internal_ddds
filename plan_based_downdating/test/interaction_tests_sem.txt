@@ -1,18 +1,18 @@
 --- main menu
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 
 --- fail
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_fail)"]
 S> ["icm:acc*pos", "report(action_status(action_that_always_fail, aborted(phone_not_available)))"]
 
 --- success
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_succeed)"]
 S> ["icm:acc*pos", "report(action_status(action_that_always_succeed, done))"]
 
 --- fail back to top
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_fail)"]
 S> ["icm:acc*pos", "report(action_status(action_that_always_fail, aborted(phone_not_available)))"]
 U>
@@ -20,14 +20,14 @@ S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 
 --- success, back to top
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_succeed)"]
 S> ["icm:acc*pos", "report(action_status(action_that_always_succeed, done))"]
 U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- success after fail
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_fail)"]
 S> ["icm:acc*pos", "report(action_status(action_that_always_fail, aborted(phone_not_available)))"]
 U>
@@ -38,7 +38,7 @@ U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- fail after success
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_succeed)"]
 S> ["icm:acc*pos", "report(action_status(action_that_always_succeed, done))"]
 U>
@@ -49,7 +49,7 @@ U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- success after success
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_succeed)"]
 S> ["icm:acc*pos", "report(action_status(action_that_always_succeed, done))"]
 U>
@@ -60,21 +60,21 @@ U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- sucess based on propositional value
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_succeed_based_on_proposition)", "answer(prepared_to_do_service_action_a('yes'))"]
 S> ["icm:acc*pos", "report(action_status(action_that_succeed_based_on_proposition, done))"]
 U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- failure based on propositional value
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_succeed_based_on_proposition)", "answer(prepared_to_do_service_action_a('no'))"]
 S> ["icm:acc*pos", "report(action_status(action_that_succeed_based_on_proposition, aborted(not_prepared)))"]
 U>
 S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
 
 --- success with no report, back to top
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 U> ["request(action_that_always_succeed_without_report)"]
 S> ["icm:acc*pos"]
 U>

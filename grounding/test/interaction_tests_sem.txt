@@ -1,5 +1,5 @@
 --- main menu
-S> ["icm:loadplan", "ask(?X.goal(X))"]
+S> ["ask(?X.goal(X))"]
 
 --- compulsory grounding
 U> ["request(ask_question_with_grounding)"]
