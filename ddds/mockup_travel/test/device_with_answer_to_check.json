@@ -1,4 +1,0 @@
-{
-  "overrides": "ddd.config.json",
-  "device_module": "test/device_with_answer_to_check.py"
-}

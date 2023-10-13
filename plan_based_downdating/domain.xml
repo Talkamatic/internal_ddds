@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="NewActionPlanDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="action_that_always_fail">
+    <plan>
+      <signal_action_failure reason="phone_not_available"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="action_that_always_succeed">
+    <plan>
+      <signal_action_completion/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="action_that_always_succeed_without_report">
+    <plan>
+      <signal_action_completion postconfirm="false"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="action_that_succeed_based_on_proposition">
+    <plan>
+      <if>
+        <proposition predicate="prepared_to_do_service_action_a" value="yes"/>
+        <then>
+          <invoke_service_action name="ServiceActionA" downdate_plan="false"/>
+          <signal_action_completion postconfirm="true"/>
+        </then>
+      </if>
+      <invoke_service_action name="ServiceActionB" downdate_plan="false"/>
+      <signal_action_failure reason="not_prepared"/>
+      <bind type="wh_question" predicate="prepared_to_do_service_action_a"/>
+    </plan>
+  </goal>
+</domain>

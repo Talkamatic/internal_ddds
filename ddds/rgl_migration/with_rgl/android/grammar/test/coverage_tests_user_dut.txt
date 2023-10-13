@@ -1,1 +1,0 @@
-ik wil een telefoonnummer weten :: ask(?X.phone_number_of_contact(X))

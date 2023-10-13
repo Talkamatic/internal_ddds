@@ -1,6 +1,0 @@
---- navigate
-S> *
-U> navigate
-S> *What is your destination?
-U> majorna
-S> Navigation started.

@@ -1,3 +1,0 @@
-prenotazione :: request(make_reservation)
-acquistare un biglietto :: request(buy)
-impostazioni :: request(settings)

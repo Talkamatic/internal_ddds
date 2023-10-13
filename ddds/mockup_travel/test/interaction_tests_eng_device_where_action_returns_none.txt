@@ -1,3 +1,0 @@
---- generic error message when service action returns no result
-U> cancel reservation
-S> I'm sorry, something went wrong.

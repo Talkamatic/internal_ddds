@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="DowndateConditionsDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="some_action">
+    <plan>
+      <assume_shared>
+        <proposition predicate="word_to_explain" value="a"/>
+      </assume_shared>
+      <assume_issue insist="false" type="wh_question" predicate="explanation_of_word"/>
+      <assume_shared>
+        <proposition predicate="word_to_explain" value="b"/>
+      </assume_shared>
+      <assume_issue insist="false" type="wh_question" predicate="explanation_of_word"/>
+      <assume_shared>
+        <proposition predicate="word_to_explain" value="c"/>
+      </assume_shared>
+      <assume_issue insist="true" type="wh_question" predicate="explanation_of_word"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="explanation_of_word">
+    <plan>
+      <if>
+        <proposition predicate="word_to_explain" value="a"/>
+        <then>
+          <assume_system_belief>
+            <proposition predicate="explanation_of_word" value="a is a letter"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="word_to_explain" value="b"/>
+        <then>
+          <assume_system_belief>
+            <proposition predicate="explanation_of_word" value="b is a letter"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="word_to_explain" value="c"/>
+        <then>
+          <assume_system_belief>
+            <proposition predicate="explanation_of_word" value="c is a letter"/>
+          </assume_system_belief>
+        </then>
+      </if>
+    </plan>
+    <postplan>
+      <forget predicate="word_to_explain"/>
+    </postplan>
+  </goal>
+
+</domain>

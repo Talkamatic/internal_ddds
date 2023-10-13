@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="PhoneDirectoryDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="phonenumber">
+    <plan>
+      <findout type="wh_question" predicate="person"/>
+      <invoke_service_query type="wh_question" predicate="phonenumber"/>
+    </plan>
+  </goal>
+
+  <parameters question_type="wh_question" predicate="person" graphical_type="list"
+              source="service" incremental="true" max_reported_hit_count="10"
+              max_spoken_alts="4">
+    <ask_feature predicate="person_name"/>
+    <ask_feature predicate="person_city" kpq="true"/>
+    <ask_feature predicate="person_area"/>
+  </parameters>
+
+  <goal type="perform" action="connect">
+    <plan>
+      <findout type="wh_question" predicate="person"/>
+      <invoke_service_query type="wh_question" predicate="phonenumber"/>
+      <invoke_service_action name="ConnectNumber"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="age" max_answers="3" alternatives_predicate="person">
+    <plan>
+      <findout type="wh_question" predicate="person"/>
+      <invoke_service_query type="wh_question" predicate="age"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="raise_volume">
+    <plan>
+      <invoke_service_action name="RaiseVolume" postconfirm="true"/>
+    </plan>
+  </goal>
+
+</domain>

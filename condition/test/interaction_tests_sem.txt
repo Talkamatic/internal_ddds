@@ -1,0 +1,17 @@
+
+--- condition: test shared proposition
+U> ["request(test_shared_proposition)"]
+S> ["answer(has_shared_value_result(\"has_shared_value_result\"))", "answer(has_shared_or_private_value_result(\"has_shared_or_private_value\"))", "answer(is_shared_commitment_result(\"is_shared_commitment\"))", "answer(is_private_belief_or_shared_commitment_result(\"is_private_belief_or_shared_commitment\"))"]
+
+--- condition: test private belief
+U> ["request(test_private_belief)"]
+S> ["answer(has_private_value_result(\"has_private_value\"))", "answer(has_shared_or_private_value_result(\"has_shared_or_private_value\"))", "answer(is_private_belief_result(\"is_private_belief\"))", "answer(is_private_belief_or_shared_commitment_result(\"is_private_belief_or_shared_commitment\"))"]
+
+--- condition: test no belief no commitment
+U> ["request(test_no_belief_no_commitment)"]
+S> ["icm:acc*pos"]
+
+
+--- condition: test shared proposition other individual
+U> ["request(test_shared_proposition_other_individual)"]
+S> ["answer(has_shared_value_result(\"has_shared_value_result\"))", "answer(has_shared_or_private_value_result(\"has_shared_or_private_value\"))"]

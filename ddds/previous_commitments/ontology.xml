@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ontology name="PreviousCommitmentsOntology">
-
-  <predicate name="monthly_payment" sort="integer"/>
-  <predicate name="interest_rate" sort="integer"/>
-  <predicate name="mortgage_time" sort="integer"/>
-  <predicate name="mortgage_sum" sort="integer"/>
-  
-</ontology>

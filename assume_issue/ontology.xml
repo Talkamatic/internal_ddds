@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="AssumeIssueOntology">
+
+  <action name="some_action"/>
+  <predicate name="explanation_of_word" sort="string"/>
+  <predicate name="word_to_explain" sort="string"/>
+  <predicate name="info" sort="string"/>
+
+</ontology>

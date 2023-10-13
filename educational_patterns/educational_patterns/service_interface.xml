@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+  <query name="explanation_of_word">
+    <parameters>
+      <parameter predicate="word_to_explain" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/explanation_of_word"/>
+    </target>
+  </query>
+
+  <validator name="RwVadKalladeDeLandetDarxValidity">
+    <parameters>
+      <parameter predicate="rw_vad_kallade_de_landet_darx" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/rw_vad_kallade_de_landet_darx_validity"/>
+    </target>
+  </validator>
+
+</service_interface>

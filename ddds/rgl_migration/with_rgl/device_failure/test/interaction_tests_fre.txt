@@ -1,7 +1,0 @@
---- generic error message when failure reason missing
-U> commencez
-S> Je suis désolé, quelque chose a mal tourné.
-
---- positive perception ICM
-U> bsdkfsdfshdf
-S> J'ai entendu vous dire bsdkfsdfshdf.*

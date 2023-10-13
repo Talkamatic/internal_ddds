@@ -1,5 +1,0 @@
---- insignificant uprank of predictable answer
-U> price for travelling by plane to paris
-S> I found three departures. Where do you want to go from : Madrid, Helsinki or New York?
-U> madrid 0.96 | helsinki 0.81
-S> Which month do you want to travel from Madrid to Paris?

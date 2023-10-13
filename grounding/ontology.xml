@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="GroundingOntology">
+
+  <action name="ask_question_with_grounding"/>
+  <action name="ask_question_with_grounding_and_informational_utterance"/>
+    <action name="ask_question_with_grounding_and_ynq"/>
+  <action name="inform_about_stuff"/>
+
+  <sort name="name"/>
+  <predicate name="selected_name" sort="name"/>
+  <predicate name="good_fellow" sort="string"/>
+  <predicate name="sky" sort="string"/>
+  <individual name="kalle" sort="name"/>
+
+</ontology>

@@ -1,0 +1,13 @@
+{
+    "active_ddd": "timeout",
+    "ddds": [
+        "timeout"
+    ],
+    "inactive_seconds_allowed": 7200,
+    "long_timeout": 50.0,
+    "medium_timeout": 20.0,
+    "repeat_questions": true,
+    "rerank_amount": 0.2,
+    "response_timeout": 2.5,
+    "short_timeout": 10.0
+}

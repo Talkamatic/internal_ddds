@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="EducationalPatternsDomain" is_super_domain="true">
+
+  <goal type="perform" action="top" reraise_on_resume="false">
+    <plan>
+      <inform generate_end_turn="true">
+        <proposition predicate="rw_vad_kallade_de_landet_darx_background" value="Vikingar från Grönland reste ända till Nordamerika"/>
+      </inform>
+      <raise type="wh_question" predicate="rw_vad_kallade_de_landet_darx"/>
+      <if>
+        <proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="Fint! Ja vikingarna sade att de åkte till Vinland."/>
+          </inform>
+        </then>
+        <else>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="helpful_information_rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_hint"/>
+          </inform>
+          <forget predicate="rw_vad_kallade_de_landet_darx"/>
+          <raise type="wh_question" predicate="rw_vad_kallade_de_landet_darx"/>
+          <if>
+            <proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="Fint! Ja vikingarna sade att de åkte till Vinland."/>
+              </inform>
+            </then>
+            <else>
+              <raise type="alt_question">
+                <alt><proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_bonland"/></alt>
+                <alt><proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/></alt>
+                <alt><proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_unknown"/></alt>
+              </raise>
+              <if>
+                <proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="Fint! Ja vikingarna sade att de åkte till Vinland."/>
+                  </inform>
+                </then>
+                <else>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="Vikingarna sade att de åkte till Vinland står det i texten."/>
+                  </inform>
+                </else>
+              </if>
+            </else>
+          </if>
+        </else>
+      </if>
+      <inform generate_end_turn="true">
+        <proposition predicate="end_question_1"/>
+      </inform>
+    </plan>
+  </goal>
+
+  <parameters question_type="wh_question" predicate="rw_vad_kallade_de_landet_darx">
+    <hint>
+      <inform insist="true" generate_end_turn="true">
+        <proposition predicate="helpful_information_rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_hint"/>
+      </inform>
+    </hint>
+  </parameters>
+
+  <goal type="resolve" question_type="wh_question" predicate="explanation_of_word">
+    <plan>
+      <findout type="wh_question" predicate="word_to_explain"/>
+      <invoke_service_query type="wh_question" predicate="explanation_of_word"/>
+    </plan>
+    <postplan>
+      <forget predicate="word_to_explain"/>
+    </postplan>
+  </goal>
+</domain>

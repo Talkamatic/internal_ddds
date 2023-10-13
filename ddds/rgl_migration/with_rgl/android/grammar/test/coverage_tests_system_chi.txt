@@ -1,2 +1,0 @@
-Move(ask(?X.goal(X))) :: 你想做什么？
-ICMMove(icm:accommodate:call) :: 好的，你想

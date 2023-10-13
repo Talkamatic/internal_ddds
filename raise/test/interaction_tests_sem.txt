@@ -1,0 +1,47 @@
+--- system knows the word
+U> ["ask(?X.explanation_of_word(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_word(X))"]
+U> ["answer(sourdough_bread)"]
+S> ["answer(explanation_of_word(\"Sourdough bread is a type of bread\"))"]
+
+--- system doesn't know the word
+U> ["ask(?X.explanation_of_word(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_word(X))"]
+U> ["answer(aardvark)"]
+S> ["answer(explanation_of_word(\"Sorry I don't know that word\"))"]
+
+
+--- user provides an irrelevant answer
+U> ["ask(?X.explanation_of_word(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_word(X))"]
+U> ["answer(milk)"]
+S> ["icm:und*neg", "answer(explanation_of_word(\"Sorry I don't know that word\"))"]
+
+--- resolve raise before plan - system knows the word
+U> ["ask(?X.explanation_of_word(X))", "answer(sourdough_bread)"]
+S> ["answer(explanation_of_word(\"Sourdough bread is a type of bread\"))"]
+
+--- resolve raise before plan - system doesn't know the word
+U> ["ask(?X.explanation_of_word(X))", "answer(aardvark)"]
+S> ["answer(explanation_of_word(\"Sorry I don't know that word\"))"]
+
+--- resolve raise before plan - user provides an irrelevant answer
+U> ["ask(?X.explanation_of_word(X))", "answer(milk)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_word(X))"]
+
+
+--- reraising in system turn following non icm move
+U> ["ask(?X.explanation_of_word_with_second_raise(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_word(X))"]
+U> ["answer(aardvark)"]
+S> ["answer(comment(\"Sorry I don't know that word\"))", "ask(?X.selected_word(X))"]
+U> ["answer(aardvark)"]
+S> ["answer(explanation_of_word_with_second_raise(\"Ok I give up\"))"]
+
+--- reraising in system turn following non icm move semantics
+U> ["ask(?X.explanation_of_word_with_second_raise(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_word(X))"]
+U> ["answer(aardvark)"]
+S> ["answer(comment(\"Sorry I don't know that word\"))", "ask(?X.selected_word(X))"]
+U> ["answer(aardvark)"]
+S> ["answer(explanation_of_word_with_second_raise(\"Ok I give up\"))"]

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="RaiseDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="talk_about_dogs">
+    <plan>
+      <findout type="yn_question">
+        <proposition  predicate="filthy_animal" value="dog"/>
+      </findout>
+      <if>
+        <proposition predicate="filthy_animal" value="dog"/>
+        <then>
+          <inform>
+            <proposition predicate="comment" value="That's right, they are filthy animals."/>
+          </inform>
+        </then>
+        <else>
+          <inform>
+            <proposition predicate="comment" value="That's not right, they are filthy animals."/>
+          </inform>
+        </else>
+      </if>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="talk_about_cows">
+    <plan>
+      <findout type="yn_question">
+        <proposition  predicate="filthy_animal" value="cow"/>
+      </findout>
+      <if>
+        <proposition predicate="filthy_animal" value="cow"/>
+        <then>
+          <inform>
+            <proposition predicate="comment" value="That's not right, they aren't filthy animals."/>
+          </inform>
+        </then>
+        <else>
+          <inform>
+            <proposition predicate="comment" value="That's right, they aren't filthy animals."/>
+          </inform>
+        </else>
+      </if>
+    </plan>
+  </goal>
+
+
+  <goal type="perform" action="talk_about_sheep">
+    <plan>
+      <findout type="yn_question">
+        <proposition  predicate="filthy_animal_sheep"/>
+      </findout>
+      <if>
+        <proposition predicate="filthy_animal_sheep"/>
+        <then>
+          <inform>
+            <proposition predicate="comment" value="That's not right, they aren't filthy animals."/>
+          </inform>
+        </then>
+        <else>
+          <inform>
+            <proposition predicate="comment" value="That's right, they aren't filthy animals."/>
+          </inform>
+        </else>
+      </if>
+    </plan>
+  </goal>
+
+
+</domain>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <action name="ServiceActionA">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <frontend/>
+    </target>
+  </action>
+  <action name="ServiceActionB">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <frontend/>
+    </target>
+  </action>
+</service_interface>

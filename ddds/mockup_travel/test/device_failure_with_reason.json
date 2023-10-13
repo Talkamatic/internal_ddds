@@ -1,4 +1,0 @@
-{
-  "overrides": "ddd.config.json",
-  "device_module": "test/device_failure_with_reason.py"
-}

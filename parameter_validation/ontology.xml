@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="ParameterValidationOntology">
+
+  <action name="flavour_number_plan"/>
+
+  <sort name="flavour_sort"/>
+
+  <predicate name="flavour" sort="flavour_sort"/>
+  <predicate name="number" sort="integer"/>
+
+  <individual name="albatross" sort="flavour_sort"/>
+  <individual name="seagull" sort="flavour_sort"/>
+
+  <action name="single_value_configuration_validation_in_domain"/>
+  <action name="multivalue_configuration_validation_in_domain"/>
+
+  <sort name="sort_for_validation"/>
+  <individual name="individual_a" sort="sort_for_validation"/>
+  <individual name="individual_b" sort="sort_for_validation"/>
+  <individual name="individual_c" sort="sort_for_validation"/>
+
+  <predicate name="predicate_a" sort="sort_for_validation"/>
+  <predicate name="predicate_b" sort="sort_for_validation"/>
+  <predicate name="predicate_c" sort="sort_for_validation"/>
+  <predicate name="predicate_d" sort="sort_for_validation"/>
+</ontology>

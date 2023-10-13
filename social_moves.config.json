@@ -1,0 +1,10 @@
+{
+    "active_ddd": "social_moves",
+    "ddds": [
+        "social_moves"
+    ],
+    "inactive_seconds_allowed": 7200,
+    "repeat_questions": true,
+    "rerank_amount": 0.2,
+    "response_timeout": 2.5
+}

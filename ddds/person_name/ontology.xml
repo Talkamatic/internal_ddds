@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ontology name="PersonNameOntology">
-  <action name="call"/>
-  <action name="create_report"/>
-  <action name="send_invitation"/>
-  <predicate name="name_of_contact_to_call" sort="person_name"/>
-  <predicate name="name_of_person_in_report" sort="person_name"/>
-  <predicate name="name_of_person_to_invite" sort="person_name"/>
-</ontology>

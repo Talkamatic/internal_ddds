@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="NewActionPlanOntology">
+
+  <action name="action_that_always_fail"/>
+  <action name="action_that_always_succeed"/>
+  <action name="action_that_always_succeed_without_report"/>
+  <action name="action_that_succeed_based_on_proposition"/>
+
+  <predicate name="prepared_to_do_service_action_a" sort="string"/>
+
+</ontology>

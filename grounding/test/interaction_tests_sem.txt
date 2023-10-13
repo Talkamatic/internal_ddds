@@ -1,0 +1,39 @@
+--- main menu
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+
+--- compulsory grounding
+U> ["request(ask_question_with_grounding)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_name(X))"]
+U> ["answer(kalle)"]
+S> ["icm:acc*pos", "icm:und*pos:USR*selected_name(kalle)"]
+U>
+S> ["ask(?X.goal(X))"]
+
+--- compulsory grounding + neg answer
+U> ["request(ask_question_with_grounding)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_name(X))"]
+U> ["answer(kalle)"]
+S> ["icm:acc*pos", "icm:und*pos:USR*selected_name(kalle)"]
+U> ["answer(no)"]
+S> ["icm:und*pos:USR*~selected_name(kalle)", "ask(?X.selected_name(X))"]
+
+
+--- compulsory grounding + information + timeout + neg answer => no doesn't address und-q
+U> ["request(ask_question_with_grounding_and_informational_utterance)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_name(X))"]
+U> ["answer(kalle)"]
+S> ["icm:acc*pos", "icm:und*pos:USR*selected_name(kalle)"]
+U>
+S> ["icm:loadplan", "answer(good_fellow(\"Some informational utterance\"))", "ask(?X.goal(X))"]
+U> ["answer(no)"]
+S> ["ask(?X.goal(X))"]
+
+--- compulsory grounding + ynq + neg answer => no doesn't address und-q
+U> ["request(ask_question_with_grounding_and_ynq)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_name(X))"]
+U> ["answer(kalle)"]
+S> ["icm:acc*pos", "icm:und*pos:USR*selected_name(kalle)"]
+U>
+S> ["ask(?sky(\"red\"))"]
+U> ["answer(no)"]
+S> ["answer(good_fellow(\"Some informational utterance\"))"]

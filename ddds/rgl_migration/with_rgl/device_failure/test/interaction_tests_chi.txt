@@ -1,7 +1,0 @@
---- generic error message when failure reason missing
-U> 开始
-S> 对不起，出了点问题。
-
---- positive perception ICM
-U> 未知
-S> 我听了您说 未知 。*

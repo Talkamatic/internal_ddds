@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="ConditionDomain" is_super_domain="true">
+
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="test_shared_proposition">
+    <plan>
+      <assume_shared><proposition predicate="test_condition" value="test_value"/></assume_shared>
+      <jumpto type="perform" action="condition_test"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="test_private_belief">
+    <plan>
+      <assume_system_belief><proposition predicate="test_condition" value="test_value"/></assume_system_belief>
+      <jumpto type="perform" action="condition_test"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="test_no_belief_no_commitment">
+    <plan>
+      <jumpto type="perform" action="condition_test"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="test_shared_proposition_other_individual">
+    <plan>
+      <assume_shared><proposition predicate="test_condition" value="other_test_value"/></assume_shared>
+      <jumpto type="perform" action="condition_test"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="condition_test">
+    <plan>
+      <if>
+        <has_shared_value predicate="test_condition"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="has_shared_value_result" value="has_shared_value_result"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <has_private_value predicate="test_condition"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="has_private_value_result" value="has_private_value"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="test_condition"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="has_shared_or_private_value_result" value="has_shared_or_private_value"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <is_shared_commitment predicate="test_condition" value="test_value"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="is_shared_commitment_result" value="is_shared_commitment"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <is_private_belief predicate="test_condition" value="test_value"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="is_private_belief_result" value="is_private_belief"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <is_private_belief_or_shared_commitment predicate="test_condition" value="test_value"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="is_private_belief_or_shared_commitment_result" value="is_private_belief_or_shared_commitment"/>
+          </inform>
+        </then>
+      </if>
+    </plan>
+  </goal>
+</domain>

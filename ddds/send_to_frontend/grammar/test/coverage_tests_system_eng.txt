@@ -1,1 +1,0 @@
-report(ServiceResultProposition(Navigate, [destination(city_paris)], SuccessfulServiceAction())) :: Destination set to Paris.

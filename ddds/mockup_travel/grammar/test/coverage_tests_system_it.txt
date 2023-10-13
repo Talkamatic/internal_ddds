@@ -1,2 +1,0 @@
-Move(ask(?set([goal(perform(make_reservation)), goal(perform(buy)), goal(perform(settings))]))) :: Vuoi andare alla prenotazione, acquistare un biglietto oppure andare alle impostazioni?
-Move(ask(?goal(perform(top)))) :: Vuoi andare al menu principale?

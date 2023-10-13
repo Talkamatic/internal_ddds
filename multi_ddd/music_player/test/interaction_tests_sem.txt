@@ -1,0 +1,81 @@
+--- listen
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
+U> ["answer(kaptenen)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(ListenToArtist, [url_to_play(\"mock_audio_url\")], SuccessfulServiceAction()))"]
+
+--- change domain
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
+U> ["answer(kaptenen)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(ListenToArtist, [url_to_play(\"mock_audio_url\")], SuccessfulServiceAction()))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
+U> ["answer(majorna)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(NavigateToDestination, [], SuccessfulServiceAction()))"]
+
+--- both domains have predicates and individual with the same name
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(mock_action)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.common_predicate(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(common_predicate(opeth))", "ddd": "music_player", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "opeth", "sort": "common_sort", "natural_language_form": "Opeth", "ddd": "music_player"}]}
+S> ["icm:acc*pos", "report(ServiceResultProposition(MockAction, [common_predicate(opeth)], SuccessfulServiceAction()))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(mock_action)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.common_predicate(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(common_predicate(johanneberg))", "ddd": "navigation", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "johanneberg", "sort": "common_sort", "natural_language_form": "Johanneberg", "ddd": "navigation"}]}
+S> ["icm:acc*pos", "report(ServiceResultProposition(MockAction, [common_predicate(johanneberg)], SuccessfulServiceAction()))"]
+
+--- returning to other ddd
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
+U> ["answer(kaptenen)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(ListenToArtist, [url_to_play(\"mock_audio_url\")], SuccessfulServiceAction()))"]
+U>
+S> ["icm:reraise:perform(navigate)", "ask(?X.destination(X))"]
+
+
+--- going back to other ddd
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
+U> ["request(up)"]
+S> ["icm:acc*pos"]
+U>
+S> ["icm:reraise:perform(navigate)", "ask(?X.destination(X))"]
+
+--- going to top
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
+U> ["request(top)"]
+S> ["icm:loadplan", "answer(active_domain(\"music_player\"))", "ask(?X.goal(X))"]
+
+
+--- answer after issue reraise
+U> ["request(top)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.goal(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
+U>
+S> ["icm:reraise", "ask(?X.destination(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(listen)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.artist(X))"]
+
+--- no clarification across multiple DDDs
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(set_volume)","ddd": "music_player","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.volume(X))"]
+U> ["answer(10)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(SetVolume, [volume(10)], SuccessfulServiceAction()))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(navigate)","ddd": "navigation","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.destination(X))"]
+U> ["request(top)"]
+S> ["icm:acc*pos", "icm:reraise:perform(top)", "icm:loadplan", "ask(?X.goal(X))"]
+U> ["answer(10)"]
+S> ["icm:accommodate:set_departure_day", "icm:und*pos:USR*goal(perform(set_departure_day))"]
+U>
+S> ["icm:acc*pos", "report(ServiceResultProposition(SetDepartureDay, [departure_day(10)], SuccessfulServiceAction()))"]

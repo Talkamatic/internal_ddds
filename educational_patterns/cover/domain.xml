@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="CoverDomain" is_super_domain="true">
+
+  <goal type="perform" action="top" reraise_on_resume="false">
+    <plan>
+      <inform>
+        <proposition predicate="info" value="intro"/>
+      </inform>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+</domain>

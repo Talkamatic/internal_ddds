@@ -1,8 +1,0 @@
---- basic instruction
-S> ["icm:loadplan", "ask(?X.goal(X))"]
-U> ["request(instruct_sourdough_starter)"]
-S> ["icm:acc*pos", "request(heat_2_dl_water_to_40_degrees)"]
-U> ["report(done)"]
-S> ["request(pour_water_into_bowl)"]
-U> ["report(done)"]
-S> ["report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"]

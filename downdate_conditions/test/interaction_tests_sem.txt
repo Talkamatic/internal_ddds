@@ -1,0 +1,32 @@
+--- HasValue downdate condition
+U> ["request(collect_first_name)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.first_name(X))"]
+U> ["answer(\"Kalle Karlsson\")"]
+S> ["icm:acc*pos"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+--- HasValue downdate condition - any value goes
+U> ["request(collect_first_name)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.first_name(X))"]
+U> ["answer(\"Hans Harben\")"]
+S> ["icm:acc*pos"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+
+--- IsSharedFact downdate condition
+U> ["request(collect_secret_word)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.secret_word(X))"]
+U> ["answer(\"all makt åt tegnell\")"]
+S> ["icm:acc*pos"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+--- IsSharedFact wrong answer
+U> ["request(collect_secret_word)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.secret_word(X))"]
+U> ["answer(\"all makt åt tengil\")"]
+S> ["icm:acc*pos"]
+U>
+S> ["icm:reraise:perform(collect_secret_word)", "ask(?X.secret_word(X))"]

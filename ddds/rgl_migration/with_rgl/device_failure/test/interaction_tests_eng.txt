@@ -1,7 +1,0 @@
---- generic error message when failure reason missing
-U> start
-S> I'm sorry, something went wrong.
-
---- positive perception ICM
-U> bsdkfsdfshdf
-S> I heard you say bsdkfsdfshdf.*

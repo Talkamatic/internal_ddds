@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="RaiseOntology">
+
+  <sort name="word"/>
+  <sort name="food"/>
+
+  <predicate name="explanation_of_word" sort="string"/>
+  <predicate name="explanation_of_word_with_second_raise" sort="string"/>
+  <predicate name="comment" sort="string"/>
+  <predicate name="selected_word" sort="word"/>
+  <predicate name="type_of_food" sort="food"/>
+
+  <individual name="sourdough_bread" sort="word"/>
+  <individual name="aardvark" sort="word"/>
+  <individual name="milk" sort="food"/>
+
+</ontology>

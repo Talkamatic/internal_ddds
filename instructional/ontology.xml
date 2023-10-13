@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="InstructionalOntology">
+
+  <action name="instruct_sourdough_starter"/>
+  <action name="heat_2_dl_water_to_40_degrees"/>
+  <action name="pour_water_into_bowl"/>
+  <action name="whisk_flour_into_water"/>
+  <action name="pour_2_dl_water_into_a_kettle"/>
+  <action name="put_it_onto_stove_until_heated"/>
+  <action name="instruct_sourdough_starter_index_variation_a"/>
+  <action name="instruct_sourdough_starter_index_variation_b"/>
+  <action name="instruct_sourdough_starter_index_variation_c"/>
+  <action name="instruct_sourdough_starter_index_variation_d"/>
+
+  <sort name="quantity"/>
+
+  <predicate name="quantity_water" sort="quantity"/>
+
+  <individual name="quantity_2_dl" sort="quantity"/>
+
+</ontology>

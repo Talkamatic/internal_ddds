@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ontology name="RasaNumbersOntology">
-  <action name="buy_apples"/>
-
-  <predicate name="desired_number_apples" sort="integer"/>
-  <predicate name="allowed_number_apples" sort="integer"/>
-</ontology>
