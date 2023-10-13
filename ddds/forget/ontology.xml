@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="ForgetOntology">
+  <predicate name="some_predicate" sort="string"/>
+  <predicate name="info_shared" sort="string"/>
+  <predicate name="info_private" sort="string"/>
+</ontology>

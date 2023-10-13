@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="ParameterValidationDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="flavour_number_plan">
+    <plan>
+      <findout type="wh_question" predicate="flavour"/>
+      <findout type="wh_question" predicate="number"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="single_value_configuration_validation_in_domain">
+    <plan>
+      <findout type="wh_question" predicate="predicate_a"/>
+      <findout type="wh_question" predicate="predicate_b"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="multivalue_configuration_validation_in_domain">
+    <plan>
+      <findout type="wh_question" predicate="predicate_c"/>
+      <findout type="wh_question" predicate="predicate_d"/>
+    </plan>
+  </goal>
+
+  <validator name="ValidatorA">
+    <configuration>
+      <proposition predicate="predicate_a" value="individual_a"/>
+    </configuration>
+    <configuration>
+      <proposition predicate="predicate_a" value="individual_c"/>
+    </configuration>
+  </validator>
+
+  <validator name="ValidatorB">
+    <configuration>
+      <proposition predicate="predicate_b" value="individual_b"/>
+    </configuration>
+    <configuration>
+      <proposition predicate="predicate_b" value="individual_c"/>
+    </configuration>
+  </validator>
+
+  <validator name="ValidatorC">
+    <configuration>
+      <proposition predicate="predicate_c" value="individual_a"/>
+      <proposition predicate="predicate_d" value="individual_b"/>
+    </configuration>
+  </validator>
+
+
+</domain>

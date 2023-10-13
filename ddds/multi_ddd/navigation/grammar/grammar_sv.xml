@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">huvudmenyn</action>
+  <action name="up">tillbaka</action>
+  <action name="navigate">navigering</action>
+  <action name="mock_action">starta navigering</action>
+  <question speaker="system" predicate="destination" type="wh_question">vilken är din destination</question>
+  <individual name="majorna">majorna</individual>
+  <report action="NavigateToDestination" status="ended">navigation har startats.</report>
+  <question speaker="system" predicate="common_predicate" type="wh_question">vart vill du åka</question>
+  <report action="MockAction" status="ended">påbörjade navigation till <slot predicate="common_predicate"/></report>
+  <action name="set_departure_day">ange dag för avgång</action>
+  <question speaker="system" predicate="departure_day" type="wh_question">vilken dag för avgång</question>
+  <report action="SetDepartureDay" status="ended">dag för avgång har satts till <slot predicate="departure_day"/>.</report>
+</grammar>

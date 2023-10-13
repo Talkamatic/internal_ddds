@@ -1,0 +1,4 @@
+--- greet if greeted
+S> ["answer(info_shared(\"gone from shared, that's right\"))"]
+U>
+S> ["answer(info_private(\"still in private, and it should\"))"]

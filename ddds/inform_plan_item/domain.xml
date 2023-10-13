@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="DowndateConditionsDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="tell_name">
+    <plan>
+      <inform>
+        <proposition predicate="first_name" value="name is Kalle"/>
+      </inform>
+    </plan>
+    <downdate_condition>
+      <has_value predicate="first_name"/>
+    </downdate_condition>
+  </goal>
+
+  <goal type="perform" action="insist_tell_name">
+    <plan>
+      <inform insist="true">
+        <proposition predicate="first_name" value="name is Kalle"/>
+      </inform>
+    </plan>
+    <downdate_condition>
+      <has_value predicate="first_name"/>
+    </downdate_condition>
+  </goal>
+
+  <dependency type="wh_question" predicate="some_predicate">
+    <question type="wh_question" predicate="explanation_of_word" />
+  </dependency>
+
+  <goal type="perform" action="deadlock_test">
+    <plan>
+      <assume_shared>
+        <proposition predicate="some_predicate" value="new_value"/>
+      </assume_shared>
+      <inform insist="false" generate_end_turn="true">
+        <proposition predicate="some_predicate" value="new_value"/>
+      </inform>
+      <inform insist="false" generate_end_turn="true">
+        <proposition predicate="comment" value="Det där gick ju bra!"/>
+      </inform>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="do_work">
+    <plan>
+      <inform insist="false">
+        <proposition predicate="start_section" value="Nu börjar vi med frågorna på denna sida"/>
+      </inform>
+      <findout predicate="some_predicate"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="explanation_of_word">
+    <plan>
+      <findout type="wh_question" predicate="word_to_explain"/>
+      <assume_system_belief>
+        <proposition predicate="explanation_of_word" value="some explanation"/>
+      </assume_system_belief>
+    </plan>
+    <postplan>
+      <forget predicate="word_to_explain"/>
+    </postplan>
+  </goal>
+
+  <goal type="perform" action="educational_dialogue_with_inform_action_combination">
+    <plan>
+      <inform insist="true">
+        <proposition predicate="start_section"/>
+      </inform>
+      <findout type="yn_question">
+        <proposition predicate="yn_have_boys_tasted_fish"/>
+      </findout>
+
+      <if>
+        <proposition predicate="yn_have_boys_tasted_fish"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="comment" value="I boken står det att de inte har smakat på fisken"/>
+          </inform>
+        </then>
+        <else>
+          <inform insist="true">
+            <proposition predicate="comment" value="Exakt. De har inte smakat på fisken"/>
+          </inform>
+        </else>
+      </if>
+      <inform insist="false">
+        <proposition predicate="on_to_question_2"/>
+      </inform>
+      <inform insist="false">
+        <proposition predicate="background_question_2"/>
+      </inform>
+
+      <findout predicate="rn_why_boys_not_like_fish"/>
+      <if>
+        <proposition predicate="rn_why_boys_not_like_fish" value="rn_why_boys_not_like_fish_correct"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="comment" value="Ja, så kan det nog vara"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rn_why_boys_not_like_fish" value="rn_why_boys_not_like_fish_unknown"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="comment" value="Det kan ju finnas många anledningar. Det kanske ser konstigt ut, eller liknar en annan rätt som man inte gillar. Kanske har någon annan sagt att det är äckligt"/>
+          </inform>
+        </then>
+      </if>
+      <inform>
+        <proposition predicate="end_of_section"/>
+      </inform>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="educational_dialogue_with_two_hints">
+    <plan>
+      <inform insist="true">
+        <proposition predicate="start_section"/>
+      </inform>
+      <findout predicate="rn_why_boys_not_like_fish"/>
+      <if>
+        <proposition predicate="rn_why_boys_not_like_fish" value="rn_why_boys_not_like_fish_correct"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="comment" value="Ja, så kan det nog vara"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rn_why_boys_not_like_fish" value="rn_why_boys_not_like_fish_unknown"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="comment" value="Det kan ju finnas många anledningar. Det kanske ser konstigt ut, eller liknar en annan rätt som man inte gillar. Kanske har någon annan sagt att det är äckligt"/>
+          </inform>
+        </then>
+      </if>
+      <inform>
+        <proposition predicate="end_of_section"/>
+      </inform>
+    </plan>
+  </goal>
+
+  <parameters question_type="wh_question" predicate="rn_why_boys_not_like_fish">
+    <hint>
+      <inform insist="true">
+        <proposition predicate="helpful_information_rn_why_boys_not_like_fish" value="rn_why_boys_not_like_fish_hint"/>
+      </inform>
+    </hint>
+    <hint>
+      <inform insist="true">
+        <proposition predicate="rn_why_boys_not_like_fish" value="rn_why_boys_not_like_fish_pass"/>
+      </inform>
+    </hint>
+  </parameters>
+
+
+  <parameters question_type="wh_question" predicate="always_relevant_question">
+    <always_relevant/>
+  </parameters>
+
+  <goal type="resolve" question_type="wh_question" predicate="always_relevant_question">
+    <plan>
+      <findout type="wh_question" predicate="something_to_explain"/>
+      <assume_system_belief>
+        <proposition predicate="always_relevant_question" value="some explanation"/>
+      </assume_system_belief>
+    </plan>
+    <postplan>
+      <forget predicate="always_relevant_question"/>
+    </postplan>
+  </goal>
+
+</domain>

@@ -1,0 +1,34 @@
+--- start session
+S> *
+
+--- start session (failure)
+S> There is no session data.
+
+--- nl input (query)
+S> There is no session data.
+U> what is my phone number
+S> Your phone number is *.
+
+--- (perform) (fail action)
+S> *
+U> find a mock value
+S> I haven't found any mock value.
+
+--- event (perform) (fail action)
+S> *
+Event> {"name": "GetMockEvent", "status": "started", "parameters": {}}
+S> There is a mock event! I haven't found any mock value.
+
+--- request number (test entity recogniser failure)
+S> *
+U> tell me a phone number
+S> Which contact?
+U> John
+S> I heard you say John. I don't understand. So, Which contact?
+
+--- request number (test entity recogniser success + validate frontend data failure)
+S> *
+U> tell me a phone number
+S> Which contact?
+U> Mary
+S> I couldn't verify that there is session data coming from the frontend.

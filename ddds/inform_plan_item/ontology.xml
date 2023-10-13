@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="DowndateConditionsOntology">
+
+  <action name="tell_name"/>
+  <action name="insist_tell_name"/>
+
+  <predicate name="first_name" sort="string"/>
+
+  <action name="do_work"/>
+  <predicate name="start_section" sort="string"/>
+  <predicate name="some_predicate" sort="string"/>
+  <predicate name="explanation_of_word" sort="string"/>
+  <predicate name="word_to_explain" sort="string"/>
+
+  <action name="educational_dialogue_with_inform_action_combination"/>
+
+  <predicate name="start_of_section" sort="string"/>
+  <predicate name="comment" sort="string"/>
+  <sort name="yn_have_boys_tasted_fish_sort"/>
+  <predicate name="yn_have_boys_tasted_fish" sort="yn_have_boys_tasted_fish_sort"/>
+  <predicate name="on_to_question_2" sort="string"/>
+  <predicate name="background_question_2" sort="string"/>
+
+  <sort name="rn_why_boys_not_like_fish_sort"/>
+  <predicate name="rn_why_boys_not_like_fish" sort="rn_why_boys_not_like_fish_sort"/>
+  <individual name="rn_why_boys_not_like_fish_correct" sort="rn_why_boys_not_like_fish_sort"/>
+  <individual name="rn_why_boys_not_like_fish_unknown" sort="rn_why_boys_not_like_fish_sort"/>
+
+  <predicate name="end_of_section" sort="string"/>
+
+  <action name="educational_dialogue_with_two_hints"/>
+  <sort name="helpful_information"/>
+  <predicate name="helpful_information_rn_why_boys_not_like_fish" sort="helpful_information"/>
+  <individual name="rn_why_boys_not_like_fish_hint" sort="helpful_information"/>
+  <individual name="rn_why_boys_not_like_fish_pass" sort="rn_why_boys_not_like_fish_sort"/>
+
+  <predicate name="always_relevant_question" sort="string"/>
+  <predicate name="something_to_explain" sort="string"/>
+
+  <action name="deadlock_test"/>
+
+</ontology>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="ConditionDomain" is_super_domain="true">
+
+  <goal type="perform" action="top">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" predicate="way_to_look">
+    <plan>
+      <findout type="wh_question" predicate="money"/>
+      <invoke_domain_query predicate="way_to_look" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <query predicate="way_to_look">
+    <implication>
+      <antecedent predicate="money" value="left"/>
+      <consequent predicate="way_to_look" value="left"/>
+    </implication>
+    <implication>
+      <antecedent predicate="money" value="right"/>
+      <consequent predicate="way_to_look" value="right"/>
+    </implication>
+  </query>
+
+  <goal type="resolve" predicate="way_to_look_random">
+    <plan>
+      <invoke_domain_query predicate="way_to_look_random" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <query predicate="way_to_look_random">
+    <select_at_random>
+      <individual value="left"/>
+      <individual value="right"/>
+    </select_at_random>
+  </query>
+
+  <goal type="resolve" predicate="way_to_look_enumerate">
+    <plan>
+      <if>
+        <has_more_items predicate="way_to_look_enumerate"/>
+        <else>
+          <inform>
+            <proposition predicate="info" value="No more ways to look"/>
+          </inform>
+        </else>
+      </if>
+      <invoke_domain_query predicate="way_to_look_enumerate" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <query predicate="way_to_look_enumerate">
+    <enumerate>
+      <individual value="left"/>
+      <individual value="right"/>
+    </enumerate>
+  </query>
+
+  <goal type="resolve" predicate="way_to_look_restart_enumeration">
+    <plan>
+      <reset_domain_query predicate="way_to_look_restart_enumeration" type="wh_question"/>
+      <invoke_domain_query predicate="way_to_look_restart_enumeration" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <query predicate="way_to_look_restart_enumeration">
+    <enumerate>
+      <individual value="left"/>
+      <individual value="right"/>
+    </enumerate>
+  </query>
+
+  <goal type="resolve" predicate="way_to_look_enumerate_randomly">
+    <plan>
+      <if>
+        <has_more_items predicate="way_to_look_enumerate_randomly"/>
+        <else>
+          <inform>
+            <proposition predicate="info" value="No more ways to look"/>
+          </inform>
+        </else>
+      </if>
+      <invoke_domain_query predicate="way_to_look_enumerate_randomly" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <query predicate="way_to_look_enumerate_randomly">
+    <enumerate randomize="true">
+      <individual value="left"/>
+      <individual value="right"/>
+    </enumerate>
+  </query>
+
+  <goal type="resolve" predicate="way_to_look_restart_random_enumeration">
+    <plan>
+      <reset_domain_query predicate="way_to_look_restart_random_enumeration" type="wh_question"/>
+      <invoke_domain_query predicate="way_to_look_restart_random_enumeration" type="wh_question"/>
+    </plan>
+  </goal>
+
+  <query predicate="way_to_look_restart_random_enumeration">
+    <enumerate randomize="true">
+      <individual value="left"/>
+      <individual value="right"/>
+    </enumerate>
+  </query>
+
+  <goal type="perform" action="say_sequence_of_propositions" reraise_on_resume="false">
+    <plan>
+      <iterate iterator="an_iterator_identifier"/>
+      <if>
+        <proposition predicate="p" value="x"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="info" value="this is p(x)"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="q" value="x"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="info" value="this is q(x)"/>
+          </inform>
+          <signal_action_completion/>
+        </then>
+      </if>
+    </plan>
+  </goal>
+
+  <iterator name="an_iterator_identifier">
+    <enumerate>
+      <proposition predicate="p" value="x"/>
+      <proposition predicate="q" value="x"/>
+    </enumerate>
+  </iterator>
+
+  <goal type="perform" action="say_limited_sequence_of_propositions" reraise_on_resume="false">
+    <plan>
+      <iterate iterator="an_identifier_for_limited_enumerator"/>
+      <if>
+        <proposition predicate="p" value="x"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="info" value="this is p(x)"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="q" value="x"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="info" value="this is q(x)"/>
+          </inform>
+          <signal_action_completion/>
+        </then>
+      </if>
+      <if>
+        <has_more_items iterator="an_identifier_for_limited_enumerator"/>
+        <else>
+          <signal_action_completion/>
+        </else>
+      </if>
+    </plan>
+  </goal>
+
+  <iterator name="an_identifier_for_limited_enumerator">
+    <enumerate limit="1">
+      <proposition predicate="p" value="x"/>
+      <proposition predicate="q" value="x"/>
+    </enumerate>
+  </iterator>
+
+    <goal type="perform" action="say_limited_randomized_sequence_of_propositions" reraise_on_resume="false">
+    <plan>
+      <iterate iterator="an_identifier_for_limited_randomized_enumerator"/>
+      <if>
+        <proposition predicate="p" value="x"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="info" value="this is p(x)"/>
+          </inform>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="q" value="x"/>
+        <then>
+          <inform insist="true">
+            <proposition predicate="info" value="this is q(x)"/>
+          </inform>
+          <signal_action_completion/>
+        </then>
+      </if>
+      <if>
+        <has_more_items iterator="an_identifier_for_limited_randomized_enumerator"/>
+        <else>
+          <signal_action_completion/>
+        </else>
+      </if>
+    </plan>
+  </goal>
+
+  <iterator name="an_identifier_for_limited_randomized_enumerator">
+    <enumerate randomize="true" limit="1">
+      <proposition predicate="p" value="x"/>
+      <proposition predicate="q" value="x"/>
+    </enumerate>
+  </iterator>
+
+
+</domain>

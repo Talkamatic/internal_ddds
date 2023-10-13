@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+  <action name="ReportStartSession">
+    <parameters>
+      <parameter predicate="start_session_mock_data" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/successful_action_response"/>
+    </target>
+  </action>
+
+  <query name="start_session_mock_data">
+    <parameters/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/start_session_mock_data"/>
+    </target>
+  </query>
+
+  <query name="caller_phone_number">
+    <parameters/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/caller_phone_number"/>
+    </target>
+  </query>
+
+  <action name="MockPerformReport">
+    <parameters/>
+    <failure_reasons>
+      <failure_reason name="no_mock_data"/>
+    </failure_reasons>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/mock_perform"/>
+    </target>
+  </action>
+
+  <action name="GetMockEvent">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <device_module device="FrontendDataDevice"/>
+    </target>
+  </action>
+
+  <query name="phone_number_of_contact">
+    <parameters>
+      <parameter predicate="selected_contact" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/phone_number_of_contact"/>
+    </target>
+  </query>
+
+  <entity_recognizer name="ContactRecognizer">
+    <target>
+      <http endpoint="http://127.0.0.1:10100/contact_recognizer"/>
+    </target>
+  </entity_recognizer>
+
+  <validator name="FrontendSessionDataAvailable">
+    <parameters>
+      <parameter predicate="selected_contact" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/frontend_session_data_validator"/>
+    </target>
+  </validator>
+
+</service_interface>

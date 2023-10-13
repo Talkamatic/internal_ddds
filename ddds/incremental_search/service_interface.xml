@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <action name="Call">
+    <parameters>
+      <parameter predicate="selected_contact" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/Call"/>
+    </target>
+  </action>
+  <action name="DeleteNumber">
+    <parameters>
+      <parameter predicate="selected_contact" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/DeleteNumber"/>
+    </target>
+  </action>
+  <query name="selected_contact">
+    <parameters>
+      <parameter predicate="selected_first_name" format="value" optional="true"/>
+      <parameter predicate="selected_last_name" format="value" optional="true"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/selected_contact"/>
+    </target>
+  </query>
+</service_interface>

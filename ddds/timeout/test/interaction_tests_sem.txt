@@ -1,0 +1,32 @@
+--- main menu
+S> ["icm:loadplan", "greet"]
+
+--- paced confirmations and questions
+U> ["request(some_action)"]
+S> ["icm:loadplan", "answer(info(something))"]
+U>
+S> ["ask(?X.some_predicate(X))"]
+
+--- end_turn at end of turn
+U> ["request(end_turn_at_end_of_turn)"]
+S> ["icm:loadplan", "answer(info(something))", "ask(?X.some_predicate(X))"]
+U>
+S> ["icm:reraise", "ask(?X.some_predicate(X))"]
+
+--- yield turn between action and inform
+U> ["request(action_with_end_turn_between_service_action_and_inform)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(SomeAction, [], SuccessfulServiceAction()))"]
+U>
+S> ["answer(info(something))"]
+
+--- yield turn between informs
+U> ["request(action_with_end_turn_between_informs)"]
+S> ["answer(info(something))"]
+U>
+S> ["answer(more_info(something))"]
+
+--- yield turn between informs from inform definition
+U> ["request(action_with_end_turn_in_informs)"]
+S> ["answer(info(something))"]
+U>
+S> ["answer(more_info(something))"]

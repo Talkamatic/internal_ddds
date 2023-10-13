@@ -1,0 +1,10 @@
+{
+    "active_ddd": "backend.config.json",
+    "ddds": [
+        "backend.config.json"
+    ],
+    "inactive_seconds_allowed": 7200,
+    "repeat_questions": true,
+    "rerank_amount": 0.2,
+    "response_timeout": 2.5
+}

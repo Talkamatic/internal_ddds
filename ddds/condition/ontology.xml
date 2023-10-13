@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="RaiseOntology">
+
+  <action name="test_shared_proposition"/>
+  <action name="test_private_belief"/>
+  <action name="test_no_belief_no_commitment"/>
+  <action name="test_shared_proposition_other_individual"/>
+
+  <action name="condition_test"/>
+
+  <predicate name="test_condition" sort="string"/>
+
+  <predicate name="has_shared_value_result" sort="string"/>
+  <predicate name="has_private_value_result" sort="string"/>
+  <predicate name="has_shared_or_private_value_result" sort="string"/>
+  <predicate name="is_shared_commitment_result" sort="string"/>
+  <predicate name="is_private_belief_result" sort="string"/>
+  <predicate name="is_private_belief_or_shared_commitment_result" sort="string"/>
+
+
+
+</ontology>

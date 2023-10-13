@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="TimeoutDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="some_action">
+    <plan>
+      <inform>
+        <proposition predicate="info" value="something"/>
+      </inform>
+      <end_turn expected_passivity="3.0"/>
+      <findout predicate="some_predicate"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="end_turn_at_end_of_turn">
+    <plan>
+      <inform>
+        <proposition predicate="info" value="something"/>
+      </inform>
+      <findout predicate="some_predicate"/>
+      <end_turn expected_passivity="3.0"/>
+    </plan>
+  </goal>
+
+
+  <goal type="perform" action="action_with_end_turn_between_service_action_and_inform">
+    <plan>
+      <invoke_service_action name="SomeAction" postconfirm="true" downdate_plan="false"/>
+      <end_turn expected_passivity="3.0"/>
+      <inform>
+        <proposition predicate="info" value="something"/>
+      </inform>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="action_with_end_turn_between_informs">
+    <plan>
+      <inform>
+        <proposition predicate="info" value="something"/>
+      </inform>
+      <end_turn expected_passivity="3.0"/>
+      <inform>
+        <proposition predicate="more_info" value="something"/>
+      </inform>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="action_with_end_turn_in_informs">
+    <plan>
+      <inform generate_end_turn="true" expected_passivity="3.0">
+        <proposition predicate="info" value="something"/>
+      </inform>
+      <inform>
+        <proposition predicate="more_info" value="something"/>
+      </inform>
+    </plan>
+  </goal>
+
+
+</domain>

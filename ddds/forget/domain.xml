@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="ForgetOntology" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <assume_shared>
+        <proposition predicate="some_predicate" value="shared_value"/>
+      </assume_shared>
+      <assume_system_belief>
+        <proposition predicate="some_predicate" value="private_value"/>
+      </assume_system_belief>
+
+      <forget_shared predicate="some_predicate"/>
+
+      <if>
+        <is_shared_commitment predicate="some_predicate" value="shared_value"/>
+        <then>
+          <inform generate_end_turn="true">
+            <proposition predicate="info_shared" value="still in shared, but it shouldn't"/>
+          </inform>
+        </then>
+        <else>
+          <inform generate_end_turn="true">
+            <proposition predicate="info_shared" value="gone from shared, that's right"/>
+          </inform>
+        </else>
+      </if>
+      <if>
+        <is_private_belief predicate="some_predicate" value="private_value"/>
+        <then>
+          <inform generate_end_turn="true">
+            <proposition predicate="info_private" value="still in private, and it should"/>
+          </inform>
+        </then>
+        <else>
+          <inform generate_end_turn="true">
+            <proposition predicate="info_private" value="gone from private, but it shouldn't"/>
+          </inform>
+        </else>
+      </if>
+    </plan>
+  </goal>
+</domain>

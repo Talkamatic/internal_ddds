@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="DatetimeDomain">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="book_flight" reraise_on_resume="false">
+    <plan>
+      <findout type="wh_question" predicate="departure_time"/>
+      <invoke_service_action name="BookFlight" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" question_type="wh_question" predicate="next_arrival_time">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="next_arrival_time"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="share_event_time" reraise_on_resume="false">
+    <plan>
+      <invoke_service_query type="wh_question" predicate="event_time"/>
+      <invoke_service_action name="ShareEventTime" postconfirm="true"/>
+    </plan>
+  </goal>
+</domain>

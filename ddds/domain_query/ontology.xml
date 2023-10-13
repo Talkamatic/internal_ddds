@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="DomainQueryOntology">
+
+  <sort name="direction"/>
+  <predicate name="money" sort="direction"/>
+  <predicate name="way_to_look" sort="direction"/>
+  <predicate name="way_to_look_random" sort="direction"/>
+  <predicate name="way_to_look_enumerate" sort="direction"/>
+  <predicate name="way_to_look_enumerate_randomly" sort="direction"/>
+  <predicate name="way_to_look_restart_enumeration" sort="direction"/>
+  <predicate name="way_to_look_restart_random_enumeration" sort="direction"/>
+  <individual name="left" sort="direction"/>
+  <individual name="right" sort="direction"/>
+
+  <action name="say_sequence_of_propositions"/>
+  <predicate name="info" sort="string"/>
+  <sort name="some_sort"/>
+  <predicate name="p" sort="some_sort"/>
+  <predicate name="q" sort="some_sort"/>
+  <individual name="x" sort="some_sort"/>
+
+  <action name="say_limited_sequence_of_propositions"/>
+  <action name="say_limited_randomized_sequence_of_propositions"/>
+
+</ontology>

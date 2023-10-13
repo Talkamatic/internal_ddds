@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="InstructionalDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="instruct_sourdough_starter">
+    <plan>
+      <get_done action="heat_2_dl_water_to_40_degrees" step="1"/>
+      <get_done action="pour_water_into_bowl" step="2"/>
+      <get_done action="whisk_flour_into_water" step="-1"/>
+      <invoke_service_action name="EndSourdougStarterInstruction" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="instruct_sourdough_starter_index_variation_a">
+    <plan>
+      <get_done action="heat_2_dl_water_to_40_degrees"/>
+      <get_done action="pour_water_into_bowl"/>
+      <get_done action="whisk_flour_into_water" step="-1"/>
+      <invoke_service_action name="EndSourdougStarterInstruction" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="instruct_sourdough_starter_index_variation_b">
+    <plan>
+      <get_done action="heat_2_dl_water_to_40_degrees" step="1"/>
+      <get_done action="pour_water_into_bowl"/>
+      <get_done action="whisk_flour_into_water" step="-1"/>
+      <invoke_service_action name="EndSourdougStarterInstruction" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="instruct_sourdough_starter_index_variation_c">
+    <plan>
+      <get_done action="heat_2_dl_water_to_40_degrees"/>
+      <get_done action="pour_water_into_bowl" step="2"/>
+      <get_done action="whisk_flour_into_water"/>
+      <invoke_service_action name="EndSourdougStarterInstruction" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="instruct_sourdough_starter_index_variation_d">
+    <plan>
+      <get_done action="heat_2_dl_water_to_40_degrees"  step="1"/>
+      <get_done action="pour_water_into_bowl" step="1"/>
+      <get_done action="whisk_flour_into_water"/>
+      <invoke_service_action name="EndSourdougStarterInstruction" postconfirm="true"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="heat_2_dl_water_to_40_degrees">
+    <plan>
+      <get_done action="pour_2_dl_water_into_a_kettle" step="1"/>
+      <get_done action="put_it_onto_stove_until_heated"/>
+      <signal_action_completion/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" predicate="quantity_water">
+    <plan>
+      <assume_system_belief>
+        <proposition predicate="quantity_water" value="quantity_2_dl"/>
+      </assume_system_belief>
+    </plan>
+  </goal>
+
+
+</domain>

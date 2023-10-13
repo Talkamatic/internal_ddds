@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="HelloWorldOntology">
+  <sort name="alarm"/>
+  <sort name="alarm_time" dynamic="true"/>
+
+  <action name="set_time"/>
+  <action name="set_alarm"/>
+  <action name="remove_alarm"/>
+  <action name="select_alarm"/>
+  <action name="snooze"/>
+  <action name="turn_off_alarm"/>
+  <action name="sync_to_internet"/>
+  <action name="update_clock_software"/>
+
+  <predicate name="current_time" sort="string"/>
+  <predicate name="current_alarm" sort="alarm_time"/>
+  <predicate name="hour_to_set" sort="integer"/>
+  <predicate name="minute_to_set" sort="integer"/>
+  <predicate name="alarm_hour" sort="integer"/>
+  <predicate name="alarm_minute" sort="integer"/>
+  <predicate name="alarm_to_select" sort="alarm"/>
+  <predicate name="greenwich_mean_time" sort="string"/>
+  <predicate name="alarm_image_url" sort="image"/>
+  <predicate name="clock_view" sort="webview"/>
+
+  <individual name="work_alarm" sort="alarm"/>
+  <individual name="school_alarm" sort="alarm"/>
+</ontology>

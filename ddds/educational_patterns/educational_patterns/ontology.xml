@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="EducationalPatternsOntology">
+
+  <predicate name="start_section" sort="boolean"/>
+  <sort name="helpful_information"/>
+  <predicate name="comment" sort="string"/>
+  <predicate name="explanation_of_word" sort="string"/>
+  <predicate name="word_to_explain" sort="string"/>
+  <predicate name="end_question_1" sort="boolean"/>
+  <predicate name="rw_vad_kallade_de_landet_darx_background" sort="string"/>
+  <sort name="rw_vad_kallade_de_landet_darx_sort"/>
+  <predicate name="rw_vad_kallade_de_landet_darx" sort="rw_vad_kallade_de_landet_darx_sort"/>
+  <individual name="rw_vad_kallade_de_landet_darx_bonland" sort="rw_vad_kallade_de_landet_darx_sort"/>
+  <individual name="rw_vad_kallade_de_landet_darx_correct" sort="rw_vad_kallade_de_landet_darx_sort"/>
+  <individual name="rw_vad_kallade_de_landet_darx_unknown" sort="rw_vad_kallade_de_landet_darx_sort"/>
+  <predicate name="helpful_information_rw_vad_kallade_de_landet_darx" sort="helpful_information"/>
+  <individual name="rw_vad_kallade_de_landet_darx_hint" sort="helpful_information"/>
+  <individual name="rw_vad_kallade_de_landet_darx_resolving_hint" sort="rw_vad_kallade_de_landet_darx_sort"/>
+
+</ontology>

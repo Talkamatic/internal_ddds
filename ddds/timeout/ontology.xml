@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="DowndateConditionsOntology">
+
+  <action name="some_action"/>
+  <action name="end_turn_at_end_of_turn"/>
+  <action name="action_with_end_turn_between_service_action_and_inform"/>
+  <action name="action_with_end_turn_between_informs"/>
+  <action name="action_with_end_turn_in_informs"/>
+
+  <sort name="information"/>
+  <predicate name="info" sort="information"/>
+  <predicate name="more_info" sort="information"/>
+  <individual name="something" sort="information"/>
+  <predicate name="some_predicate" sort="string"/>
+
+</ontology>

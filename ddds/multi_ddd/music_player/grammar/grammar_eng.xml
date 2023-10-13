@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">main menu</action>
+  <action name="up">go back</action>
+  <action name="listen">listen</action>
+  <action name="mock_action">start music player</action>
+  <question speaker="system" predicate="artist" type="wh_question">Choose an artist</question>
+  <individual name="kaptenen">kaptenen</individual>
+  <report action="ListenToArtist" status="ended">music started.</report>
+  <question speaker="system" predicate="common_predicate" type="wh_question">Which artist</question>
+  <report action="MockAction" status="ended">Playing <slot predicate="common_predicate"/></report>
+  <action name="set_volume">set the volume</action>
+  <question speaker="system" predicate="volume" type="wh_question">specify the volume level</question>
+  <report action="SetVolume" status="ended">the volume was set to <slot predicate="volume"/>.</report>
+</grammar>

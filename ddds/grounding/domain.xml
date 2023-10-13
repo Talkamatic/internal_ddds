@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="GroundingDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+
+  <goal type="perform" action="ask_question_with_grounding">
+    <plan>
+      <findout predicate="selected_name"/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+
+  <goal type="perform" action="ask_question_with_grounding_and_informational_utterance">
+    <plan>
+      <findout predicate="selected_name"/>
+      <jumpto type="perform" action="inform_about_stuff"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="inform_about_stuff">
+    <plan>
+      <inform>
+        <proposition predicate="good_fellow" value="Some informational utterance"/>
+      </inform>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="ask_question_with_grounding_and_ynq">
+    <plan>
+      <findout predicate="selected_name"/>
+      <findout type="yn_question">
+        <proposition predicate="sky" value="red"/>
+      </findout>
+      <inform>
+        <proposition predicate="good_fellow" value="Some informational utterance"/>
+      </inform>
+    </plan>
+  </goal>
+
+  <parameters question_type="wh_question" predicate="selected_name" always_ground="true"/>
+
+</domain>

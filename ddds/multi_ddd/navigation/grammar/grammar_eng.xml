@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar>
+  <action name="top">main menu</action>
+  <action name="up">go back</action>
+  <action name="navigate">navigate</action>
+  <action name="mock_action">start navigation</action>
+  <question speaker="system" predicate="destination" type="wh_question">what is your destination</question>
+  <individual name="majorna">majorna</individual>
+  <report action="NavigateToDestination" status="ended">navigation started.</report>
+  <question speaker="system" predicate="common_predicate" type="wh_question">Where do you want to go</question>
+  <report action="MockAction" status="ended">starting navigation to <slot predicate="common_predicate"/></report>
+  <action name="set_departure_day">set the departure day</action>
+  <question speaker="system" predicate="departure_day" type="wh_question">what departure day</question>
+  <report action="SetDepartureDay" status="ended">the departure day was set to <slot predicate="departure_day"/>.</report>
+</grammar>

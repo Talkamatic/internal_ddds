@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <validator name="FlavourValidator">
+    <parameters>
+      <parameter predicate="flavour" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/validate"/>
+    </target>
+  </validator>
+</service_interface>

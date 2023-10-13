@@ -1,0 +1,32 @@
+--- request number
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> ["ask(?X.phone_number_of_contact(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_contact(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}
+S> ["answer(phone_number_of_contact(phone_number_1))"]
+
+--- ask for number one-shot
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "ask(?X.phone_number_of_contact(X))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}
+S> ["answer(phone_number_of_contact(phone_number_2))"]
+
+--- call
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> ["request(call)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_contact(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}
+S> ["icm:acc*pos", "report(ServiceResultProposition(Call, [selected_contact(contact_john)], SuccessfulServiceAction()))"]
+
+--- call invalid number
+U> ["request(call)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_contact(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_contact(contact_andy))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "Andy", "ddd": "http_service"}]}
+S> ["icm:sem*neg", "icm:reraise", "ask(?X.selected_contact(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}
+S> ["icm:acc*pos", "report(ServiceResultProposition(Call, [selected_contact(contact_john)], SuccessfulServiceAction()))"]
+
+--- call invalid number one-shot
+U> {"interpretations": [{"moves": [{"semantic_expression": "ask(?X.phone_number_of_contact(X))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}, {"semantic_expression": "answer(selected_contact(contact_andy))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_andy", "sort": "contact", "natural_language_form": "Andy", "ddd": "http_service"}]}
+S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([selected_contact(contact_andy)]), PhoneNumberAvailable)", "icm:reraise", "ask(?X.selected_contact(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(selected_contact(contact_john))", "ddd": "http_service", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "contact_john", "sort": "contact", "natural_language_form": "John", "ddd": "http_service"}]}
+S> ["answer(phone_number_of_contact(phone_number_3))"]

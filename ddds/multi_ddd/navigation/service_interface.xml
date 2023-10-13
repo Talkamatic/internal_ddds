@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+  <action name="NavigateToDestination">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/NavigateToDestination"/>
+    </target>
+  </action>
+  <action name="SetDepartureDay">
+    <parameters>
+      <parameter predicate="departure_day" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/SetDepartureDay"/>
+    </target>
+  </action>
+  <action name="MockAction">
+    <parameters>
+      <parameter predicate="common_predicate" format="value"/>
+    </parameters>
+    <failure_reasons/>
+    <target>
+      <http endpoint="http://127.0.0.1:10100/MockAction"/>
+    </target>
+  </action>
+</service_interface>

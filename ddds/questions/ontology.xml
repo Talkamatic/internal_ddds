@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="RaiseOntology">
+
+  <action name="talk_about_dogs"/>
+  <action name="talk_about_cows"/>
+  <action name="talk_about_sheep"/>
+
+  <sort name="animal"/>
+
+  <predicate name="filthy_animal" sort="animal"/>
+  <predicate name="filthy_animal_sheep" sort="boolean"/>
+
+  <predicate name="comment" sort="string"/>
+
+  <individual name="dog" sort="animal"/>
+  <individual name="cow" sort="animal"/>
+
+</ontology>

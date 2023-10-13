@@ -1,0 +1,53 @@
+--- cover
+S> ["icm:loadplan", "greet", "answer(info(intro))"]
+
+
+--- right/wrong question happy path
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(top)","ddd": "educational_patterns","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:loadplan", "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
+U> ["answer(rw_vad_kallade_de_landet_darx_correct)"]
+S> ["answer(comment(\"Fint! Ja vikingarna sade att de \u00e5kte till Vinland.\"))"]
+U>
+S> ["answer(end_question_1)"]
+
+
+--- give hint
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(top)","ddd": "educational_patterns","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:loadplan", "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
+U> ["answer(rw_vad_kallade_de_landet_darx_unknown)"]
+S> ["icm:acc*neg:rejected(set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]), RwVadKalladeDeLandetDarxValidity)", "answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
+U> ["answer(rw_vad_kallade_de_landet_darx_correct)"]
+S> ["answer(comment(\"Fint! Ja vikingarna sade att de \u00e5kte till Vinland.\"))"]
+U>
+S> ["answer(end_question_1)"]
+
+
+--- give hint, then get question with alternatives and test topic switching
+U> {"interpretations": [{"moves": [{"semantic_expression": "request(top)","ddd": "educational_patterns","perception_confidence": 1.0,"understanding_confidence": 1.0}],"modality": "other"}]}
+S> ["icm:loadplan", "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
+U> ["answer(rw_vad_kallade_de_landet_darx_unknown)"]
+S> ["icm:acc*neg:rejected(set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]), RwVadKalladeDeLandetDarxValidity)", "answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]
+U> ["answer(rw_vad_kallade_de_landet_darx_unknown)"]
+S> ["icm:acc*neg:rejected(set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]), RwVadKalladeDeLandetDarxValidity)", "ask(?X.rw_vad_kallade_de_landet_darx(X), set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_bonland), rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_correct), rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]))"]
+U> ["ask(?X.explanation_of_word(X))", "answer(word_to_explain(\"strider\"))"]
+S> ["answer(explanation_of_word(\"strider kan utk\u00e4mpas i ett krig d\u00e5 man sl\u00e5ss mot varandra\"))"]
+U>
+S> ["ask(?X.rw_vad_kallade_de_landet_darx(X))"]

@@ -1,0 +1,538 @@
+--- no greeting
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+
+--- price information
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["answer(paris)"]
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_1)]))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(city_madrid)", "ddd": "mockup_travel", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "city_madrid", "sort": "city", "natural_language_form": "Madrid", "ddd": "mockup_travel"}]}
+S> ["icm:acc*pos", "ask(?X.dept_month(X))"]
+U> ["answer(april)"]
+S> ["icm:acc*pos", "ask(?X.dept_day(X))"]
+U> ["answer(5)"]
+S> ["icm:acc*pos", "ask(?X.class(X))"]
+
+--- price information - pardon with variation
+U> ["icm:per*neg"]
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["answer(paris)"]
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_2)]))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_2)]))"]
+U> ["answer(city_madrid)"]
+S> ["icm:acc*pos", "ask(?X.dept_month(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "ask(?X.dept_month(X))"]
+U> ["answer(april)"]
+S> ["icm:acc*pos", "ask(?X.dept_day(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "ask(?X.dept_day(X))"]
+U> ["answer(5)"]
+S> ["icm:acc*pos", "ask(?X.class(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "ask(?X.class(X))"]
+
+--- one-shot price information
+U> ["ask(?X.price(X))", "answer(plane)", "answer(dest_city(paris))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_3)]))"]
+
+--- invalidity
+U> ["ask(?X.price(X))", "answer(plane)", "answer(dest_city(lisbon))"]
+S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)", "ask(?X.dest_city(X))"]
+
+--- resume after invalidity - pardon
+U> ["icm:per*neg"]
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> ["ask(?X.price(X))", "answer(plane)", "answer(dest_city(lisbon))"]
+S> ["icm:acc*pos", "icm:loadplan", "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)", "ask(?X.dest_city(X))"]
+U> ["icm:per*neg"]
+S> ["icm:reraise", "ask(?X.dest_city(X))"]
+U> ["icm:per*neg"]
+S> ["icm:reraise", "ask(?X.dest_city(X))"]
+
+--- add passenger with default quantity
+U> ["request(add_passenger)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.passenger_type_to_add(X))"]
+U> ["answer(adult)"]
+S> ["icm:acc*pos", "icm:report_inference:passenger_quantity_to_add(1)", "report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(1)], SuccessfulServiceAction()))"]
+
+--- one-shot add passenger with default quantity
+U> ["request(add_passenger)", "answer(adult)"]
+S> ["icm:acc*pos", "icm:report_inference:passenger_quantity_to_add(1)", "report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(1)], SuccessfulServiceAction()))"]
+
+--- one-shot add passenger with explicit quantity
+U> ["request(add_passenger)", "answer(2)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.passenger_type_to_add(X))"]
+U> ["answer(adult)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(2)], SuccessfulServiceAction()))"]
+
+--- add passenger with explicit quantity
+U> ["request(add_passenger)", "answer(adult)", "answer(passenger_quantity_to_add(2))"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(2)], SuccessfulServiceAction()))"]
+
+--- action accommodation without feedback, one answer
+U> ["answer(adult)"]
+S> ["icm:acc*pos", "icm:report_inference:passenger_quantity_to_add(1)", "report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(1)], SuccessfulServiceAction()))"]
+
+--- action accommodation without feedback, multiple answers
+U> ["answer(adult)", "answer(passenger_quantity_to_add(2))"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(2)], SuccessfulServiceAction()))"]
+
+--- resume after device report
+U> ["answer(adult)"]
+S> S> ["icm:acc*pos", "icm:report_inference:passenger_quantity_to_add(1)", "report(ServiceResultProposition(AddPassengers, [passenger_type_to_add(adult), passenger_quantity_to_add(1)], SuccessfulServiceAction()))"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+--- Re-request of the same plan with disabled reraise-on-resume should be quiet
+U> ["request(apply_for_membership)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
+U> ["request(make_international_reservation)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.price(X))"]
+U> ["request(apply_for_membership)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
+
+--- Re-request of the same plan with disabled reraise-on-resume should be quiet - pardon
+U> ["icm:per*neg"]
+S> ["icm:loadplan", "ask(?X.goal(X))"]
+U> ["request(apply_for_membership)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
+U> ["request(make_international_reservation)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.price(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.price(X))"]
+U> ["request(apply_for_membership)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
+
+--- reraise feedback after timeout
+U> ["ask(?X.price(X))", "answer(plane)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U>
+S> ["icm:reraise", "ask(?X.dest_city(X))"]
+
+--- reraise feedback after unrelated followup
+U> ["ask(?X.price(X))", "answer(plane)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> {"utterance": "something incomprehensible", "moves": ["sdfhsdkjf"]}
+S> ["icm:per*pos:\"something incomprehensible\"", "icm:sem*neg", "icm:reraise", "ask(?X.dest_city(X))"]
+
+--- no reraise feedback after modified search
+U> ["ask(?X.price(X))", "answer(plane)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["answer(resort)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+
+--- background for related information for perform goal
+U> ["request(membership)"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(qualified_for_membership)", "ask(?goal(perform(apply_for_membership)))"]
+
+--- grounding feedback for resolve goal
+U> {"utterance": "price information", "moves": [{"semantic_expression": "ask(?X.price(X))", "perception_confidence": 0.9, "understanding_confidence": 0.12}]}
+S> ["icm:und*int:USR*goal(resolve(?X.price(X)))"]
+
+--- decorate answer with other answers
+U> ["ask(?X.next_membership_level(X))"]
+S> ["answer(next_membership_level(silver))"]
+
+--- resume after system answer
+U> ["ask(?X.next_membership_level(X))"]
+S> ["answer(next_membership_level(silver))"]
+U>
+S> ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+--- issue accommodation without feedback
+U> ["answer(single_room)"]
+S> ["answer(room_availability)"]
+
+--- system asking feature question
+U> ["request(book_housing)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_housing_type(X))"]
+U> ["answer(hotel)"]
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
+U> ["answer(rating_5)"]
+S> ["icm:acc*pos", "ask(?X.selected_housing(X))"]
+
+--- system asking alt question with predicate proposition alts
+U> ["request(book_housing_alts)"]
+S> ["icm:acc*pos", "ask(?X.selected_housing(X), set([selected_housing(sheraton), selected_housing(novotel)]))"]
+U> ["answer(sheraton)"]
+S> ["icm:acc*pos", "ask(?preconfirmed(BookHousing, []))"]
+
+--- system asking kpq
+U> ["request(contact_housing_owner)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?know_answer(?X.selected_housing_type(X)))"]
+
+--- system asking 2nd kpq
+U> ["request(contact_housing_owner)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?know_answer(?X.selected_housing_type(X)))"]
+U> ["answer(no)"]
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
+
+--- system asking kpq-embedded question
+U> ["request(contact_housing_owner)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?know_answer(?X.selected_housing_type(X)))"]
+U> ["answer(yes)"]
+U> ["ask(?X.selected_housing_type(X))"]
+
+--- preconfirmation
+U> ["request(book_housing)"]
+U> ["ask(?X.selected_housing_type(X))"]
+U> ["answer(hotel)"]
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
+U> ["answer(rating_5)"]
+S> ["icm:acc*pos", "ask(?X.selected_housing(X))"]
+U> ["answer(sheraton)"]
+S> ["icm:acc*pos", "ask(?preconfirmed(BookHousing, []))"]
+U> ["answer(yes)"]
+S> ["report(ServiceResultProposition(BookHousing, [], SuccessfulServiceAction()))"]
+
+--- housing for pets triggers mitigation plan for zero hits
+U> ["request(book_housing_for_pets)"]
+S> ["icm:acc*pos", "icm:loadplan", "report(question_status(?X.selected_housing_for_pets(X), aborted(no-hits)))"]
+U>
+S> ["answer(helpful_information(search_failed_due_to_zero_hits))", "ask(?preconfirmed(HandoverToHuman, []))"]
+
+--- housing for moomins triggers mitigation plan for too many hits
+U> ["request(book_housing_for_moomins)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.selected_housing_type(X))"]
+U> ["answer(hotel)"]
+S> ["icm:acc*pos", "ask(?X.selected_housing_rating(X))"]
+U> ["answer(rating_5)"]
+S> ["icm:acc*pos"]
+U>
+S> ["answer(helpful_information(search_failed_due_to_too_many_hits))", "ask(?preconfirmed(HandoverToHuman, []))"]
+
+--- repeat preconfirmation question after timeout, followed by yes
+U> ["request(book_housing)"]
+U> ["ask(?X.selected_housing_type(X))"]
+U> ["answer(hotel)"]
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
+U> ["answer(rating_5)"]
+S> ["icm:acc*pos", "ask(?X.selected_housing(X))"]
+U> ["answer(sheraton)"]
+S> ["icm:acc*pos", "ask(?preconfirmed(BookHousing, []))"]
+U>
+S> ["icm:reraise", "ask(?preconfirmed(BookHousing, []))"]
+U> ["answer(yes)"]
+S> ["report(ServiceResultProposition(BookHousing, [], SuccessfulServiceAction()))"]
+
+--- repeat preconfirmation question after timeout, followed by no restarts plan
+U> ["request(book_housing)"]
+U> ["ask(?X.selected_housing_type(X))"]
+U> ["answer(hotel)"]
+S> ["icm:acc*pos", "ask(?know_answer(?X.selected_housing_rating(X)))"]
+U> ["answer(rating_5)"]
+S> ["icm:acc*pos", "ask(?X.selected_housing(X))"]
+U> ["answer(sheraton)"]
+S> ["icm:acc*pos", "ask(?preconfirmed(BookHousing, []))"]
+U>
+S> ["icm:reraise", "ask(?preconfirmed(BookHousing, []))"]
+U> ["answer(no)"]
+U> ["ask(?X.selected_housing_type(X))"]
+
+--- user answers feature questions in other order
+U> ["request(book_housing)"]
+U> ["ask(?X.selected_housing_type(X))"]
+U> ["answer(rating_5)"]
+U> ["ask(?X.selected_housing_type(X))"]
+U> ["answer(hotel)"]
+S> ["icm:acc*pos", "ask(?X.selected_housing(X))"]
+
+--- positive perception ICM
+U> {"utterance": "bsdkfsdfshdf", "moves": ["sdfhsdkjf"]}
+S> ["icm:per*pos:\"bsdkfsdfshdf\"", "icm:sem*neg", "ask(?X.goal(X))"]
+
+
+--- icm:acc*neg:issue
+U> ["ask(?X.price(X))", "answer(plane)", "answer(dest_city(gothenburg))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_4)]))"]
+U> ["icm:acc*neg:issue"]
+S> ["report(question_status(?X.price(X), aborted(non-optional-question)))"]
+
+--- dependent issue accommodation
+U> ["answer(plane)"]
+S> ["icm:accommodate:?X.price(X)", "icm:und*pos:USR*goal(resolve(?X.price(X)))"]
+U>
+S> ["icm:loadplan", "icm:acc*pos", "ask(?X.dest_city(X))"]
+
+--- dependent action accommodation
+U> ["answer(visa)"]
+S> ["icm:accommodate:make_reservation", "icm:und*pos:USR*goal(perform(make_reservation))"]
+U>
+S> ["icm:loadplan", "icm:acc*pos", "ask(?set([goal(perform(make_domestic_reservation)), goal(perform(make_international_reservation)), goal(resolve(?X.price(X)))]))"]
+
+
+--- going back to resolve goal
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["request(add_passenger)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.passenger_type_to_add(X))"]
+U> ["request(up)"]
+S> ["icm:acc*pos"]
+U>
+S> ["icm:reraise:resolve(?X.price(X))", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+
+--- going back to perform goal
+U> ["request(add_passenger)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.passenger_type_to_add(X))"]
+U> ["request(book_housing)"]
+U> ["ask(?X.selected_housing_type(X))"]
+U> ["request(up)"]
+S> ["icm:acc*pos"]
+U>
+S> ["icm:reraise:perform(add_passenger)", "ask(?X.passenger_type_to_add(X))"]
+
+--- disabled accommodation
+U> ["answer(5)"]
+S> ["icm:und*neg", "ask(?X.goal(X))"]
+
+--- user speaks first
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+
+--- reraise on disregard semantic input without utterance
+U> ["ask(?X.price(X))", "answer(plane)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> [{"semantic_expression": "answer(yes)", "perception_confidence": 1.0, "understanding_confidence": 0.02}]
+S> ["icm:sem*neg", "icm:reraise", "ask(?X.dest_city(X))"]
+
+--- reraise on disregard semantic input with utterance
+U> ["ask(?X.price(X))", "answer(plane)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> {"utterance": "where is the red pyjamas", "moves": [{"semantic_expression": "answer(yes)", "perception_confidence": 0.9, "understanding_confidence": 0.02}]}
+S> ["icm:per*pos:\"where is the red pyjamas\"", "icm:sem*neg", "icm:reraise", "ask(?X.dest_city(X))"]
+
+--- asking about visa: visa not needed
+U> ["ask(?need_visa)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["answer(paris)"]
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_5)]))"]
+
+U> ["answer(city_madrid)"]
+S> ["answer(~need_visa)"]
+
+--- asking about visa: visa needed
+U> ["ask(?need_visa)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(city_teheran)", "ddd": "mockup_travel", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "city_teheran", "sort": "city", "natural_language_form": "teheran", "ddd": "mockup_travel"}]}
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_6)]))"]
+U> {"interpretations": [{"moves": [{"semantic_expression": "answer(city_madrid)", "ddd": "mockup_travel", "perception_confidence": 1.0, "understanding_confidence": 1.0}],"modality": "other"}], "entities": [{"name": "city_madrid", "sort": "city", "natural_language_form": "Madrid", "ddd": "mockup_travel"}]}
+S> ["answer(need_visa)"]
+
+--- generate datetime from service
+U> ["ask(?X.flight_departure(X))"]
+S> ["answer(flight_departure(datetime(2018-04-11T22:00:00.000Z)))"]
+
+--- assume issue answers assumed user question
+U> ["ask(?X.flight_on_time(X))"]
+S> ["answer(flight_departure(datetime(2018-04-11T22:00:00.000Z)))"]
+U>
+S> ["icm:reraise:resolve(?X.flight_on_time(X))", "answer(flight_on_time(\"on time\"))"]
+
+--- assume issue in if/then clause
+U> ["ask(?X.flight_exists(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.class(X))"]
+U> ["answer(business)"]
+S> ["answer(flight_departure(datetime(2018-04-11T22:00:00.000Z)))"]
+U>
+S> ["icm:reraise:resolve(?X.flight_exists(X))", "answer(flight_exists(\"a connection\"))"]
+
+--- no reraise when user repeats ask-move for current goal
+U> ["ask(?X.price(X))", "answer(plane)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+
+--- reraise when user repeats ask-move with request inbetween
+U> ["ask(?X.price(X))", "answer(plane)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["request(add_passenger)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.passenger_type_to_add(X))"]
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:reraise:resolve(?X.price(X))", "icm:loadplan", "ask(?X.dest_city(X))"]
+
+--- reraise when user repeats request with ask-move inbetween
+U> ["request(add_passenger)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.passenger_type_to_add(X))"]
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["request(add_passenger)"]
+S> ["icm:acc*pos", "icm:reraise:perform(add_passenger)", "icm:loadplan", "ask(?X.passenger_type_to_add(X))"]
+
+--- timeout is enabled after return from postconfirmless plan to reraiseless plan
+U> ["request(apply_for_membership)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.member_type(X))"]
+U> ["request(cancel_reservation)"]
+S> ["icm:acc*pos"]
+U> ["ask(?X.member_type(X))"]
+
+--- nested conditional
+U> ["request(show_on_map_nested_if)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["answer(paris)"]
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_7)]))"]
+U> ["answer(gothenburg)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(ShowOnMap, [dest_city(paris)], SuccessfulServiceAction()))"]
+
+--- nested conditional II
+U> ["request(show_on_map_nested_if)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["answer(gothenburg)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(ShowOnMap, [dest_city(gothenburg)], SuccessfulServiceAction()))"]
+
+--- nested conditional III
+U> ["request(show_on_map_nested_if)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["answer(paris)"]
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_8)]))"]
+U> ["answer(london)"]
+S> ["icm:acc*pos", "report(ServiceResultProposition(MakeRandomReservation, [], SuccessfulServiceAction()))"]
+
+--- postplan for resolve plan makes attraction be forgotten
+U> ["ask(?X.attraction_information(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.attraction(X))"]
+U> ["answer(\"Eiffel tower\")"]
+S> ["answer(attraction_information(\"the eiffel tower is a wrought iron lattice tower on the champ de mars in paris, france\"))"]
+U> ["ask(?X.attraction_information(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.attraction(X))"]
+
+--- price information, hint for dest_city city
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_1))", "ask(?X.dest_city(X))"]
+
+--- price information, hint + icm:per*neg
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+
+--- price information, second hint for dest_city city
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_1))", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_2))", "ask(?X.dest_city(X))"]
+
+--- price information, third try for dest_city city, last hint
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_1))", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_2))", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_2))", "ask(?X.dest_city(X))"]
+
+
+--- price information, hints reset when returning to top
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_1))", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_2))", "ask(?X.dest_city(X))"]
+U> ["request(top)"]
+S> ["icm:acc*pos", "icm:reraise:perform(top)", "icm:loadplan", "ask(?X.goal(X))"]
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_1))", "ask(?X.dest_city(X))"]
+
+--- price information, resolving hint for month
+U> ["ask(?X.price(X))"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(number_of_alternatives(2))", "ask(?X.means_of_transport(X), set([means_of_transport(plane), means_of_transport(train)]))"]
+U> ["answer(plane)"]
+S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
+U> ["answer(paris)"]
+S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_9)]))"]
+
+U> ["answer(city_madrid)"]
+S> ["icm:acc*pos", "ask(?X.dept_month(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(dept_month(april))"]
+U>
+S> ["ask(?X.dept_day(X))"]
+
+--- raise of question and icm:acc*neg:issue means next question
+U> ["ask(?X.available_to_buy(X))"]
+S> ["icm:loadplan", "answer(helpful_information(intro_to_available_to_buy))", "ask(?X.amount_of_points(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["ask(?X.bonus_goods_category(X))"]
+
+--- raise of question and icm:per*neg means repetition
+U> ["ask(?X.available_to_buy(X))"]
+S> ["icm:loadplan", "answer(helpful_information(intro_to_available_to_buy))", "ask(?X.amount_of_points(X))"]
+U> ["icm:per*neg"]
+S> ["ask(?X.amount_of_points(X))"]
+
+
+--- one-shot price information
+U> ["ask(?X.price(X))", "answer(plane)", "answer(paris)"]
+S> ["icm:acc*pos", "icm:loadplan", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_10)]))"]
+
+
+--- goal clarification
+U> ["answer(hotel)"]
+S> ["icm:und*neg", "ask(?set([goal(perform(book_housing)), goal(perform(book_housing_alts)), goal(perform(contact_housing_owner)), goal(perform(book_housing_for_pets)), goal(perform(book_housing_for_moomins))]))"]
+
+--- goal accommodation
+U> ["answer(electrical)"]
+S> ["icm:accommodate:select_train_type", "icm:und*pos:USR*goal(perform(select_train_type))"]
+
+--- ynq and icm:acc*neg means repetition instead of plan abortion
+U> ["request(buy_sausage)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?want_sausage)"]
+U> ["icm:per*neg"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?want_sausage)"]
+
+--- hint for ynq
+U> ["request(environmental_options)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?compensate_co2_emissions)"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(helpful_hint_on_co2))", "ask(?compensate_co2_emissions)"]
+
+--- hint for ynq alternate syntax
+U> ["request(environmental_options_2)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?compensate_co2_emissions_2)"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(helpful_hint_on_co2))", "ask(?compensate_co2_emissions_2)"]
+
+--- don't repeat known hint when icm acc neg
+U> ["request(action_with_plan_which_assumes_first_hint)"]
+S> ["icm:acc*pos", "icm:loadplan", "ask(?X.dest_city(X))"]
+U> ["icm:acc*neg:issue"]
+S> ["answer(helpful_information(dest_city_hint_2))", "ask(?X.dest_city(X))"]
+
+--- test negative nullary proposition defined in domain
+U> ["request(test_false_nullary_proposition)"]
+S> ["answer(test_info_one(\"one is not true\"))", "answer(test_info_other(\"other is true\"))"]
