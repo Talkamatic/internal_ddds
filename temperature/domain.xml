@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="TemperatureDomain" is_super_domain="true">
+  <goal type="perform" action="top">
+    <plan>
+      <forget_all/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" predicate="temperature">
+    <plan>
+      <findout type="wh_question" predicate="city"/>
+      <invoke_domain_query type="wh_question" predicate="temperature"/>
+    </plan>
+  </goal>
+
+  <query predicate="temperature">
+    <implication>
+        <antecedent predicate="city" value="gothenburg"/>
+        <consequent predicate="temperature" value="20_degrees"/>
+    </implication>
+  </query>
+
+</domain>

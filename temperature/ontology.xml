@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="TemperatureOntology">
+
+  <sort name="temperature_sort"/>
+  <predicate name="temperature" sort="temperature_sort"/>
+  <individual name="20_degrees" sort="temperature_sort"/>
+  <individual name="10_degrees" sort="temperature_sort"/>
+
+
+  <sort name="city_sort"/>
+  <predicate name="city" sort="city_sort"/>
+  <individual name="gothenburg" sort="city_sort"/>
+  <individual name="stockholm" sort="city_sort"/>
+
+
+</ontology>
