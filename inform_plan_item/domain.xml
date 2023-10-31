@@ -13,7 +13,7 @@
       </inform>
     </plan>
     <downdate_condition>
-      <has_value predicate="first_name"/>
+      <has_shared_value predicate="first_name"/>
     </downdate_condition>
   </goal>
 
@@ -24,7 +24,7 @@
       </inform>
     </plan>
     <downdate_condition>
-      <has_value predicate="first_name"/>
+      <has_shared_value predicate="first_name"/>
     </downdate_condition>
   </goal>
 

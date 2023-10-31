@@ -12,7 +12,7 @@
       <findout type="wh_question" predicate="first_name"/>
     </plan>
     <downdate_condition>
-      <has_value predicate="first_name"/>
+      <has_shared_value predicate="first_name"/>
     </downdate_condition>
   </goal>
 
@@ -22,9 +22,7 @@
       <findout type="wh_question" predicate="secret_word"/>
     </plan>
     <downdate_condition>
-      <is_shared_fact>
-        <proposition predicate="secret_word" value="all makt åt tegnell"/>
-      </is_shared_fact>
+      <is_shared_commitment predicate="secret_word" value="all makt åt tegnell"/>
     </downdate_condition>
   </goal>
 
