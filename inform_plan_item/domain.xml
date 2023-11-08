@@ -154,7 +154,7 @@
       </inform>
     </hint>
     <hint>
-      <inform insist="true">
+      <inform insist="true" generate_end_turn="true">
         <proposition predicate="rn_why_boys_not_like_fish" value="rn_why_boys_not_like_fish_pass"/>
       </inform>
     </hint>

@@ -114,17 +114,19 @@
       <if>
         <proposition predicate="p" value="x"/>
         <then>
-          <inform insist="true">
+          <inform insist="true" generate_end_turn="true">
             <proposition predicate="info" value="this is p(x)"/>
           </inform>
+          <forget predicate="p"/>
         </then>
       </if>
       <if>
         <proposition predicate="q" value="x"/>
         <then>
-          <inform insist="true">
+          <inform insist="true" generate_end_turn="true">
             <proposition predicate="info" value="this is q(x)"/>
           </inform>
+          <forget predicate="q"/>
           <signal_action_completion/>
         </then>
       </if>

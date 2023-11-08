@@ -66,27 +66,27 @@ S> ["icm:acc*pos", "icm:loadplan", "ask(?X.person_name(X))"]
 U> ["answer(ada_kallesson)"]
 S> ["icm:acc*pos", "icm:report_inference:person_city(goteborg)", "answer(number_of_alternatives(2))", "ask(?X.person_area(X))"]
 
---- post-system-answer answer revision with question repeated
-U> ["ask(?X.phonenumber(X))"]
-S> ["icm:acc*pos", "icm:loadplan", "ask(?X.person_name(X))"]
-U> ["answer(susanna_andersson)"]
-S> ["icm:acc*pos", "answer(number_of_alternatives(4))", "ask(?know_answer(?X.person_city(X)))"]
-U> ["answer(goteborg)"]
-S> ["icm:acc*pos", "answer(number_of_alternatives(3))", "ask(?X.person_area(X))"]
-U> ["ask(?X.age(X))"]
-S> ["answer(implies(person(person_susanna_andersson_4), age(77)))"]
-U>
-S> ["answer(implies(person(person_susanna_andersson_2), age(42)))"]
-U>
-S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
-U>
-S> ["icm:reraise:resolve(?X.phonenumber(X))", "answer(number_of_alternatives(3))", "ask(?X.person_area(X))"]
-U> ["answer(person_age(42))"]
-S> ["icm:report_inference:person(person_susanna_andersson_2)", "answer(phonenumber(\"070-1234542\"))"]
-U> ["ask(?X.phonenumber(X))", "answer(person_age(31))"]
-S> ["icm:report_inference:person(person_susanna_andersson_1)", "answer(phonenumber(\"070-1234531\"))"]
-U>
-S> ["ask(?X.goal(X))"]
+# --- post-system-answer answer revision with question repeated
+# U> ["ask(?X.phonenumber(X))"]
+# S> ["icm:acc*pos", "icm:loadplan", "ask(?X.person_name(X))"]
+# U> ["answer(susanna_andersson)"]
+# S> ["icm:acc*pos", "answer(number_of_alternatives(4))", "ask(?know_answer(?X.person_city(X)))"]
+# U> ["answer(goteborg)"]
+# S> ["icm:acc*pos", "answer(number_of_alternatives(3))", "ask(?X.person_area(X))"]
+# U> ["ask(?X.age(X))"]
+# S> ["answer(implies(person(person_susanna_andersson_4), age(77)))"]
+# U>
+# S> ["answer(implies(person(person_susanna_andersson_2), age(42)))"]
+# U>
+# S> ["answer(implies(person(person_susanna_andersson_1), age(31)))"]
+# U>
+# S> ["icm:reraise:resolve(?X.phonenumber(X))", "answer(number_of_alternatives(3))", "ask(?X.person_area(X))"]
+# U> ["answer(person_age(42))"]
+# S> ["icm:report_inference:person(person_susanna_andersson_2)", "answer(phonenumber(\"070-1234542\"))"]
+# U> ["ask(?X.phonenumber(X))", "answer(person_age(31))"]
+# S> ["icm:report_inference:person(person_susanna_andersson_1)", "answer(phonenumber(\"070-1234531\"))"]
+# U>
+# S> ["ask(?X.goal(X))"]
 
 # TODO, with new ICM for "hur är det med hon som är 31 år"
 #--- post-system-answer answer revision with

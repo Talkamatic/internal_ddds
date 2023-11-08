@@ -475,7 +475,6 @@ U> ["answer(plane)"]
 S> ["icm:acc*pos", "ask(?X.dest_city(X))"]
 U> ["answer(paris)"]
 S> ["icm:acc*pos", "answer(num_available_dept_cities(3))", "ask(?X.dept_city(X), set([dept_city(city_madrid), dept_city(city_helsinki), dept_city(city_9)]))"]
-
 U> ["answer(city_madrid)"]
 S> ["icm:acc*pos", "ask(?X.dept_month(X))"]
 U> ["icm:acc*neg:issue"]
@@ -519,13 +518,17 @@ S> ["icm:acc*pos", "icm:loadplan", "ask(?want_sausage)"]
 U> ["request(environmental_options)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?compensate_co2_emissions)"]
 U> ["icm:acc*neg:issue"]
-S> ["answer(helpful_information(helpful_hint_on_co2))", "ask(?compensate_co2_emissions)"]
+S> ["answer(helpful_information(helpful_hint_on_co2))"]
+U>
+S> ["ask(?compensate_co2_emissions)"]
 
 --- hint for ynq alternate syntax
 U> ["request(environmental_options_2)"]
 S> ["icm:acc*pos", "icm:loadplan", "ask(?compensate_co2_emissions_2)"]
 U> ["icm:acc*neg:issue"]
-S> ["answer(helpful_information(helpful_hint_on_co2))", "ask(?compensate_co2_emissions_2)"]
+S> ["answer(helpful_information(helpful_hint_on_co2))"]
+U>
+S> ["ask(?compensate_co2_emissions_2)"]
 
 --- don't repeat known hint when icm acc neg
 U> ["request(action_with_plan_which_assumes_first_hint)"]

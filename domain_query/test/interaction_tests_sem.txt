@@ -48,7 +48,9 @@ S> ["ask(?X.goal(X))"]
 U> ["request(say_sequence_of_propositions)"]
 S> ["answer(info(\"this is p(x)\"))"]
 U>
-S> ["answer(info(\"this is q(x)\"))", "report(action_status(say_sequence_of_propositions, done))"]
+S> ["answer(info(\"this is q(x)\"))"]
+U>
+S> ["report(action_status(say_sequence_of_propositions, done))"]
 
 --- iterator: iterate over limited sequence of propositions
 S> ["ask(?X.goal(X))"]
