@@ -96,10 +96,6 @@
     <superaction name="make_reservation"/>
   </goal>
 
-  <goal type="perform" action="make_train_reservation" io_status="disabled">
-    <plan/>
-  </goal>
-
   <goal type="perform" action="make_random_reservation" restart_on_completion="true">
     <plan>
       <findout type="wh_question" predicate="class"/>
