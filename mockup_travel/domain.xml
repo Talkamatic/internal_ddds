@@ -372,7 +372,7 @@
     <related_information type="wh_question" predicate="qualified_for_membership"/>
   </parameters>
 
-  <parameters question_type="wh_question" predicate="dest_city" graphical_type="list"
+  <parameters question_type="wh_question" predicate="dest_city"
               source="service" incremental="true">
     <hint>
       <inform insist="true">
@@ -395,7 +395,7 @@
     <service_query type="wh_question" predicate="available_means_of_transport"/>
   </parameters>
   <parameters question_type="wh_question" predicate="passenger_quantity_to_add" allow_goal_accommodation="false"/>
-  <parameters question_type="wh_question" predicate="dept_month" graphical_type="list" source="domain">
+  <parameters question_type="wh_question" predicate="dept_month" source="domain">
     <background predicate="dept_city"/>
     <background predicate="dest_city"/>
     <hint>
@@ -404,14 +404,14 @@
       </inform>
     </hint>
   </parameters>
-  <parameters question_type="wh_question" predicate="payment_method" graphical_type="list" source="service" max_spoken_alts="2">
+  <parameters question_type="wh_question" predicate="payment_method"  source="service" max_spoken_alts="2">
     <service_query type="wh_question" predicate="available_payment_method"/>
   </parameters>
-  <parameters question_type="wh_question" predicate="member_type" graphical_type="list" source="service" incremental="true" max_spoken_alts="3">
+  <parameters question_type="wh_question" predicate="member_type" source="service" incremental="true" max_spoken_alts="3">
     <service_query type="wh_question" predicate="available_member_type"/>
   </parameters>
-  <parameters question_type="wh_question" predicate="available_payment_method" graphical_type="list" source="service"/>
-  <parameters question_type="wh_question" predicate="dept_city" graphical_type="list" source="service" incremental="true" max_spoken_alts="3">
+  <parameters question_type="wh_question" predicate="available_payment_method" source="service"/>
+  <parameters question_type="wh_question" predicate="dept_city" source="service" incremental="true" max_spoken_alts="3">
     <service_query type="wh_question" predicate="available_dept_city"/>
     <related_information type="wh_question" predicate="num_available_dept_cities"/>
   </parameters>
@@ -422,7 +422,7 @@
   <parameters question_type="wh_question" predicate="dept_day" allow_goal_accommodation="false"/>
   <default_question predicate="dest_city" type="wh_question"/>
 
-  <parameters question_type="wh_question" predicate="selected_train_type" graphical_type="list" source="service"
+  <parameters question_type="wh_question" predicate="selected_train_type" source="service"
               max_spoken_alts="1">
    <ask_feature predicate="dest_city" kpq="true"/>
   </parameters>
