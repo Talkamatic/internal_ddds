@@ -95,7 +95,7 @@
     </plan>
   </goal>
 
-  <parameters question_type="wh_question" predicate="minute_to_set" graphical_type="list">
+  <parameters question_type="wh_question" predicate="minute_to_set">
     <alt>
       <proposition predicate="minute_to_set" value="0"/>
     </alt>
@@ -277,7 +277,7 @@
       <proposition predicate="minute_to_set" value="59"/>
     </alt>
   </parameters>
-  <parameters question_type="wh_question" predicate="hour_to_set" graphical_type="list">
+  <parameters question_type="wh_question" predicate="hour_to_set">
     <alt>
       <proposition predicate="hour_to_set" value="0"/>
     </alt>

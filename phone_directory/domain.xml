@@ -14,7 +14,7 @@
     </plan>
   </goal>
 
-  <parameters question_type="wh_question" predicate="person" graphical_type="list"
+  <parameters question_type="wh_question" predicate="person"
               source="service" incremental="true" max_reported_hit_count="10"
               max_spoken_alts="4">
     <ask_feature predicate="person_name"/>
