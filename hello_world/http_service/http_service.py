@@ -6,6 +6,7 @@ from jinja2 import Environment
 app = Flask(__name__)
 environment = Environment()
 
+
 def jsonfilter(value):
     return json.dumps(value)
 
@@ -37,11 +38,13 @@ def current_time():
     except BaseException as exception:
         return error_response(message=str(exception))
 
+
 def get_value(payload, sort_name):
     if payload["request"]["parameters"][sort_name]:
         return payload["request"]["parameters"][sort_name]["value"]
     else:
         return None
+
 
 @app.route("/current_alarm", methods=['POST'])
 def current_alarm():
@@ -79,6 +82,7 @@ def whq_answer_response(individuals):
     response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
 
+
 @app.route("/SetTime", methods=['POST'])
 @app.route("/SetAlarm", methods=['POST'])
 @app.route("/RemoveAlarm", methods=['POST'])
@@ -106,12 +110,14 @@ def successful_action_response():
     response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
 
+
 @app.route("/Snooze", methods=['POST'])
 def snooze():
     try:
         return unsuccessful_action_response("not_ringing")
     except BaseException as exception:
         return error_response(message=str(exception))
+
 
 def unsuccessful_action_response(reason):
     response_template = environment.from_string(
@@ -129,6 +135,7 @@ def unsuccessful_action_response(reason):
     response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
 
+
 @app.route("/HourValidity", methods=['POST'])
 def hour_validator():
     try:
@@ -137,6 +144,7 @@ def hour_validator():
         return validator_response(value < 24)
     except BaseException as exception:
         return error_response(message=exception)
+
 
 @app.route("/MinuteValidity", methods=['POST'])
 def minute_validator():
@@ -163,5 +171,3 @@ def validator_response(is_valid):
     payload = response_template.render(is_valid=is_valid)
     response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
-
-

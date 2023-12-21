@@ -48,7 +48,7 @@ S> ["icm:acc*neg:rejected(set([minute_to_set(65)]), MinuteValidity)", "icm:rerai
 
 --- invalid hour (one-shot)
 U> ["request(set_time)", "answer(hour_to_set(25))", "answer(minute_to_set(10))"]
-S> S> ["icm:acc*pos", "icm:acc*neg:rejected(set([hour_to_set(25)]), HourValidity)", "icm:reraise", "ask(?X.hour_to_set(X))"]
+S> ["icm:acc*pos", "icm:acc*neg:rejected(set([hour_to_set(25)]), HourValidity)", "icm:reraise", "ask(?X.hour_to_set(X))"]
 
 --- invalid minute (one-shot)
 U> ["request(set_time)", "answer(hour_to_set(11))", "answer(minute_to_set(65))"]

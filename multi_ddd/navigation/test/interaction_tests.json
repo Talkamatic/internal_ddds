@@ -1,0 +1,103 @@
+[
+    {
+        "name": "navigate",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "navigation",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(navigate)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.destination(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(majorna)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(NavigateToDestination, [], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "switch to music",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "navigation",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(change_to_music_player)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(active_domain(\"music_player\"))",
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(listen)",
+                                "ddd": "music_player",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.artist(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(kaptenen)",
+                                "ddd": "music_player",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(ListenToArtist, [url_to_play(\"mock_audio_url\")], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    }
+]

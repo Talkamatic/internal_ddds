@@ -1,0 +1,25 @@
+[
+    {
+        "name": "greet if greeted",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "forget",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info_shared(\"gone from shared, that's right\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info_private(\"still in private, and it should\"))"
+                ]
+            }
+        ]
+    }
+]

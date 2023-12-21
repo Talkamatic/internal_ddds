@@ -1,0 +1,173 @@
+[
+    {
+        "name": "greet if greeted",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "social_moves",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "greet"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "greet"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "greet if greeted, but don't repeat",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "social_moves",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "greet"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "greet"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "greet"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "thanks/you're welcome",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "social_moves",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "thanks"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "thank_you_response",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "thanks/you're welcome, but don't repeat",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "social_moves",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "thanks"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "thank_you_response",
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "thanks"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "insult/response",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "social_moves",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "insult"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "insult_response",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "insult/response, repeat if repeated",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "social_moves",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "insult"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "insult_response",
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "insult"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "insult_response",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    }
+]

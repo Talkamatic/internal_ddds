@@ -1,0 +1,165 @@
+[
+    {
+        "name": "main menu",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "timeout",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "greet"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "paced confirmations and questions",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "timeout",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(some_action)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "answer(info(something))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.some_predicate(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "end_turn at end of turn",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "timeout",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(end_turn_at_end_of_turn)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "answer(info(something))",
+                    "ask(?X.some_predicate(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise",
+                    "ask(?X.some_predicate(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "yield turn between action and inform",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "timeout",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(action_with_end_turn_between_service_action_and_inform)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SomeAction, [], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info(something))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "yield turn between informs",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "timeout",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(action_with_end_turn_between_informs)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info(something))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(more_info(something))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "yield turn between informs from inform definition",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "timeout",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(action_with_end_turn_in_informs)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info(something))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(more_info(something))"
+                ]
+            }
+        ]
+    }
+]

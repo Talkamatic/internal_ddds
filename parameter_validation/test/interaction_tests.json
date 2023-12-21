@@ -1,0 +1,205 @@
+[
+    {
+        "name": "change answer to question of predicate with validator shouldn't cause crash",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "parameter_validation",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(flavour_number_plan)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.flavour(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(flavour(albatross))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.number(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(flavour(seagull))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.number(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "validation success/failure with domain validator",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "parameter_validation",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(single_value_configuration_validation_in_domain)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.predicate_a(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(individual_a)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.predicate_b(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(individual_a)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([predicate_b(individual_a)]), ValidatorB)",
+                    "icm:reraise",
+                    "ask(?X.predicate_b(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "validation success/failure with domain validator II",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "parameter_validation",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(single_value_configuration_validation_in_domain)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.predicate_a(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(individual_b)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([predicate_a(individual_b)]), ValidatorA)",
+                    "icm:reraise",
+                    "ask(?X.predicate_a(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "validation success/failure with configuration domain validator II",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "parameter_validation",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(multivalue_configuration_validation_in_domain)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.predicate_c(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(individual_a)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.predicate_d(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(individual_a)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([predicate_c(individual_a), predicate_d(individual_a)]), ValidatorC)",
+                    "icm:reraise",
+                    "ask(?X.predicate_d(X))"
+                ]
+            }
+        ]
+    }
+]

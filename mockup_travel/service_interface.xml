@@ -59,7 +59,7 @@
     </parameters>
     <failure_reasons/>
     <target>
-      <frontend/>
+      <http endpoint="http://127.0.0.1:10100/ShowOnMap"/>
     </target>
   </action>
   <action name="HandoverToHuman">
@@ -239,7 +239,6 @@
   <validator name="CityValidity">
     <parameters>
       <parameter predicate="dest_city" format="value"/>
-      <parameter predicate="dest_city" format="grammar_entry"/>
     </parameters>
     <target>
       <http endpoint="http://127.0.0.1:10100/city_validity"/>

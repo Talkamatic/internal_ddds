@@ -1,0 +1,1005 @@
+[
+    {
+        "name": "main menu",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "asking about time",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.current_time(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(current_time(\"10:05\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "setting the time (menu driven)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.hour_to_set(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(11)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.minute_to_set(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(10)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SetTime, [hour_to_set(11), minute_to_set(10)], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "setting the alarm (menu driven)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_alarm)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.alarm_hour(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(11)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.alarm_minute(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(10)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SetAlarm, [alarm_hour(11), alarm_minute(10)], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "setting the time, one-shot",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)",
+                    "answer(hour_to_set(11))",
+                    "answer(minute_to_set(10))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SetTime, [hour_to_set(11), minute_to_set(10)], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "invalid hour (menu driven)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.hour_to_set(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(25)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([hour_to_set(25)]), HourValidity)",
+                    "icm:reraise",
+                    "ask(?X.hour_to_set(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "invalid minute (menu driven)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.hour_to_set(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(hour_to_set(11))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.minute_to_set(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(minute_to_set(65))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([minute_to_set(65)]), MinuteValidity)",
+                    "icm:reraise",
+                    "ask(?X.minute_to_set(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "invalid hour (one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)",
+                    "answer(hour_to_set(25))",
+                    "answer(minute_to_set(10))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:acc*neg:rejected(set([hour_to_set(25)]), HourValidity)",
+                    "icm:reraise",
+                    "ask(?X.hour_to_set(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "invalid minute (one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)",
+                    "answer(hour_to_set(11))",
+                    "answer(minute_to_set(65))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:acc*neg:rejected(set([minute_to_set(65)]), MinuteValidity)",
+                    "icm:reraise",
+                    "ask(?X.minute_to_set(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "setting the time again",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)",
+                    "answer(hour_to_set(11))",
+                    "answer(minute_to_set(10))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SetTime, [hour_to_set(11), minute_to_set(10)], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.hour_to_set(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "setting the alarm",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_alarm)",
+                    "answer(alarm_hour(7))",
+                    "answer(alarm_minute(30))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SetAlarm, [alarm_hour(7), alarm_minute(30)], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "remove the alarm",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(remove_alarm)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?preconfirmed(RemoveAlarm, []))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(RemoveAlarm, [], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "cannot snooze alarm which is not ringing",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(snooze)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(Snooze, [], FailedServiceAction(not_ringing)))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "turn off alarm",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(turn_off_alarm)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "prereport(TurnOffAlarm, [], ddd_name='hello_world')"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "unimplemented function",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(sync_to_internet)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:goal(perform(sync_to_internet))",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "unimplemented function, acknowledge level, user timeout",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "interpretations": [{
+                    "modality": "other",
+                    "moves": [{
+                        "semantic_expression": "request(sync_to_internet)",
+                        "ddd": "hello_world",
+                        "perception_confidence": 0.9,
+                        "understanding_confidence": 0.2
+                    }]
+                }],
+                "utterance": "sync to the internet"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*pos:USR*goal(perform(sync_to_internet))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:goal(perform(sync_to_internet))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+
+        ]
+    },
+    {
+        "name": "unimplemented function, acknowledge level, user says yes",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "utterance": "sync to the internet",
+                "interpretations": [{
+                    "modality": "other",
+                    "moves": [{
+                        "semantic_expression": "request(sync_to_internet)",
+                        "ddd": "hello_world",
+                        "perception_confidence": 0.9,
+                        "understanding_confidence": 0.2
+                    }]
+                }]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*pos:USR*goal(perform(sync_to_internet))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:goal(perform(sync_to_internet))"
+                ]
+            },
+                        {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+
+        ]
+    },
+    {
+        "name": "unimplemented function, check level treated as acknowledge, user timeout",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "utterance": "sync to the internet",
+                "interpretations": [{
+                    "modality": "other",
+                    "moves": [{
+                        "semantic_expression": "request(sync_to_internet)",
+                        "ddd": "hello_world",
+                        "perception_confidence": 0.9,
+                        "understanding_confidence": 0.2
+                    }]
+                }]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*pos:USR*goal(perform(sync_to_internet))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:goal(perform(sync_to_internet))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "unimplemented function, check level treated as acknowledge, user says yes",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "utterance": "sync to the internet",
+                "interpretations": [{
+                    "modality": "other",
+                    "moves": [{
+                        "semantic_expression": "request(sync_to_internet)",
+                        "ddd": "hello_world",
+                        "perception_confidence": 0.9,
+                        "understanding_confidence": 0.2
+                    }]
+                }]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*pos:USR*goal(perform(sync_to_internet))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:goal(perform(sync_to_internet))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "select alarm, menu",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(select_alarm)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.alarm_to_select(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(work_alarm)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SelectAlarm, [alarm_to_select(work_alarm)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "select alarm, one-shot",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(select_alarm)",
+                    "answer(work_alarm)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(SelectAlarm, [alarm_to_select(work_alarm)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "no reraise",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(set_time)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.hour_to_set(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.current_time(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(current_time(\"10:05\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.hour_to_set(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "clarification",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(11)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*neg",
+                    "ask(?set([goal(perform(set_time)), goal(perform(set_alarm))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "clarification downdated if unanswered",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(11)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*neg",
+                    "ask(?set([goal(perform(set_time)), goal(perform(set_alarm))]))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "positive feedback of understanding negative issue",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "utterance": "what time is it",
+                "interpretations": [{
+                    "modality": "other",
+                    "moves": [
+                        {
+                            "ddd": "hello_world",
+                            "semantic_expression": "ask(?X.current_time(X))",
+                            "perception_confidence": 0.9,
+                            "understanding_confidence": 0.12
+                        }
+                    ]
+                }]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*int:USR*goal(resolve(?X.current_time(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*pos:USR*~goal(resolve(?X.current_time(X)))",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "negative acceptance icm perform goal",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(select_alarm)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.alarm_to_select(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(action_status(select_alarm, aborted(non-optional-question)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "negative acceptance icm resolve goal",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.current_alarm(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.alarm_to_select(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(question_status(?X.current_alarm(X), aborted(non-optional-question)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "negative acceptance icm top goal",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "hello_world",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(action_status(top, aborted(non-optional-question)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?set([goal(resolve(?X.current_time(X))), goal(perform(set_time))]))"
+                ]
+            }
+        ]
+    }
+]

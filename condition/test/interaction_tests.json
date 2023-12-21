@@ -1,0 +1,85 @@
+[
+    {
+        "name": "condition: test shared proposition",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "condition",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(test_shared_proposition)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(has_shared_value_result(\"has_shared_value_result\"))",
+                    "answer(has_shared_or_private_value_result(\"has_shared_or_private_value\"))",
+                    "answer(is_shared_commitment_result(\"is_shared_commitment\"))",
+                    "answer(is_private_belief_or_shared_commitment_result(\"is_private_belief_or_shared_commitment\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test private belief",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "condition",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(test_private_belief)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(has_private_value_result(\"has_private_value\"))",
+                    "answer(has_shared_or_private_value_result(\"has_shared_or_private_value\"))",
+                    "answer(is_private_belief_result(\"is_private_belief\"))",
+                    "answer(is_private_belief_or_shared_commitment_result(\"is_private_belief_or_shared_commitment\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test no belief no commitment",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "condition",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(test_no_belief_no_commitment)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test shared proposition other individual",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "condition",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(test_shared_proposition_other_individual)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(has_shared_value_result(\"has_shared_value_result\"))",
+                    "answer(has_shared_or_private_value_result(\"has_shared_or_private_value\"))"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,819 @@
+[
+    {
+        "name": "system initiates conversation",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "knowledge precondition question, WH answer",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "knowledge precondition question, positive answer",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?X.person_city(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "knowledge precondition question, negative answer",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?X.person_area(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "knowledge precondition question, negative acceptance from user",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?X.person_area(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "user question about individual",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.age(X))",
+                    "answer(arne_osvaldsson)",
+                    "answer(uddevalla)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:report_inference:person(person_arne_osvaldsson)",
+                    "answer(age(70))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "user question about alternatives",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.age(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(implies(person(person_susanna_andersson_*), age(77)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(implies(person(person_susanna_andersson_*), age(42)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(implies(person(person_susanna_andersson_*), age(31)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:resolve(?X.phonenumber(X))",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))",
+                    "answer(person_age(42))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:report_inference:person(person_susanna_andersson_*)",
+                    "answer(phonenumber(\"070-1234542\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "don't ask feature question whose answer is inferable",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(ada_kallesson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:report_inference:person_city(goteborg)",
+                    "answer(number_of_alternatives(2))",
+                    "ask(?X.person_area(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "search by a non-exclusive landmark",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(slottsskogen)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(2))",
+                    "ask(?X.person_area(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "search by another non-exclusive landmark",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(hemkop)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(2))",
+                    "ask(?X.person_area(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "search by exclusive combination of landmarks",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(slottsskogen)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(2))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(hemkop)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:report_inference:person(person_susanna_andersson_*)",
+                    "answer(phonenumber(\"070-1234577\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "topic switching in kpq",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(raise_volume)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(RaiseVolume, [], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:resolve(?X.phonenumber(X))",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(slottsskogen)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(2))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(hemkop)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:report_inference:person(person_susanna_andersson_*)",
+                    "answer(phonenumber(\"070-1234577\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "topic switching outside kpq",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "phone_directory",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phonenumber(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.person_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(susanna_andersson)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?know_answer(?X.person_city(X)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?X.person_city(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(raise_volume)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(RaiseVolume, [], SuccessfulServiceAction()))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:resolve(?X.phonenumber(X))",
+                    "answer(number_of_alternatives(4))",
+                    "ask(?X.person_city(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(goteborg)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(3))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(slottsskogen)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "answer(number_of_alternatives(2))",
+                    "ask(?X.person_area(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(hemkop)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:report_inference:person(person_susanna_andersson_*)",
+                    "answer(phonenumber(\"070-1234577\"))"
+                ]
+            }
+        ]
+    }
+]

@@ -261,6 +261,7 @@ def city_response(city):
     response = app.response_class(response=payload, status=200, mimetype='application/json')
     return response
 
+
 @app.route("/action_success_response", methods=['POST'])
 def action_success_response():
     response_template = environment.from_string("""

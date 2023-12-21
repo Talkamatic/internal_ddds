@@ -1,0 +1,220 @@
+[
+    {
+        "name": "main menu",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grounding",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "compulsory grounding",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grounding",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(ask_question_with_grounding)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(kalle)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_name(kalle)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "compulsory grounding + neg answer",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grounding",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(ask_question_with_grounding)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(kalle)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_name(kalle)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*pos:USR*~selected_name(kalle)",
+                    "icm:reraise",
+                    "ask(?X.selected_name(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "compulsory grounding + information + timeout + neg answer => no doesn't address und-q",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grounding",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(ask_question_with_grounding_and_informational_utterance)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(kalle)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_name(kalle)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "answer(good_fellow(\"Some informational utterance\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "compulsory grounding + ynq + neg answer => no doesn't address und-q",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grounding",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(ask_question_with_grounding_and_ynq)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(kalle)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_name(kalle)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?sky(\"red\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(good_fellow(\"Some informational utterance\"))"
+                ]
+            }
+        ]
+    }
+]

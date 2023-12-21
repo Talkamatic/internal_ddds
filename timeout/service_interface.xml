@@ -4,7 +4,7 @@
     <parameters/>
     <failure_reasons/>
     <target>
-      <frontend/>
+      <http endpoint="http://127.0.0.1:10100/SomeAction"/>
     </target>
   </action>
 </service_interface>

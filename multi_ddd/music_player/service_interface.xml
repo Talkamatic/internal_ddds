@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <service_interface>
-  <play_audio_action name="ListenToArtist">
-    <audio_url_parameter predicate="url_to_play"/>
-    <parameters/>
+  <action name="ListenToArtist">
+    <parameters>
+      <parameter predicate="url_to_play" format="value"/>
+    </parameters>
+    <failure_reasons/>
     <target>
-      <frontend/>
+      <http endpoint="http://127.0.0.1:10100/MockAction"/>
     </target>
-  </play_audio_action>
+  </action>
   <action name="MockAction">
     <parameters>
       <parameter predicate="common_predicate" format="value"/>

@@ -1,0 +1,1503 @@
+[
+    {
+        "name": "answer revision for call (after one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(call)",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "answer revision for call (incremental)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(call)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_first_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "answer revision for delete number (after one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(delete_number)",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:acc*pos",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "ask(?X.selected_number(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_number(mobile))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "mobile",
+                        "sort": "number_type",
+                        "natural_language_form": "Mobile",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "answer revision for delete number (incremental)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(delete_number)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_first_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "ask(?X.selected_number(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_number(mobile))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "mobile",
+                        "sort": "number_type",
+                        "natural_language_form": "Mobile",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "optimistic grounding for call (after one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(call)",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "last_name_thompson",
+                        "sort": "last_name",
+                        "natural_language_form": "Thompson",
+                        "ddd": "incremental_search"
+                    },
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:report_inference:selected_contact(contact_anna_johnson)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "optimistic grounding for call (incremental)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(call)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_first_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_first_name(first_name_john)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan", "icm:report_inference:selected_contact(contact_anna_johnson)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+
+        ]
+    },
+    {
+        "name": "optimistic grounding for delete (after one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(delete_number)",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "ask(?X.selected_number(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_number(mobile))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "mobile",
+                        "sort": "number_type",
+                        "natural_language_form": "Mobile",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_number(mobile)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "optimistic grounding for delete (incremental)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(delete_number)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_first_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_first_name(first_name_john)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "ask(?X.selected_number(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_number(mobile))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.2,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "mobile",
+                        "sort": "number_type",
+                        "natural_language_form": "Mobile",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:und*pos:USR*selected_number(mobile)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "interrogative grounding for call (after one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(call)",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.14,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:und*int:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+
+        ]
+    },
+    {
+        "name": "interrogative grounding for call (incremental)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(call)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_first_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.1,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*int:USR*selected_first_name(first_name_john)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.14,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*int:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:acc*pos",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "interrogative grounding for delete (after one-shot)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(delete_number)",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.14,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:und*int:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "ask(?X.selected_number(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_number(mobile))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.1,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "mobile",
+                        "sort": "number_type",
+                        "natural_language_form": "Mobile",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*int:USR*selected_number(mobile)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+
+        ]
+    },
+    {
+        "name": "interrogative grounding for delete (incremental)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "incremental_search",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(delete_number)",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_first_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_john))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.1,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_john",
+                        "sort": "first_name",
+                        "natural_language_form": "John",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*int:USR*selected_first_name(first_name_john)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.selected_last_name(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_first_name(first_name_anna))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.14,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "first_name_anna",
+                        "sort": "first_name",
+                        "natural_language_form": "Anna",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*int:USR*selected_first_name(first_name_anna)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "icm:acc*pos",
+                    "icm:report_inference:selected_contact(contact_anna_johnson)",
+                    "ask(?X.selected_number(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_number(mobile))",
+                                "ddd": "incremental_search",
+                                "perception_confidence": 0.1,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "mobile",
+                        "sort": "number_type",
+                        "natural_language_form": "Mobile",
+                        "ddd": "incremental_search"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*int:USR*selected_number(mobile)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": 1.0
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(ServiceResultProposition(DeleteNumber, [selected_contact(contact_anna_johnson)], SuccessfulServiceAction()))"
+                ]
+            }
+
+        ]
+    }
+]

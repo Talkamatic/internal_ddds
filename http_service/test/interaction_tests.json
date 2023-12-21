@@ -1,0 +1,327 @@
+[
+    {
+        "name": "request number",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "http_service",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.phone_number_of_contact(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_contact(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_contact(contact_john))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "contact_john",
+                        "sort": "contact",
+                        "natural_language_form": "John",
+                        "ddd": "http_service"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(phone_number_of_contact(phone_number_*))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ask for number one-shot",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "http_service",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "ask(?X.phone_number_of_contact(X))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_contact(contact_john))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "contact_john",
+                        "sort": "contact",
+                        "natural_language_form": "John",
+                        "ddd": "http_service"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(phone_number_of_contact(phone_number_*))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "call",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "http_service",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(call)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_contact(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_contact(contact_john))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "contact_john",
+                        "sort": "contact",
+                        "natural_language_form": "John",
+                        "ddd": "http_service"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_john)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "call invalid number",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "http_service",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(call)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_contact(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_contact(contact_andy))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "contact_john",
+                        "sort": "contact",
+                        "natural_language_form": "Andy",
+                        "ddd": "http_service"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:sem*neg",
+                    "icm:reraise",
+                    "ask(?X.selected_contact(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_contact(contact_john))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "contact_john",
+                        "sort": "contact",
+                        "natural_language_form": "John",
+                        "ddd": "http_service"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(Call, [selected_contact(contact_john)], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "call invalid number one-shot",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "http_service",
+        "interaction": [
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "ask(?X.phone_number_of_contact(X))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            },
+                            {
+                                "semantic_expression": "answer(selected_contact(contact_andy))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "contact_andy",
+                        "sort": "contact",
+                        "natural_language_form": "Andy",
+                        "ddd": "http_service"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "icm:acc*neg:rejected(set([selected_contact(contact_andy)]), PhoneNumberAvailable)",
+                    "icm:reraise",
+                    "ask(?X.selected_contact(X))"
+                ]
+            },
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(selected_contact(contact_john))",
+                                "ddd": "http_service",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "contact_john",
+                        "sort": "contact",
+                        "natural_language_form": "John",
+                        "ddd": "http_service"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(phone_number_of_contact(phone_number_*))"
+                ]
+            }
+        ]
+    }
+]

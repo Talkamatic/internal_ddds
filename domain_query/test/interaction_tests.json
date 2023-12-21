@@ -1,0 +1,318 @@
+[
+    {
+        "name": "condition: test domain query left",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "domain_query",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.money(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(money(left))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look(left))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test domain query right",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "domain_query",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.money(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(money(right))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look(right))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test enumerate domain query",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "domain_query",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look_enumerate(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look_enumerate(left))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look_enumerate(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look_enumerate(right))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test enumerate domain query all elements enumerated",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "domain_query",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look_enumerate(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look_enumerate(left))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look_enumerate(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look_enumerate(right))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look_enumerate(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info(\"No more ways to look\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test reset enumeration",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "domain_query",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look_restart_enumeration(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look_restart_enumeration(left))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.way_to_look_restart_enumeration(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(way_to_look_restart_enumeration(left))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "iterator: iterate over sequence of propositions",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "domain_query",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(say_sequence_of_propositions)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info(\"this is p(x)\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info(\"this is q(x)\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "report(action_status(say_sequence_of_propositions, done))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "iterator: iterate over limited sequence of propositions",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "domain_query",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(say_limited_sequence_of_propositions)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(info(\"this is p(x)\"))",
+                    "report(action_status(say_limited_sequence_of_propositions, done))"
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,398 @@
+[
+    {
+        "name": "Respond true YNQ ?p(x) question with yes",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_dogs)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(dog))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's right, they are filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond false YNQ ?p(x) question with yes",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_cows)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(cow))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's not right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond true YNQ ?p(x) question with no",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_dogs)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(dog))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's not right, they are filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond false YNQ ?p(x) question with no",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_cows)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(cow))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond true YNQ ?p(x) question with p(x)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_dogs)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(dog))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(filthy_animal(dog))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's right, they are filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond false YNQ ?p(x) question with p(x)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_cows)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(cow))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(filthy_animal(cow))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's not right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond true YNQ ?p(x) question with ~p(x)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_dogs)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(dog))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(~filthy_animal(dog))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's not right, they are filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond false YNQ ?p(x) question with ~p(x)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_cows)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal(cow))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(~filthy_animal(cow))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond YNQ ?p question with p",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_sheep)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal_sheep)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(filthy_animal_sheep())"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's not right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond YNQ ?p question with ~p",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_sheep)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal_sheep)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(~filthy_animal_sheep())"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond YNQ ?p question with yes",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_sheep)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal_sheep)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(yes)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's not right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Respond YNQ ?p question with no",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "questions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(talk_about_sheep)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?filthy_animal_sheep)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"That's right, they aren't filthy animals.\"))"
+                ]
+            }
+        ]
+    }
+]

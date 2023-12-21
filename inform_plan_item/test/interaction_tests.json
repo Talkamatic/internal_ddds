@@ -1,0 +1,218 @@
+[
+    {
+        "name": "going back to plan with inform, don't insist",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "inform_plan_item",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(do_work)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "answer(start_section(\"Nu b\u00f6rjar vi med fr\u00e5gorna p\u00e5 denna sida\"))",
+                    "ask(?X.some_predicate(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))",
+                    "answer(word_to_explain(\"some word\"))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word(\"some explanation\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(do_work)",
+                    "icm:reraise",
+                    "ask(?X.some_predicate(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "educational dialogue with inform action combination",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "inform_plan_item",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(educational_dialogue_with_inform_action_combination)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "answer(start_section)",
+                    "ask(?yn_have_boys_tasted_fish)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(no)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"Exakt. De har inte smakat p\u00e5 fisken\"))",
+                    "answer(on_to_question_*)",
+                    "answer(background_question_*)",
+                    "ask(?X.rn_why_boys_not_like_fish(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(rn_why_boys_not_like_fish(rn_why_boys_not_like_fish_correct))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"Ja, s\u00e5 kan det nog vara\"))",
+                    "answer(end_of_section)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "educational dialogue with two hints, second one resolving",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "inform_plan_item",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(educational_dialogue_with_two_hints)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "answer(start_section)",
+                    "ask(?X.rn_why_boys_not_like_fish(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(helpful_information_rn_why_boys_not_like_fish(rn_why_boys_not_like_fish_hint))",
+                    "ask(?X.rn_why_boys_not_like_fish(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(rn_why_boys_not_like_fish(rn_why_boys_not_like_fish_pass))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(end_of_section)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "going back to plan with inform, don't insist (always relevant)",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "inform_plan_item",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(do_work)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:loadplan",
+                    "answer(start_section(\"Nu b\u00f6rjar vi med fr\u00e5gorna p\u00e5 denna sida\"))",
+                    "ask(?X.some_predicate(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.always_relevant_question(X))",
+                    "answer(something_to_explain(\"some word\"))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(always_relevant_question(\"some explanation\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(do_work)",
+                    "icm:reraise",
+                    "ask(?X.some_predicate(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Testing absence of deadlock",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "inform_plan_item",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(deadlock_test)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"Det d\u00e4r gick ju bra!\"))"
+                ]
+            }
+        ]
+    }
+]

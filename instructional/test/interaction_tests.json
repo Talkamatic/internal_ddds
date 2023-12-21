@@ -1,0 +1,667 @@
+[
+    {
+        "name": "basic instruction",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:2",
+                    "request(pour_water_into_bowl)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:-1",
+                    "request(whisk_flour_into_water)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "report(done) tolerated also when not instructing",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "return to top when requested",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(top)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Negative acceptance when request instruction on action without perform goal",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:2",
+                    "request(pour_water_into_bowl)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(how)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:goal(perform(how))",
+                    "request(pour_water_into_bowl)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Kick off new plan when request instruction on other plan",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(how)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(pour_2_dl_water_into_a_kettle)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "sequencing variation a",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter_index_variation_a)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "request(pour_water_into_bowl)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:-1",
+                    "request(whisk_flour_into_water)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "sequencing variation b",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter_index_variation_b)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "request(pour_water_into_bowl)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:-1",
+                    "request(whisk_flour_into_water)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "sequencing variation c",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter_index_variation_c)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:2",
+                    "request(pour_water_into_bowl)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "request(whisk_flour_into_water)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "sequencing variation d",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter_index_variation_d)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(pour_water_into_bowl)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "request(whisk_flour_into_water)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(ServiceResultProposition(EndSourdougStarterInstruction, [], SuccessfulServiceAction()))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ask how, action treated as done after instruction",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(how)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(pour_2_dl_water_into_a_kettle)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "request(put_it_onto_stove_until_heated)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(done)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(action_status(heat_2_dl_water_to_40_degrees, done))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(instruct_sourdough_starter)",
+                    "icm:cardinal_sequencing:2",
+                    "request(pour_water_into_bowl)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "return to instruction plan, reraise request and avoid sequencing",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.quantity_water(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(quantity_water(quantity_2_dl))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(instruct_sourdough_starter)",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "action specific downdate",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(instruct_sourdough_starter)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "report(action_status(heat_2_dl_water_to_40_degrees, done))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:cardinal_sequencing:2",
+                    "request(pour_water_into_bowl)"
+                ]
+            }
+        ]
+    }
+]

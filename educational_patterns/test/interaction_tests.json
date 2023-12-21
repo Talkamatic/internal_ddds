@@ -1,0 +1,307 @@
+[
+    {
+        "name": "cover",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "mockup_travel",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "greet",
+                    "answer(info(intro))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "right/wrong question happy path",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "mockup_travel",
+        "interaction": [
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(top)",
+                                "ddd": "educational_patterns",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_correct)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"Fint! Ja vikingarna sade att de \u00e5kte till Vinland.\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(end_question_*)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "give hint",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "mockup_travel",
+        "interaction": [
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(top)",
+                                "ddd": "educational_patterns",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_unknown)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]), RwVadKalladeDeLandetDarxValidity)",
+                    "answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise",
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise",
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_correct)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"Fint! Ja vikingarna sade att de \u00e5kte till Vinland.\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(end_question_*)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "give hint, then get question with alternatives and test topic switching",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "mockup_travel",
+        "interaction": [
+            {
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "request(top)",
+                                "ddd": "educational_patterns",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "speaker": "user"
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_background(\"Vikingar fr\u00e5n Gr\u00f6nland reste \u00e4nda till Nordamerika\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "icm:acc*neg:issue"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_unknown)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]), RwVadKalladeDeLandetDarxValidity)",
+                    "answer(helpful_information_rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_hint))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise",
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(rw_vad_kallade_de_landet_darx_unknown)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*neg:rejected(set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]), RwVadKalladeDeLandetDarxValidity)",
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X), set([rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_bonland), rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_correct), rw_vad_kallade_de_landet_darx(rw_vad_kallade_de_landet_darx_unknown)]))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))",
+                    "answer(word_to_explain(\"strider\"))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word(\"strider kan utk\u00e4mpas i ett krig d\u00e5 man sl\u00e5ss mot varandra\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise",
+                    "ask(?X.rw_vad_kallade_de_landet_darx(X))"
+                ]
+            }
+        ]
+    }
+]

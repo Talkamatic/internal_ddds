@@ -377,7 +377,7 @@ def boolean_response(value):
           {
             "value": {{ value|json }},
             "confidence": 1.0,
-            "grammar_entry": {{ None|json }} 
+            "grammar_entry": {{ None|json }}
           }
         ]
       }
@@ -401,6 +401,7 @@ def room_availability():
 @app.route("/BookHousing", methods=['POST'])
 @app.route("/CancelReservation", methods=['POST'])
 @app.route("/MakeRandomReservation", methods=['POST'])
+@app.route("/ShowOnMap", methods=['POST'])
 def add_passengers():
     try:
         return action_success_response()

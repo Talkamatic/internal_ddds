@@ -1,0 +1,178 @@
+[
+    {
+        "name": "HasValue downdate condition",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "downdate_conditions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(collect_first_name)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.first_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(\"Kalle Karlsson\")"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "HasValue downdate condition - any value goes",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "downdate_conditions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(collect_first_name)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.first_name(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(\"Hans Harben\")"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "IsSharedFact downdate condition",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "downdate_conditions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(collect_secret_word)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.secret_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(\"all makt \u00e5t tegnell\")"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(top)",
+                    "ask(?X.goal(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "IsSharedFact wrong answer",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "downdate_conditions",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(collect_secret_word)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.secret_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(\"all makt \u00e5t tengil\")"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(collect_secret_word)",
+                    "ask(?X.secret_word(X))"
+                ]
+            }
+        ]
+    }
+]

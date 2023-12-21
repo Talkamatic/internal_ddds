@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ontology name="SendToFrontendOntology">
-    <action name="navigate"/>
-    <predicate name="destination" sort="city"/>
-    <sort name="city"/>
-    <individual name="city_paris" sort="city"/>
-</ontology>

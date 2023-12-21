@@ -220,10 +220,28 @@
                 ]
             },
             {
-                "speaker": "user",
-                "move_content": [
-                    "answer(city_madrid)"
-                ]
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(city_madrid)",
+                                "ddd": "mockup_travel",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "city_madrid",
+                        "sort": "city",
+                        "natural_language_form": "Madrid",
+                        "ddd": "mockup_travel"
+                    }
+                ],
+                "speaker": "user"
             },
             {
                 "speaker": "system",
@@ -341,7 +359,7 @@
                 "move_content": [
                     "icm:acc*pos",
                     "icm:loadplan",
-                    "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)",
+                    "icm:acc*neg:rejected(set([dest_city(lisbon)]), CityValidity)",
                     "icm:reraise",
                     "ask(?X.dest_city(X))"
                 ]
@@ -378,7 +396,7 @@
                 "move_content": [
                     "icm:acc*pos",
                     "icm:loadplan",
-                    "icm:acc*neg:rejected(set([dest_city(lisbon), dest_city(lisbon)]), CityValidity)",
+                    "icm:acc*neg:rejected(set([dest_city(lisbon)]), CityValidity)",
                     "icm:reraise",
                     "ask(?X.dest_city(X))"
                 ]
@@ -1137,9 +1155,9 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
-                    "ask(?X.selected_housing_type(X))"
+                    "icm:acc*pos", "ask(?X.selected_housing_type(X))"
                 ]
             }
         ]
@@ -1156,9 +1174,9 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
-                    "ask(?X.selected_housing_type(X))"
+                     "icm:acc*pos", "icm:loadplan", "ask(?X.selected_housing_type(X))"
                 ]
             },
             {
@@ -1315,8 +1333,10 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
                     "ask(?X.selected_housing_type(X))"
                 ]
             },
@@ -1396,8 +1416,10 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
                     "ask(?X.selected_housing_type(X))"
                 ]
             },
@@ -1458,7 +1480,7 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
                     "ask(?X.selected_housing_type(X))"
                 ]
@@ -1477,8 +1499,10 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
                     "ask(?X.selected_housing_type(X))"
                 ]
             },
@@ -1489,9 +1513,9 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
-                    "ask(?X.selected_housing_type(X))"
+                    "icm:acc*pos", "ask(?X.selected_housing_type(X))"
                 ]
             },
             {
@@ -1728,8 +1752,10 @@
                 ]
             },
             {
-                "speaker": "user",
+                "speaker": "system",
                 "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
                     "ask(?X.selected_housing_type(X))"
                 ]
             },
@@ -1928,10 +1954,28 @@
                 ]
             },
             {
-                "speaker": "user",
-                "move_content": [
-                    "answer(city_madrid)"
-                ]
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(city_madrid)",
+                                "ddd": "mockup_travel",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "city_madrid",
+                        "sort": "city",
+                        "natural_language_form": "Madrid",
+                        "ddd": "mockup_travel"
+                    }
+                ],
+                "speaker": "user"
             },
             {
                 "speaker": "system",
@@ -2866,10 +2910,28 @@
                 ]
             },
             {
-                "speaker": "user",
-                "move_content": [
-                    "answer(city_madrid)"
-                ]
+                "interpretations": [
+                    {
+                        "moves": [
+                            {
+                                "semantic_expression": "answer(city_madrid)",
+                                "ddd": "mockup_travel",
+                                "perception_confidence": 1.0,
+                                "understanding_confidence": 1.0
+                            }
+                        ],
+                        "modality": "other"
+                    }
+                ],
+                "entities": [
+                    {
+                        "name": "city_madrid",
+                        "sort": "city",
+                        "natural_language_form": "Madrid",
+                        "ddd": "mockup_travel"
+                    }
+                ],
+                "speaker": "user"
             },
             {
                 "speaker": "system",

@@ -1,0 +1,256 @@
+[
+    {
+        "name": "system knows the word",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(sourdough_bread)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word(\"Sourdough bread is a type of bread\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "system doesn't know the word",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(aardvark)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word(\"Sorry I don't know that word\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "user provides an irrelevant answer",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(milk)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:und*neg",
+                    "answer(explanation_of_word(\"Sorry I don't know that word\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "resolve raise before plan - system knows the word",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))",
+                    "answer(sourdough_bread)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word(\"Sourdough bread is a type of bread\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "resolve raise before plan - system doesn't know the word",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))",
+                    "answer(aardvark)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word(\"Sorry I don't know that word\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "resolve raise before plan - user provides an irrelevant answer",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word(X))",
+                    "answer(milk)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_word(X))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "reraising in system turn following non icm move",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word_with_second_raise(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(aardvark)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"Sorry I don't know that word\"))",
+                    "ask(?X.selected_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(aardvark)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word_with_second_raise(\"Ok I give up\"))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "reraising in system turn following non icm move semantics",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "raise",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.explanation_of_word_with_second_raise(X))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:loadplan",
+                    "ask(?X.selected_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(aardvark)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(comment(\"Sorry I don't know that word\"))",
+                    "ask(?X.selected_word(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "answer(aardvark)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word_with_second_raise(\"Ok I give up\"))"
+                ]
+            }
+        ]
+    }
+]

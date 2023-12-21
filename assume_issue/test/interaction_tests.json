@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Check that only a and c are output",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "assume_issue",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(some_action)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(explanation_of_word(\"a is a letter\"))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(some_action)",
+                    "answer(explanation_of_word(\"c is a letter\"))"
+                ]
+            }
+        ]
+    }
+]
