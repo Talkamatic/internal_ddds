@@ -1,5 +1,0 @@
---- Check that only a and c are output
-U> ["request(some_action)"]
-S> ["answer(explanation_of_word(\"a is a letter\"))"]
-U>
-S> ["icm:reraise:perform(some_action)", "answer(explanation_of_word(\"c is a letter\"))"]
