@@ -1,0 +1,17 @@
+[
+    {
+        "name": "main menu",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "send_to_frontend",
+        "interaction": [
+            {
+                "speaker": "user",
+                "move_content": ["request(navigate)", "answer(city_paris)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": ["icm:acc*pos", "report(ServiceResultProposition(Navigate, [destination(city_paris)], SuccessfulServiceAction()))"]
+            }
+        ]
+    }
+]
