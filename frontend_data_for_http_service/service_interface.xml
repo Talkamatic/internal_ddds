@@ -35,14 +35,6 @@
     </target>
   </action>
 
-  <action name="GetMockEvent">
-    <parameters/>
-    <failure_reasons/>
-    <target>
-      <device_module device="FrontendDataDevice"/>
-    </target>
-  </action>
-
   <query name="phone_number_of_contact">
     <parameters>
       <parameter predicate="selected_contact" format="value"/>
