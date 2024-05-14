@@ -74,19 +74,6 @@
     </postplan>
   </goal>
 
-  <goal type="handle" action="AlarmRings">
-    <plan>
-      <findout type="alt_question">
-        <alt>
-          <perform action="snooze"/>
-        </alt>
-        <alt>
-          <perform action="turn_off_alarm"/>
-        </alt>
-      </findout>
-    </plan>
-  </goal>
-
   <goal type="perform" action="set_alarm">
     <plan>
       <findout type="wh_question" predicate="alarm_hour"/>

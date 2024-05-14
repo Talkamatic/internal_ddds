@@ -144,14 +144,6 @@
     </postplan>
   </goal>
 
-  <goal type="handle" action="Payment">
-    <plan>
-      <findout type="yn_question">
-        <perform action="cancel_payment"/>
-      </findout>
-    </plan>
-  </goal>
-
   <goal type="perform" action="add_passenger" accommodate_without_feedback="true">
     <plan>
       <findout type="wh_question" predicate="passenger_type_to_add"/>
