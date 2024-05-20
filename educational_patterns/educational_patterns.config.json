@@ -1,5 +1,5 @@
 {
-    "active_ddd": "educational_patterns",
+    "active_ddd": "cover",
     "confidence_prediction_thresholds": {
         "ACKNOWLEDGE": 0.8,
         "CHECK": 0.6,
@@ -11,6 +11,7 @@
         "TRUST": 0.3
     },
     "ddds": [
+        "cover",
         "educational_patterns"
     ],
     "inactive_seconds_allowed": 7200,

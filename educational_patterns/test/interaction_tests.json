@@ -2,7 +2,7 @@
     {
         "name": "cover",
         "url": "http://localhost:9090/interact",
-        "target_ddd": "mockup_travel",
+        "target_ddd": "cover",
         "interaction": [
             {
                 "speaker": "system",
@@ -16,7 +16,7 @@
     {
         "name": "right/wrong question happy path",
         "url": "http://localhost:9090/interact",
-        "target_ddd": "mockup_travel",
+        "target_ddd": "educational_patterns",
         "interaction": [
             {
                 "interpretations": [
@@ -77,7 +77,7 @@
     {
         "name": "give hint",
         "url": "http://localhost:9090/interact",
-        "target_ddd": "mockup_travel",
+        "target_ddd": "educational_patterns",
         "interaction": [
             {
                 "interpretations": [
@@ -185,7 +185,7 @@
     {
         "name": "give hint, then get question with alternatives and test topic switching",
         "url": "http://localhost:9090/interact",
-        "target_ddd": "mockup_travel",
+        "target_ddd": "educational_patterns",
         "interaction": [
             {
                 "interpretations": [
