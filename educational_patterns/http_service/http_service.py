@@ -1,26 +1,23 @@
 # -*- coding: utf-8 -*-
 
 import json
-from os import getenv
 import os
 
 from flask import Flask, request
 from jinja2 import Environment
-from elasticapm.contrib.flask import ElasticAPM
-
 
 app = Flask(__name__)
-apm = ElasticAPM()
-apm.init_app(app, service_name=getenv('APM_SERVICE_NAME', default=""), server_url=getenv('APM_SERVER_URL', default=""))
 environment = Environment()
 
 EXPLANATIONS = {
     "nordbor": "personer som bor i de nordiska länderna",
     "vikingatiden": "en period i historien då vikingarna levde",
     "handelsmän": "personer som åker runt och handlar med andra folk",
-    "aggressiva": "beteende eller reaktion som har till syfte att skada en annan person",
+    "aggressiva":
+    "beteende eller reaktion som har till syfte att skada en annan person",
     "strider": "strider kan utkämpas i ett krig då man slåss mot varandra",
 }
+
 
 def jsonfilter(value):
     return json.dumps(value)
@@ -65,7 +62,9 @@ def error_response(message):
     }
     """)  # yapf: disable
     payload = response_template.render(message=message)
-    response = app.response_class(response=payload, status=200, mimetype='application/json')
+    response = app.response_class(response=payload,
+                                  status=200,
+                                  mimetype='application/json')
     return response
 
 
@@ -85,8 +84,11 @@ def query_response(value, grammar_entry):
       }
     }
     """)  # yapf: disable
-    payload = response_template.render(value=value, grammar_entry=grammar_entry)
-    response = app.response_class(response=payload, status=200, mimetype='application/json')
+    payload = response_template.render(value=value,
+                                       grammar_entry=grammar_entry)
+    response = app.response_class(response=payload,
+                                  status=200,
+                                  mimetype='application/json')
     return response
 
 
@@ -109,7 +111,9 @@ def multiple_query_response(results):
     }
     """)  # yapf: disable
     payload = response_template.render(results=results)
-    response = app.response_class(response=payload, status=200, mimetype='application/json')
+    response = app.response_class(response=payload,
+                                  status=200,
+                                  mimetype='application/json')
     return response
 
 
@@ -131,7 +135,9 @@ def dummy_query_response():
     }
     """)  # yapf: disable
     payload = response_template.render()
-    response = app.response_class(response=payload, status=200, mimetype='application/json')
+    response = app.response_class(response=payload,
+                                  status=200,
+                                  mimetype='application/json')
     return response
 
 
@@ -163,7 +169,9 @@ def action_success_response():
     }
     """)  # yapf: disable
     payload = response_template.render()
-    response = app.response_class(response=payload, status=200, mimetype='application/json')
+    response = app.response_class(response=payload,
+                                  status=200,
+                                  mimetype='application/json')
     return response
 
 
@@ -171,10 +179,12 @@ def action_success_response():
 def explanation_of_word():
     try:
         payload = request.get_json()
-        word_to_explain = payload["request"]["parameters"]["word_to_explain"]["value"]
+        word_to_explain = payload["request"]["parameters"]["word_to_explain"][
+            "value"]
         explanation = EXPLANATIONS.get(word_to_explain)
         if explanation is None:
-            return query_response(value=f"Det vet jag inte vad det betyder.", grammar_entry=None)
+            return query_response(value=f"Det vet jag inte vad det betyder.",
+                                  grammar_entry=None)
         return query_response(value=explanation, grammar_entry=None)
     except BaseException as exception:
         return error_response(message=str(exception))
@@ -183,7 +193,8 @@ def explanation_of_word():
 @app.route("/rw_vad_kallade_de_landet_darx_validity", methods=['POST'])
 def rw_vad_kallade_de_landet_darx_validity():
     payload = request.get_json()
-    rw_vad_kallade_de_landet_darx = payload["request"]["parameters"]["rw_vad_kallade_de_landet_darx"]["value"]
+    rw_vad_kallade_de_landet_darx = payload["request"]["parameters"][
+        "rw_vad_kallade_de_landet_darx"]["value"]
     if rw_vad_kallade_de_landet_darx == "rw_vad_kallade_de_landet_darx_correct":
         return validity_response(True)
     return validity_response(False)
