@@ -162,6 +162,92 @@
     ]
   },
   {
+    "name": "IDK IDK does not block",
+    "url": "http://localhost:9090/interact",
+    "target_ddd": "educational_patterns",
+    "interaction": [
+      {
+        "interpretations": [
+          {
+            "moves": [
+              {
+                "semantic_expression": "request(top)",
+                "ddd": "educational_patterns",
+                "perception_confidence": 1.0,
+                "understanding_confidence": 1.0
+              }
+            ],
+            "modality": "other"
+          }
+        ],
+        "speaker": "user"
+      },
+      {
+        "speaker": "system",
+        "move_content": [
+          "answer(nu_ska_vi_prata_om_s_y_e868d44c4a47_x(nu_ska_vi_prata_om_s_y_e868d44c4a47_x_individual))"
+        ]
+      },
+      {
+        "speaker": "user",
+        "expected_passivity": true
+      },
+      {
+        "speaker": "system",
+        "move_content": [
+          "icm:loadplan",
+          "ask(?yn_har_flickan_en_korgx_y_q_1_x)"
+        ]
+      },
+      {
+        "speaker": "user",
+        "move_content": [
+          "answer(i_dont_know(dont_know))"
+        ]
+      },
+      {
+        "speaker": "system",
+        "move_content": [
+          "answer(helpful_information_yn_har_flickan_en_korgx_y_q_1_x(yn_har_flickan_en_korgx_y_q_1_x_hint))",
+          "ask(?yn_har_flickan_en_korgx_y_q_1_x)"
+        ]
+      },
+      {
+        "speaker": "user",
+        "move_content": [
+          "answer(i_dont_know(dont_know))"
+        ]
+      },
+      {
+        "speaker": "system",
+        "move_content": [
+          "answer(comment(yn_har_flickan_en_korgx_y_q_1_x_feedback_unknown))"
+        ]
+      },
+      {
+        "speaker": "user",
+        "expected_passivity": true
+      },
+      {
+        "speaker": "system",
+        "move_content": [
+          "answer(end_question_*)"
+        ]
+      },
+      {
+        "speaker": "user",
+        "expected_passivity": true
+      },
+      {
+        "speaker": "system",
+        "move_content": [
+          "icm:loadplan",
+          "*"
+        ]
+      }
+    ]
+  },
+  {
     "name": "rw_q",
     "url": "http://localhost:9090/interact",
     "target_ddd": "educational_patterns",
@@ -299,7 +385,10 @@
       },
       {
         "speaker": "system",
-        "move_content": ["icm:loadplan", "ask(?X.rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x(X))"]
+        "move_content": [
+          "icm:loadplan",
+          "ask(?X.rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x(X))"
+        ]
       }
     ]
   }
