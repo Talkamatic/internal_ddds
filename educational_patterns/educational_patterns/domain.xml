@@ -1,48 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<domain name="EducationalPatternsDomain" is_super_domain="true">
+<domain name="Sida1Domain" is_super_domain="true">
 
   <goal type="perform" action="top" reraise_on_resume="false">
     <plan>
-      <inform generate_end_turn="true">
-        <proposition predicate="rw_vad_kallade_de_landet_darx_background" value="Vikingar från Grönland reste ända till Nordamerika"/>
+      <inform>
+        <proposition predicate="nu_ska_vi_prata_om_s_y_e868d44c4a47_x" value="nu_ska_vi_prata_om_s_y_e868d44c4a47_x_individual"/>
       </inform>
-      <raise type="wh_question" predicate="rw_vad_kallade_de_landet_darx"/>
       <if>
-        <proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/>
-        <then>
-          <inform insist="true" generate_end_turn="true">
-            <proposition predicate="comment" value="Fint! Ja vikingarna sade att de åkte till Vinland."/>
-          </inform>
-        </then>
+        <proposition predicate="is_nu_ska_vi_prata_om_s_y_e868d44c4a47_x_uttered"/>
         <else>
-          <inform insist="true" generate_end_turn="true">
-            <proposition predicate="helpful_information_rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_hint"/>
+          <end_turn expected_passivity="0"/>
+          <assume_shared>
+            <proposition predicate="is_nu_ska_vi_prata_om_s_y_e868d44c4a47_x_uttered"/>
+          </assume_shared>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="yn_har_flickan_en_korgx_y_q_1_x"/>
+        <else>
+          <jumpto type="perform" action="yn_har_flickan_en_korgx_y_q_1_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x"/>
+        <else>
+          <jumpto type="perform" action="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x"/>
+        <else>
+          <jumpto type="perform" action="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+        <else>
+          <jumpto type="perform" action="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x"/>
+        <else>
+          <jumpto type="perform" action="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+        <else>
+          <jumpto type="perform" action="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x"/>
+        <else>
+          <jumpto type="perform" action="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x"/>
+        <else>
+          <jumpto type="perform" action="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_action"/>
+        </else>
+      </if>
+
+      <invoke_service_action name="EndSession" postconfirm="true"/>
+      <forget_all/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="yn_har_flickan_en_korgx_y_q_1_x_action" reraise_on_resume="false">
+    <plan>
+
+      <forget predicate="i_dont_know"/>
+      <raise type="yn_question">
+        <proposition predicate="yn_har_flickan_en_korgx_y_q_1_x"/>
+      </raise>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="yn_har_flickan_en_korgx_y_q_1_x"/>
+      </assume_system_belief>
+      <if>
+        <has_shared_value predicate="yn_har_flickan_en_korgx_y_q_1_x"/>
+        <else>
+          <forget predicate="i_dont_know"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_yn_har_flickan_en_korgx_y_q_1_x" value="yn_har_flickan_en_korgx_y_q_1_x_hint"/>
           </inform>
-          <forget predicate="rw_vad_kallade_de_landet_darx"/>
-          <raise type="wh_question" predicate="rw_vad_kallade_de_landet_darx"/>
+          <raise type="yn_question">
+            <proposition predicate="yn_har_flickan_en_korgx_y_q_1_x"/>
+          </raise>
+        </else>
+      </if>
+      <if>
+        <has_shared_value predicate="yn_har_flickan_en_korgx_y_q_1_x"/>
+        <then>
           <if>
-            <proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/>
+            <is_shared_commitment predicate="yn_har_flickan_en_korgx_y_q_1_x"/>
             <then>
               <inform insist="true" generate_end_turn="true">
-                <proposition predicate="comment" value="Fint! Ja vikingarna sade att de åkte till Vinland."/>
+                <proposition predicate="comment" value="yn_har_flickan_en_korgx_y_q_1_x_feedback_correct"/>
               </inform>
             </then>
             <else>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="yn_har_flickan_en_korgx_y_q_1_x_feedback_wrong"/>
+              </inform>
+            </else>
+          </if>
+        </then>
+        <else>
+          <assume_system_belief>
+            <proposition predicate="yn_har_flickan_en_korgx_y_q_1_x" value="false"/>
+          </assume_system_belief>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="yn_har_flickan_en_korgx_y_q_1_x_feedback_unknown"/>
+          </inform>
+        </else>
+      </if>
+      <inform generate_end_turn="true">
+        <proposition predicate="end_question_3"/>
+      </inform>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_action" reraise_on_resume="false">
+    <plan>
+
+      <inform insist="false" generate_end_turn="true">
+        <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_background" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_background_individual"/>
+      </inform>
+      <raise predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x"/>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x"/>
+      </assume_system_belief>
+      <if>
+        <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_correct_1"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_feedback_correct_1"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_question_answered_correctly"/>
+        <else>
+          <forget predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_hint"/>
+          </inform>
+          <raise predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x"/>
+          <if>
+            <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_correct_1"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_feedback_correct_1"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_question_answered_correctly"/>
+            <else>
+              <forget predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x"/>
+              <inform insist="true" generate_end_turn="false">
+                <proposition predicate="mock_inform_utterance_rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_mock"/>
+              </inform>
               <raise type="alt_question">
-                <alt><proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_bonland"/></alt>
-                <alt><proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/></alt>
-                <alt><proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_unknown"/></alt>
+                <alt>
+                  <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_correct_1"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_unknown"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_other"/>
+                </alt>
               </raise>
               <if>
-                <proposition predicate="rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_correct"/>
+                <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_correct_1"/>
                 <then>
                   <inform insist="true" generate_end_turn="true">
-                    <proposition predicate="comment" value="Fint! Ja vikingarna sade att de åkte till Vinland."/>
+                    <proposition predicate="comment" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_feedback_correct_1"/>
                   </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_question_answered_correctly"/>
+                  </assume_system_belief>
                 </then>
+              </if>
+              <if>
+                <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_question_answered_correctly"/>
                 <else>
                   <inform insist="true" generate_end_turn="true">
-                    <proposition predicate="comment" value="Vikingarna sade att de åkte till Vinland står det i texten."/>
+                    <proposition predicate="comment" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_feedback_unknown"/>
                   </inform>
                 </else>
               </if>
@@ -50,27 +205,440 @@
           </if>
         </else>
       </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x"/>
+        <else>
+          <assume_shared>
+            <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_unknown"/>
+          </assume_shared>
+        </else>
+      </if>
       <inform generate_end_turn="true">
-        <proposition predicate="end_question_1"/>
+        <proposition predicate="end_question_4"/>
       </inform>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_action" reraise_on_resume="false">
+    <plan>
+
+      <raise predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x"/>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x"/>
+      </assume_system_belief>
+      <if>
+        <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_correct_1"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_feedback_correct_1"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_question_answered_correctly"/>
+        <else>
+          <forget predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_hint"/>
+          </inform>
+          <raise predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x"/>
+          <if>
+            <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_correct_1"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_feedback_correct_1"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_question_answered_correctly"/>
+            <else>
+              <forget predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x"/>
+              <inform insist="true" generate_end_turn="false">
+                <proposition predicate="mock_inform_utterance_rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_mock"/>
+              </inform>
+              <raise type="alt_question">
+                <alt>
+                  <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_correct_1"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_unknown"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_other"/>
+                </alt>
+              </raise>
+              <if>
+                <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_correct_1"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_feedback_correct_1"/>
+                  </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_question_answered_correctly"/>
+                  </assume_system_belief>
+                </then>
+              </if>
+              <if>
+                <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_question_answered_correctly"/>
+                <else>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_feedback_unknown"/>
+                  </inform>
+                </else>
+              </if>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x"/>
+        <else>
+          <assume_system_belief>
+            <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_unknown"/>
+          </assume_system_belief>
+        </else>
+      </if>
+      <inform generate_end_turn="true">
+        <proposition predicate="end_question_5"/>
+      </inform>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_action" reraise_on_resume="false">
+    <plan>
+
+      <inform insist="false" generate_end_turn="true">
+        <proposition predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_background" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_background_individual"/>
+      </inform>
+      <forget predicate="i_dont_know"/>
+      <raise predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+      </assume_system_belief>
+      <if>
+        <has_shared_or_private_value predicate="i_dont_know"/>
+        <then>
+          <forget predicate="i_dont_know"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_hint"/>
+          </inform>
+          <raise predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+        </then>
+        <else>
+          <if>
+            <has_shared_or_private_value predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+            <else>
+              <forget predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+              <inform insist="true" generate_end_turn="false">
+                <proposition predicate="helpful_information_rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_hint"/>
+              </inform>
+              <raise predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if>
+        <proposition predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_correct_1"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_feedback_correct_1"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_question_answered_correctly"/>
+        <else>
+          <if>
+            <has_shared_or_private_value predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_feedback_unknown"/>
+              </inform>
+            </then>
+            <else>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_feedback_no_answer"/>
+              </inform>
+              <assume_shared>
+                <proposition predicate="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x" value="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_unknown"/>
+              </assume_shared>
+              <forget predicate="i_dont_know"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_action" reraise_on_resume="false">
+    <plan>
+
+      <forget predicate="i_dont_know"/>
+      <raise predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x"/>
+      <if>
+        <has_shared_or_private_value predicate="i_dont_know"/>
+        <then>
+          <forget predicate="i_dont_know"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x" value="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_hint"/>
+          </inform>
+          <raise predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x"/>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x" value="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_answer_1"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_feedback_answer_1"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_question_answered_with_answer_type"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_question_answered_with_answer_type"/>
+        <else>
+          <if>
+            <has_shared_or_private_value predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_feedback_unknown"/>
+              </inform>
+            </then>
+            <else>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_feedback_no_answer"/>
+              </inform>
+              <assume_shared>
+                <proposition predicate="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x" value="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_unknown"/>
+              </assume_shared>
+              <forget predicate="i_dont_know"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <inform generate_end_turn="true">
+        <proposition predicate="end_question_7"/>
+      </inform>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_action" reraise_on_resume="false">
+    <plan>
+
+      <inform insist="false" generate_end_turn="true">
+        <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_background" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_background_individual"/>
+      </inform>
+      <raise predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+      </assume_system_belief>
+      <if>
+        <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_correct_1"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_feedback_correct_1"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_question_answered_correctly"/>
+        <else>
+          <forget predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_hint"/>
+          </inform>
+          <raise predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+          <if>
+            <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_correct_1"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_feedback_correct_1"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_question_answered_correctly"/>
+            <else>
+              <forget predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+              <inform insist="true" generate_end_turn="false">
+                <proposition predicate="mock_inform_utterance_rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_mock"/>
+              </inform>
+              <raise predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+              <if>
+                <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_correct_1"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_feedback_correct_1"/>
+                  </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_question_answered_correctly"/>
+                  </assume_system_belief>
+                </then>
+              </if>
+              <if>
+                <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_question_answered_correctly"/>
+                <else>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_feedback_unknown"/>
+                  </inform>
+                </else>
+              </if>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x"/>
+        <else>
+          <assume_system_belief>
+            <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_unknown"/>
+          </assume_system_belief>
+        </else>
+      </if>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_action" reraise_on_resume="false">
+    <plan>
+
+      <inform insist="false" generate_end_turn="true">
+        <proposition predicate="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_background" value="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_background_individual"/>
+      </inform>
+      <forget predicate="i_dont_know"/>
+      <raise predicate="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x"/>
+      <if>
+        <proposition predicate="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_question_answered_with_answer_type"/>
+        <else>
+          <if>
+            <has_shared_or_private_value predicate="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_feedback_unknown"/>
+              </inform>
+            </then>
+            <else>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_feedback_no_answer"/>
+              </inform>
+              <assume_shared>
+                <proposition predicate="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x" value="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_unknown"/>
+              </assume_shared>
+              <forget predicate="i_dont_know"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_action" reraise_on_resume="false">
+    <plan>
+
+      <forget predicate="i_dont_know"/>
+      <raise predicate="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x"/>
+      <if>
+        <proposition predicate="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_question_answered_with_answer_type"/>
+        <else>
+          <if>
+            <has_shared_or_private_value predicate="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_feedback_unknown"/>
+              </inform>
+            </then>
+            <else>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_feedback_no_answer"/>
+              </inform>
+              <assume_shared>
+                <proposition predicate="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x" value="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_unknown"/>
+              </assume_shared>
+              <forget predicate="i_dont_know"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <invoke_service_action name="EndSession" postconfirm="true"/>
+      <bind predicate="i_dont_know"/>
     </plan>
   </goal>
 
-  <parameters question_type="wh_question" predicate="rw_vad_kallade_de_landet_darx">
-    <hint>
-      <inform insist="true" generate_end_turn="true">
-        <proposition predicate="helpful_information_rw_vad_kallade_de_landet_darx" value="rw_vad_kallade_de_landet_darx_hint"/>
-      </inform>
-    </hint>
+  <parameters question_type="wh_question" predicate="explanation_of_word">
+    <always_relevant/>
   </parameters>
+  <parameters question_type="wh_question" predicate="i_dont_know">
+    <always_relevant/>
+  </parameters>
+
+  <validator name="RwVilkenFargHarFlickanPaSinxYQ2XValidity">
+    <configuration>
+      <proposition predicate="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" value="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_correct_1"/>
+    </configuration>
+  </validator>
+
+  <validator name="RwTillVemSkulleRodluvanGaInxYQ3XValidity">
+    <configuration>
+      <proposition predicate="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" value="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_correct_1"/>
+    </configuration>
+  </validator>
+
+  <validator name="RwVadHandeMedVargenISlutetXYQ6XValidity">
+    <configuration>
+      <proposition predicate="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" value="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_correct_1"/>
+    </configuration>
+  </validator>
 
   <goal type="resolve" question_type="wh_question" predicate="explanation_of_word">
     <plan>
-      <findout type="wh_question" predicate="word_to_explain"/>
-      <invoke_service_query type="wh_question" predicate="explanation_of_word"/>
+      <raise type="wh_question" predicate="word_to_explain"/>
+      <if>
+        <has_shared_value predicate="word_to_explain"/>
+        <then>
+          <invoke_service_query type="wh_question" predicate="explanation_of_word"/>
+        </then>
+        <else>
+          <assume_system_belief>
+            <proposition predicate="explanation_of_word" value="explanation_of_word_no_input_feedback"/>
+          </assume_system_belief>
+          <assume_shared>
+            <proposition predicate="word_to_explain" value="no_word"/>
+          </assume_shared>
+        </else>
+      </if>
     </plan>
     <postplan>
       <forget predicate="word_to_explain"/>
     </postplan>
+  </goal>
+
+  <goal type="perform" action="switch_language">
+    <plan>
+      <findout type="wh_question" predicate="desired_locale"/>
+      <signal_action_completion postconfirm="true"/>
+    </plan>
   </goal>
 </domain>

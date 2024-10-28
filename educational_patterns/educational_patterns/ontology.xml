@@ -1,20 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ontology name="EducationalPatternsOntology">
+<ontology name="Sida1Ontology">
 
-  <predicate name="start_section" sort="boolean"/>
+  <sort name="dummy"/>
+  <predicate name="i_dont_know" sort="dummy"/>
+  <individual name="dont_know" sort="dummy"/>
+  <individual name="do_know" sort="dummy"/>
+  <predicate name="is_start_conversation_uttered" sort="boolean"/>
+  <predicate name="is_start_section_uttered" sort="boolean"/>
+  <predicate name="is_end_section_uttered" sort="boolean"/>
+  <predicate name="is_end_conversation_uttered" sort="boolean"/>
   <sort name="helpful_information"/>
-  <predicate name="comment" sort="string"/>
+  <sort name="comment_sort"/>
+  <predicate name="comment" sort="comment_sort"/>
+  <sort name="background_sort"/>
+  <predicate name="current_question" sort="string"/>
+  <predicate name="end_question_1" sort="boolean"/>
+  <predicate name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_background" sort="background_sort"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_background_individual" sort="background_sort"/>
+  <predicate name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_question_answered_correctly" sort="boolean"/>
+  <sort name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_sort"/>
+  <predicate name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x" sort="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_sort"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_unknown" sort="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_sort"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_correct_1" sort="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_sort"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_feedback_correct_1" sort="comment_sort"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_feedback_unknown" sort="comment_sort"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_feedback_no_answer" sort="comment_sort"/>
+  <predicate name="helpful_information_onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x" sort="helpful_information"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_hint" sort="helpful_information"/>
+  <individual name="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_resolving_hint" sort="onb_sag_efter_mig_nu_pr_y_944f9c0a855e_x_sort"/>
+  <predicate name="end_question_2" sort="boolean"/>
+  <predicate name="nu_ska_vi_prata_om_s_y_e868d44c4a47_x" sort="comment_sort"/>
+  <individual name="nu_ska_vi_prata_om_s_y_e868d44c4a47_x_individual" sort="comment_sort"/>
+  <predicate name="is_nu_ska_vi_prata_om_s_y_e868d44c4a47_x_uttered" sort="boolean"/>
+  <predicate name="end_question_3" sort="boolean"/>
+  <action name="yn_har_flickan_en_korgx_y_q_1_x_action"/>
+  <predicate name="yn_har_flickan_en_korgx_y_q_1_x" sort="boolean"/>
+  <predicate name="helpful_information_yn_har_flickan_en_korgx_y_q_1_x" sort="helpful_information"/>
+  <individual name="yn_har_flickan_en_korgx_y_q_1_x_hint" sort="helpful_information"/>
+  <individual name="yn_har_flickan_en_korgx_y_q_1_x_feedback_correct" sort="comment_sort"/>
+  <individual name="yn_har_flickan_en_korgx_y_q_1_x_feedback_unknown" sort="comment_sort"/>
+  <individual name="yn_har_flickan_en_korgx_y_q_1_x_feedback_wrong" sort="comment_sort"/>
+  <predicate name="end_question_4" sort="boolean"/>
+  <action name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_action"/>
+  <predicate name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_background" sort="background_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_background_individual" sort="background_sort"/>
+  <predicate name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_question_answered_correctly" sort="boolean"/>
+  <sort name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+
+  <predicate name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" sort="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_unknown" sort="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_other" sort="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_correct_1" sort="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_feedback_correct_1" sort="comment_sort"/>
+
+  <predicate name="helpful_information_rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" sort="helpful_information"/>
+  <predicate name="mock_inform_utterance_rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x" sort="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_hint" sort="helpful_information"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_resolving_hint" sort="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_mock" sort="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_sort"/>
+  <individual name="rw_vilken_farg_har_flickan_pa_sinx_y_q_2_x_feedback_unknown" sort="comment_sort"/>
+  <predicate name="end_question_5" sort="boolean"/>
+  <action name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_action"/>
+  <predicate name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_question_answered_correctly" sort="boolean"/>
+  <sort name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+
+  <predicate name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" sort="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_unknown" sort="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_other" sort="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_correct_1" sort="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_feedback_correct_1" sort="comment_sort"/>
+
+  <predicate name="helpful_information_rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" sort="helpful_information"/>
+  <predicate name="mock_inform_utterance_rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x" sort="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_hint" sort="helpful_information"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_resolving_hint" sort="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_mock" sort="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_sort"/>
+  <individual name="rw_till_vem_skulle_rodluvan_ga_inx_y_q_3_x_feedback_unknown" sort="comment_sort"/>
+  <predicate name="end_question_6" sort="boolean"/>
+  <action name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_action"/>
+  <predicate name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_background" sort="background_sort"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_background_individual" sort="background_sort"/>
+  <predicate name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_question_answered_correctly" sort="boolean"/>
+  <sort name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_sort"/>
+  <predicate name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x" sort="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_sort"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_unknown" sort="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_sort"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_correct_1" sort="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_sort"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_feedback_correct_1" sort="comment_sort"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_feedback_unknown" sort="comment_sort"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_feedback_no_answer" sort="comment_sort"/>
+  <predicate name="helpful_information_rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x" sort="helpful_information"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_hint" sort="helpful_information"/>
+  <individual name="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_resolving_hint" sort="rn_hur_tycker_du_att_man_kan_se_px_y_q_4_x_sort"/>
+  <predicate name="end_question_7" sort="boolean"/>
+  <action name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_action"/>
+  <sort name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_sort"/>
+  <predicate name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x" sort="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_sort"/>
+  <individual name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_answer_1" sort="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_sort"/>
+  <individual name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_feedback_answer_1" sort="comment_sort"/>
+  <predicate name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_question_answered_with_answer_type" sort="boolean"/>
+  <individual name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_unknown" sort="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_sort"/>
+  <predicate name="helpful_information_n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x" sort="helpful_information"/>
+  <individual name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_hint" sort="helpful_information"/>
+  <individual name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_resolving_hint" sort="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_sort"/>
+  <individual name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_feedback_unknown" sort="comment_sort"/>
+  <individual name="n_hur_skulle_du_kanna_om_du_skulx_y_q_5_x_feedback_no_answer" sort="comment_sort"/>
+  <predicate name="end_question_8" sort="boolean"/>
+  <action name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_action"/>
+  <predicate name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_background" sort="background_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_background_individual" sort="background_sort"/>
+  <predicate name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_question_answered_correctly" sort="boolean"/>
+  <sort name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+
+  <predicate name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" sort="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_unknown" sort="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_other" sort="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_correct_1" sort="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_feedback_correct_1" sort="comment_sort"/>
+
+  <predicate name="helpful_information_rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" sort="helpful_information"/>
+  <predicate name="mock_inform_utterance_rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x" sort="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_hint" sort="helpful_information"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_resolving_hint" sort="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_mock" sort="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_sort"/>
+  <individual name="rw_vad_hande_med_vargen_i_slutet_x_y_q_6_x_feedback_unknown" sort="comment_sort"/>
+  <predicate name="end_question_9" sort="boolean"/>
+  <predicate name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_background" sort="background_sort"/>
+  <individual name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_background_individual" sort="background_sort"/>
+  <action name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_action"/>
+  <sort name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_sort"/>
+  <predicate name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x" sort="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_sort"/>
+  <predicate name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_question_answered_with_answer_type" sort="boolean"/>
+  <individual name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_unknown" sort="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_sort"/>
+  <individual name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_feedback_unknown" sort="comment_sort"/>
+  <individual name="n_vad_tyckte_du_var_bra_nar_du_px_y_q_7_x_feedback_no_answer" sort="comment_sort"/>
+  <action name="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_action"/>
+  <sort name="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_sort"/>
+  <predicate name="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x" sort="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_sort"/>
+  <predicate name="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_question_answered_with_answer_type" sort="boolean"/>
+  <individual name="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_unknown" sort="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_sort"/>
+  <individual name="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_feedback_unknown" sort="comment_sort"/>
+  <individual name="n_vad_tyckte_du_inte_om_nar_du_px_y_q_8_x_feedback_no_answer" sort="comment_sort"/>
+  <individual name="start_section_individual" sort="comment_sort"/>
+  <predicate name="start_section" sort="comment_sort"/>
+
   <predicate name="explanation_of_word" sort="string"/>
   <predicate name="word_to_explain" sort="string"/>
-  <predicate name="end_question_1" sort="boolean"/>
-  <predicate name="rw_vad_kallade_de_landet_darx_background" sort="string"/>
-  <sort name="rw_vad_kallade_de_landet_darx_sort"/>
-  <predicate name="rw_vad_kallade_de_landet_darx" sort="rw_vad_kallade_de_landet_darx_sort"/>
-  <individual name="rw_vad_kallade_de_landet_darx_bonland" sort="rw_vad_kallade_de_landet_darx_sort"/>
-  <individual name="rw_vad_kallade_de_landet_darx_correct" sort="rw_vad_kallade_de_landet_darx_sort"/>
-  <individual name="rw_vad_kallade_de_landet_darx_unknown" sort="rw_vad_kallade_de_landet_darx_sort"/>
-  <predicate name="helpful_information_rw_vad_kallade_de_landet_darx" sort="helpful_information"/>
-  <individual name="rw_vad_kallade_de_landet_darx_hint" sort="helpful_information"/>
-  <individual name="rw_vad_kallade_de_landet_darx_resolving_hint" sort="rw_vad_kallade_de_landet_darx_sort"/>
+  <individual name="explanation_of_word_no_input_feedback" sort="string"/>
 
+  <action name="switch_language"/>
+  <sort name="locale" dynamic="true"/>
+  <predicate name="desired_locale" sort="locale"/>
 </ontology>

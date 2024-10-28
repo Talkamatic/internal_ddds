@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <service_interface>
 
+  <action name="EndSession">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <frontend/>
+    </target>
+  </action>
+
   <query name="explanation_of_word">
     <parameters>
       <parameter predicate="word_to_explain" format="value"/>
     </parameters>
     <target>
-      <http endpoint="http://127.0.0.1:10100/explanation_of_word"/>
+      <http endpoint="https://production-dme-http-services.azurewebsites.net/api/explanation-of-word"/>
     </target>
   </query>
-
-  <validator name="RwVadKalladeDeLandetDarxValidity">
-    <parameters>
-      <parameter predicate="rw_vad_kallade_de_landet_darx" format="value"/>
-    </parameters>
-    <target>
-      <http endpoint="http://127.0.0.1:10100/rw_vad_kallade_de_landet_darx_validity"/>
-    </target>
-  </validator>
 
 </service_interface>
