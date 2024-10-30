@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="Chapter1Domain" is_super_domain="true">
+
+  <goal type="perform" action="top" reraise_on_resume="false">
+    <plan>
+      <inform>
+        <proposition predicate="welcome_to_the_talka_y_fd8f0c91cde1_x" value="welcome_to_the_talka_y_fd8f0c91cde1_x_individual"/>
+      </inform>
+      <if>
+        <proposition predicate="is_welcome_to_the_talka_y_fd8f0c91cde1_x_uttered"/>
+        <else>
+          <end_turn expected_passivity="0"/>
+          <assume_shared>
+            <proposition predicate="is_welcome_to_the_talka_y_fd8f0c91cde1_x_uttered"/>
+          </assume_shared>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+        <else>
+          <jumpto type="perform" action="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_what_are_the_redwood_y_548372abdf7c_x"/>
+        <else>
+          <jumpto type="perform" action="rw_what_are_the_redwood_y_548372abdf7c_x_action"/>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_how_old_are_some_of__y_d2ed940aa163_x"/>
+        <else>
+          <jumpto type="perform" action="rw_how_old_are_some_of__y_d2ed940aa163_x_action"/>
+        </else>
+      </if>
+
+      <invoke_service_action name="EndSession" postconfirm="true"/>
+      <forget_all/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_action" reraise_on_resume="false">
+    <plan>
+
+      <raise predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+      </assume_system_belief>
+      <if>
+        <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_1"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_1"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_2"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_2"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+        <else>
+          <forget predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_hint"/>
+          </inform>
+          <raise predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+          <if>
+            <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_1"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_1"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_2"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_2"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+            <else>
+              <forget predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+              <inform insist="true" generate_end_turn="false">
+                <proposition predicate="mock_inform_utterance_rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_mock"/>
+              </inform>
+              <raise predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+              <if>
+                <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_1"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_1"/>
+                  </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+                  </assume_system_belief>
+                </then>
+              </if>
+              <if>
+                <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_2"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_2"/>
+                  </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+                  </assume_system_belief>
+                </then>
+              </if>
+              <if>
+                <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly"/>
+                <else>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_unknown"/>
+                  </inform>
+                </else>
+              </if>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x"/>
+        <else>
+          <assume_shared>
+            <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_unknown"/>
+          </assume_shared>
+        </else>
+      </if>
+      <inform generate_end_turn="true">
+        <proposition predicate="end_question_2"/>
+      </inform>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="rw_what_are_the_redwood_y_548372abdf7c_x_action" reraise_on_resume="false">
+    <plan>
+
+      <raise predicate="rw_what_are_the_redwood_y_548372abdf7c_x"/>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="rw_what_are_the_redwood_y_548372abdf7c_x"/>
+      </assume_system_belief>
+      <if>
+        <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_correct_1"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_what_are_the_redwood_y_548372abdf7c_x_feedback_correct_1"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x_question_answered_correctly"/>
+        <else>
+          <forget predicate="rw_what_are_the_redwood_y_548372abdf7c_x"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_hint"/>
+          </inform>
+          <raise predicate="rw_what_are_the_redwood_y_548372abdf7c_x"/>
+          <if>
+            <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_correct_1"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_what_are_the_redwood_y_548372abdf7c_x_feedback_correct_1"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x_question_answered_correctly"/>
+            <else>
+              <forget predicate="rw_what_are_the_redwood_y_548372abdf7c_x"/>
+              <inform insist="true" generate_end_turn="false">
+                <proposition predicate="mock_inform_utterance_rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_mock"/>
+              </inform>
+              <raise type="alt_question">
+                <alt>
+                  <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_correct_1"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_unknown"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_other"/>
+                </alt>
+              </raise>
+              <if>
+                <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_correct_1"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_what_are_the_redwood_y_548372abdf7c_x_feedback_correct_1"/>
+                  </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x_question_answered_correctly"/>
+                  </assume_system_belief>
+                </then>
+              </if>
+              <if>
+                <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x_question_answered_correctly"/>
+                <else>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_what_are_the_redwood_y_548372abdf7c_x_feedback_unknown"/>
+                  </inform>
+                </else>
+              </if>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_what_are_the_redwood_y_548372abdf7c_x"/>
+        <else>
+          <assume_shared>
+            <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_unknown"/>
+          </assume_shared>
+        </else>
+      </if>
+      <inform generate_end_turn="true">
+        <proposition predicate="end_question_3"/>
+      </inform>
+      <signal_action_completion postconfirm="false"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+  <goal type="perform" action="rw_how_old_are_some_of__y_d2ed940aa163_x_action" reraise_on_resume="false">
+    <plan>
+
+      <raise predicate="rw_how_old_are_some_of__y_d2ed940aa163_x"/>
+      <assume_system_belief>
+        <proposition predicate="current_question" value="rw_how_old_are_some_of__y_d2ed940aa163_x"/>
+      </assume_system_belief>
+      <if>
+        <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct"/>
+          </inform>
+          <assume_system_belief>
+            <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+          </assume_system_belief>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct_outside_text"/>
+        <then>
+          <inform insist="true" generate_end_turn="true">
+            <proposition predicate="comment" value="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct_outside_text"/>
+          </inform>
+          <assume_shared>
+            <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+          </assume_shared>
+        </then>
+      </if>
+      <if>
+        <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+        <else>
+          <forget predicate="rw_how_old_are_some_of__y_d2ed940aa163_x"/>
+          <inform insist="true" generate_end_turn="false">
+            <proposition predicate="helpful_information_rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_hint"/>
+          </inform>
+          <raise predicate="rw_how_old_are_some_of__y_d2ed940aa163_x"/>
+          <if>
+            <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct_outside_text"/>
+            <then>
+              <inform insist="true" generate_end_turn="true">
+                <proposition predicate="comment" value="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct_outside_text"/>
+              </inform>
+              <assume_system_belief>
+                <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+              </assume_system_belief>
+            </then>
+          </if>
+          <if>
+            <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+            <else>
+              <forget predicate="rw_how_old_are_some_of__y_d2ed940aa163_x"/>
+              <inform insist="true" generate_end_turn="false">
+                <proposition predicate="mock_inform_utterance_rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_mock"/>
+              </inform>
+              <raise type="alt_question">
+                <alt>
+                  <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_unknown"/>
+                </alt>
+                <alt>
+                  <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_other"/>
+                </alt>
+              </raise>
+              <if>
+                <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct"/>
+                  </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+                  </assume_system_belief>
+                </then>
+              </if>
+              <if>
+                <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct_outside_text"/>
+                <then>
+                  <inform insist="true" generate_end_turn="true">
+                    <proposition predicate="comment" value="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct_outside_text"/>
+                  </inform>
+                  <assume_system_belief>
+                    <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+                  </assume_system_belief>
+                </then>
+              </if>
+              <if>
+                <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly"/>
+                <else>
+                  <inform insist="true" generate_end_turn="false">
+                    <proposition predicate="comment" value="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_unknown"/>
+                  </inform>
+                </else>
+              </if>
+            </else>
+          </if>
+        </else>
+      </if>
+      <if>
+        <has_shared_or_private_value predicate="rw_how_old_are_some_of__y_d2ed940aa163_x"/>
+        <else>
+          <assume_shared>
+            <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_unknown"/>
+          </assume_shared>
+        </else>
+      </if>
+      <invoke_service_action name="EndSession" postconfirm="true"/>
+      <bind predicate="i_dont_know"/>
+    </plan>
+  </goal>
+
+  <goal type="resolve" predicate="qna_response">
+    <plan>
+      <findout predicate="qna_question"/>
+      <invoke_domain_query predicate="qna_response"/>
+    </plan>
+    <postplan>
+      <forget_shared predicate="qna_response"/>
+    </postplan>
+  </goal>
+
+  <parameters question_type="wh_question" predicate="qna_response">
+    <always_relevant/>
+  </parameters>
+
+  <query predicate="qna_response">
+    <implication>
+      <antecedent predicate="qna_question" value="qna_founders_8726b03b272f_mock_uuid_0_question"/>
+      <consequent predicate="qna_response" value="qna_founders_8726b03b272f_mock_uuid_0_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="qna_verticals_d63726d8add8_mock_uuid_1_question"/>
+      <consequent predicate="qna_response" value="qna_verticals_d63726d8add8_mock_uuid_1_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="qna_who_are_you_a569ca70c961_mock_uuid_2_question"/>
+      <consequent predicate="qna_response" value="qna_who_are_you_a569ca70c961_mock_uuid_2_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="qna_when_founded_17fa961f1ae9_mock_uuid_3_question"/>
+      <consequent predicate="qna_response" value="qna_when_founded_17fa961f1ae9_mock_uuid_3_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="qna_why_invest_e3d850c0408f_mock_uuid_4_question"/>
+      <consequent predicate="qna_response" value="qna_why_invest_e3d850c0408f_mock_uuid_4_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="qna_owners_owns_15c9256a0772_mock_uuid_5_question"/>
+      <consequent predicate="qna_response" value="qna_owners_owns_15c9256a0772_mock_uuid_5_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="qna_what_can_i_say_6e0411073ddf_mock_uuid_6_question"/>
+      <consequent predicate="qna_response" value="qna_what_can_i_say_6e0411073ddf_mock_uuid_6_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="qna_unknown_question"/>
+      <consequent predicate="qna_response" value="qna_unknown_answer"/>
+    </implication>
+    <implication>
+      <antecedent predicate="qna_question" value="retrieve_qna_content_from_ndg"/>
+      <consequent predicate="qna_response" value="qna_content_from_ndg"/>
+    </implication>
+  </query>
+
+  <parameters question_type="wh_question" predicate="explanation_of_word">
+    <always_relevant/>
+  </parameters>
+  <parameters question_type="wh_question" predicate="i_dont_know">
+    <always_relevant/>
+  </parameters>
+
+  <validator name="RwWhatIsTheStartingY37002308B1Ce4Ebe8C5EA749Af30A843XValidity">
+    <configuration>
+      <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_1"/>
+    </configuration>
+    <configuration>
+      <proposition predicate="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" value="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_2"/>
+    </configuration>
+  </validator>
+
+  <validator name="RwWhatAreTheRedwoodY548372Abdf7CXValidity">
+    <configuration>
+      <proposition predicate="rw_what_are_the_redwood_y_548372abdf7c_x" value="rw_what_are_the_redwood_y_548372abdf7c_x_correct_1"/>
+    </configuration>
+  </validator>
+
+  <validator name="RwHowOldAreSomeOfYD2Ed940Aa163XValidity">
+    <configuration>
+      <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct"/>
+    </configuration>
+    <configuration>
+      <proposition predicate="rw_how_old_are_some_of__y_d2ed940aa163_x" value="rw_how_old_are_some_of__y_d2ed940aa163_x_correct_outside_text"/>
+    </configuration>
+  </validator>
+
+  <goal type="resolve" question_type="wh_question" predicate="explanation_of_word">
+    <plan>
+      <raise type="wh_question" predicate="word_to_explain"/>
+      <if>
+        <has_shared_value predicate="word_to_explain"/>
+        <then>
+          <invoke_service_query type="wh_question" predicate="explanation_of_word"/>
+        </then>
+        <else>
+          <assume_system_belief>
+            <proposition predicate="explanation_of_word" value="explanation_of_word_no_input_feedback"/>
+          </assume_system_belief>
+          <assume_shared>
+            <proposition predicate="word_to_explain" value="no_word"/>
+          </assume_shared>
+        </else>
+      </if>
+    </plan>
+    <postplan>
+      <forget predicate="word_to_explain"/>
+    </postplan>
+  </goal>
+
+  <goal type="perform" action="switch_language">
+    <plan>
+      <findout type="wh_question" predicate="desired_locale"/>
+      <signal_action_completion postconfirm="true"/>
+    </plan>
+  </goal>
+</domain>

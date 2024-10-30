@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+  <action name="EndSession">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <frontend/>
+    </target>
+  </action>
+
+  <query name="explanation_of_word">
+    <parameters>
+      <parameter predicate="word_to_explain" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="https://production-dme-http-services.azurewebsites.net/api/explanation-of-word"/>
+    </target>
+  </query>
+
+</service_interface>

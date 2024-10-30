@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="Chapter1Ontology">
+
+  <sort name="dummy"/>
+  <predicate name="i_dont_know" sort="dummy"/>
+  <individual name="dont_know" sort="dummy"/>
+  <individual name="do_know" sort="dummy"/>
+  <predicate name="is_start_conversation_uttered" sort="boolean"/>
+  <predicate name="is_start_section_uttered" sort="boolean"/>
+  <predicate name="is_end_section_uttered" sort="boolean"/>
+  <predicate name="is_end_conversation_uttered" sort="boolean"/>
+  <sort name="helpful_information"/>
+  <sort name="comment_sort"/>
+  <predicate name="comment" sort="comment_sort"/>
+  <sort name="background_sort"/>
+  <predicate name="current_question" sort="string"/>
+  <predicate name="end_question_1" sort="boolean"/>
+  <predicate name="welcome_to_the_talka_y_fd8f0c91cde1_x" sort="comment_sort"/>
+  <individual name="welcome_to_the_talka_y_fd8f0c91cde1_x_individual" sort="comment_sort"/>
+  <predicate name="is_welcome_to_the_talka_y_fd8f0c91cde1_x_uttered" sort="boolean"/>
+  <predicate name="end_question_2" sort="boolean"/>
+  <action name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_action"/>
+  <predicate name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_question_answered_correctly" sort="boolean"/>
+  <sort name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+
+  <predicate name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_unknown" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_other" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_1" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_1" sort="comment_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_correct_2" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_correct_2" sort="comment_sort"/>
+
+  <predicate name="helpful_information_rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" sort="helpful_information"/>
+  <predicate name="mock_inform_utterance_rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_hint" sort="helpful_information"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_resolving_hint" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_mock" sort="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_sort"/>
+  <individual name="rw_what_is_the_starting_y_37002308_b1ce_4ebe_8c5e_a749af30a843_x_feedback_unknown" sort="comment_sort"/>
+  <predicate name="end_question_3" sort="boolean"/>
+  <action name="rw_what_are_the_redwood_y_548372abdf7c_x_action"/>
+  <predicate name="rw_what_are_the_redwood_y_548372abdf7c_x_question_answered_correctly" sort="boolean"/>
+  <sort name="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+
+  <predicate name="rw_what_are_the_redwood_y_548372abdf7c_x" sort="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_unknown" sort="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_other" sort="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_correct_1" sort="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_feedback_correct_1" sort="comment_sort"/>
+
+  <predicate name="helpful_information_rw_what_are_the_redwood_y_548372abdf7c_x" sort="helpful_information"/>
+  <predicate name="mock_inform_utterance_rw_what_are_the_redwood_y_548372abdf7c_x" sort="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_hint" sort="helpful_information"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_resolving_hint" sort="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_mock" sort="rw_what_are_the_redwood_y_548372abdf7c_x_sort"/>
+  <individual name="rw_what_are_the_redwood_y_548372abdf7c_x_feedback_unknown" sort="comment_sort"/>
+  <action name="rw_how_old_are_some_of__y_d2ed940aa163_x_action"/>
+  <predicate name="rw_how_old_are_some_of__y_d2ed940aa163_x_question_answered_correctly" sort="boolean"/>
+  <sort name="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+
+  <predicate name="rw_how_old_are_some_of__y_d2ed940aa163_x" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_unknown" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_other" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_correct" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct" sort="comment_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_correct_outside_text" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_correct_outside_text" sort="comment_sort"/>
+
+  <predicate name="helpful_information_rw_how_old_are_some_of__y_d2ed940aa163_x" sort="helpful_information"/>
+  <predicate name="mock_inform_utterance_rw_how_old_are_some_of__y_d2ed940aa163_x" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_hint" sort="helpful_information"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_resolving_hint" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_mock" sort="rw_how_old_are_some_of__y_d2ed940aa163_x_sort"/>
+  <individual name="rw_how_old_are_some_of__y_d2ed940aa163_x_feedback_unknown" sort="comment_sort"/>
+  
+  <sort name="qna_question_sort"/>
+  <predicate name="qna_question" sort="qna_question_sort"/>
+  <sort name="qna_answer_sort"/>
+  <predicate name="qna_response" sort="qna_answer_sort"/>
+  <individual name="qna_founders_8726b03b272f_mock_uuid_0_question" sort="qna_question_sort"/>
+  <individual name="qna_founders_8726b03b272f_mock_uuid_0_answer" sort="qna_answer_sort"/>
+  <individual name="qna_verticals_d63726d8add8_mock_uuid_1_question" sort="qna_question_sort"/>
+  <individual name="qna_verticals_d63726d8add8_mock_uuid_1_answer" sort="qna_answer_sort"/>
+  <individual name="qna_who_are_you_a569ca70c961_mock_uuid_2_question" sort="qna_question_sort"/>
+  <individual name="qna_who_are_you_a569ca70c961_mock_uuid_2_answer" sort="qna_answer_sort"/>
+  <individual name="qna_when_founded_17fa961f1ae9_mock_uuid_3_question" sort="qna_question_sort"/>
+  <individual name="qna_when_founded_17fa961f1ae9_mock_uuid_3_answer" sort="qna_answer_sort"/>
+  <individual name="qna_why_invest_e3d850c0408f_mock_uuid_4_question" sort="qna_question_sort"/>
+  <individual name="qna_why_invest_e3d850c0408f_mock_uuid_4_answer" sort="qna_answer_sort"/>
+  <individual name="qna_owners_owns_15c9256a0772_mock_uuid_5_question" sort="qna_question_sort"/>
+  <individual name="qna_owners_owns_15c9256a0772_mock_uuid_5_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_can_i_say_6e0411073ddf_mock_uuid_6_question" sort="qna_question_sort"/>
+  <individual name="qna_what_can_i_say_6e0411073ddf_mock_uuid_6_answer" sort="qna_answer_sort"/>
+  <individual name="qna_unknown_question" sort="qna_question_sort"/>
+  <individual name="qna_unknown_answer" sort="qna_answer_sort"/>
+  <individual name="retrieve_qna_content_from_ndg" sort="qna_question_sort"/>
+  <individual name="qna_content_from_ndg" sort="qna_answer_sort"/>
+  <individual name="start_section_individual" sort="comment_sort"/>
+  <predicate name="start_section" sort="comment_sort"/>
+
+  <predicate name="explanation_of_word" sort="string"/>
+  <predicate name="word_to_explain" sort="string"/>
+  <individual name="explanation_of_word_no_input_feedback" sort="string"/>
+
+  <action name="switch_language"/>
+  <sort name="locale" dynamic="true"/>
+  <predicate name="desired_locale" sort="locale"/>
+</ontology>
