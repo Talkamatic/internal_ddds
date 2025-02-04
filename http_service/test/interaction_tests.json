@@ -209,7 +209,7 @@
             {
                 "speaker": "system",
                 "move_content": [
-                    "icm:sem*neg",
+                    "icm:acc*neg:rejected(set([selected_contact(contact_andy)]), PhoneNumberAvailable)",
                     "icm:reraise",
                     "ask(?X.selected_contact(X))"
                 ]
