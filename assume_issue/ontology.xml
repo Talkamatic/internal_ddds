@@ -4,6 +4,5 @@
   <action name="some_action"/>
   <predicate name="explanation_of_word" sort="string"/>
   <predicate name="word_to_explain" sort="string"/>
-  <predicate name="info" sort="string"/>
 
 </ontology>

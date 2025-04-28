@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain name="OnceDomain" is_super_domain="true">
+
+  <goal type="perform" action="top">
+    <plan>
+      <forget predicate="first_name"/>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="run_once">
+    <plan>
+      <once>
+        <inform generate_end_turn="true">
+          <proposition predicate="first_name" value="kalle"/>
+        </inform>
+      </once>
+      <inform generate_end_turn="true">
+        <proposition predicate="last_name" value="karlsson"/>
+      </inform>
+      <signal_action_completion/>
+    </plan>
+  </goal>
+
+  <goal type="perform" action="forget_about_it">
+    <plan>
+      <forget_all/>
+      <signal_action_completion/>
+    </plan>
+
+  </goal>
+</domain>

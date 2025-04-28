@@ -1,0 +1,219 @@
+[
+    {
+        "name": "condition: test run once",
+        "description": "First time the run_once plan is run, it outputs firstname/lastname",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "once",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(run_once)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(first_name(kalle))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(last_name(karlsson))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test run twice",
+        "description": "When the run_once plan is run a second time, it only outputs lastname, since the output of first name is inside a 'once' element.",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "once",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(run_once)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(first_name(kalle))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(last_name(karlsson))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content":
+                    ["report(action_status(run_once, done))"]
+
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content":
+                ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(run_once)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(last_name(karlsson))"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "condition: test run forget",
+        "description": "When the forget plan is run before run_once plan is run a second time, it will again output the firstname/lastname, since forget plan does forget_all.",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "once",
+        "interaction": [
+             {
+                "speaker": "system",
+                "move_content": [
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(run_once)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(first_name(kalle))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(last_name(karlsson))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content":
+                    ["report(action_status(run_once, done))"]
+
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content":
+                ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(run_once)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(last_name(karlsson))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(forget_about_it)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content":
+                ["icm:acc*pos", "report(action_status(run_once, done))", "report(action_status(top, done))"]
+
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content":
+                ["ask(?X.goal(X))"]
+
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(run_once)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(first_name(kalle))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(last_name(karlsson))"
+                ]
+            }
+
+        ]
+    }
+]

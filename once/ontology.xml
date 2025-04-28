@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="OnceOntology">
+
+  <action name="run_once"/>
+  <action name="forget_about_it"/>
+
+  <sort name="name"/>
+
+  <individual name="kalle" sort="name"/>
+  <individual name="karlsson" sort="name"/>
+
+  <predicate name="first_name" sort="name"/>
+  <predicate name="last_name" sort="name"/>
+
+
+
+</ontology>
