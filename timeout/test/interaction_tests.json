@@ -32,7 +32,7 @@
             },
             {
                 "speaker": "user",
-                "expected_passivity": true
+                "expected_passivity": 3.0
             },
             {
                 "speaker": "system",
@@ -63,7 +63,7 @@
             },
             {
                 "speaker": "user",
-                "expected_passivity": true
+                "expected_passivity": 50.0
             },
             {
                 "speaker": "system",
@@ -94,7 +94,7 @@
             },
             {
                 "speaker": "user",
-                "expected_passivity": true
+                "expected_passivity": 3.0
             },
             {
                 "speaker": "system",
@@ -123,7 +123,7 @@
             },
             {
                 "speaker": "user",
-                "expected_passivity": true
+                "expected_passivity": 3.0
             },
             {
                 "speaker": "system",
@@ -152,7 +152,7 @@
             },
             {
                 "speaker": "user",
-                "expected_passivity": true
+                "expected_passivity": 3.0
             },
             {
                 "speaker": "system",
