@@ -3,7 +3,7 @@
 
   <goal type="perform" action="top">
     <plan>
-      <forget predicate="first_name"/>
+      <forget predicate="last_name"/>
       <findout type="goal"/>
     </plan>
   </goal>
