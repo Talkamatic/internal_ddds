@@ -3,7 +3,6 @@
 
   <goal type="perform" action="top">
     <plan>
-      <forget predicate="last_name"/>
       <findout type="goal"/>
     </plan>
   </goal>
@@ -11,11 +10,11 @@
   <goal type="perform" action="run_once">
     <plan>
       <once>
-        <inform generate_end_turn="true">
+        <inform generate_end_turn="true" insist="true">
           <proposition predicate="first_name" value="kalle"/>
         </inform>
       </once>
-      <inform generate_end_turn="true">
+      <inform generate_end_turn="true" insist="true">
         <proposition predicate="last_name" value="karlsson"/>
       </inform>
       <signal_action_completion/>
