@@ -567,7 +567,7 @@
             {
                 "speaker": "system",
                 "move_content": [
-                    "icm:acc*pos",
+                    "icm:reraise:perform(instruct_sourdough_starter)",
                     "icm:cardinal_sequencing:2",
                     "request(pour_water_into_bowl)"
                 ]
