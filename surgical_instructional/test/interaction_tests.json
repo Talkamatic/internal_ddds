@@ -1,0 +1,223 @@
+[
+    {
+        "name": "top menu & go into first instruction",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grouping_1",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": ["answer(info(intro))"]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(top)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0_individual))",
+                    "answer(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1_individual))",
+                    "ask(?goal(perform(roboticassisted_lobectomy:_right_superior_lobe_mock_uuid_2)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["answer(yes)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(step_1_mock_uuid_3)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "instructional with subplan",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grouping_1",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": ["answer(info(intro))"]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(top)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0_individual))",
+                    "answer(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1_individual))",
+                    "ask(?goal(perform(roboticassisted_lobectomy:_right_superior_lobe_mock_uuid_2)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["answer(yes)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(step_1_mock_uuid_3)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["report(done)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:2",
+                    "request(step_2_mock_uuid_4)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["report(done)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": ["icm:acc*pos", "request(step_3_mock_uuid_5)"]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(how)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(okay_follow_these_s_07259baf-f1f3-4be9-abcc-2aa36bee5f59_mock_uuid_24(okay_follow_these_s_07259baf-f1f3-4be9-abcc-2aa36bee5f59_mock_uuid_24_individual))",
+                    "icm:cardinal_sequencing:1",
+                    "request(step_3_1_mock_uuid_25)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Ask Q&A",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grouping_1",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": ["answer(info(intro))"]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(top)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0_individual))",
+                    "answer(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1_individual))",
+                    "ask(?goal(perform(roboticassisted_lobectomy:_right_superior_lobe_mock_uuid_2)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["answer(yes)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(step_1_mock_uuid_3)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "ask(?X.qna_response(X))",
+                    "answer(qna_question(qna_whats_the_point_of__72751a4e6b2a_mock_uuid_41_question))"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(qna_response(qna_whats_the_point_of__72751a4e6b2a_mock_uuid_41_answer))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(roboticassisted_lobectomy:_right_superior_lobe_mock_uuid_2)",
+                    "request(step_1_mock_uuid_3)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "return to top and complete a step",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "grouping_1",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": ["answer(info(intro))"]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(top)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "answer(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0(hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0_individual))",
+                    "answer(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1(okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1_individual))",
+                    "ask(?goal(perform(roboticassisted_lobectomy:_right_superior_lobe_mock_uuid_2)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["answer(yes)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(step_1_mock_uuid_3)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": [
+                    "request(top)"
+                ]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "ask(?X.goal(X))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["report(done)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:2",
+                    "request(step_2_mock_uuid_4)"
+                ]
+            }
+        ]
+    }
+]

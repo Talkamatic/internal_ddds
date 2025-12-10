@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="Grouping1Ontology">
+
+  <sort name="help_sort"/>
+  <predicate name="help" sort="help_sort"/>
+  <individual name="help_top" sort="help_sort"/>
+  <action name="roboticassisted_lobectomy:_right_superior_lobe_mock_uuid_2"/>
+  <individual name="help_roboticassisted_lobectomy:_right_superior_lobe_mock_uuid_2" sort="help_sort"/>
+  <action name="step_1_mock_uuid_3"/>
+  <individual name="help_step_1_mock_uuid_3" sort="help_sort"/>
+  <action name="step_10_mock_uuid_12"/>
+  <individual name="help_step_10_mock_uuid_12" sort="help_sort"/>
+  <action name="step_11_mock_uuid_13"/>
+  <individual name="help_step_11_mock_uuid_13" sort="help_sort"/>
+  <action name="step_1_1_mock_uuid_31"/>
+  <individual name="help_step_1_1_mock_uuid_31" sort="help_sort"/>
+  <action name="step_1_2_mock_uuid_32"/>
+  <individual name="help_step_1_2_mock_uuid_32" sort="help_sort"/>
+  <action name="step_1_3_mock_uuid_33"/>
+  <individual name="help_step_1_3_mock_uuid_33" sort="help_sort"/>
+  <action name="step_2_mock_uuid_4"/>
+  <individual name="help_step_2_mock_uuid_4" sort="help_sort"/>
+  <action name="step_3_mock_uuid_5"/>
+  <individual name="help_step_3_mock_uuid_5" sort="help_sort"/>
+  <action name="step_3_1_mock_uuid_25"/>
+  <individual name="help_step_3_1_mock_uuid_25" sort="help_sort"/>
+  <action name="step_3_2_mock_uuid_26"/>
+  <individual name="help_step_3_2_mock_uuid_26" sort="help_sort"/>
+  <action name="step_3_3_mock_uuid_27"/>
+  <individual name="help_step_3_3_mock_uuid_27" sort="help_sort"/>
+  <action name="step_3_4_mock_uuid_28"/>
+  <individual name="help_step_3_4_mock_uuid_28" sort="help_sort"/>
+  <action name="step_4_mock_uuid_6"/>
+  <individual name="help_step_4_mock_uuid_6" sort="help_sort"/>
+  <action name="step_4_1_mock_uuid_36"/>
+  <individual name="help_step_4_1_mock_uuid_36" sort="help_sort"/>
+  <action name="step_4_2_mock_uuid_37"/>
+  <individual name="help_step_4_2_mock_uuid_37" sort="help_sort"/>
+  <action name="step_4_3_mock_uuid_38"/>
+  <individual name="help_step_4_3_mock_uuid_38" sort="help_sort"/>
+  <action name="step_4_4_mock_uuid_39"/>
+  <individual name="help_step_4_4_mock_uuid_39" sort="help_sort"/>
+  <action name="step_5_mock_uuid_7"/>
+  <individual name="help_step_5_mock_uuid_7" sort="help_sort"/>
+  <action name="step_5_1_mock_uuid_20"/>
+  <individual name="help_step_5_1_mock_uuid_20" sort="help_sort"/>
+  <action name="step_5_2_mock_uuid_21"/>
+  <individual name="help_step_5_2_mock_uuid_21" sort="help_sort"/>
+  <action name="step_5_3_mock_uuid_22"/>
+  <individual name="help_step_5_3_mock_uuid_22" sort="help_sort"/>
+  <action name="step_6_mock_uuid_8"/>
+  <individual name="help_step_6_mock_uuid_8" sort="help_sort"/>
+  <action name="step_7_mock_uuid_9"/>
+  <individual name="help_step_7_mock_uuid_9" sort="help_sort"/>
+  <action name="step_7_1_mock_uuid_15"/>
+  <individual name="help_step_7_1_mock_uuid_15" sort="help_sort"/>
+  <action name="step_7_2_mock_uuid_16"/>
+  <individual name="help_step_7_2_mock_uuid_16" sort="help_sort"/>
+  <action name="step_7_3_mock_uuid_17"/>
+  <individual name="help_step_7_3_mock_uuid_17" sort="help_sort"/>
+  <action name="step_8_mock_uuid_10"/>
+  <individual name="help_step_8_mock_uuid_10" sort="help_sort"/>
+  <action name="step_9_mock_uuid_11"/>
+  <individual name="help_step_9_mock_uuid_11" sort="help_sort"/>
+
+  <sort name="inform_sort"/>
+  <predicate name="hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0" sort="inform_sort"/>
+  <individual name="hi_im_your_surgica_a13b6194-966e-4f9d-9201-d726d9381812_mock_uuid_0_individual" sort="inform_sort"/>
+  <predicate name="okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1" sort="inform_sort"/>
+  <individual name="okay_surgeon_say_c_07b6833a-3db1-4d13-865a-6c65df289b1e_mock_uuid_1_individual" sort="inform_sort"/>
+  <predicate name="okay_follow_these_s_04193cbf-7849-4ddc-bfdd-9870224ebcb3_mock_uuid_14" sort="inform_sort"/>
+  <individual name="okay_follow_these_s_04193cbf-7849-4ddc-bfdd-9870224ebcb3_mock_uuid_14_individual" sort="inform_sort"/>
+  <predicate name="okay_now_were_done_e267328a-650e-4989-88de-c12c810adc62_mock_uuid_18" sort="inform_sort"/>
+  <individual name="okay_now_were_done_e267328a-650e-4989-88de-c12c810adc62_mock_uuid_18_individual" sort="inform_sort"/>
+  <predicate name="okay_follow_these_s_a7adbfe8-e0d3-47ef-871e-5c39cd70a7dc_mock_uuid_19" sort="inform_sort"/>
+  <individual name="okay_follow_these_s_a7adbfe8-e0d3-47ef-871e-5c39cd70a7dc_mock_uuid_19_individual" sort="inform_sort"/>
+  <predicate name="okay_now_were_done_08824675-a2cc-497d-aa8e-abbf1c26f562_mock_uuid_23" sort="inform_sort"/>
+  <individual name="okay_now_were_done_08824675-a2cc-497d-aa8e-abbf1c26f562_mock_uuid_23_individual" sort="inform_sort"/>
+  <predicate name="okay_follow_these_s_07259baf-f1f3-4be9-abcc-2aa36bee5f59_mock_uuid_24" sort="inform_sort"/>
+  <individual name="okay_follow_these_s_07259baf-f1f3-4be9-abcc-2aa36bee5f59_mock_uuid_24_individual" sort="inform_sort"/>
+  <predicate name="okay_now_were_done_602174ed-f684-40d2-8d32-b66725e31899_mock_uuid_29" sort="inform_sort"/>
+  <individual name="okay_now_were_done_602174ed-f684-40d2-8d32-b66725e31899_mock_uuid_29_individual" sort="inform_sort"/>
+  <predicate name="okay_follow_these_s_d69d3da3-cd6e-410f-8237-5e994a4fca50_mock_uuid_30" sort="inform_sort"/>
+  <individual name="okay_follow_these_s_d69d3da3-cd6e-410f-8237-5e994a4fca50_mock_uuid_30_individual" sort="inform_sort"/>
+  <predicate name="okay_now_were_done_e72acc0c-04b6-4ea6-a932-f99de601b578_mock_uuid_34" sort="inform_sort"/>
+  <individual name="okay_now_were_done_e72acc0c-04b6-4ea6-a932-f99de601b578_mock_uuid_34_individual" sort="inform_sort"/>
+  <predicate name="okay_follow_these_s_6ccd4b9e-0408-4d8c-bce7-0c9c3a07cd53_mock_uuid_35" sort="inform_sort"/>
+  <individual name="okay_follow_these_s_6ccd4b9e-0408-4d8c-bce7-0c9c3a07cd53_mock_uuid_35_individual" sort="inform_sort"/>
+  <predicate name="okay_now_were_done_f54a889b-fb57-4346-808d-bbe138c62798_mock_uuid_40" sort="inform_sort"/>
+  <individual name="okay_now_were_done_f54a889b-fb57-4346-808d-bbe138c62798_mock_uuid_40_individual" sort="inform_sort"/>
+  
+  <sort name="qna_question_sort"/>
+  <predicate name="qna_question" sort="qna_question_sort"/>
+  <sort name="qna_answer_sort"/>
+  <predicate name="qna_response" sort="qna_answer_sort"/>
+  <individual name="qna_whats_the_point_of__72751a4e6b2a_mock_uuid_41_question" sort="qna_question_sort"/>
+  <individual name="qna_whats_the_point_of__72751a4e6b2a_mock_uuid_41_answer" sort="qna_answer_sort"/>
+  <individual name="qna_describe_procedure_f8b13c19bc91_mock_uuid_42_question" sort="qna_question_sort"/>
+  <individual name="qna_describe_procedure_f8b13c19bc91_mock_uuid_42_answer" sort="qna_answer_sort"/>
+  <individual name="qna_describe_exercise_4b5aff4f5d85_mock_uuid_43_question" sort="qna_question_sort"/>
+  <individual name="qna_describe_exercise_4b5aff4f5d85_mock_uuid_43_answer" sort="qna_answer_sort"/>
+  <individual name="qna_are_you_there_57ea81ba-7fcb-4973-a406-9113c399020e_mock_uuid_44_question" sort="qna_question_sort"/>
+  <individual name="qna_are_you_there_57ea81ba-7fcb-4973-a406-9113c399020e_mock_uuid_44_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_robotic_system__290e755e-e714-4a9a-8f62-d0a4368cdc13_mock_uuid_45_question" sort="qna_question_sort"/>
+  <individual name="qna_what_robotic_system__290e755e-e714-4a9a-8f62-d0a4368cdc13_mock_uuid_45_answer" sort="qna_answer_sort"/>
+  <individual name="qna_metrics_ef07fad4-29b2-4885-9ae1-53e0896644c6_mock_uuid_46_question" sort="qna_question_sort"/>
+  <individual name="qna_metrics_ef07fad4-29b2-4885-9ae1-53e0896644c6_mock_uuid_46_answer" sort="qna_answer_sort"/>
+  <individual name="qna_when_was_the_first_l_10591709-a3ba-4248-a3fc-762001ef5063_mock_uuid_47_question" sort="qna_question_sort"/>
+  <individual name="qna_when_was_the_first_l_10591709-a3ba-4248-a3fc-762001ef5063_mock_uuid_47_answer" sort="qna_answer_sort"/>
+  <individual name="qna_who_are_you_d40adb7e-f59d-434e-b75c-059cf401fe96_mock_uuid_48_question" sort="qna_question_sort"/>
+  <individual name="qna_who_are_you_d40adb7e-f59d-434e-b75c-059cf401fe96_mock_uuid_48_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_do_you_avoid_hal_555696a5-f49f-454d-bff0-9327c295b2d9_mock_uuid_49_question" sort="qna_question_sort"/>
+  <individual name="qna_how_do_you_avoid_hal_555696a5-f49f-454d-bff0-9327c295b2d9_mock_uuid_49_answer" sort="qna_answer_sort"/>
+  <individual name="qna_who_built_you_a08e5485-5c27-4d50-9b20-dd9564b8e205_mock_uuid_50_question" sort="qna_question_sort"/>
+  <individual name="qna_who_built_you_a08e5485-5c27-4d50-9b20-dd9564b8e205_mock_uuid_50_answer" sort="qna_answer_sort"/>
+  <individual name="qna_who_is_andrew_hung_39c87a3b-5e21-400e-9885-8d9033fd4ede_mock_uuid_51_question" sort="qna_question_sort"/>
+  <individual name="qna_who_is_andrew_hung_39c87a3b-5e21-400e-9885-8d9033fd4ede_mock_uuid_51_answer" sort="qna_answer_sort"/>
+  <individual name="qna_which_is_the_best_ro_ff20e333-33ae-4c16-8c15-a1f9877ebbe5_mock_uuid_52_question" sort="qna_question_sort"/>
+  <individual name="qna_which_is_the_best_ro_ff20e333-33ae-4c16-8c15-a1f9877ebbe5_mock_uuid_52_answer" sort="qna_answer_sort"/>
+  <individual name="qna_are_there_other_tech_1be5c7d7-492f-4ee5-893d-21bb84360acd_mock_uuid_53_question" sort="qna_question_sort"/>
+  <individual name="qna_are_there_other_tech_1be5c7d7-492f-4ee5-893d-21bb84360acd_mock_uuid_53_answer" sort="qna_answer_sort"/>
+  <individual name="qna_whats_the_color_of__6cc1d6bd-7593-412a-ad70-e969488cad0a_mock_uuid_54_question" sort="qna_question_sort"/>
+  <individual name="qna_whats_the_color_of__6cc1d6bd-7593-412a-ad70-e969488cad0a_mock_uuid_54_answer" sort="qna_answer_sort"/>
+  <individual name="qna_which_robotic_system_81a0af1a-90cf-444d-aed8-4e53a6dc6392_mock_uuid_55_question" sort="qna_question_sort"/>
+  <individual name="qna_which_robotic_system_81a0af1a-90cf-444d-aed8-4e53a6dc6392_mock_uuid_55_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_can_i_identify_t_e9f39044-c5d0-4786-a5ea-d7af4a83bb4e_mock_uuid_56_question" sort="qna_question_sort"/>
+  <individual name="qna_how_can_i_identify_t_e9f39044-c5d0-4786-a5ea-d7af4a83bb4e_mock_uuid_56_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_do_i_know_when_i_5c0c75cd-d3a9-40e2-8fb0-6d82724f24e6_mock_uuid_57_question" sort="qna_question_sort"/>
+  <individual name="qna_how_do_i_know_when_i_5c0c75cd-d3a9-40e2-8fb0-6d82724f24e6_mock_uuid_57_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_can_i_recognize__113e2ed4-ab32-4c2e-b23f-2a04adc461a1_mock_uuid_58_question" sort="qna_question_sort"/>
+  <individual name="qna_how_can_i_recognize__113e2ed4-ab32-4c2e-b23f-2a04adc461a1_mock_uuid_58_answer" sort="qna_answer_sort"/>
+  <individual name="qna_when_was_the_first_r_6700610d-5364-4316-b6ed-265e73f64985_mock_uuid_59_question" sort="qna_question_sort"/>
+  <individual name="qna_when_was_the_first_r_6700610d-5364-4316-b6ed-265e73f64985_mock_uuid_59_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_are_the_clinica_7d278043-4e99-48d3-8431-149f347efbc4_mock_uuid_60_question" sort="qna_question_sort"/>
+  <individual name="qna_what_are_the_clinica_7d278043-4e99-48d3-8431-149f347efbc4_mock_uuid_60_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_do_you_know_abo_3c5de355-a9d7-41ae-bbbc-72dd2fb04999_mock_uuid_61_question" sort="qna_question_sort"/>
+  <individual name="qna_what_do_you_know_abo_3c5de355-a9d7-41ae-bbbc-72dd2fb04999_mock_uuid_61_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_kind_of_sharp_o_186e3a1f-4863-488b-b7bc-0620e82e0d19_mock_uuid_62_question" sort="qna_question_sort"/>
+  <individual name="qna_what_kind_of_sharp_o_186e3a1f-4863-488b-b7bc-0620e82e0d19_mock_uuid_62_answer" sort="qna_answer_sort"/>
+  <individual name="qna_who_is_tokamatic_967d3731-bab4-451c-82d5-37355be8c756_mock_uuid_63_question" sort="qna_question_sort"/>
+  <individual name="qna_who_is_tokamatic_967d3731-bab4-451c-82d5-37355be8c756_mock_uuid_63_answer" sort="qna_answer_sort"/>
+  <individual name="qna_which_direction_on_t_8245d923-e53b-4f9e-b8e8-fb2a3955d96d_mock_uuid_64_question" sort="qna_question_sort"/>
+  <individual name="qna_which_direction_on_t_8245d923-e53b-4f9e-b8e8-fb2a3955d96d_mock_uuid_64_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_is_the_purple_s_b5e4b25c-861b-4d27-b527-25475c6ebd6c_mock_uuid_65_question" sort="qna_question_sort"/>
+  <individual name="qna_what_is_the_purple_s_b5e4b25c-861b-4d27-b527-25475c6ebd6c_mock_uuid_65_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_do_i_fire_the_st_19c418a0-c568-43c9-b3b5-9eafe360a96a_mock_uuid_66_question" sort="qna_question_sort"/>
+  <individual name="qna_how_do_i_fire_the_st_19c418a0-c568-43c9-b3b5-9eafe360a96a_mock_uuid_66_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_color_is_the_ar_2522f1ea-53d3-4c0c-8349-1f336c1253cb_mock_uuid_67_question" sort="qna_question_sort"/>
+  <individual name="qna_what_color_is_the_ar_2522f1ea-53d3-4c0c-8349-1f336c1253cb_mock_uuid_67_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_do_the_veins_lo_fd3ff7b3-0173-40bb-9ab4-e133ae1febd3_mock_uuid_68_question" sort="qna_question_sort"/>
+  <individual name="qna_what_do_the_veins_lo_fd3ff7b3-0173-40bb-9ab4-e133ae1febd3_mock_uuid_68_answer" sort="qna_answer_sort"/>
+  <individual name="qna_which_direction_on_t_5e175f6e-8b86-4ad3-b21a-ae7e1925f389_mock_uuid_69_question" sort="qna_question_sort"/>
+  <individual name="qna_which_direction_on_t_5e175f6e-8b86-4ad3-b21a-ae7e1925f389_mock_uuid_69_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_is_this_demo_ab_9addb420-b019-40f4-86e2-9b7d59b65fa4_mock_uuid_70_question" sort="qna_question_sort"/>
+  <individual name="qna_what_is_this_demo_ab_9addb420-b019-40f4-86e2-9b7d59b65fa4_mock_uuid_70_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_do_i_clutch_c36ac915-3c07-4c2e-9db0-e4148c3e5f76_mock_uuid_71_question" sort="qna_question_sort"/>
+  <individual name="qna_how_do_i_clutch_c36ac915-3c07-4c2e-9db0-e4148c3e5f76_mock_uuid_71_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_do_i_use_the_foo_fb5f9439-f6b9-423b-8dbd-52301cbeb278_mock_uuid_72_question" sort="qna_question_sort"/>
+  <individual name="qna_how_do_i_use_the_foo_fb5f9439-f6b9-423b-8dbd-52301cbeb278_mock_uuid_72_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_do_i_clutch_usin_16d4ced3-bc5f-4891-98a0-db19b65a2701_mock_uuid_73_question" sort="qna_question_sort"/>
+  <individual name="qna_how_do_i_clutch_usin_16d4ced3-bc5f-4891-98a0-db19b65a2701_mock_uuid_73_answer" sort="qna_answer_sort"/>
+  <individual name="qna_how_do_i_swap_arms_2054de32-ceff-43b5-bf04-1e5754897f4d_mock_uuid_74_question" sort="qna_question_sort"/>
+  <individual name="qna_how_do_i_swap_arms_2054de32-ceff-43b5-bf04-1e5754897f4d_mock_uuid_74_answer" sort="qna_answer_sort"/>
+  <individual name="qna_create_window_c3887d4b-4e09-41ee-ad69-a597abb2c4cc_mock_uuid_75_question" sort="qna_question_sort"/>
+  <individual name="qna_create_window_c3887d4b-4e09-41ee-ad69-a597abb2c4cc_mock_uuid_75_answer" sort="qna_answer_sort"/>
+  <individual name="qna_do_you_know_of_any_f_a2967931-8495-4fba-a4ca-aa39941f807d_mock_uuid_76_question" sort="qna_question_sort"/>
+  <individual name="qna_do_you_know_of_any_f_a2967931-8495-4fba-a4ca-aa39941f807d_mock_uuid_76_answer" sort="qna_answer_sort"/>
+  <individual name="qna_what_about_the_finge_bf94e30f-2742-485f-a847-efd07c2db274_mock_uuid_77_question" sort="qna_question_sort"/>
+  <individual name="qna_what_about_the_finge_bf94e30f-2742-485f-a847-efd07c2db274_mock_uuid_77_answer" sort="qna_answer_sort"/>
+  <individual name="qna_which_pedal_controls_80b5f1f8-a77b-4f1e-b96f-28d139e39598_mock_uuid_78_question" sort="qna_question_sort"/>
+  <individual name="qna_which_pedal_controls_80b5f1f8-a77b-4f1e-b96f-28d139e39598_mock_uuid_78_answer" sort="qna_answer_sort"/>
+  <individual name="qna_described_the_system_e4b854ed-81bc-4e61-875b-4925f98a2d45_mock_uuid_79_question" sort="qna_question_sort"/>
+  <individual name="qna_described_the_system_e4b854ed-81bc-4e61-875b-4925f98a2d45_mock_uuid_79_answer" sort="qna_answer_sort"/>
+  <individual name="qna_coach_who_made_you_5f11c759-48ed-4e72-896f-fd504c2b54ef_mock_uuid_80_question" sort="qna_question_sort"/>
+  <individual name="qna_coach_who_made_you_5f11c759-48ed-4e72-896f-fd504c2b54ef_mock_uuid_80_answer" sort="qna_answer_sort"/>
+
+  <individual name="qna_unknown_question" sort="qna_question_sort"/>
+  <individual name="qna_unknown_answer" sort="qna_answer_sort"/>
+
+  <individual name="retrieve_qna_content_from_ndg" sort="qna_question_sort"/>
+  <individual name="qna_content_from_ndg" sort="qna_answer_sort"/>
+
+  <individual name="several_qna_matches" sort="qna_question_sort"/>
+  <individual name="qna_several_answers_matching" sort="qna_answer_sort"/>
+
+  <predicate name="that_is_all_folks" sort="inform_sort"/>
+  <individual name="that_is_all_folks_individual" sort="inform_sort"/>
+
+  <predicate name="explanation_of_word" sort="string"/>
+  <predicate name="word_to_explain" sort="string"/>
+  <individual name="explanation_of_word_no_input_feedback" sort="string"/>
+
+  <action name="switch_language"/>
+  <sort name="locale" dynamic="true"/>
+  <predicate name="desired_locale" sort="locale"/>
+</ontology>

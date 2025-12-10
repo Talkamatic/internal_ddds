@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service_interface>
+
+  <query name="explanation_of_word">
+    <parameters>
+      <parameter predicate="word_to_explain" format="value"/>
+    </parameters>
+    <target>
+      <http endpoint="https://production-dme-http-services.azurewebsites.net/api/explanation-of-word"/>
+    </target>
+  </query>
+
+  <action name="EndSession">
+    <parameters/>
+    <failure_reasons/>
+    <target>
+      <frontend/>
+    </target>
+  </action>
+
+  <query name="critical_values">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/critical_values"/>
+    </target>
+  </query>
+
+  <query name="next_step">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/next_step"/>
+    </target>
+  </query>
+
+  <query name="time_information">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/time_information"/>
+    </target>
+  </query>
+
+  <query name="worst_parameter">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/worst_parameter"/>
+    </target>
+  </query>
+
+  <query name="instrument_in_right_hand">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/instrument_in_right_hand"/>
+    </target>
+  </query>
+  <query name="instrument_in_left_hand">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/instrument_in_left_hand"/>
+    </target>
+  </query>
+  <query name="instrument_in_third_hand">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/instrument_in_third_hand"/>
+    </target>
+  </query>
+
+  <query name="num_correct_vessel_divisions">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/num_correct_vessel_divisions"/>
+    </target>
+  </query>
+
+  <query name="instrument_to_use">
+    <parameters/>
+    <target>
+      <http endpoint="https://surgical-http-service-b0dzf3g6h8aebyac.swedencentral-01.azurewebsites.net/instrument_to_use"/>
+    </target>
+  </query>
+
+</service_interface>

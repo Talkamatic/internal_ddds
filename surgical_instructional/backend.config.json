@@ -1,0 +1,21 @@
+{
+    "active_ddd": "cover",
+    "confidence_prediction_thresholds": {
+        "ACKNOWLEDGE": 0.8,
+        "CHECK": 0.6,
+        "TRUST": 1.0
+    },
+    "confidence_thresholds": {
+        "ACKNOWLEDGE": 0.15,
+        "CHECK": 0.1,
+        "TRUST": 0.3
+    },
+    "ddds": [
+        "cover",
+        "grouping_1"
+    ],
+    "inactive_seconds_allowed": 7200,
+    "repeat_questions": true,
+    "rerank_amount": 0.2,
+    "response_timeout": 2.5
+}

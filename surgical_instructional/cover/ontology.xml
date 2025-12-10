@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ontology name="CoverOntology">
+  <sort name="initial_information"/>
+  <predicate name="info" sort="initial_information"/>
+  <individual name="intro" sort="initial_information"/>
+</ontology>
