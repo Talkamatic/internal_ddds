@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ontology name="InstructionalOntology">
 
+  <action name="run_assistant"/>
   <action name="instruct_sourdough_starter"/>
   <action name="heat_2_dl_water_to_40_degrees"/>
   <action name="pour_water_into_bowl"/>

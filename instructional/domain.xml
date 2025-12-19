@@ -7,6 +7,12 @@
     </plan>
   </goal>
 
+  <goal type="perform" action="run_assistant">
+    <plan>
+      <findout type="goal"/>
+    </plan>
+  </goal>
+
   <goal type="perform" action="instruct_sourdough_starter">
     <plan>
       <get_done action="heat_2_dl_water_to_40_degrees" step="1"/>
@@ -45,7 +51,7 @@
 
   <goal type="perform" action="instruct_sourdough_starter_index_variation_d">
     <plan>
-      <get_done action="heat_2_dl_water_to_40_degrees"  step="1"/>
+      <get_done action="heat_2_dl_water_to_40_degrees" step="1"/>
       <get_done action="pour_water_into_bowl" step="1"/>
       <get_done action="whisk_flour_into_water"/>
       <invoke_service_action name="EndSourdougStarterInstruction" postconfirm="true"/>
