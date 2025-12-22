@@ -661,5 +661,106 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "stop other plan",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": ["ask(?X.goal(X))"]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(instruct_sourdough_starter)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(stop_instruct_sourdough_starter)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(action_status(instruct_sourdough_starter, aborted(user_cancelled)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": ["icm:reraise:perform(top)", "ask(?X.goal(X))"]
+            }
+        ]
+    },
+        {
+        "name": "stop subplan",
+        "url": "http://localhost:9090/interact",
+        "target_ddd": "instructional",
+        "interaction": [
+            {
+                "speaker": "system",
+                "move_content": ["ask(?X.goal(X))"]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(instruct_sourdough_starter)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(heat_2_dl_water_to_40_degrees)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(how)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "icm:cardinal_sequencing:1",
+                    "request(pour_2_dl_water_into_a_kettle)"
+                ]
+            },
+            {
+                "speaker": "user",
+                "move_content": ["request(stop_heat_water)"]
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:acc*pos",
+                    "report(action_status(heat_2_dl_water_to_40_degrees, aborted(user_cancelled)))"
+                ]
+            },
+            {
+                "speaker": "user",
+                "expected_passivity": true
+            },
+            {
+                "speaker": "system",
+                "move_content": [
+                    "icm:reraise:perform(instruct_sourdough_starter)",
+                    "request(heat_2_dl_water_to_40_degrees)"
+
+                ]
+            }
+        ]
     }
+
 ]

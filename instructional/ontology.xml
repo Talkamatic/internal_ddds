@@ -3,6 +3,8 @@
 
   <action name="run_assistant"/>
   <action name="instruct_sourdough_starter"/>
+  <action name="stop_instruct_sourdough_starter"/>
+  <action name="stop_heat_water"/>
   <action name="heat_2_dl_water_to_40_degrees"/>
   <action name="pour_water_into_bowl"/>
   <action name="whisk_flour_into_water"/>

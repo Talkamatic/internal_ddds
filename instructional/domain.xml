@@ -22,6 +22,14 @@
     </plan>
   </goal>
 
+  <goal type="perform" action="stop_instruct_sourdough_starter">
+    <plan>
+      <signal_action_failure action="instruct_sourdough_starter" reason="user_cancelled"/>
+      <signal_action_completion postconfirm="false"/>
+    </plan>
+  </goal>
+
+
   <goal type="perform" action="instruct_sourdough_starter_index_variation_a">
     <plan>
       <get_done action="heat_2_dl_water_to_40_degrees"/>
@@ -65,6 +73,14 @@
       <signal_action_completion/>
     </plan>
   </goal>
+
+  <goal type="perform" action="stop_heat_water">
+    <plan>
+      <signal_action_failure action="heat_2_dl_water_to_40_degrees" reason="user_cancelled"/>
+      <signal_action_completion postconfirm="false"/>
+    </plan>
+  </goal>
+
 
   <goal type="resolve" predicate="quantity_water">
     <plan>
