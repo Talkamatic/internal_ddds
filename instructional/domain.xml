@@ -24,6 +24,7 @@
 
   <goal type="perform" action="stop_instruct_sourdough_starter">
     <plan>
+      <signal_action_failure action="heat_2_dl_water_to_40_degrees" reason="user_cancelled"/>
       <signal_action_failure action="instruct_sourdough_starter" reason="user_cancelled"/>
       <signal_action_completion postconfirm="false"/>
     </plan>
